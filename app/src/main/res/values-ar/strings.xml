@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Sign_in">تسجيل دخول</string>
+    <string name="Sign_Up">تسجيل حساب</string>
+    <string name="Doctor">دكتور</string>
+    <string name="Patient">مريض</string>
+</resources>
