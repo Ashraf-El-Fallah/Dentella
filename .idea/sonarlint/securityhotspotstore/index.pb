@@ -1,11 +1,23 @@
 
 D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
-a
-1app/src/main/java/com/af/dentalla/MainActivity.kt,9\d\9d4316dcf021aee22e025c6a552888c17d815c1d
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-i
-9app/src/main/java/com/af/dentalla/SplashScreenFragment.kt,1\0\1006c7c3413666cdce431ae8c3d9522691a9c6e0
-b
-2app/src/main/java/com/af/dentalla/LoginFragment.kt,6\c\6c1f1f6f16bdf12ed16323d89e462a73d3695c85
+d
+4app/src/main/java/com/af/dentalla/ui/MainActivity.kt,5\9\59291171a95a6817fe9872afdfe35194a4c1f3af
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+v
+Fapp/src/main/java/com/af/dentalla/ui/fragments/SplashScreenFragment.kt,e\a\ea8a6092ed8bbc9765b36268ca0bad22a00a3b82
+o
+?app/src/main/java/com/af/dentalla/ui/fragments/LoginFragment.kt,1\2\12ab674374d34a82213cb857db7a55c6c23c43af
+Å
+Qapp/src/main/java/com/af/dentalla/ui/fragments/doctorauth/LoginAccountFragment.kt,5\e\5ed49839d5292de99576d011c1be08be6d019c14
+Ç
+Rapp/src/main/java/com/af/dentalla/ui/fragments/doctorauth/CreateAccountFragment.kt,c\8\c897133b07195d9e549f199a8e254cb5c0c9847d
+x
+Happ/src/main/java/com/af/dentalla/ui/fragments/ForgetPasswordFragment.kt,5\1\510f4b9b8e99c66e62ccbbab9d941bf10e88e648
+z
+Japp/src/main/java/com/af/dentalla/ui/fragments/ConfirmationCodeFragment.kt,4\c\4cdfe5870cab194154a9cede5c00947a2e853efc
+x
+Happ/src/main/java/com/af/dentalla/ui/fragments/ChangePasswordFragment.kt,7\9\7905ab2b8bc97aa8baf568f4338621602f6e5b49
