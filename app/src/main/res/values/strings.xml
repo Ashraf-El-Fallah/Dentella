@@ -1,10 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Dentella</string>
-    <string name="Sign_in">Sign In</string>
-    <string name="Sign_Up">Sign Up</string>
-    <string name="Doctor">Doctor</string>
-    <string name="Patient">Patient</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="doctor">Doctor</string>
+    <string name="patient">Patient</string>
+    <string name="login_account">Login account</string>
+    <string name="id_number">ID number</string>
+    <string name="password">Password</string>
+    <string name="forget_your_password">Forgot your password?</string>
+    <string name="or">or</string>
+    <string name="signin_with_google">Sign in with Google</string>
+    <string name="don_have_account">Don not have account?</string>
+    <string name="create_account">Create account</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone">Phone</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="enter_email">Enter Your Email Address Below</string>
+    <string name="email">Email</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="Continue">Continue</string>
+    <string name="send_code">send code again</string>
+    <string name="confirmation_code">Confirmation Code</string>
+    <string name="change_password">Change Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="done">Done</string>
 </resources>
