@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Sign_in">تسجيل دخول</string>
-    <string name="Sign_Up">تسجيل حساب</string>
-    <string name="Doctor">دكتور</string>
-    <string name="Patient">مريض</string>
+    <string name="sign_in">تسجيل دخول</string>
+    <string name="sign_up">تسجيل حساب</string>
+    <string name="doctor">دكتور</string>
+    <string name="patient">مريض</string>
+    <string name="login_account">تسجيل حساب</string>
+    <string name="id_number">رقم الهوية</string>
+    <string name="password">رمز الدخول</string>
+    <string name="forget_your_password">نسيت كلمة المرور؟</string>
+    <string name="or">أو</string>
+    <string name="signin_with_google">تسجيل دخول باستخدام جوجل </string>
+    <string name="don_have_account">هل لديك حساب؟</string>
+    <string name="create_account">إنشاء حساب</string>
+    <string name="full_name">الاسم بالكامل</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="already_have_account">هل لديك حساب بالفعل؟</string>
+    <string name="forgot_password">نسيان كلمة المرور</string>
+    <string name="enter_email">أدخل البريد الإلكتروني بالأسفل</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="reset_password">إعادة تعيين كلمة المرور</string>
+    <string name="enter_code">أدخل الكود</string>
+    <string name="Continue">استمرار</string>
+    <string name="send_code">ٌإرسال الرمز مرة أخرى</string>
+    <string name="confirmation_code">تأكيد الكود</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="new_password">كلمة المرور الجديدة</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="done">تم</string>
+
+
 </resources>
