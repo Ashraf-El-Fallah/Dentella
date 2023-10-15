@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <ImageView
         android:id="@+id/logo"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="@id/changePassword"
         app:layout_constraintTop_toBottomOf="@id/changePassword"
         android:src="@drawable/logo"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30sp"/>
 
     <EditText
         android:id="@+id/fullName"
@@ -39,10 +39,11 @@
         android:hint="@string/full_name"
         android:background="@drawable/edittext_border"
         android:padding="10dp"
+        android:inputType="text"
         />
 
     <EditText
-        android:id="@+id/newPassword"
+        android:id="@+id/etEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +51,10 @@
         app:layout_constraintTop_toBottomOf="@id/fullName"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="30dp"
-        android:hint="@string/id_number"
+        android:hint="@string/email"
         android:background="@drawable/edittext_border"
         android:padding="10dp"
+        android:inputType="textEmailAddress"
         />
 
     <EditText
@@ -61,12 +63,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newPassword"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="30dp"
         android:hint="@string/phone"
         android:background="@drawable/edittext_border"
         android:padding="10dp"
+        android:inputType="phone"
         />
 
     <EditText
@@ -81,6 +84,7 @@
         android:hint="@string/password"
         android:background="@drawable/edittext_border"
         android:padding="10dp"
+        android:inputType="textPassword"
         />
 
     <TextView
@@ -103,7 +107,9 @@
         android:text="@string/sign_in"
         android:layout_marginStart="2dp"
         android:textColor="@color/dark_blue"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <Button
         android:id="@+id/signUp"
@@ -131,7 +137,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signUp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInGoogle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -139,10 +145,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/or"
         android:layout_marginHorizontal="60dp"
-        android:backgroundTint="@color/white"
         android:text="@string/signin_with_google"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
         android:textColor="@color/black"
+        android:background="@drawable/google_sign_in_button"
         />
+
 
     <View
         android:id="@+id/line1"

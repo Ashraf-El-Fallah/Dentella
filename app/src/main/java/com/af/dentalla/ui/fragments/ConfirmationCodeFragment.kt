@@ -5,9 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.af.dentalla.R
+import androidx.navigation.findNavController
 import com.af.dentalla.databinding.FragmentConfirmationCodeBinding
-import com.af.dentalla.databinding.FragmentCreateAccountBinding
 
 class ConfirmationCodeFragment : Fragment() {
     private var _binding: FragmentConfirmationCodeBinding?=null
@@ -15,7 +14,7 @@ class ConfirmationCodeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding= FragmentConfirmationCodeBinding.inflate(inflater,container,false)
         return binding.root
@@ -23,8 +22,19 @@ class ConfirmationCodeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setOnClicks()
     }
+
+
+    private fun setOnClicks() {
+        val action =
+            ConfirmationCodeFragmentDirections.actionConfirmationCodeFragmentToChangePasswordFragment()
+        binding.Continue.setOnClickListener {
+            view?.findNavController()
+                ?.navigate(action)
+        }
+    }
+
 
 
 

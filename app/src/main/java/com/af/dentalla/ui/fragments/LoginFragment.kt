@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentLoginBinding
 
 
@@ -18,7 +17,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View {
 
         // Inflate the layout for this fragment
         _binding=FragmentLoginBinding.inflate(inflater,container,false)
@@ -32,10 +31,16 @@ class LoginFragment : Fragment() {
     }
 
     private fun setOnClicks(){
-        val action=LoginFragmentDirections.actionLoginScreenToLoginAccountFragment()
+        val actionToLoginScreen=LoginFragmentDirections.actionLoginScreenToLoginAccountFragment()
         binding.signIn.setOnClickListener {
             view?.findNavController()
-                ?.navigate(action)
+                ?.navigate(actionToLoginScreen)
+        }
+
+        val actionToSignUpScreen=LoginFragmentDirections.actionLoginScreenToCreateAccountFragment()
+        binding.signUp.setOnClickListener {
+            view?.findNavController()
+                ?.navigate(actionToSignUpScreen)
         }
     }
 
