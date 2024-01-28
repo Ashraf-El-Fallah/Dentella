@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.SplashScreenFragment">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
         android:layout_marginTop="150dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/app_name"
         android:textColor="@color/cyan_blue"
         android:textSize="30sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@id/logo"
         app:layout_constraintEnd_toEndOf="@id/logo"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintStart_toStartOf="@id/logo"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <Button
         android:id="@+id/doctor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
-        android:text="@string/doctor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_name"
         android:layout_margin="50dp"
+        android:backgroundTint="@color/blue"
         android:padding="10dp"
+        android:text="@string/doctor"
         android:textSize="17dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_name" />
 
     <Button
         android:id="@+id/patient"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
-        android:text="@string/patient"
-        app:layout_constraintStart_toStartOf="@id/doctor"
-        app:layout_constraintEnd_toEndOf="@id/doctor"
-        app:layout_constraintTop_toBottomOf="@id/doctor"
-        android:padding="10dp"
-        android:textSize="17dp"
         android:layout_marginTop="20dp"
-        />
+        android:backgroundTint="@color/blue"
+        android:padding="10dp"
+        android:text="@string/patient"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@id/doctor"
+        app:layout_constraintStart_toStartOf="@id/doctor"
+        app:layout_constraintTop_toBottomOf="@id/doctor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

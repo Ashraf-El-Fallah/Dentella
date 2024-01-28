@@ -21,3 +21,5 @@ z
 Japp/src/main/java/com/af/dentalla/ui/fragments/ConfirmationCodeFragment.kt,4\c\4cdfe5870cab194154a9cede5c00947a2e853efc
 x
 Happ/src/main/java/com/af/dentalla/ui/fragments/ChangePasswordFragment.kt,7\9\7905ab2b8bc97aa8baf568f4338621602f6e5b49
+d
+4app/src/main/java/com/af/dentalla/ui/HomeFragment.kt,a\e\aeabc2169c28a4dbaebff8987c438a576e918983

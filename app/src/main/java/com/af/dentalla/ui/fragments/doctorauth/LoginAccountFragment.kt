@@ -34,7 +34,7 @@ class LoginAccountFragment : Fragment() {
                 ?.navigate(navigateToCreateAccount)
         }
 
-        val navigateToResetPassword=
+        val navigateToResetPassword =
             LoginAccountFragmentDirections.actionLoginAccountFragmentToForgetPasswordFragment()
         binding.forgetPassword.setOnClickListener {
             view?.findNavController()

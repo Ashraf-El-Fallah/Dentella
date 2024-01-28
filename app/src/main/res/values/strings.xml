@@ -27,4 +27,10 @@
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="done">Done</string>
+    <string name="hello">Hello!</string>
+    <string name="welcome_back">welcome back!</string>
+    <string name="search">Search</string>
+    <string name="choose_proc">choose procedures</string>
+    <string name="see_all">see all</string>
+    <string name="available_doctor">Available doctor</string>
 </resources>

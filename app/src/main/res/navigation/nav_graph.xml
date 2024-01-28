@@ -71,7 +71,7 @@
         android:id="@+id/changePasswordFragment"
         android:name="com.af.dentalla.ui.fragments.ChangePasswordFragment"
         android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password" >
+        tools:layout="@layout/fragment_change_password">
         <action
             android:id="@+id/action_changePasswordFragment_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />

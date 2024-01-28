@@ -51,8 +51,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/num3"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/num1"
