@@ -23,3 +23,11 @@ x
 Happ/src/main/java/com/af/dentalla/ui/fragments/ChangePasswordFragment.kt,7\9\7905ab2b8bc97aa8baf568f4338621602f6e5b49
 d
 4app/src/main/java/com/af/dentalla/ui/HomeFragment.kt,a\e\aeabc2169c28a4dbaebff8987c438a576e918983
+w
+G.idea/sonarlint/issuestore/4/c/4cdfe5870cab194154a9cede5c00947a2e853efc,c\3\c30604f54183e2f0bcc59a5e707f366d958417a6
+w
+G.idea/sonarlint/issuestore/7/9/7905ab2b8bc97aa8baf568f4338621602f6e5b49,f\1\f1e9a768bf091e7fd810b5f1afc6910b5f97e0b7
+w
+G.idea/sonarlint/issuestore/5/1/510f4b9b8e99c66e62ccbbab9d941bf10e88e648,a\6\a686425d8f8f496083db466ebae1996bace52a89
+w
+G.idea/sonarlint/issuestore/c/8/c897133b07195d9e549f199a8e254cb5c0c9847d,8\4\84de23be0bd20b8a79b17500a8751b9469c8e4e2

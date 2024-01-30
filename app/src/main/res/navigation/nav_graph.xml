@@ -39,6 +39,11 @@
         <action
             android:id="@+id/action_loginAccountFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginAccountFragment_to_homeFragment5"
+            app:destination="@id/homeFragment" />
+
+
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -76,4 +81,24 @@
             android:id="@+id/action_changePasswordFragment_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.af.dentalla.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.af.dentalla.ui.fragments.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/aiChatFragment"
+        android:name="com.af.dentalla.ui.Ai.AiChatFragment"
+        android:label="fragment_ai_chat"
+        tools:layout="@layout/fragment_ai_chat" />
+    <fragment
+        android:id="@+id/patientProfileFragment"
+        android:name="com.af.dentalla.ui.PatientProfileFragment"
+        android:label="fragment_patient_profile"
+        tools:layout="@layout/fragment_patient_profile" />
 </navigation>

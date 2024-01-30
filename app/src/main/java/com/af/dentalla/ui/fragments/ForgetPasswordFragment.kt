@@ -33,6 +33,8 @@ class ForgetPasswordFragment : Fragment() {
             view?.findNavController()
                 ?.navigate(action)
         }
+
+
     }
 
 

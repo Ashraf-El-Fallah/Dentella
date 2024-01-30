@@ -33,4 +33,9 @@
     <string name="choose_proc">choose procedures</string>
     <string name="see_all">see all</string>
     <string name="available_doctor">Available doctor</string>
+    <string name="book_now">Book Now</string>
+    <string name="skip">Skip</string>
+    <string name="ai_card1">ChatGPT is an artificial-intelligence chatbot developed by Open AI</string>
+    <string name="example">This is example that what can i do for you.</string>
+    <string name="ask_me">Ask me anything...</string>
 </resources>

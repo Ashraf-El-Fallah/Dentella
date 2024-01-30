@@ -33,6 +33,8 @@
     <string name="choose_proc">اختر التخصص</string>
     <string name="see_all">أعرض الكل</string>
     <string name="available_doctor">الأطباء المتاحين</string>
+    <string name="book_now">احجز الأن</string>
+    <string name="skip">استمرار</string>
 
 
 </resources>
