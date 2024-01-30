@@ -101,4 +101,9 @@
         android:name="com.af.dentalla.ui.PatientProfileFragment"
         android:label="fragment_patient_profile"
         tools:layout="@layout/fragment_patient_profile" />
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="com.af.dentalla.ui.fragments.ArticlesFragment"
+        android:label="fragment_articles"
+        tools:layout="@layout/fragment_articles" />
 </navigation>

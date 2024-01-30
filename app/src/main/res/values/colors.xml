@@ -8,5 +8,9 @@
     <color name="gray">#808080</color>
     <color name="semi_transparent_black">#66000000</color>
     <color name="dark_gray">#660D0D0D</color>
-
+    <color name="light_blue">#86B6C6</color>
+    <color name="semi_dark_gray">#8C0D0D0D</color>
+    <color name="light_red">#DB7D7D</color>
+    <color name="tan">#8F7E6F</color>
+    <color name="shade_of_green">#466E4A</color>
 </resources>

@@ -21,8 +21,6 @@ z
 Japp/src/main/java/com/af/dentalla/ui/fragments/ConfirmationCodeFragment.kt,4\c\4cdfe5870cab194154a9cede5c00947a2e853efc
 x
 Happ/src/main/java/com/af/dentalla/ui/fragments/ChangePasswordFragment.kt,7\9\7905ab2b8bc97aa8baf568f4338621602f6e5b49
-d
-4app/src/main/java/com/af/dentalla/ui/HomeFragment.kt,a\e\aeabc2169c28a4dbaebff8987c438a576e918983
 w
 G.idea/sonarlint/issuestore/4/c/4cdfe5870cab194154a9cede5c00947a2e853efc,c\3\c30604f54183e2f0bcc59a5e707f366d958417a6
 w
@@ -31,3 +29,17 @@ w
 G.idea/sonarlint/issuestore/5/1/510f4b9b8e99c66e62ccbbab9d941bf10e88e648,a\6\a686425d8f8f496083db466ebae1996bace52a89
 w
 G.idea/sonarlint/issuestore/c/8/c897133b07195d9e549f199a8e254cb5c0c9847d,8\4\84de23be0bd20b8a79b17500a8751b9469c8e4e2
+i
+9app/src/main/java/com/af/dentalla/ui/Ai/AiChatFragment.kt,8\9\8941889f0434db7c72ee8de2a921e78f38039ab1
+q
+Aapp/src/main/java/com/af/dentalla/ui/fragments/ArticleFragment.kt,5\e\5e48e16a903107f53045d9d995650f41b29fb180
+n
+>app/src/main/java/com/af/dentalla/ui/fragments/HomeFragment.kt,3\7\37747f590ecd5a85695a7ee839978504cf49f067
+p
+@app/src/main/java/com/af/dentalla/ui/Ai/ThirdSplashAiFragment.kt,3\4\346f822afe13a6ef62b45e62aecc897aff711bce
+q
+Aapp/src/main/java/com/af/dentalla/ui/Ai/SecondSplashAiFragment.kt,0\8\088eba37148be3c3b29221545cbc7d15f7a8ff4d
+p
+@app/src/main/java/com/af/dentalla/ui/Ai/FirstSplashAiFragment.kt,2\5\256a60ce4ad7dc1151511114f74751ad05268374
+n
+>app/src/main/java/com/af/dentalla/ui/PatientProfileFragment.kt,4\3\4310f386d1f4e5abaea83c1feb636519d4f493b3
