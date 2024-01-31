@@ -14,6 +14,7 @@
             android:id="@+id/day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="11"
             android:textColor="@color/black"
             android:textSize="13sp"
@@ -25,8 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="day"
-            android:textSize="10sp"
             android:textColor="@color/black"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@id/day"
             app:layout_constraintStart_toStartOf="@id/day"
             app:layout_constraintTop_toBottomOf="@id/day" />

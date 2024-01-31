@@ -43,3 +43,11 @@ p
 @app/src/main/java/com/af/dentalla/ui/Ai/FirstSplashAiFragment.kt,2\5\256a60ce4ad7dc1151511114f74751ad05268374
 n
 >app/src/main/java/com/af/dentalla/ui/PatientProfileFragment.kt,4\3\4310f386d1f4e5abaea83c1feb636519d4f493b3
+m
+=app/src/main/java/com/af/dentalla/ui/DoctorProfileFragment.kt,2\1\21b58c10ccfb6b80add5cef41c101c277334fd19
+r
+Bapp/src/main/java/com/af/dentalla/ui/fragments/ArticlesFragment.kt,b\8\b82be7e8382e426c75710403a892523ecb26436c
+u
+Eapp/src/main/java/com/af/dentalla/ui/fragments/EditProfileFragment.kt,e\6\e6c3cf1a9c90371218ed7281bd3ab28646188b83
+z
+Japp/src/main/java/com/af/dentalla/ui/fragments/DoctorsProcedureFragment.kt,5\a\5a93cd096c641da1b2ab05da5b49ad075a6234f4

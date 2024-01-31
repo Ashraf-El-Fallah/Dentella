@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cyan_blue">#1b75bc</color>
-    <color name="blue">#3232f9</color>
+    <color name="blue">#0C21C1</color>
     <color name="dark_blue">#0000A7</color>
     <color name="gray">#808080</color>
     <color name="semi_transparent_black">#66000000</color>
@@ -13,4 +13,7 @@
     <color name="light_red">#DB7D7D</color>
     <color name="tan">#8F7E6F</color>
     <color name="shade_of_green">#466E4A</color>
+    <color name="shade_of_blue">#3853EA</color>
+    <color name="deep_blue">#543BD5</color>
+    <color name="shade_of_red">#E04F5F</color>
 </resources>

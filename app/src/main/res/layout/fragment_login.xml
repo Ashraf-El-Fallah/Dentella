@@ -29,13 +29,15 @@
     <!--        app:layout_constraintTop_toBottomOf="@id/logo"-->
     <!--        android:layout_marginTop="10dp"/>-->
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/sign_up_style"
         android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
         android:padding="10dp"
         android:text="@string/sign_in"
         android:textSize="17sp"
@@ -43,14 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_up"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/blue"
+        android:background="@drawable/sign_up_style"
         android:padding="10dp"
         android:text="@string/sign_up"
+        android:textColor="@color/blue"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@id/sign_in"
         app:layout_constraintStart_toStartOf="@id/sign_in"

@@ -7,8 +7,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/comment"
-        android:layout_width="392dp"
+        android:layout_width="match_parent"
         android:layout_height="140dp"
+        android:layout_marginHorizontal="18dp"
         android:background="@drawable/comment_style" />
 
 
