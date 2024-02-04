@@ -18,7 +18,9 @@ import com.af.dentalla.databinding.FragmentLoginAccountBinding
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
+import dagger.hilt.android.AndroidEntryPoint
 
+//@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginAccountBinding
     private val viewModel: LoginViewModel by viewModels()
@@ -66,11 +68,11 @@ class LoginFragment : Fragment() {
                     binding.signIn.isEnabled = true
                     findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
                     requireView().showToastShort("${R.string.welcome} ${loginState.result.userName}")
-                    val editor = sharedPref.edit()
-                    editor.putString(SHARED_PREF_USERNAME_KEY, userName)
-                    editor.putString(SHARED_PREF_USERPASSWORD, password)
-                    editor.putString(SHARED_PREF_USERID_KEY, loginState.result.id)
-                    editor.apply()
+//                    val editor = sharedPref.edit()
+//                    editor.putString(SHARED_PREF_USERNAME_KEY, userName)
+//                    editor.putString(SHARED_PREF_USERPASSWORD, password)
+//                    editor.putString(SHARED_PREF_USERID_KEY, loginState.result.id)
+//                    editor.apply()
                 }
 
                 is NetWorkResponseState.Error -> {

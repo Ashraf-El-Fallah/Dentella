@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.af.dentalla.databinding.FragmentLoginBinding
+import com.af.dentalla.databinding.FragmentSplashBinding
+import com.af.dentalla.databinding.FragmentSplashScreenBinding
 
 
 class SplashFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +22,7 @@ class SplashFragment : Fragment() {
     ): View {
 
         // Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
         return binding.root
     }
 
