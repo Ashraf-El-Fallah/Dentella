@@ -83,7 +83,6 @@
             android:layout_marginTop="6dp"
             android:background="@drawable/rate_button_style"
             android:drawableStart="@drawable/star"
-            android:drawableEnd="323423423"
             android:paddingStart="4dp"
             android:text=" 4.8"
             android:textColor="@color/white"

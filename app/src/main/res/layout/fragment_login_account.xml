@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.doctorauth.LoginAccountFragment">
+    tools:context=".ui.auth.login.LoginFragment">
+
+
+
 
     <TextView
         android:id="@+id/changePassword"
@@ -29,13 +32,13 @@
 
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/et_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/edit_text_auth2_style"
-        android:hint="@string/email"
+        android:hint="@string/user_name"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +55,10 @@
         android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail">
+        app:layout_constraintTop_toBottomOf="@id/et_user_name">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text_auth2_style"
@@ -78,7 +82,6 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in"
-
         android:layout_width="348dp"
         android:layout_height="57dp"
         android:layout_marginHorizontal="30dp"
@@ -86,7 +89,6 @@
         android:background="@drawable/button_auth_style"
         android:backgroundTint="@color/blue"
         android:padding="10dp"
-
         android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textSize="17sp"
@@ -94,30 +96,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
 
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/or"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/or"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:text="@string/or"-->
+    <!--        android:textSize="25sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/sign_in" />-->
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signInGoogle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/google_sign_in_button"
-        android:text="@string/signin_with_google"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/or" />
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+    <!--        android:id="@+id/signInGoogle"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="60dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:background="@drawable/google_sign_in_button"-->
+    <!--        android:text="@string/signin_with_google"-->
+    <!--        android:textAllCaps="false"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/or" />-->
 
 
     <TextView
@@ -129,7 +131,7 @@
         android:text="@string/don_have_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInGoogle" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in" />
 
     <TextView
         android:id="@+id/sign_up"
@@ -144,29 +146,38 @@
         app:layout_constraintStart_toEndOf="@+id/doNotHaveAccount"
         app:layout_constraintTop_toTopOf="@+id/doNotHaveAccount" />
 
-    <View
-        android:id="@+id/line1"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@id/or"
-        app:layout_constraintEnd_toStartOf="@id/or"
-        app:layout_constraintStart_toStartOf="@id/sign_in"
-        app:layout_constraintTop_toTopOf="@id/or" />
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/line2"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@id/or"
-        app:layout_constraintEnd_toEndOf="@id/sign_in"
-        app:layout_constraintStart_toEndOf="@id/or"
-        app:layout_constraintTop_toTopOf="@id/or" />
+    <!--    <View-->
+    <!--        android:id="@+id/line1"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:background="@color/gray"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/or"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/or"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/sign_in"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/or" />-->
+
+    <!--    <View-->
+    <!--        android:id="@+id/line2"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:background="@color/gray"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/or"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/sign_in"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/or"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/or" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

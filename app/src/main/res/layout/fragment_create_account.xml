@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.doctorauth.CreateAccountFragment">
+    tools:context=".ui.auth.signup.CreateAccountFragment">
 
     <TextView
         android:id="@+id/changePassword"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/et_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -67,7 +67,7 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@id/et_user_name" />
 
     <EditText
         android:id="@+id/confirmPassword"
@@ -127,54 +127,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
 
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/or"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp" />
+<!--    <TextView-->
+<!--        android:id="@+id/or"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="@string/or"-->
+<!--        android:textSize="25sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/signUp" />-->
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signInGoogle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/google_sign_in_button"
-        android:text="@string/signin_with_google"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/or" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/signInGoogle"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="60dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@drawable/google_sign_in_button"-->
+<!--        android:text="@string/signin_with_google"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/black"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/or" />-->
 
 
-    <View
-        android:id="@+id/line1"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@id/or"
-        app:layout_constraintEnd_toStartOf="@id/or"
-        app:layout_constraintStart_toStartOf="@id/signUp"
-        app:layout_constraintTop_toTopOf="@id/or" />
+<!--    <View-->
+<!--        android:id="@+id/line1"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@color/gray"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/or"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/or"-->
+<!--        app:layout_constraintStart_toStartOf="@id/signUp"-->
+<!--        app:layout_constraintTop_toTopOf="@id/or" />-->
 
-    <View
-        android:id="@+id/line2"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/gray"
-        app:layout_constraintBottom_toBottomOf="@id/or"
-        app:layout_constraintEnd_toEndOf="@id/signUp"
-        app:layout_constraintStart_toEndOf="@id/or"
-        app:layout_constraintTop_toTopOf="@id/or" />
+<!--    <View-->
+<!--        android:id="@+id/line2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@color/gray"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/or"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/signUp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/or"-->
+<!--        app:layout_constraintTop_toTopOf="@id/or" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

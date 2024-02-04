@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.fragments
+package com.af.dentalla.ui.auth.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,44 +6,42 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.af.dentalla.databinding.FragmentLoginBinding
+import com.af.dentalla.databinding.FragmentCreateAccountBinding
 
 
-class LoginFragment : Fragment() {
+class CreateAccountFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         // Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setOnClicks()
     }
 
-    private fun setOnClicks() {
-        val actionToLoginScreen = LoginFragmentDirections.actionLoginScreenToLoginAccountFragment()
-        binding.signIn.setOnClickListener {
-            view?.findNavController()
-                ?.navigate(actionToLoginScreen)
-        }
 
-        val actionToSignUpScreen =
-            LoginFragmentDirections.actionLoginScreenToCreateAccountFragment()
+    private fun setOnClicks() {
+        val navigateToLogin =
+            CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginAccountFragment()
         binding.signUp.setOnClickListener {
             view?.findNavController()
-                ?.navigate(actionToSignUpScreen)
+                ?.navigate(navigateToLogin)
         }
+
+        binding.signIn.setOnClickListener {
+            view?.findNavController()
+                ?.navigate(navigateToLogin)
+        }
+
+
     }
 
 

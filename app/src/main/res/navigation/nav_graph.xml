@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.af.dentalla.ui.fragments.LoginFragment"
+        android:name="com.af.dentalla.ui.fragments.SplashFragment"
         android:label="fragment_login_screen"
         tools:layout="@layout/fragment_login">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginAccountFragment"
-        android:name="com.af.dentalla.ui.fragments.doctorauth.LoginAccountFragment"
+        android:name="com.af.dentalla.ui.auth.login.LoginFragment"
         android:label="fragment_login_account"
         tools:layout="@layout/fragment_login_account">
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.af.dentalla.ui.fragments.doctorauth.CreateAccountFragment"
+        android:name="com.af.dentalla.ui.auth.signup.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account">
         <action

@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/articlesFragment"
-        android:icon="@drawable/Document"
+        android:icon="@drawable/document"
         android:title="Articles" />
 
     <item

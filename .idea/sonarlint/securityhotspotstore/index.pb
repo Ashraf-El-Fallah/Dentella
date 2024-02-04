@@ -11,10 +11,6 @@ v
 Fapp/src/main/java/com/af/dentalla/ui/fragments/SplashScreenFragment.kt,e\a\ea8a6092ed8bbc9765b36268ca0bad22a00a3b82
 o
 ?app/src/main/java/com/af/dentalla/ui/fragments/LoginFragment.kt,1\2\12ab674374d34a82213cb857db7a55c6c23c43af
-Å
-Qapp/src/main/java/com/af/dentalla/ui/fragments/doctorauth/LoginAccountFragment.kt,5\e\5ed49839d5292de99576d011c1be08be6d019c14
-Ç
-Rapp/src/main/java/com/af/dentalla/ui/fragments/doctorauth/CreateAccountFragment.kt,c\8\c897133b07195d9e549f199a8e254cb5c0c9847d
 x
 Happ/src/main/java/com/af/dentalla/ui/fragments/ForgetPasswordFragment.kt,5\1\510f4b9b8e99c66e62ccbbab9d941bf10e88e648
 z
@@ -51,3 +47,9 @@ u
 Eapp/src/main/java/com/af/dentalla/ui/fragments/EditProfileFragment.kt,e\6\e6c3cf1a9c90371218ed7281bd3ab28646188b83
 z
 Japp/src/main/java/com/af/dentalla/ui/fragments/DoctorsProcedureFragment.kt,5\a\5a93cd096c641da1b2ab05da5b49ad075a6234f4
+r
+Bapp/src/main/java/com/af/dentalla/ui/fragments/BranchesFragment.kt,8\1\81681f60378ca06541574ad2dd4892247b9d6f89
+|
+Lapp/src/main/java/com/af/dentalla/ui/fragments/auth/CreateAccountFragment.kt,9\7\97592a6788c5ae4367c8b962c91defa8776e6c29
+{
+Kapp/src/main/java/com/af/dentalla/ui/fragments/auth/LoginAccountFragment.kt,9\9\99ad717d3d91dc3646378fa740eb4d2bc0b3179f

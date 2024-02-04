@@ -142,7 +142,7 @@
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/Branches"
+                android:src="@drawable/branches"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

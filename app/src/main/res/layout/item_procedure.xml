@@ -17,7 +17,6 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/procedure_image_style"
             android:src="@drawable/dental"
-            aandroid:id="@+id/procedure_image"
             aandroid:layout_constraintEnd_toEndOf="parent"
             aandroid:layout_constraintStart_toStartOf="parent"
             aandroid:layout_constraintTop_toTopOf="parent" />
