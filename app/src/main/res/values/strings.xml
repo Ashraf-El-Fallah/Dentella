@@ -12,7 +12,7 @@
     <string name="signin_with_google">Sign in with Google</string>
     <string name="don_have_account">Don not have account?</string>
     <string name="create_account">Create account</string>
-    <string name="full_name">Full Name</string>
+    <string name="user_name">User Name</string>
     <string name="phone">Phone</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="forgot_password">Forgot Password</string>
@@ -48,7 +48,6 @@
     <string name="month">month</string>
     <string name="confirm">confirm</string>
     <string name="article">Article</string>
-    <string name="user_name">User Name</string>
     <string name="please_add_user_name_or_password">Please add user name or password</string>
     <string name="welcome">Welcome</string>
     <string name="check_username_pass">Please check your username and password!</string>

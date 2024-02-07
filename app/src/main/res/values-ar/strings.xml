@@ -12,7 +12,7 @@
     <string name="signin_with_google">تسجيل دخول باستخدام جوجل </string>
     <string name="don_have_account">هل لديك حساب؟</string>
     <string name="create_account">إنشاء حساب</string>
-    <string name="full_name">الاسم بالكامل</string>
+    <string name="user_name">اسم المستخدم</string>
     <string name="phone">رقم الهاتف</string>
     <string name="already_have_account">هل لديك حساب بالفعل؟</string>
     <string name="forgot_password">نسيان كلمة المرور</string>
@@ -35,7 +35,6 @@
     <string name="available_doctor">الأطباء المتاحين</string>
     <string name="book_now">احجز الأن</string>
     <string name="skip">استمرار</string>
-    <string name="user_name">اسم المستخدم</string>
     <string name="please_add_user_name_or_password">قم بإدخال اسم المستخدم أو كلمة السر</string>
     <string name="welcome">مرحبا</string>
     <string name="check_username_pass">رقم المستخدم أو كلمة السر خطأ</string>

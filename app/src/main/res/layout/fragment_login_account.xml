@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/changePassword"
+        android:id="@+id/text_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_account"
@@ -19,55 +19,63 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/image_view_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="@id/changePassword"
-        app:layout_constraintStart_toStartOf="@id/changePassword"
-        app:layout_constraintTop_toBottomOf="@id/changePassword" />
+        app:layout_constraintEnd_toEndOf="@id/text_view_login"
+        app:layout_constraintStart_toStartOf="@id/text_view_login"
+        app:layout_constraintTop_toBottomOf="@id/text_view_login" />
 
 
-    <EditText
-        android:id="@+id/etUserName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/edit_text_auth2_style"
+        android:layout_marginTop="20dp"
         android:hint="@string/user_name"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintTop_toBottomOf="@id/image_view_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_auth2_style"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmPassword"
+        android:id="@+id/text_input_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
         android:hint="@string/password"
         android:textColorHint="@color/gray"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etUserName">
+        app:layout_constraintTop_toBottomOf="@id/text_input_user_name"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
+            android:id="@+id/edit_text_password_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text_auth2_style"
-            android:inputType="textPassword"
-            android:padding="10dp" />
-
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <TextView
-        android:id="@+id/forgetPassword"
+        android:id="@+id/text_view_forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -75,11 +83,11 @@
         android:focusable="true"
         android:text="@string/forget_your_password"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/confirmPassword"
-        app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
+        app:layout_constraintEnd_toEndOf="@id/text_input_password"
+        app:layout_constraintTop_toBottomOf="@id/text_input_password" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sign_in"
+        android:id="@+id/button_sign_in"
         android:layout_width="348dp"
         android:layout_height="57dp"
         android:layout_marginHorizontal="30dp"
@@ -92,7 +100,7 @@
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
+        app:layout_constraintTop_toBottomOf="@id/text_input_password" />
 
     <!--    <TextView-->
     <!--        android:id="@+id/or"-->
@@ -121,7 +129,7 @@
 
 
     <TextView
-        android:id="@+id/doNotHaveAccount"
+        android:id="@+id/text_view_do_not_have_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -129,10 +137,10 @@
         android:text="@string/don_have_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in" />
+        app:layout_constraintTop_toBottomOf="@id/button_sign_in" />
 
     <TextView
-        android:id="@+id/sign_up"
+        android:id="@+id/text_view_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -140,9 +148,9 @@
         android:focusable="true"
         android:text="@string/sign_up"
         android:textColor="@color/dark_blue"
-        app:layout_constraintBottom_toBottomOf="@+id/doNotHaveAccount"
-        app:layout_constraintStart_toEndOf="@+id/doNotHaveAccount"
-        app:layout_constraintTop_toTopOf="@+id/doNotHaveAccount" />
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_do_not_have_account"
+        app:layout_constraintStart_toEndOf="@+id/text_view_do_not_have_account"
+        app:layout_constraintTop_toTopOf="@+id/text_view_do_not_have_account" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

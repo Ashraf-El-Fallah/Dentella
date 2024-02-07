@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.SplashFragment">
+    tools:context=".ui.SplashFragment">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/image_view_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -17,21 +17,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/app_name"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/app_name"-->
-    <!--        android:textColor="@color/cyan_blue"-->
-    <!--        android:textSize="30sp"-->
-    <!--        android:textStyle="normal"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/logo"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/logo"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/logo"-->
-    <!--        android:layout_marginTop="10dp"/>-->
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/cyan_blue"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/image_view_logo"
+            app:layout_constraintEnd_toEndOf="@id/image_view_logo"
+            app:layout_constraintTop_toBottomOf="@id/image_view_logo"
+            android:layout_marginTop="10dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sign_in"
+        android:id="@+id/button_sign_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
@@ -44,10 +44,10 @@
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintTop_toBottomOf="@id/image_view_logo" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sign_up"
+        android:id="@+id/text_view_sign_up"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -56,9 +56,9 @@
         android:text="@string/sign_up"
         android:textColor="@color/blue"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@id/sign_in"
-        app:layout_constraintStart_toStartOf="@id/sign_in"
-        app:layout_constraintTop_toBottomOf="@id/sign_in" />
+        app:layout_constraintEnd_toEndOf="@id/button_sign_in"
+        app:layout_constraintStart_toStartOf="@id/button_sign_in"
+        app:layout_constraintTop_toBottomOf="@id/button_sign_in" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,3 +15,6 @@ fun View.showToastShort(text: String) =
     Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
 
 fun View.showToastLong(text: String) = Toast.makeText(this.context, text, Toast.LENGTH_LONG).show()
+
+
+
