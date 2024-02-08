@@ -1,4 +1,4 @@
-package com.af.dentalla.utils
+package com.af.dentalla.utilities
 
 import android.view.View
 import android.widget.Toast

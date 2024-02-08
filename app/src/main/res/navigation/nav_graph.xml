@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginScreen">
+    app:startDestination="@id/splashScreen">
 
 
     <fragment
@@ -12,39 +12,29 @@
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen">
         <action
-            android:id="@+id/action_splashScreen_to_patientSignUpFragment"
-            app:destination="@id/patientSignUpFragment" />
-        <action
-            android:id="@+id/action_splashScreen_to_doctorSignUpFragment"
-            app:destination="@id/doctorSignUpFragment" />
+            android:id="@+id/action_splashScreen_to_loginAccountFragment"
+            app:destination="@id/loginAccountFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/loginScreen"
         android:name="com.af.dentalla.ui.SplashFragment"
         android:label="fragment_login_screen"
-        tools:layout="@layout/fragment_splash">
-        <action
-            android:id="@+id/action_loginScreen_to_loginAccountFragment"
-            app:destination="@id/loginAccountFragment" />
-        <action
-            android:id="@+id/action_loginScreen_to_splashScreen"
-            app:destination="@id/splashScreen" />
-    </fragment>
+        tools:layout="@layout/fragment_splash"/>
     <fragment
         android:id="@+id/loginAccountFragment"
         android:name="com.af.dentalla.ui.auth.login.LoginFragment"
         android:label="fragment_login_account"
         tools:layout="@layout/fragment_login_account">
         <action
-            android:id="@+id/action_loginAccountFragment_to_doctorSignUpFragment"
-            app:destination="@id/doctorSignUpFragment" />
-        <action
             android:id="@+id/action_loginAccountFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
         <action
             android:id="@+id/action_loginAccountFragment_to_homeFragment5"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginAccountFragment_to_patientSignUpFragment"
+            app:destination="@id/patientSignUpFragment" />
 
 
     </fragment>
@@ -52,14 +42,7 @@
         android:id="@+id/doctorSignUpFragment"
         android:name="com.af.dentalla.ui.auth.signup.doctor.DoctorSignUpFragment"
         android:label="fragment_create_account"
-        tools:layout="@layout/fragment_doctor_sign_up">
-        <action
-            android:id="@+id/action_doctorSignUpFragment_to_loginAccountFragment"
-            app:destination="@id/loginAccountFragment" />
-        <action
-            android:id="@+id/action_doctorSignUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_doctor_sign_up"/>
     <fragment
         android:id="@+id/forgetPasswordFragment"
         android:name="com.af.dentalla.ui.ForgetPasswordFragment"
@@ -123,5 +106,9 @@
         android:id="@+id/patientSignUpFragment"
         android:name="com.af.dentalla.ui.auth.signup.patient.PatientSignUpFragment"
         android:label="fragment_patient_sign_up"
-        tools:layout="@layout/fragment_patient_sign_up" />
+        tools:layout="@layout/fragment_patient_sign_up" >
+        <action
+            android:id="@+id/action_patientSignUpFragment_to_loginAccountFragment"
+            app:destination="@id/loginAccountFragment" />
+    </fragment>
 </navigation>

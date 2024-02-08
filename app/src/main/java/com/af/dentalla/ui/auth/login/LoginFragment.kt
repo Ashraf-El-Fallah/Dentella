@@ -7,14 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.af.dentalla.R
-import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.requests.LoginUser
 import com.af.dentalla.databinding.FragmentLoginAccountBinding
-import com.af.dentalla.utils.gone
-import com.af.dentalla.utils.showToastShort
-import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

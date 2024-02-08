@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.requests.SignUpDoctor
-import com.af.dentalla.data.requests.SignUpPatient
+import com.af.dentalla.data.remote.requests.SignUpDoctor
+import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.domain.entity.SignUpEntity
 import com.af.dentalla.domain.repository.PatientRepository
 import com.af.dentalla.domain.usecase.patient.signup.SignUpPatientUseCase

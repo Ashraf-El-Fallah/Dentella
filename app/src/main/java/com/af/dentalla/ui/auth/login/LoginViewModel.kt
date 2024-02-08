@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.requests.LoginUser
+import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.domain.entity.LoginEntity
-import com.af.dentalla.domain.usecase.patient.login.LoginPatientUseCase
+import com.af.dentalla.domain.usecase.login.LoginPatientUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

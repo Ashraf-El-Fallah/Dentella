@@ -1,7 +1,6 @@
 package com.af.dentalla.ui.auth.signup.doctor
 
 import android.os.Bundle
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.common.Constants
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.requests.SignUpPatient
 import com.af.dentalla.databinding.FragmentDoctorSignUpBinding
-import com.af.dentalla.utils.gone
-import com.af.dentalla.utils.showToastShort
-import com.af.dentalla.utils.visible
+import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.showToastShort
+import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

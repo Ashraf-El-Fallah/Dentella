@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.requests.SignUpDoctor
+import com.af.dentalla.data.remote.requests.SignUpDoctor
 import com.af.dentalla.domain.entity.SignUpEntity
 import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCase
 import com.af.dentalla.ui.auth.SignUpResult

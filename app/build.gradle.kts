@@ -103,6 +103,10 @@ dependencies {
     //to circle image view
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
+    //data store
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+
+
 }
 kapt {
     correctErrorTypes = true

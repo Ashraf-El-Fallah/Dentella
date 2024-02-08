@@ -4,7 +4,7 @@ import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCase
 import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCaseImpl
 import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCase
 import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCaseImpl
-import com.af.dentalla.domain.usecase.patient.login.LoginPatientUseCase
+import com.af.dentalla.domain.usecase.login.LoginPatientUseCase
 import com.af.dentalla.domain.usecase.patient.login.LoginPatientUseCaseImpl
 import com.af.dentalla.domain.usecase.patient.signup.SignUpPatientUseCase
 import com.af.dentalla.domain.usecase.patient.signup.SignUpPatientUseCaseImpl

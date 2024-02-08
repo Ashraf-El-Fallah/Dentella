@@ -1,6 +1,6 @@
 package com.af.dentalla.di.network
 
-import com.af.dentalla.data.api.ApiService
+import com.af.dentalla.data.remote.api.ApiService
 import com.getkeepsafe.relinker.BuildConfig
 import com.google.gson.Gson
 import dagger.Module
@@ -41,6 +41,18 @@ object NetworkModule {
             .addInterceptor(httpLoggingInterceptor)
             .retryOnConnectionFailure(true)
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGson(): Gson {
+        return Gson()
     }
 
     @Provides

@@ -1,18 +1,17 @@
 package com.af.dentalla.data.repository
 
+import com.af.dentalla.data.DataClassParser
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.dto.LoginResponse
-import com.af.dentalla.data.dto.SignUpResponse
+import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.remote.api.ApiService
+import com.af.dentalla.data.remote.dto.SignUpResponse
 import com.af.dentalla.data.mapper.BaseMapper
-import com.af.dentalla.data.mapper.LoginEntityMapper
-import com.af.dentalla.data.requests.LoginUser
-import com.af.dentalla.data.requests.SignUpPatient
-import com.af.dentalla.data.source.remote.RemoteDataSource
+import com.af.dentalla.data.remote.dto.LoginErrorResponse
+import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.di.coroutine.IoDispatcher
-import com.af.dentalla.domain.entity.LoginEntity
 import com.af.dentalla.domain.entity.SignUpEntity
 import com.af.dentalla.domain.repository.PatientRepository
-import com.af.dentalla.utils.mapResponse
+import com.af.dentalla.utilities.mapResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -21,17 +20,49 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PatientRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource,
-    private val loginEntityMapper: BaseMapper<LoginResponse, LoginEntity>,
+    private val service: ApiService,
     private val signUpEntityMapper: BaseMapper<SignUpResponse, SignUpEntity>,
-    @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val dataStorePreferencesService: DataStorePreferencesService,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val dataClassParser: DataClassParser
 ) : PatientRepository {
-    override fun loginPatient(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> =
-        remoteDataSource.loginPatient(loginUser).map {
-            it.mapResponse {
-                loginEntityMapper.map(this)
+    override suspend fun loginPatient(userName: String, password: String): Boolean {
+        try {
+//            val token = dataStorePreferencesService.getToken()
+            val body = mapOf<String, Any>(
+                "userName" to userName,
+                "passWord" to password,
+//                "token" to token
+            ).toMap()
+
+            val validateLoginResponse = service.loginUser(body)
+            if (validateLoginResponse.isSuccessful) {
+                validateLoginResponse.body()?.apply {
+                    saveToken(token, tokenExpiration)
+                    return true
+                }
+            } else {
+                val errorResponse = dataClassParser.parseFromJson(
+                    //still i don't know json
+                    validateLoginResponse.errorBody()?.toString(), LoginErrorResponse::class.java
+                )
+                throw Throwable(errorResponse.error)
             }
-        }.flowOn(ioDispatcher)
+        } catch (e: Exception) {
+            throw Throwable(e)
+        }
+        return false
+    }
+
+    private suspend fun saveToken(token: String?, expireDate: String) {
+        dataStorePreferencesService.saveTokenAndExpireDate(token, expireDate)
+    }
+
+//        remoteDataSource.loginPatient(loginUser).map {
+//            it.mapResponse {
+//                loginEntityMapper.map(this)
+//            }
+//        }.flowOn(ioDispatcher)
 
     override fun signUpPatient(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> =
         remoteDataSource.signUpPatient(signUpPatient).map {
