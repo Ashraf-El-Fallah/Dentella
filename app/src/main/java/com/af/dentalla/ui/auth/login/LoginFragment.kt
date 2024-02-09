@@ -7,31 +7,86 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentLoginAccountBinding
+import com.af.dentalla.utilities.AccountManager
+import com.af.dentalla.utilities.collectLast
+import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginAccountBinding
     private val viewModel: LoginViewModel by viewModels()
-    private lateinit var sharedPref: SharedPreferences
+    val accountType: AccountManager.AccountType? = AccountManager.accountType
+
+//    override fun onStart() {
+//        super.onStart()
+//
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginAccountBinding.inflate(inflater, container, false)
+        if (accountType == AccountManager.AccountType.PATIENT) {
+            binding.editTextUserName.gone()
+        }
+//        handleChanges()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpLoginButton()
+
+        collectLast(viewModel.loginEvent) {
+            it.getContentIfNotHandled()?.let { onEvent(it) }
+        }
+
+        setUpClickListeners()
     }
 
-    private fun setUpLoginButton() {
-//        binding.signIn.setOnClickListener { loginLogic() }
+
+    private fun setUpClickListeners() {
+        binding.buttonSignIn.setOnClickListener {
+            viewModel.onClickLogin()
+        }
+        binding.textViewSignUp.setOnClickListener {
+            viewModel.onClickSignUp()
+        }
     }
+
+    private fun onEvent(event: LoginUIEvent) {
+        when (event) {
+            is LoginUIEvent.LoginEvent -> {
+                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+            }
+
+            is LoginUIEvent.SignUpEvent -> {
+                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToPatientSignUpFragment())
+            }
+        }
+    }
+
+//    private fun handleChanges() {
+//        binding.editTextUserName.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun afterTextChanged(p0: Editable?) {
+//                viewModel.onUserInputChanged(p0.toString())
+//            }
+//        })
+//
+//    }
+
 
 //    private fun loginLogic() {
 //        val userName = binding.etUserName.text.toString()

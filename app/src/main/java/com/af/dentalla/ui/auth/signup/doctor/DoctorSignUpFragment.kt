@@ -56,7 +56,7 @@ class DoctorSignUpFragment : Fragment() {
                 is NetWorkResponseState.Success -> {
                     binding.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-                    findNavController().navigate(DoctorSignUpFragmentDirections.actionDoctorSignUpFragmentToHomeFragment())
+//                    findNavController().navigate(DoctorSignUpFragmentDirections.actionDoctorSignUpFragmentToHomeFragment())
                 }
 
                 is NetWorkResponseState.Error -> {

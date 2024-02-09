@@ -11,6 +11,7 @@ import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.di.coroutine.IoDispatcher
 import com.af.dentalla.domain.entity.SignUpEntity
 import com.af.dentalla.domain.repository.PatientRepository
+import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.mapResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +36,9 @@ class PatientRepositoryImpl @Inject constructor(
 //                "token" to token
             ).toMap()
 
-            val validateLoginResponse = service.loginUser(body)
+            val accountType = AccountManager.accountType
+
+            val validateLoginResponse = service.loginUser(accountType.toString().lowercase(), body)
             if (validateLoginResponse.isSuccessful) {
                 validateLoginResponse.body()?.apply {
                     saveToken(token, tokenExpiration)
@@ -54,21 +57,26 @@ class PatientRepositoryImpl @Inject constructor(
         return false
     }
 
+    override fun signUpPatient(signUpPatient: SignUpPatient): Boolean {
+        TODO("Not yet implemented")
+    }
+
     private suspend fun saveToken(token: String?, expireDate: String) {
         dataStorePreferencesService.saveTokenAndExpireDate(token, expireDate)
     }
+
+
+//    override fun signUpPatient(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> =
+//        remoteDataSource.signUpPatient(signUpPatient).map {
+//            it.mapResponse {
+//                signUpEntityMapper.map(this)
+//            }
+//        }.flowOn(ioDispatcher)
+
+}
 
 //        remoteDataSource.loginPatient(loginUser).map {
 //            it.mapResponse {
 //                loginEntityMapper.map(this)
 //            }
 //        }.flowOn(ioDispatcher)
-
-    override fun signUpPatient(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> =
-        remoteDataSource.signUpPatient(signUpPatient).map {
-            it.mapResponse {
-                signUpEntityMapper.map(this)
-            }
-        }.flowOn(ioDispatcher)
-
-}

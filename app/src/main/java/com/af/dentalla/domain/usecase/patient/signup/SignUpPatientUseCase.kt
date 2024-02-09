@@ -3,8 +3,15 @@ package com.af.dentalla.domain.usecase.patient.signup
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.domain.entity.SignUpEntity
+import com.af.dentalla.domain.repository.PatientRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-interface SignUpPatientUseCase {
-    suspend operator fun invoke(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>>
+class SignUpPatientUseCase @Inject constructor(
+    private val repository: PatientRepository
+) {
+//    override suspend fun invoke(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> {
+//        return repository.signUpPatient(signUpPatient)
+//    }
+
 }

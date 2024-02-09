@@ -20,22 +20,30 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class DoctorRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource,
-    private val loginEntityMapper: BaseMapper<LoginResponse, LoginEntity>,
-    private val signUpEntityMapper: BaseMapper<SignUpResponse, SignUpEntity>,
-    @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
-) : DoctorRepository {
-    override fun loginDoctor(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> =
-        remoteDataSource.loginDoctor(loginUser).map {
-            it.mapResponse {
-                loginEntityMapper.map(this)
-            }
-        }.flowOn(ioDispatcher)
+//    private val remoteDataSource: RemoteDataSource,
+//    private val loginEntityMapper: BaseMapper<LoginResponse, LoginEntity>,
+//    private val signUpEntityMapper: BaseMapper<SignUpResponse, SignUpEntity>,
+//    @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) : DoctorRepository
+{
+    //    override fun loginDoctor(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> =
+//        remoteDataSource.loginDoctor(loginUser).map {
+//            it.mapResponse {
+//                loginEntityMapper.map(this)
+//            }
+//        }.flowOn(ioDispatcher)
+//
+//    override fun signUpDoctor(signUpDoctor: SignUpDoctor): Flow<NetWorkResponseState<SignUpEntity>> =
+//        remoteDataSource.signUpDoctor(signUpDoctor).map {
+//            it.mapResponse {
+//                signUpEntityMapper.map(this)
+//            }
+//        }.flowOn(ioDispatcher)
+    override fun loginDoctor(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> {
+        TODO("Not yet implemented")
+    }
 
-    override fun signUpDoctor(signUpDoctor: SignUpDoctor): Flow<NetWorkResponseState<SignUpEntity>> =
-        remoteDataSource.signUpDoctor(signUpDoctor).map {
-            it.mapResponse {
-                signUpEntityMapper.map(this)
-            }
-        }.flowOn(ioDispatcher)
+    override fun signUpDoctor(signUpDoctor: SignUpDoctor): Flow<NetWorkResponseState<SignUpEntity>> {
+        TODO("Not yet implemented")
+    }
 }

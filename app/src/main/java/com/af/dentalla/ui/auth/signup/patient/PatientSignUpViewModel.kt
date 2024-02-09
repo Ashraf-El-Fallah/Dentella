@@ -22,25 +22,25 @@ class PatientSignUpViewModel @Inject constructor(
     private val _signUpState = MutableLiveData<NetWorkResponseState<SignUpEntity>>()
     val signUpPatientState: LiveData<NetWorkResponseState<SignUpEntity>> get() = _signUpState
 
-    fun signUp(signUpPatient: SignUpPatient) {
-        viewModelScope.launch(Dispatchers.IO) {
-            signUpUseCase(signUpPatient).collect {
-                when (it) {
-                    is NetWorkResponseState.Error -> _signUpState.postValue(
-                        NetWorkResponseState.Error(it.exception)
-                    )
-
-                    is NetWorkResponseState.Loading -> _signUpState.postValue(
-                        NetWorkResponseState.Loading
-                    )
-
-                    is NetWorkResponseState.Success -> _signUpState.postValue(
-                        NetWorkResponseState.Success(it.result)
-                    )
-                }
-            }
-
-        }
-    }
+//    fun signUp(signUpPatient: SignUpPatient) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            signUpUseCase(signUpPatient).collect {
+//                when (it) {
+//                    is NetWorkResponseState.Error -> _signUpState.postValue(
+//                        NetWorkResponseState.Error(it.exception)
+//                    )
+//
+//                    is NetWorkResponseState.Loading -> _signUpState.postValue(
+//                        NetWorkResponseState.Loading
+//                    )
+//
+//                    is NetWorkResponseState.Success -> _signUpState.postValue(
+//                        NetWorkResponseState.Success(it.result)
+//                    )
+//                }
+//            }
+//
+//        }
+//    }
 
 }

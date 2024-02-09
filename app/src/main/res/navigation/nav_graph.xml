@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.af.dentalla.ui.SplashScreenFragment"
+        android:name="com.af.dentalla.ui.splash.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen">
         <action

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashScreenFragment">
+    tools:context=".ui.splash.SplashScreenFragment">
 
     <ImageView
         android:id="@+id/image_view_logo"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/image_view_logo" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/doctor"
+        android:id="@+id/button_doctor"
         android:layout_width="348dp"
         android:layout_height="57dp"
         android:layout_margin="50dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/app_name" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/patient"
+        android:id="@+id/button_patient"
         android:layout_width="348dp"
         android:layout_height="57dp"
         android:layout_marginTop="20dp"
@@ -55,8 +55,8 @@
         android:text="@string/patient"
         android:textColor="@color/white"
         android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@id/doctor"
-        app:layout_constraintStart_toStartOf="@id/doctor"
-        app:layout_constraintTop_toBottomOf="@id/doctor" />
+        app:layout_constraintEnd_toEndOf="@id/button_doctor"
+        app:layout_constraintStart_toStartOf="@id/button_doctor"
+        app:layout_constraintTop_toBottomOf="@id/button_doctor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
