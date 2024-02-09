@@ -5,7 +5,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
-class AuthInterceptor @Inject constructor(private val dataStorePreferencesService: DataStorePreferencesService) :
+class AuthInterceptor @Inject constructor(dataStorePreferencesService: DataStorePreferencesService) :
     Interceptor {
 
     private val token = dataStorePreferencesService.getToken()

@@ -11,5 +11,5 @@ import kotlinx.coroutines.flow.Flow
 interface PatientRepository {
     suspend fun loginPatient(userName: String, password: String): Boolean
 
-    fun signUpPatient(signUpPatient: SignUpPatient): Boolean
+    suspend fun signUpPatient(userName: String, email: String, phone: String, password: String): Boolean
 }

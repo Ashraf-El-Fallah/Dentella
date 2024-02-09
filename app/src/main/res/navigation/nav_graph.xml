@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_splash"/>
     <fragment
         android:id="@+id/loginAccountFragment"
-        android:name="com.af.dentalla.ui.auth.login.LoginFragment"
+        android:name="com.af.dentalla.ui.auth.login.patient.LoginPatientFragment"
         android:label="fragment_login_account"
         tools:layout="@layout/fragment_login_account">
         <action

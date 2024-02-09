@@ -1,6 +1,5 @@
-package com.af.dentalla.ui.auth.login
+package com.af.dentalla.ui.auth.login.patient
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,17 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentLoginAccountBinding
+import com.af.dentalla.ui.auth.login.LoginUIEvent
 import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.collectLast
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginPatientFragment : Fragment() {
     private lateinit var binding: FragmentLoginAccountBinding
-    private val viewModel: LoginViewModel by viewModels()
-    val accountType: AccountManager.AccountType? = AccountManager.accountType
+    private val viewModel: LoginPatientViewModel by viewModels()
+    private val accountType = AccountManager.accountType
 
 //    override fun onStart() {
 //        super.onStart()
@@ -31,10 +29,9 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginAccountBinding.inflate(inflater, container, false)
-        if (accountType == AccountManager.AccountType.PATIENT) {
-            binding.editTextUserName.gone()
-        }
-//        handleChanges()
+//        if (accountType == AccountManager.AccountType.PATIENT) {
+//            binding.editTextUserName.gone()
+//        }
         return binding.root
     }
 
@@ -44,7 +41,6 @@ class LoginFragment : Fragment() {
         collectLast(viewModel.loginEvent) {
             it.getContentIfNotHandled()?.let { onEvent(it) }
         }
-
         setUpClickListeners()
     }
 

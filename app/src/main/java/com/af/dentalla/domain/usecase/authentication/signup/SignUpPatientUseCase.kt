@@ -1,4 +1,4 @@
-package com.af.dentalla.domain.usecase.patient.signup
+package com.af.dentalla.domain.usecase.authentication.signup
 
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.SignUpPatient
@@ -10,8 +10,10 @@ import javax.inject.Inject
 class SignUpPatientUseCase @Inject constructor(
     private val repository: PatientRepository
 ) {
-//    override suspend fun invoke(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> {
-//        return repository.signUpPatient(signUpPatient)
-//    }
-
+    suspend operator fun invoke(
+        userName: String,
+        email: String,
+        phone: String,
+        password: String
+    ) = repository.signUpPatient(userName, email, phone, password)
 }

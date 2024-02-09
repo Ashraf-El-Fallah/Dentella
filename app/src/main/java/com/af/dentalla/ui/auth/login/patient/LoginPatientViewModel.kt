@@ -1,12 +1,14 @@
-package com.af.dentalla.ui.auth.login
+package com.af.dentalla.ui.auth.login.patient
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.af.dentalla.domain.usecase.login.LoginPatientUseCase
-import com.af.dentalla.domain.usecase.login.ValidateFieldUseCase
-import com.af.dentalla.domain.usecase.login.ValidateLoginFieldUseCase
-import com.af.dentalla.domain.usecase.login.ValidatePasswordFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.login.LoginPatientUseCase
+import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.login.ValidatePasswordFieldUseCase
 import com.af.dentalla.ui.Event
+import com.af.dentalla.ui.auth.login.LoginUIEvent
+import com.af.dentalla.ui.auth.login.LoginUiState
 import com.af.dentalla.utilities.AccountManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,13 +18,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class LoginPatientViewModel @Inject constructor(
     private val loginPatientUseCase: LoginPatientUseCase,
-    private val validateLoginFieldUseCase: ValidateLoginFieldUseCase,
+    private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
     private val validateFieldUseCase: ValidateFieldUseCase
 ) : ViewModel() {
-    val accountType: AccountManager.AccountType? = AccountManager.accountType
+    private val accountType = AccountManager.accountType
 
     private val _loginUIState = MutableStateFlow(LoginUiState())
     val loginUiState = _loginUIState.asStateFlow()
@@ -39,7 +41,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun onUserInputChanged(userName: CharSequence) {
-        val userNameFieldState = validateLoginFieldUseCase(userName.toString())
+        val userNameFieldState = validateUserNameFieldUseCase(userName.toString())
         _loginUIState.update {
             it.copy(
                 userName = userName.toString(),
@@ -53,7 +55,8 @@ class LoginViewModel @Inject constructor(
     }
 
     fun onPasswordInputChanged(password: CharSequence) {
-        val passwordFieldState = validatePasswordFieldUseCase(password.toString())
+        val passwordFieldState =
+            validatePasswordFieldUseCase(password.toString())
         _loginUIState.update {
             it.copy(
                 password = password.toString(),

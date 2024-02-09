@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DoctorSignUpViewModel @Inject constructor(
-    private val signUpUseCase: SignUpDoctorUseCase,
+    private val signUpUseCase: SignUpDoctorUseCase
 ) : ViewModel(){
     private val _signUpState = MutableLiveData<NetWorkResponseState<SignUpEntity>>()
     val signUpDoctorState: LiveData<NetWorkResponseState<SignUpEntity>> get() = _signUpState
@@ -73,13 +73,10 @@ class DoctorSignUpViewModel @Inject constructor(
 
     private fun isPasswordValid(password: String) = password.length > 8
 
-    private fun isPhoneValid(phone: String) = phone.length == 11
+
 
     private fun arePasswordsTheSame(password: String, confirmationPassword: String) =
         password == confirmationPassword
-
-    private fun isEmailValid(email: String) =
-        email.isNotEmpty() && email.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
     private fun isIdValid(id: String) =
         id.isNotEmpty() && id.length > 5

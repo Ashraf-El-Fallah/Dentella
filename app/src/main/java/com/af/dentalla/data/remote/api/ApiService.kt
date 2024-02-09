@@ -19,7 +19,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("/api/Account/{user_type}/register")
     suspend fun signUpUser(
-        //@Path("user_type") user: String,
+        @Path("user_type") user: String,
         @FieldMap body: Map<String, Any>
     ): Response<SignUpResponse>
 

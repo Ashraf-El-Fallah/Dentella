@@ -56,7 +56,6 @@ class DoctorSignUpFragment : Fragment() {
                 is NetWorkResponseState.Success -> {
                     binding.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-//                    findNavController().navigate(DoctorSignUpFragmentDirections.actionDoctorSignUpFragmentToHomeFragment())
                 }
 
                 is NetWorkResponseState.Error -> {
@@ -69,52 +68,7 @@ class DoctorSignUpFragment : Fragment() {
     }
 
 
-//    private fun setOnClicks() {
-//        val navigateToLogin =
-//            CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginAccountFragment()
-//        binding.signUp.setOnClickListener {
-//            view?.findNavController()
-//                ?.navigate(navigateToLogin)
-//        }
-//
-//        binding.signIn.setOnClickListener {
-//            view?.findNavController()
-//                ?.navigate(navigateToLogin)
-//        }
-//
-//
-//    }
 
 
-    //    private fun setUpSignUpButton() {
-//        binding.signUp.setOnClickListener { signUpLogic() }
-//    }
-//
-//    private fun signUpLogic() {
-////        val fullName = binding.fullName.text.toString()
-//        val email = binding.etEmail.text.toString()
-//        val phone = binding.phone.text.toString()
-//        val password = binding.confirmPassword.text.toString()
-//
-//        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-//            requireView().showToastShort("Please Enter valid email")
-//            return
-//        }
-////        if (fullName.isEmpty()) {
-////            requireView().showToastShort("Please Enter your name")
-////            return
-////        }
-//        if (phone.isEmpty()) {
-//            requireView().showToastShort("Please Enter your phone number")
-//            return
-//        }
-//        if (password.isEmpty() || password.length < 8) {
-//            requireView().showToastShort("Please Enter valid password")
-//            return
-//        }
-//
-//        val signUpPatient = SignUpPatient(email, phone, password)
-//        viewModel.signUp(signUpPatient)
-//
 
 }

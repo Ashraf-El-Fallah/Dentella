@@ -38,10 +38,10 @@ class SplashScreenFragment : Fragment() {
             findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenToLoginAccountFragment())
         }
         binding.buttonPatient.setOnClickListener {
-            AccountManager.accountType=AccountManager.AccountType.PATIENT
+            AccountManager.accountType = AccountManager.AccountType.PATIENT
             findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenToLoginAccountFragment())
-
         }
+
     }
 
 }
