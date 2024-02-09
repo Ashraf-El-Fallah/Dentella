@@ -35,9 +35,7 @@ class PatientSignUpViewModel @Inject constructor(
         confirmPassword: String,
     ): Boolean {
         val signUpState = signUpUseCase(username, email, phone, password)
-        viewModelScope.launch {
-            isSignUpValidate(username, email, phone, password, confirmPassword)
-        }
+        isSignUpValidate(username, email, phone, password, confirmPassword)
         return signUpState
     }
 
@@ -55,67 +53,78 @@ class PatientSignUpViewModel @Inject constructor(
     }
 
     private fun isUsernameValid(userName: String) {
-        val fieldState = validateUserNameFieldUseCase(userName)
-        val newState = when (val currentState =
-            _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
-            is NetWorkResponseState.Loading -> currentState
-            is NetWorkResponseState.Success -> {
-                val currentSignUpState = currentState.result
-                val updatedSignUpState = currentSignUpState.copy(userNameState = fieldState)
-                NetWorkResponseState.Success(updatedSignUpState)
-            }
+        viewModelScope.launch {
+            val fieldState = validateUserNameFieldUseCase(userName)
+            val newState = when (val currentState =
+                _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
+                is NetWorkResponseState.Loading -> currentState
+                is NetWorkResponseState.Success -> {
+                    val currentSignUpState = currentState.result
+                    val updatedSignUpState = currentSignUpState.copy(userNameState = fieldState)
+                    NetWorkResponseState.Success(updatedSignUpState)
+                }
 
-            is NetWorkResponseState.Error -> currentState
+                is NetWorkResponseState.Error -> currentState
+            }
+            _signUpState.value = newState
         }
-        _signUpState.value = newState
     }
 
     private fun isEmailValid(email: String) {
-        val fieldState = validateEmailFieldUseCase(email)
-        val newState = when (val currentState =
-            _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
-            is NetWorkResponseState.Loading -> currentState
-            is NetWorkResponseState.Success -> {
-                val currentSignUpState = currentState.result
-                val updatedSignUpState = currentSignUpState.copy(emailState = fieldState)
-                NetWorkResponseState.Success(updatedSignUpState)
-            }
+        viewModelScope.launch {
 
-            is NetWorkResponseState.Error -> currentState
+            val fieldState = validateEmailFieldUseCase(email)
+            val newState = when (val currentState =
+                _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
+                is NetWorkResponseState.Loading -> currentState
+                is NetWorkResponseState.Success -> {
+                    val currentSignUpState = currentState.result
+                    val updatedSignUpState = currentSignUpState.copy(emailState = fieldState)
+                    NetWorkResponseState.Success(updatedSignUpState)
+                }
+
+                is NetWorkResponseState.Error -> currentState
+            }
+            _signUpState.value = newState
         }
-        _signUpState.value = newState
     }
 
     private fun isPhoneNumberValid(phoneNumber: String) {
-        val fieldState = validatePhoneNumberFieldUseCase(phoneNumber)
-        val newState = when (val currentState =
-            _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
-            is NetWorkResponseState.Loading -> currentState
-            is NetWorkResponseState.Success -> {
-                val currentSignUpState = currentState.result
-                val updatedSignUpState = currentSignUpState.copy(phoneNumberState = fieldState)
-                NetWorkResponseState.Success(updatedSignUpState)
-            }
+        viewModelScope.launch {
 
-            is NetWorkResponseState.Error -> currentState
+            val fieldState = validatePhoneNumberFieldUseCase(phoneNumber)
+            val newState = when (val currentState =
+                _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
+                is NetWorkResponseState.Loading -> currentState
+                is NetWorkResponseState.Success -> {
+                    val currentSignUpState = currentState.result
+                    val updatedSignUpState = currentSignUpState.copy(phoneNumberState = fieldState)
+                    NetWorkResponseState.Success(updatedSignUpState)
+                }
+
+                is NetWorkResponseState.Error -> currentState
+            }
+            _signUpState.value = newState
         }
-        _signUpState.value = newState
     }
 
     private fun isPasswordValid(password: String, confirmPassword: String) {
-        val fieldState = validatePasswordAndConfirmation(password, confirmPassword)
-        val newState = when (val currentState =
-            _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
-            is NetWorkResponseState.Loading -> currentState
-            is NetWorkResponseState.Success -> {
-                val currentSignUpState = currentState.result
-                val updatedSignUpState = currentSignUpState.copy(passwordState = fieldState)
-                NetWorkResponseState.Success(updatedSignUpState)
-            }
+        viewModelScope.launch {
 
-            is NetWorkResponseState.Error -> currentState
+            val fieldState = validatePasswordAndConfirmation(password, confirmPassword)
+            val newState = when (val currentState =
+                _signUpState.value ?: NetWorkResponseState.Success(SignUpState())) {
+                is NetWorkResponseState.Loading -> currentState
+                is NetWorkResponseState.Success -> {
+                    val currentSignUpState = currentState.result
+                    val updatedSignUpState = currentSignUpState.copy(passwordState = fieldState)
+                    NetWorkResponseState.Success(updatedSignUpState)
+                }
+
+                is NetWorkResponseState.Error -> currentState
+            }
+            _signUpState.value = newState
         }
-        _signUpState.value = newState
     }
 }
 

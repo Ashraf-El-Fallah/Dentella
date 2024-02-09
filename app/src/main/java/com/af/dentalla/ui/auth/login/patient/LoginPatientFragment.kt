@@ -29,9 +29,7 @@ class LoginPatientFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginAccountBinding.inflate(inflater, container, false)
-//        if (accountType == AccountManager.AccountType.PATIENT) {
-//            binding.editTextUserName.gone()
-//        }
+
         return binding.root
     }
 
@@ -57,11 +55,11 @@ class LoginPatientFragment : Fragment() {
     private fun onEvent(event: LoginUIEvent) {
         when (event) {
             is LoginUIEvent.LoginEvent -> {
-                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+                findNavController().navigate(LoginPatientFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
             }
 
             is LoginUIEvent.SignUpEvent -> {
-                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToPatientSignUpFragment())
+                findNavController().navigate(LoginPatientFragmentDirections.actionLoginAccountFragmentToPatientSignUpFragment())
             }
         }
     }

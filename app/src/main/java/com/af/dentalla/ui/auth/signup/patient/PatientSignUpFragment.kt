@@ -23,6 +23,7 @@ class PatientSignUpFragment : Fragment() {
 
     private val viewModel: PatientSignUpViewModel by viewModels()
     private lateinit var binding: FragmentPatientSignUpBinding
+    private var isSignUpSuccessful: Boolean = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +35,13 @@ class PatientSignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         signUpObserver()
+        navigateToLogin()
+    }
+
+    private fun navigateToLogin() {
+        binding.buttonSignUp.setOnClickListener {
+            isSignUpSuccessful
+        }
     }
 
     private fun signUpObserver() {
@@ -44,7 +52,8 @@ class PatientSignUpFragment : Fragment() {
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
         lifecycleScope.launch {
-            viewModel.signUp(userName, email, phone, password, confirmPassword)
+            isSignUpSuccessful =
+                viewModel.signUp(userName, email, phone, password, confirmPassword)
         }
 
         viewModel.signUpPatientState.observe(viewLifecycleOwner) { signUpState ->
