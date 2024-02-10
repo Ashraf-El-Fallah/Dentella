@@ -1,12 +1,14 @@
 package com.af.dentalla.data.remote.api
 
 
+import com.af.dentalla.data.remote.dto.CardsItem
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.SignUpResponse
 import com.af.dentalla.utilities.AccountManager
 import retrofit2.Response
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -29,6 +31,6 @@ interface ApiService {
         @FieldMap body: Map<String, Any>
     ): Response<LoginResponse>
 
-//    @POST("/api/Account/LoginPatient")
-//    suspend fun loginPatient(@Body loginUser: LoginUser): LoginResponse//Response<LoginResponse>
+    @GET("/api/Card/GetAllCards")
+    suspend fun getAllDoctorsCards(): List<CardsItem>//Response<Cards>
 }

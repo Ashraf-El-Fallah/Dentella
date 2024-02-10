@@ -27,15 +27,18 @@ class PatientSignUpViewModel @Inject constructor(
     private val _signUpState = MutableLiveData<NetWorkResponseState<SignUpState>>()
     val signUpPatientState: LiveData<NetWorkResponseState<SignUpState>> get() = _signUpState
 
-    suspend fun signUp(
+    fun signUp(
         username: String,
         email: String,
         phone: String,
         password: String,
         confirmPassword: String,
     ): Boolean {
-        val signUpState = signUpUseCase(username, email, phone, password)
-        isSignUpValidate(username, email, phone, password, confirmPassword)
+        val signUpState = false
+        viewModelScope.launch {
+            val signUpState = signUpUseCase(username, email, phone, password)
+            isSignUpValidate(username, email, phone, password, confirmPassword)
+        }
         return signUpState
     }
 

@@ -40,7 +40,9 @@ class PatientSignUpFragment : Fragment() {
 
     private fun navigateToLogin() {
         binding.buttonSignUp.setOnClickListener {
-            isSignUpSuccessful
+            if (isSignUpSuccessful) {
+                PatientSignUpFragmentDirections.actionPatientSignUpFragmentToLoginAccountFragment()
+            }
         }
     }
 
@@ -51,10 +53,9 @@ class PatientSignUpFragment : Fragment() {
         val password = binding.editTextPassword.text.toString()
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
-        lifecycleScope.launch {
-            isSignUpSuccessful =
-                viewModel.signUp(userName, email, phone, password, confirmPassword)
-        }
+        isSignUpSuccessful =
+            viewModel.signUp(userName, email, phone, password, confirmPassword)
+
 
         viewModel.signUpPatientState.observe(viewLifecycleOwner) { signUpState ->
             when (signUpState) {

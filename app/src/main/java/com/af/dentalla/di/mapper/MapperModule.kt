@@ -2,7 +2,7 @@ package com.af.dentalla.di.mapper
 
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.SignUpResponse
-import com.af.dentalla.data.mapper.BaseMapper
+import com.af.dentalla.domain.mapper.BaseMapper
 import com.af.dentalla.data.mapper.LoginEntityMapper
 import com.af.dentalla.data.mapper.SignUpEntityMapper
 import com.af.dentalla.domain.entity.LoginEntity

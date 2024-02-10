@@ -1,6 +1,10 @@
 package com.af.dentalla.di.usecase
 
 
+import com.af.dentalla.data.mapper.AllCardsEntityMapper
+import com.af.dentalla.data.remote.dto.CardsItem
+import com.af.dentalla.domain.entity.AllCardsEntity
+import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCase
 import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCaseImpl
 import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCase
@@ -41,4 +45,10 @@ abstract class UseCaseModule {
     abstract fun bindSignUpDoctorUseCase(
         signUpUseCaseImpl: SignUpDoctorUseCaseImpl
     ): SignUpDoctorUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindsAllDoctorsCards(
+        allCardsEntityMapper: AllCardsEntityMapper
+    ): ListMapper<CardsItem, AllCardsEntity>
 }

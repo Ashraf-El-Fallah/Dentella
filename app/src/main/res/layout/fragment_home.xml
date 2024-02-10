@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.patient.HomeFragment">
+    tools:context=".ui.patient.homeScreen.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_background"
@@ -74,6 +74,16 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/choose_proc"
         android:layout_width="wrap_content"
@@ -132,11 +142,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/centerButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="40dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/button_navigation_style"
+        android:gravity="center"
+        android:paddingBottom="25dp"
+        android:text="+"
+        android:textAlignment="center"
+        android:textAppearance="@color/white"
+        android:textColor="@color/white"
+        android:textSize="65sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -154,13 +170,20 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
+            style="@style/BottomNavigationViewStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bottom_nav_background"
+            app:itemIconPadding="4dp"
+            app:itemIconSize="35dp"
+            app:itemIconTint="@color/cyan_blue"
+            app:itemTextColor="@color/cyan_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_menu" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
