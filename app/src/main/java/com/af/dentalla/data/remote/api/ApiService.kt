@@ -23,7 +23,7 @@ interface ApiService {
     suspend fun signUpUser(
         @Path("user_type") user: String,
         @FieldMap body: Map<String, Any>
-    ): Response<SignUpResponse>
+    ): Response<Unit>
 
     @POST("/api/Account/{user_type}/login")
     suspend fun loginUser(

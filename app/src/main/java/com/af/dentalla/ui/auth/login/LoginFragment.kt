@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.auth.login.patient
+package com.af.dentalla.ui.auth.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,29 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.databinding.FragmentLoginAccountBinding
-import com.af.dentalla.ui.auth.login.LoginUIEvent
+import com.af.dentalla.databinding.FragmentLoginBinding
 import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.collectLast
+import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginPatientFragment : Fragment() {
-    private lateinit var binding: FragmentLoginAccountBinding
-    private val viewModel: LoginPatientViewModel by viewModels()
+class LoginFragment : Fragment() {
+    private lateinit var binding: FragmentLoginBinding
+    private val viewModel: LoginViewModel by viewModels()
     private val accountType = AccountManager.accountType
-
-//    override fun onStart() {
-//        super.onStart()
-//
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginAccountBinding.inflate(inflater, container, false)
-
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,16 +32,27 @@ class LoginPatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         collectLast(viewModel.loginEvent) {
-            it.getContentIfNotHandled()?.let { onEvent(it) }
+            if (accountType == AccountManager.AccountType.PATIENT) {
+                binding.editTextUserName.visible()
+                binding.editTextEmail.gone()
+                it.getContentIfNotHandled()?.let { onEvent(it) }
+                binding.buttonSignIn.setOnClickListener {
+                    viewModel.onClickLoginForPatient()
+                }
+            } else {
+                binding.editTextUserName.gone()
+                binding.editTextEmail.visible()
+                it.getContentIfNotHandled()?.let { onEvent(it) }
+                binding.buttonSignIn.setOnClickListener {
+                    viewModel.onClickLoginForDoctor()
+                }
+            }
         }
         setUpClickListeners()
     }
 
 
     private fun setUpClickListeners() {
-        binding.buttonSignIn.setOnClickListener {
-            viewModel.onClickLogin()
-        }
         binding.textViewSignUp.setOnClickListener {
             viewModel.onClickSignUp()
         }
@@ -55,31 +61,15 @@ class LoginPatientFragment : Fragment() {
     private fun onEvent(event: LoginUIEvent) {
         when (event) {
             is LoginUIEvent.LoginEvent -> {
-                findNavController().navigate(LoginPatientFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
             }
 
             is LoginUIEvent.SignUpEvent -> {
-                findNavController().navigate(LoginPatientFragmentDirections.actionLoginAccountFragmentToPatientSignUpFragment())
+                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment())
             }
         }
     }
-
-//    private fun handleChanges() {
-//        binding.editTextUserName.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//                viewModel.onUserInputChanged(p0.toString())
-//            }
-//        })
-//
-//    }
+}
 
 
 //    private fun loginLogic() {
@@ -145,6 +135,3 @@ class LoginPatientFragment : Fragment() {
 //        }
 //
 //    }
-
-
-}

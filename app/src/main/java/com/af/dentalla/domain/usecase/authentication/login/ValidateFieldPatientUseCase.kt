@@ -3,7 +3,7 @@ package com.af.dentalla.domain.usecase.authentication.login
 import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
 import javax.inject.Inject
 
-class ValidateFieldUseCase @Inject constructor(
+class ValidateFieldPatientUseCase @Inject constructor(
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase
 ) {

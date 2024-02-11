@@ -34,9 +34,9 @@ class PatientSignUpViewModel @Inject constructor(
         password: String,
         confirmPassword: String,
     ): Boolean {
-        val signUpState = false
+        var signUpState = false
         viewModelScope.launch {
-            val signUpState = signUpUseCase(username, email, phone, password)
+            signUpState = signUpUseCase(username, email, phone, password)
             isSignUpValidate(username, email, phone, password, confirmPassword)
         }
         return signUpState

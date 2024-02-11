@@ -5,7 +5,6 @@ import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.CardsItemDto
-import com.af.dentalla.data.remote.dto.SignUpResponse
 import com.af.dentalla.data.remote.dto.LoginErrorResponse
 import com.af.dentalla.data.remote.dto.SignUpErrorResponse
 import com.af.dentalla.di.coroutine.IoDispatcher
@@ -22,6 +21,7 @@ class PatientRepositoryImpl @Inject constructor(
     private val dataStorePreferencesService: DataStorePreferencesService,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val dataClassParser: DataClassParser,
+    private val baseRepositoryImpl: BaseRepositoryImpl
 ) : PatientRepository {
     private val accountType = AccountManager.accountType
     override suspend fun loginPatient(userName: String, password: String): Boolean {
@@ -35,7 +35,7 @@ class PatientRepositoryImpl @Inject constructor(
             val validateLoginResponse = service.loginUser(accountType.toString().lowercase(), body)
             if (validateLoginResponse.isSuccessful) {
                 validateLoginResponse.body()?.apply {
-                    saveToken(token, tokenExpiration)
+                    baseRepositoryImpl.saveToken(token, tokenExpiration)
                     return true
                 }
             } else {
@@ -69,9 +69,11 @@ class PatientRepositoryImpl @Inject constructor(
                 service.signUpUser(accountType.toString().lowercase(), body)
             if (validateSignUpResponse.isSuccessful) {
                 validateSignUpResponse.body()?.apply {
-                    validateSignUpResponse.body()?.message?.let { SignUpResponse(it) }
-                    return true
+                    NetWorkResponseState.Success(Unit)
+                    //validateSignUpResponse.body()?.message?.let { SignUpResponse(it) }
+//                    return true
                 }
+                return true
             } else {
                 val errorResponse = dataClassParser.parseFromJson(
                     validateSignUpResponse.errorBody()?.toString(), SignUpErrorResponse::class.java
@@ -84,17 +86,6 @@ class PatientRepositoryImpl @Inject constructor(
         return false
     }
 
-
-//    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> {
-//        return flow {
-//            emit(NetWorkResponseState.Loading)
-//            try {
-//                val response = service.getAllDoctorsCards()
-//                emit(NetWorkResponseState.Success(response))
-//            } catch (e: Exception) {
-//                emit(NetWorkResponseState.Error(e))
-//            }
-//        }
 
     override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> = flow {
         emit(NetWorkResponseState.Loading)
@@ -116,9 +107,6 @@ class PatientRepositoryImpl @Inject constructor(
     }
 
 
-    private suspend fun saveToken(token: String?, expireDate: String) {
-        dataStorePreferencesService.saveTokenAndExpireDate(token, expireDate)
-    }
 }
 
 //    override fun signUpPatient(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> =
@@ -134,3 +122,15 @@ class PatientRepositoryImpl @Inject constructor(
 //                loginEntityMapper.map(this)
 //            }
 //        }.flowOn(ioDispatcher)
+
+
+//    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> {
+//        return flow {
+//            emit(NetWorkResponseState.Loading)
+//            try {
+//                val response = service.getAllDoctorsCards()
+//                emit(NetWorkResponseState.Success(response))
+//            } catch (e: Exception) {
+//                emit(NetWorkResponseState.Error(e))
+//            }
+//        }

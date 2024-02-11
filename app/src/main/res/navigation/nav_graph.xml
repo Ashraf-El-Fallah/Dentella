@@ -17,15 +17,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/loginScreen"
-        android:name="com.af.dentalla.ui.SplashFragment"
-        android:label="fragment_login_screen"
-        tools:layout="@layout/fragment_splash" />
-    <fragment
         android:id="@+id/loginAccountFragment"
-        android:name="com.af.dentalla.ui.auth.login.patient.LoginPatientFragment"
+        android:name="com.af.dentalla.ui.auth.login.LoginFragment"
         android:label="fragment_login_account"
-        tools:layout="@layout/fragment_login_account">
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginAccountFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
@@ -33,16 +28,12 @@
             android:id="@+id/action_loginAccountFragment_to_homeFragment5"
             app:destination="@id/homeFragment" />
         <action
-            android:id="@+id/action_loginAccountFragment_to_patientSignUpFragment"
-            app:destination="@id/patientSignUpFragment" />
+            android:id="@+id/action_loginAccountFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
 
 
     </fragment>
-    <fragment
-        android:id="@+id/doctorSignUpFragment"
-        android:name="com.af.dentalla.ui.auth.signup.doctor.DoctorSignUpFragment"
-        android:label="fragment_create_account"
-        tools:layout="@layout/fragment_doctor_sign_up" />
+
     <fragment
         android:id="@+id/forgetPasswordFragment"
         android:name="com.af.dentalla.ui.ForgetPasswordFragment"
@@ -106,15 +97,6 @@
         android:label="fragment_articles"
         tools:layout="@layout/fragment_articles" />
     <fragment
-        android:id="@+id/patientSignUpFragment"
-        android:name="com.af.dentalla.ui.auth.signup.patient.PatientSignUpFragment"
-        android:label="fragment_patient_sign_up"
-        tools:layout="@layout/fragment_patient_sign_up">
-        <action
-            android:id="@+id/action_patientSignUpFragment_to_loginAccountFragment"
-            app:destination="@id/loginAccountFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/doctorProfileFragment"
         android:name="com.af.dentalla.ui.patient.DoctorProfileFragment"
         android:label="fragment_doctor_profile"
@@ -123,5 +105,14 @@
         <argument
             android:name="doctorId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.af.dentalla.ui.auth.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginAccountFragment"
+            app:destination="@id/loginAccountFragment" />
     </fragment>
 </navigation>

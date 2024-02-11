@@ -6,5 +6,4 @@ import kotlinx.coroutines.flow.Flow
 
 interface BaseRepository {
     fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>>
-
 }

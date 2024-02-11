@@ -1,14 +1,15 @@
-package com.af.dentalla.ui.auth.login.patient
+package com.af.dentalla.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.af.dentalla.domain.usecase.authentication.ValidateEmailFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.login.LoginPatientUseCase
-import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldPatientUseCase
 import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.login.LoginDoctorUseCase
+import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldDoctorUseCase
 import com.af.dentalla.domain.usecase.authentication.login.ValidatePasswordFieldUseCase
 import com.af.dentalla.ui.Event
-import com.af.dentalla.ui.auth.login.LoginUIEvent
-import com.af.dentalla.ui.auth.login.LoginUiState
 import com.af.dentalla.utilities.AccountManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,11 +19,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginPatientViewModel @Inject constructor(
+class LoginViewModel @Inject constructor(
     private val loginPatientUseCase: LoginPatientUseCase,
+    private val loginDoctorUseCase: LoginDoctorUseCase,
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
-    private val validateFieldUseCase: ValidateFieldUseCase
+    private val validateFieldPatientUseCase: ValidateFieldPatientUseCase,
+    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
+    private val validateFieldDoctorUseCase: ValidateFieldDoctorUseCase
 ) : ViewModel() {
     private val accountType = AccountManager.accountType
 
@@ -36,40 +40,45 @@ class LoginPatientViewModel @Inject constructor(
         _loginEvent.update { Event(LoginUIEvent.SignUpEvent(accountType)) }
     }
 
-    fun onClickLogin() {
-        login()
+    fun onClickLoginForPatient() {
+        loginForPatient()
     }
 
-    fun onUserInputChanged(userName: CharSequence) {
-        val userNameFieldState = validateUserNameFieldUseCase(userName.toString())
+    //doctor
+    fun onClickLoginForDoctor() {
+        loginForDoctor()
+    }
+
+    fun onEmailInputChanged(email: CharSequence) {
+        val emailFieldState = validateEmailFieldUseCase(email.toString())
         _loginUIState.update {
             it.copy(
-                userName = userName.toString(),
-                userNameHelperText = userNameFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldUseCase(
-                    loginUiState.value.userName,
+                email = email.toString(),
+                emailHelperText = emailFieldState.errorMessage() ?: "",
+                isValidForm = validateFieldDoctorUseCase(
+                    loginUiState.value.email,
                     loginUiState.value.password
                 )
             )
         }
     }
 
-    fun onPasswordInputChanged(password: CharSequence) {
+    fun onPasswordInputChangedForDoctor(password: CharSequence) {
         val passwordFieldState =
             validatePasswordFieldUseCase(password.toString())
         _loginUIState.update {
             it.copy(
                 password = password.toString(),
                 passwordHelperText = passwordFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldUseCase(
-                    loginUiState.value.userName,
+                isValidForm = validateFieldDoctorUseCase(
+                    loginUiState.value.email,
                     loginUiState.value.password
                 )
             )
         }
     }
 
-    private fun login() {
+    private fun loginForDoctor() {
         viewModelScope.launch {
             try {
                 _loginUIState.update { it.copy(isLoading = true) }
@@ -80,6 +89,7 @@ class LoginPatientViewModel @Inject constructor(
                     )
                 if (loginState) {
                     onLoginSuccessfully()
+                    resetFormDoctor()
                 }
             } catch (e: Throwable) {
                 onLoginError(e.message.toString())
@@ -87,15 +97,65 @@ class LoginPatientViewModel @Inject constructor(
         }
     }
 
-    private fun onLoginSuccessfully() {
-        _loginUIState.update { it.copy(isLoading = false) }
-        _loginEvent.update { Event(LoginUIEvent.LoginEvent(accountType)) }
-        resetForm()
+    private fun resetFormDoctor() {
+        _loginUIState.update { it.copy(email = "", password = "") }
     }
 
-    private fun resetForm() {
+
+    //patient//
+
+    fun onUserNameInputChanged(userName: CharSequence) {
+        val userNameFieldState = validateUserNameFieldUseCase(userName.toString())
+        _loginUIState.update {
+            it.copy(
+                userName = userName.toString(),
+                userNameHelperText = userNameFieldState.errorMessage() ?: "",
+                isValidForm = validateFieldPatientUseCase(
+                    loginUiState.value.userName,
+                    loginUiState.value.password
+                )
+            )
+        }
+    }
+
+    fun onPasswordInputChangedForPatient(password: CharSequence) {
+        val passwordFieldState =
+            validatePasswordFieldUseCase(password.toString())
+        _loginUIState.update {
+            it.copy(
+                password = password.toString(),
+                passwordHelperText = passwordFieldState.errorMessage() ?: "",
+                isValidForm = validateFieldPatientUseCase(
+                    loginUiState.value.userName,
+                    loginUiState.value.password
+                )
+            )
+        }
+    }
+
+    private fun loginForPatient() {
+        viewModelScope.launch {
+            try {
+                _loginUIState.update { it.copy(isLoading = true) }
+                val loginState =
+                    loginDoctorUseCase(
+                        loginUiState.value.email,
+                        loginUiState.value.password
+                    )
+                if (loginState) {
+                    onLoginSuccessfully()
+                    resetFormPatient()
+                }
+            } catch (e: Throwable) {
+                onLoginError(e.message.toString())
+            }
+        }
+    }
+
+    private fun resetFormPatient() {
         _loginUIState.update { it.copy(userName = "", password = "") }
     }
+
 
     private fun onLoginError(message: String) {
         _loginUIState.update {
@@ -106,6 +166,13 @@ class LoginPatientViewModel @Inject constructor(
             )
         }
     }
+
+    private fun onLoginSuccessfully() {
+        _loginUIState.update { it.copy(isLoading = false) }
+        _loginEvent.update { Event(LoginUIEvent.LoginEvent(accountType)) }
+//        resetFormPatient()
+    }
+}
 
 //    fun login(loginUser: LoginUser) {
 //        viewModelScope.launch(Dispatchers.IO) {
@@ -128,5 +195,3 @@ class LoginPatientViewModel @Inject constructor(
 //
 //        }
 //    }
-
-}
