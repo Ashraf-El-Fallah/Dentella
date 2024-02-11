@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/doctor_img">
 
         <TextView
-            android:id="@+id/doctor_name"
+            android:id="@+id/text_view_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -75,7 +75,7 @@
             android:textColor="@color/light_blue"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/doctor_name" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_name" />
 
         <ImageView
             android:id="@+id/phone_img"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/doctor_procedure" />
 
         <TextView
-            android:id="@+id/phone_number"
+            android:id="@+id/text_view_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"

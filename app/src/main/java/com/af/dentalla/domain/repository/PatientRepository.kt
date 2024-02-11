@@ -1,13 +1,8 @@
 package com.af.dentalla.domain.repository
 
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.remote.dto.CardsItem
-import com.af.dentalla.data.remote.dto.LoginResponse
-import com.af.dentalla.data.remote.requests.LoginUser
-import com.af.dentalla.data.remote.requests.SignUpPatient
-import com.af.dentalla.domain.entity.AllCardsEntity
-import com.af.dentalla.domain.entity.LoginEntity
-import com.af.dentalla.domain.entity.SignUpEntity
+import com.af.dentalla.data.remote.dto.ArticleDto
+import com.af.dentalla.data.remote.dto.CardsItemDto
 import kotlinx.coroutines.flow.Flow
 
 interface PatientRepository {
@@ -19,5 +14,6 @@ interface PatientRepository {
         password: String
     ): Boolean
 
-    fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItem>>>
+    fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>>
+
 }

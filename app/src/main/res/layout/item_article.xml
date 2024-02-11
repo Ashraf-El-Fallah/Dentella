@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="295dp"
+    android:layout_height="320dp"
     android:layout_marginHorizontal="18dp"
     android:background="@drawable/article_style">
 
@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/doctor_article_img"
+            android:id="@+id/img_doctor_article"
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:layout_marginStart="15dp"
@@ -22,42 +22,53 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/doctor_name_article"
+            android:id="@+id/text_view_doctor_name_article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:text="@string/doctor_name"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/doctor_article_img"
-            app:layout_constraintTop_toTopOf="@id/doctor_article_img" />
+            app:layout_constraintStart_toEndOf="@id/img_doctor_article"
+            app:layout_constraintTop_toTopOf="@id/img_doctor_article" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/text_view_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:text="15 min"
             android:textColor="@color/dark_gray"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/doctor_article_img"
-            app:layout_constraintTop_toBottomOf="@id/doctor_name_article" />
+            app:layout_constraintStart_toEndOf="@id/img_doctor_article"
+            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_name_article" />
 
         <TextView
-            android:id="@+id/article_content"
+            android:id="@+id/text_view_article_content"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Brush Twice a Day:
-            \nBecause Brushing helps remove plaque,
-            a sticky film of bacteria"
+            android:text="Because Brushing helps remove plaque,a sticky film of bacteria"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_article_title" />
+
+        <TextView
+            android:id="@+id/text_view_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="18dp"
+            android:text="Brush Twice a Day:"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/img_doctor_article"/>
 
         <ImageView
             android:id="@+id/image_teeth"
@@ -69,41 +80,43 @@
             android:src="@drawable/teeth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/article_content" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="comments"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_teeth" />
+<!--        <TextView-->
+<!--            android:id="@+id/comments"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="22dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="4dp"-->
+<!--            android:text="comments"-->
+<!--            android:textColor="@color/dark_gray"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/heart"
-            app:layout_constraintBottom_toBottomOf="@id/likes"
-            app:layout_constraintEnd_toStartOf="@id/likes"
-            app:layout_constraintTop_toTopOf="@id/likes" />
 
-        <TextView
-            android:id="@+id/likes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="32dp"
-            android:text="likes"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_teeth" />
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:layout_marginEnd="2dp"-->
+<!--            android:layout_marginBottom="4dp"-->
+<!--            android:src="@drawable/heart"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/likes"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/likes"-->
+<!--            app:layout_constraintTop_toTopOf="@id/likes" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/likes"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:layout_marginEnd="32dp"-->
+<!--            android:text="likes"-->
+<!--            android:textColor="@color/dark_gray"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

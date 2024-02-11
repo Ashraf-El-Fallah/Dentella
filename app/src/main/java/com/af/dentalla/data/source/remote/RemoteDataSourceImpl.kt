@@ -1,20 +1,6 @@
 package com.af.dentalla.data.source.remote
 
-import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.api.ApiService
-import com.af.dentalla.data.remote.dto.CardsItem
-import com.af.dentalla.data.remote.dto.LoginResponse
-import com.af.dentalla.data.remote.dto.SignUpResponse
-import com.af.dentalla.data.remote.requests.LoginUser
-import com.af.dentalla.data.remote.requests.SignUpDoctor
-import com.af.dentalla.data.remote.requests.SignUpPatient
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
-import retrofit2.Response
-import java.io.IOException
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(

@@ -3,26 +3,18 @@ package com.af.dentalla.data.repository
 import com.af.dentalla.data.DataClassParser
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
-import com.af.dentalla.data.mapper.AllCardsEntityMapper
 import com.af.dentalla.data.remote.api.ApiService
-import com.af.dentalla.data.remote.dto.CardsItem
+import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.data.remote.dto.SignUpResponse
 import com.af.dentalla.data.remote.dto.LoginErrorResponse
 import com.af.dentalla.data.remote.dto.SignUpErrorResponse
-import com.af.dentalla.data.source.remote.RemoteDataSource
 import com.af.dentalla.di.coroutine.IoDispatcher
-import com.af.dentalla.domain.entity.AllCardsEntity
-import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.PatientRepository
 import com.af.dentalla.utilities.AccountManager
-import com.af.dentalla.utilities.mapResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
-import java.io.IOException
 import javax.inject.Inject
 
 class PatientRepositoryImpl @Inject constructor(
@@ -93,32 +85,33 @@ class PatientRepositoryImpl @Inject constructor(
     }
 
 
-    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItem>>> {
-//        return withContext(Dispatchers.IO) {
+//    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> {
+//        return flow {
+//            emit(NetWorkResponseState.Loading)
 //            try {
 //                val response = service.getAllDoctorsCards()
-//                if (response.isSuccessful) {
-//                    val cards =
-//                        response.body() ?: throw NullPointerException("Response body is null")
-//                    NetWorkResponseState.Success(cards)
-//                } else {
-//                    NetWorkResponseState.Error(IOException("Failed to fetch doctor data"))
-//                }
-//            } catch (e: IOException) {
-//                NetWorkResponseState.Error(e)
-//            } catch (e: HttpException) {
-//                NetWorkResponseState.Error(e)
+//                emit(NetWorkResponseState.Success(response))
+//            } catch (e: Exception) {
+//                emit(NetWorkResponseState.Error(e))
 //            }
 //        }
 
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = service.getAllDoctorsCards()
-                emit(NetWorkResponseState.Success(response))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
+    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> = flow {
+        emit(NetWorkResponseState.Loading)
+        try {
+            val response = service.getAllDoctorsCards()
+            if (response.isSuccessful) {
+                val data = response.body()
+                if (data != null) {
+                    emit(NetWorkResponseState.Success(data))
+                } else {
+                    emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                }
+            } else {
+                emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
             }
+        } catch (e: Exception) {
+            emit(NetWorkResponseState.Error(e))
         }
     }
 

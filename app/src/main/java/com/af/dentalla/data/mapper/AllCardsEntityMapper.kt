@@ -1,13 +1,12 @@
 package com.af.dentalla.data.mapper
 
-import com.af.dentalla.data.remote.dto.Cards
-import com.af.dentalla.data.remote.dto.CardsItem
+import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.domain.entity.AllCardsEntity
 import com.af.dentalla.domain.mapper.ListMapper
 import javax.inject.Inject
 
-class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsItem, AllCardsEntity> {
-    override fun map(input: List<CardsItem>): List<AllCardsEntity> {
+class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsItemDto, AllCardsEntity> {
+    override fun map(input: List<CardsItemDto>): List<AllCardsEntity> {
         return input.map {
             AllCardsEntity(
                 cardId = it.cardId,

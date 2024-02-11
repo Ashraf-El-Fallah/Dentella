@@ -1,10 +1,10 @@
 package com.af.dentalla.data.remote.api
 
 
-import com.af.dentalla.data.remote.dto.CardsItem
+import com.af.dentalla.data.remote.dto.ArticleDto
+import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.SignUpResponse
-import com.af.dentalla.utilities.AccountManager
 import retrofit2.Response
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
@@ -32,5 +32,8 @@ interface ApiService {
     ): Response<LoginResponse>
 
     @GET("/api/Card/GetAllCards")
-    suspend fun getAllDoctorsCards(): List<CardsItem>//Response<Cards>
+    suspend fun getAllDoctorsCards(): Response<List<CardsItemDto>>//Response<Cards>
+
+    @GET("/api/Article/GetAllArticles")
+    suspend fun getAllArticles(): Response<List<ArticleDto>>
 }
