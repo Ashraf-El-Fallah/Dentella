@@ -1,24 +1,30 @@
 package com.af.dentalla.ui.auth.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.af.dentalla.R
-import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.LoginDoctor
+import com.af.dentalla.data.remote.requests.SignUpDoctor
+import com.af.dentalla.data.remote.requests.SignUpPatient
+import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.databinding.FragmentSignUpBinding
+import com.af.dentalla.ui.base.BaseFragment
+import com.af.dentalla.utilities.AccountManager
+import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utilities.ValidationUtils
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : Fragment() {
-
+class SignUpFragment : BaseFragment() {
     private val viewModel: SignUpViewModel by viewModels()
     private lateinit var binding: FragmentSignUpBinding
+    private val accountType = AccountManager.accountType
+//    private var id: String = ""
 
 
     override fun onCreateView(
@@ -31,43 +37,92 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        signUpObserver()
+        setUpSignUpButton()
     }
 
+    private fun setUpSignUpButton() {
+        binding.buttonSignUp.setOnClickListener { selectTheUserType() }
+    }
 
-    private fun signUpObserver() {
+    private fun isPhoneNumberValid(phoneNumber: String) {
+        if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
+            requireView().showToastShort("This phone number is not valid")
+            return
+        }
+    }
+
+    private fun isPasswordAndConformationPasswordValid(
+        password: String,
+        confirmPassword: String
+    ) {
+        if (ValidationUtils.isPasswordAndConfirmationNotEqual(password, confirmPassword)) {
+            requireView().showToastShort("This password is not valid or not equal confirmation password")
+            return
+        }
+    }
+
+    private fun validateUserDataValid(): SignUpUser {
         val userName = binding.editTextUserName.text.toString()
         val email = binding.editTextEmail.text.toString()
         val phone = binding.editTextPhone.text.toString()
-        val id = binding.editTextId.text.toString()
         val password = binding.editTextPassword.text.toString()
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
-        viewModel.isSignUpValidate(userName, email, phone, id, password, confirmPassword)
+        isUserNameValid(userName)
+        isEmailValid(email)
+        isPhoneNumberValid(phone)
+        isPasswordAndConformationPasswordValid(password, confirmPassword)
 
-        viewModel.signUpDoctorState.observe(viewLifecycleOwner) { signUpState ->
-            when (signUpState) {
-                is NetWorkResponseState.Loading -> {
-                    binding.progress.visible()
-                    binding.buttonSignUp.isEnabled = false
-                }
+        if (binding.editTextId.visibility == View.VISIBLE) {
+            val id = binding.editTextId.text.toString()
+            isIdValid(binding.editTextId.text.toString())
+            return SignUpDoctor(userName, email, password, phone, id)
+        }
+        return SignUpPatient(userName, email, password, phone)
+    }
 
-                is NetWorkResponseState.Success -> {
-                    binding.progress.gone()
-                    binding.buttonSignUp.isEnabled = true
-                }
+    private fun isIdValid(id: String) {
+        if (ValidationUtils.isIdNotValid(id)) {
+            requireView().showToastShort("This id is not valid")
+            return
+        }
+    }
 
-                is NetWorkResponseState.Error -> {
-                    binding.progress.gone()
-                    binding.buttonSignUp.isEnabled = true
-                    requireView().showToastShort(R.string.check_username_pass.toString())
-                }
-            }
+    private fun selectTheUserType() {
+        if (accountType == AccountManager.AccountType.PATIENT) {
+            binding.editTextId.gone()
+            val patientData = validateUserDataValid()
+            viewModel.signUpPatientLogic(patientData)
+            signUpObserver()
+        }
+        if (accountType == AccountManager.AccountType.DOCTOR) {
+            binding.editTextId.visible()
+            val doctorData = validateUserDataValid()
+            viewModel.signUpDoctorLogic(doctorData)
+            signUpObserver()
         }
     }
 
 
+    private fun signUpObserver() {
+        viewModel.signUpDoctorState.observe(viewLifecycleOwner) { signUpState ->
+            when (signUpState) {
+                is ScreenState.Loading -> {
+                    binding.progress.visible()
+                    binding.buttonSignUp.isEnabled = false
+                }
 
+                is ScreenState.Success -> {
+                    binding.progress.gone()
+                    binding.buttonSignUp.isEnabled = true
+                }
 
-
+                is ScreenState.Error -> {
+                    binding.progress.gone()
+                    binding.buttonSignUp.isEnabled = true
+                    requireView().showToastShort("Please Check your personal information")
+                }
+            }
+        }
+    }
 }

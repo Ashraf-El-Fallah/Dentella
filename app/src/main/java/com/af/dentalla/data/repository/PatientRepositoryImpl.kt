@@ -8,11 +8,9 @@ import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.data.remote.requests.LoginPatient
 import com.af.dentalla.data.remote.requests.SignUpPatient
-import com.af.dentalla.di.coroutine.IoDispatcher
+import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.PatientRepository
 import com.af.dentalla.utilities.AccountManager
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -23,7 +21,7 @@ class PatientRepositoryImpl @Inject constructor(
 ) : PatientRepository {
     private val accountType = AccountManager.accountType
 
-    override fun loginPatient(loginPatient: LoginPatient): Flow<NetWorkResponseState<Boolean>> =
+    override fun loginPatient(loginPatient: LoginPatient): Flow<NetWorkResponseState<Unit>> =
         flow {
             Log.d("LoginPatient", "Start login patient $loginPatient")
             emit(NetWorkResponseState.Loading)
@@ -33,7 +31,7 @@ class PatientRepositoryImpl @Inject constructor(
                 if (validateLoginResponse.isSuccessful) {
                     baseRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
                     Log.d("LoginPatient", "Login Successfully")
-                    emit(NetWorkResponseState.Success(true))
+                    emit(NetWorkResponseState.Success(Unit))
                 } else {
                     val errorMessage =
                         validateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
@@ -46,10 +44,7 @@ class PatientRepositoryImpl @Inject constructor(
             }
         }
 
-
-    override fun signUpPatient(
-        signUpPatient: SignUpPatient
-    ): Flow<NetWorkResponseState<Boolean>> = flow {
+    override fun signUpPatient(signUpPatient: SignUpUser): Flow<NetWorkResponseState<Unit>> = flow {
         Log.d("SignUpPatient", "Start signing up patient $signUpPatient")
         emit(NetWorkResponseState.Loading)
         try {
@@ -57,7 +52,7 @@ class PatientRepositoryImpl @Inject constructor(
                 service.signUpUser(accountType.toString().lowercase(), signUpPatient)
             if (validateSignUpResponse.isSuccessful) {
                 Log.d("SignUpPatient", "Sign Up Successfully")
-                emit(NetWorkResponseState.Success(true))
+                emit(NetWorkResponseState.Success(Unit))
             } else {
                 val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
                 Log.d("SignUpPatient", "Sign Up failed :$errorMessage")
@@ -68,6 +63,29 @@ class PatientRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
         }
     }
+
+
+//    override fun signUpPatient(
+//        signUpPatient: SignUpPatient
+//    ): Flow<NetWorkResponseState<Unit>> = flow {
+//        Log.d("SignUpPatient", "Start signing up patient $signUpPatient")
+//        emit(NetWorkResponseState.Loading)
+//        try {
+//            val validateSignUpResponse =
+//                service.signUpUser(accountType.toString().lowercase(), signUpPatient)
+//            if (validateSignUpResponse.isSuccessful) {
+//                Log.d("SignUpPatient", "Sign Up Successfully")
+//                emit(NetWorkResponseState.Success(Unit))
+//            } else {
+//                val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
+//                Log.d("SignUpPatient", "Sign Up failed :$errorMessage")
+//                emit(NetWorkResponseState.Error(Exception("Http error ${validateSignUpResponse.code()}:$errorMessage")))
+//            }
+//        } catch (e: Exception) {
+//            Log.d("SignUpPatient", "Exception during sign up  ${e.message}")
+//            emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
+//        }
+//    }
 
     override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> = flow {
         emit(NetWorkResponseState.Loading)

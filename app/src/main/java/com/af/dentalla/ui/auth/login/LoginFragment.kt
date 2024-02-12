@@ -1,24 +1,32 @@
 package com.af.dentalla.ui.auth.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.data.remote.requests.LoginDoctor
+import com.af.dentalla.data.remote.requests.LoginPatient
 import com.af.dentalla.databinding.FragmentLoginBinding
+import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utilities.AccountManager
-import com.af.dentalla.utilities.collectLast
+import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.safeNavigate
+import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
     private val accountType = AccountManager.accountType
+    private var userName = ""
+    private var email = ""
+    private var password = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,46 +38,121 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpLoginButton()
+    }
 
-        collectLast(viewModel.loginEvent) {
-            if (accountType == AccountManager.AccountType.PATIENT) {
-                binding.editTextUserName.visible()
-                binding.editTextEmail.gone()
-                it.getContentIfNotHandled()?.let { onEvent(it) }
-                binding.buttonSignIn.setOnClickListener {
-                    viewModel.onClickLoginForPatient()
+//    override fun isUserNameValid(userName: String) {
+//        if (ValidationUtils.isUserNameNotValid(userName)) {
+//            requireView().showToastShort("This user name is not valid")
+//            return
+//        }
+//    }
+
+//    override fun isEmailValid(email: String) {
+//        if (ValidationUtils.isEmailNotValid(email)) {
+//            requireView().showToastShort("This email is not valid")
+//            return
+//        }
+//    }
+//
+//    override fun isPasswordValid(password: String) {
+//        if (ValidationUtils.isPasswordNotValid(password)) {
+//            requireView().showToastShort("This password is not valid")
+//            return
+//        }
+//    }
+
+    private fun setUpLoginButton() {
+        binding.buttonSignIn.setOnClickListener { selectTheUserType() }
+    }
+
+    private fun loginObserver() {
+        viewModel.loginState.observe(viewLifecycleOwner) { loginState ->
+            when (loginState) {
+                is ScreenState.Loading -> {
+                    binding.progressBar.visible()
+                    binding.buttonSignIn.isEnabled = false
                 }
-            } else {
-                binding.editTextUserName.gone()
-                binding.editTextEmail.visible()
-                it.getContentIfNotHandled()?.let { onEvent(it) }
-                binding.buttonSignIn.setOnClickListener {
-                    viewModel.onClickLoginForDoctor()
+
+                is ScreenState.Success -> {
+                    binding.progressBar.gone()
+                    binding.buttonSignIn.isEnabled = true
+                    findNavController().safeNavigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+                }
+
+                is ScreenState.Error -> {
+                    binding.progressBar.gone()
+                    binding.buttonSignIn.isEnabled = true
+                    requireView().showToastShort("please check your username and password ")
                 }
             }
         }
-        setUpClickListeners()
     }
 
-
-    private fun setUpClickListeners() {
-        binding.textViewSignUp.setOnClickListener {
-            viewModel.onClickSignUp()
+    private fun selectTheUserType() {
+        password = binding.editTextPasswordLogin.text.toString()
+        if (accountType == AccountManager.AccountType.PATIENT) {
+            binding.editTextUserName.visible()
+            binding.editTextEmail.gone()
+            userName = binding.editTextUserName.toString()
+            isUserNameValid(userName)
+            isPasswordValid(password)
+            val patient = LoginPatient(userName, password)
+            viewModel.loginPatientLogic(patient)
+            loginObserver()
         }
-    }
-
-    private fun onEvent(event: LoginUIEvent) {
-        when (event) {
-            is LoginUIEvent.LoginEvent -> {
-                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
-            }
-
-            is LoginUIEvent.SignUpEvent -> {
-                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment())
-            }
+        if (accountType == AccountManager.AccountType.DOCTOR) {
+            binding.editTextUserName.gone()
+            binding.editTextEmail.visible()
+            email = binding.editTextEmail.toString()
+            isEmailValid(email)
+            isPasswordValid(password)
+            val doctor = LoginDoctor(userName, password)
+            viewModel.loginDoctorLogic(doctor)
+            loginObserver()
         }
     }
 }
+
+
+////ui state/////////////////////////////////////////////////
+//collectLast(viewModel.loginEvent) {
+//            if (accountType == AccountManager.AccountType.PATIENT) {
+//                binding.editTextUserName.visible()
+//                binding.editTextEmail.gone()
+//                it.getContentIfNotHandled()?.let { onEvent(it) }
+//                binding.buttonSignIn.setOnClickListener {
+//                    viewModel.onClickLoginForPatient()
+//                }
+//            } else {
+//                binding.editTextUserName.gone()
+//                binding.editTextEmail.visible()
+//                it.getContentIfNotHandled()?.let { onEvent(it) }
+//                binding.buttonSignIn.setOnClickListener {
+//                    viewModel.onClickLoginForDoctor()
+//                }
+//            }
+//        }
+//        setUpClickListeners()
+
+
+//private fun setUpClickListeners() {
+//        binding.textViewSignUp.setOnClickListener {
+//            viewModel.onClickSignUp()
+//        }
+//    }
+//
+//    private fun onEvent(event: LoginUIEvent) {
+//        when (event) {
+//            is LoginUIEvent.LoginEvent -> {
+//                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+//            }
+//
+//            is LoginUIEvent.SignUpEvent -> {
+//                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment())
+//            }
+//        }
+//    }
 
 
 //    private fun loginLogic() {

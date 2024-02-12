@@ -3,7 +3,6 @@ package com.af.dentalla.di.mapper
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.domain.mapper.BaseMapper
 import com.af.dentalla.data.mapper.LoginEntityMapper
-import com.af.dentalla.data.mapper.SignUpEntityMapper
 import com.af.dentalla.domain.entity.LoginEntity
 import com.af.dentalla.domain.entity.SignUpEntity
 import dagger.Binds
@@ -19,7 +18,7 @@ abstract class MapperModule {
     @ViewModelScoped
     abstract fun bindLoginEntityMapper(loginEntityMapper: LoginEntityMapper): BaseMapper<LoginResponse, LoginEntity>
 
-    @Binds
-    @ViewModelScoped
-    abstract fun bindSignUpEntityMapper(signUpEntityMapper: SignUpEntityMapper): BaseMapper<SignUpResponse, SignUpEntity>
+//    @Binds
+//    @ViewModelScoped
+//    abstract fun bindSignUpEntityMapper(signUpEntityMapper: SignUpEntityMapper): BaseMapper<SignUpResponse, SignUpEntity>
 }

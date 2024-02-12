@@ -1,11 +1,10 @@
 package com.af.dentalla.data.repository
 
 import android.util.Log
-import com.af.dentalla.data.DataClassParser
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.requests.LoginDoctor
-import com.af.dentalla.data.remote.requests.SignUpDoctor
+import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.DoctorRepository
 import com.af.dentalla.utilities.AccountManager
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +16,7 @@ class DoctorRepositoryImpl @Inject constructor(
     private val baseRepositoryImpl: BaseRepositoryImpl,
 ) : DoctorRepository {
     private val accountType = AccountManager.accountType
-    override fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Boolean>> =
+    override fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Unit>> =
         flow {
             Log.d("LoginDoctor", "Start login Doctor $loginDoctor")
             emit(NetWorkResponseState.Loading)
@@ -27,7 +26,7 @@ class DoctorRepositoryImpl @Inject constructor(
                 if (validateLoginResponse.isSuccessful) {
                     baseRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
                     Log.d("LoginDoctor", "Login Successfully")
-                    emit(NetWorkResponseState.Success(true))
+                    emit(NetWorkResponseState.Success(Unit))
                 } else {
                     val errorMessage =
                         validateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
@@ -40,10 +39,7 @@ class DoctorRepositoryImpl @Inject constructor(
             }
         }
 
-
-    override fun signUpDoctor(
-        signUpDoctor: SignUpDoctor
-    ): Flow<NetWorkResponseState<Boolean>> = flow {
+    override fun signUpDoctor(signUpDoctor: SignUpUser): Flow<NetWorkResponseState<Unit>> = flow {
         Log.d("SignUpPatient", "Start signing up patient $signUpDoctor")
         emit(NetWorkResponseState.Loading)
         try {
@@ -51,7 +47,7 @@ class DoctorRepositoryImpl @Inject constructor(
                 service.signUpUser(accountType.toString().lowercase(), signUpDoctor)
             if (validateSignUpResponse.isSuccessful) {
                 Log.d("SignUpPatient", "Sign Up Successfully")
-                emit(NetWorkResponseState.Success(true))
+                emit(NetWorkResponseState.Success(Unit))
             } else {
                 val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
                 Log.d("SignUpPatient", "Sign Up failed :$errorMessage")
@@ -62,8 +58,30 @@ class DoctorRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
         }
     }
-
 }
+
+//    override fun signUpDoctor(
+//        signUpDoctor: SignUpDoctor
+//    ): Flow<NetWorkResponseState<Unit>> = flow {
+//        Log.d("SignUpPatient", "Start signing up patient $signUpDoctor")
+//        emit(NetWorkResponseState.Loading)
+//        try {
+//            val validateSignUpResponse =
+//                service.signUpUser(accountType.toString().lowercase(), signUpDoctor)
+//            if (validateSignUpResponse.isSuccessful) {
+//                Log.d("SignUpPatient", "Sign Up Successfully")
+//                emit(NetWorkResponseState.Success(Unit))
+//            } else {
+//                val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
+//                Log.d("SignUpPatient", "Sign Up failed :$errorMessage")
+//                emit(NetWorkResponseState.Error(Exception("Http error ${validateSignUpResponse.code()}:$errorMessage")))
+//            }
+//        } catch (e: Exception) {
+//            Log.d("SignUpPatient", "Exception during sign up  ${e.message}")
+//            emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
+//        }
+//    }
+
 
 //    override fun loginDoctor(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> =
 //        remoteDataSource.loginDoctor(loginUser).map {

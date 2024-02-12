@@ -14,15 +14,8 @@ import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCas
 import com.af.dentalla.domain.usecase.authentication.login.LoginDoctorUseCase
 import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldDoctorUseCase
 import com.af.dentalla.domain.usecase.authentication.login.ValidatePasswordFieldUseCase
-import com.af.dentalla.ui.Event
-import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,12 +29,8 @@ class LoginViewModel @Inject constructor(
     private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
     private val validateFieldDoctorUseCase: ValidateFieldDoctorUseCase
 ) : ViewModel() {
-    private val accountType = AccountManager.accountType
-
-    //I'm not sure about using Boolean
-    private val _loginState = MutableLiveData<ScreenState<Boolean>>()
-    val loginState: LiveData<ScreenState<Boolean>> get() = _loginState
-
+    private val _loginState = MutableLiveData<ScreenState<Unit>>()
+    val loginState: LiveData<ScreenState<Unit>> get() = _loginState
 
     fun loginPatientLogic(loginPatient: LoginPatient) {
         viewModelScope.launch {
@@ -50,9 +39,7 @@ class LoginViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _loginState.postValue(
-                        ScreenState.Success(
-                            true
-                        )
+                        ScreenState.Success(Unit)
                     )
                 }
             }
@@ -65,15 +52,12 @@ class LoginViewModel @Inject constructor(
                 when (it) {
                     is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
-                    is NetWorkResponseState.Success -> _loginState.postValue(
-                        ScreenState.Success(
-                            true
-                        )
-                    )
+                    is NetWorkResponseState.Success -> _loginState.postValue(ScreenState.Success(Unit))
                 }
             }
         }
     }
+
 
 }
 
