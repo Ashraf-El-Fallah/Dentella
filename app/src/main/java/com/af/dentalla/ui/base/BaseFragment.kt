@@ -3,7 +3,9 @@ package com.af.dentalla.ui.base
 import androidx.fragment.app.Fragment
 import com.af.dentalla.utilities.ValidationUtils
 import com.af.dentalla.utilities.showToastShort
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 abstract class BaseFragment : Fragment() {
 
     protected open fun isUserNameValid(userName: String) {

@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import com.af.dentalla.R
-import com.af.dentalla.databinding.FragmentArticleBinding
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.visible
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PatientArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: PatientArticlesViewModel by viewModels()

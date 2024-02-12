@@ -8,10 +8,6 @@ import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.domain.entity.AllCardsEntity
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.mapper.ListMapper
-import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCase
-import com.af.dentalla.domain.usecase.doctor.login.LoginDoctorUseCaseImpl
-import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCase
-import com.af.dentalla.domain.usecase.doctor.signup.SignUpDoctorUseCaseImpl
 import com.af.dentalla.domain.usecase.authentication.signup.SignUpPatientUseCase
 import dagger.Binds
 import dagger.Module
@@ -29,24 +25,24 @@ abstract class UseCaseModule {
 //        loginUseCaseImpl: LoginPatientUseCaseImpl
 //    ): LoginPatientUseCase
 
-    @Binds
-    @ViewModelScoped
-    abstract fun bindLoginInDoctorUseCase(
-        loginUseCaseImpl: LoginDoctorUseCaseImpl
-    ): LoginDoctorUseCase
+//    @Binds
+//    @ViewModelScoped
+//    abstract fun bindLoginInDoctorUseCase(
+//        loginUseCaseImpl: LoginDoctorUseCaseImpl
+//    ): LoginDoctorUseCase
 
 
-    @Binds
-    @ViewModelScoped
-    abstract fun bindSignUpPatientUseCase(
-        signUpUseCaseImpl: SignUpPatientUseCase
-    ): SignUpPatientUseCase
+//    @Binds
+//    @ViewModelScoped
+//    abstract fun bindSignUpPatientUseCase(
+//        signUpUseCaseImpl: SignUpPatientUseCase
+//    ): SignUpPatientUseCase
 
-    @Binds
-    @ViewModelScoped
-    abstract fun bindSignUpDoctorUseCase(
-        signUpUseCaseImpl: SignUpDoctorUseCaseImpl
-    ): SignUpDoctorUseCase
+//    @Binds
+//    @ViewModelScoped
+//    abstract fun bindSignUpDoctorUseCase(
+//        signUpUseCaseImpl: SignUpDoctorUseCaseImpl
+//    ): SignUpDoctorUseCase
 
     @Binds
     @ViewModelScoped
