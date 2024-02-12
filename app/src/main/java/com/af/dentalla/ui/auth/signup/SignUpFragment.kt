@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.af.dentalla.data.remote.requests.LoginDoctor
+import androidx.navigation.fragment.findNavController
 import com.af.dentalla.data.remote.requests.SignUpDoctor
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -15,6 +15,7 @@ import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.ValidationUtils
 import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.safeNavigate
 import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -115,6 +116,7 @@ class SignUpFragment : BaseFragment() {
                 is ScreenState.Success -> {
                     binding.progress.gone()
                     binding.buttonSignUp.isEnabled = true
+                    findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
                 }
 
                 is ScreenState.Error -> {
