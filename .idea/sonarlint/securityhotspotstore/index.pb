@@ -29,10 +29,6 @@ n
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-‚
-Rapp/src/main/java/com/af/dentalla/ui/auth/signup/patient/PatientSignUpViewModel.kt,f\6\f64167bdc6227739768e05f53f125b4491552e03
-
-Qapp/src/main/java/com/af/dentalla/ui/auth/signup/patient/PatientSignUpFragment.kt,5\c\5cd1791d46c361fa793fe3470045a0513b4e089a
 h
 8app/src/main/java/com/af/dentalla/ui/BranchesFragment.kt,9\9\99698216e673f532838afd620ccbad8f9b8843c1
 n
@@ -53,8 +49,6 @@ g
 7app/src/main/java/com/af/dentalla/ui/ArticleFragment.kt,1\f\1f2948e099ed1a74b649977eadb65a78d815da6d
 f
 6app/src/main/java/com/af/dentalla/ui/SplashFragment.kt,3\f\3f42e1271ab04a5f1b16896c8a117384718d06b1
-g
-7app/src/main/java/com/af/dentalla/ui/auth/Validation.kt,8\c\8c8ad280e1dbf4d0eb9b93257b4fa3351b3ac775
 m
 =app/src/main/java/com/af/dentalla/di/network/NetworkModule.kt,a\e\aec987e0560c8c6e2028b6962f6898ace5f1183a
 s
@@ -83,8 +77,6 @@ Gapp/src/main/java/com/af/dentalla/domain/repository/DoctorRepository.kt,5\5\55
 Lapp/src/main/java/com/af/dentalla/data/source/remote/RemoteDataSourceImpl.kt,e\3\e3311f5cd5479b3b173cb97dc3a3dadb7d2f34d3
 u
 Eapp/src/main/java/com/af/dentalla/di/source/RemoteDataSourceModule.kt,1\b\1bf21af5c6f14f16e52aac2a1889c3c68c89eb50
-i
-9app/src/main/java/com/af/dentalla/ui/auth/SignUpResult.kt,8\b\8b3c807faee70346504120aa9089e81940306b04
 k
 ;app/src/main/java/com/af/dentalla/di/mapper/MapperModule.kt,4\7\470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8
 r
@@ -93,8 +85,6 @@ w
 Gapp/src/main/java/com/af/dentalla/data/remote/dto/LoginErrorResponse.kt,4\5\4577f52a5192f66761e33cb8b455beb0101a4693
 x
 Happ/src/main/java/com/af/dentalla/data/remote/dto/SignUpErrorResponse.kt,5\9\59dd7390297c6ffeff521f0f53cef6f98df34e6a
-{
-Kapp/src/main/java/com/af/dentalla/data/remote/requests/SignUpBaseRequest.kt,1\9\1904b3f56867a1253e3622b07ba756ba92df1163
 w
 Gapp/src/main/java/com/af/dentalla/data/remote/requests/SignUpPatient.kt,8\0\80fb185267855f4f1911d5b9d3fea5a4391e89f7
 v
@@ -157,8 +147,6 @@ _app/src/main/java/com/af/dentalla/domain/usecase/authentication/ValidateUserNam
 eapp/src/main/java/com/af/dentalla/domain/usecase/authentication/login/ValidatePasswordFieldUseCase.kt,a\d\ad26f785faf3f6bc14960e7f5c423804477f5c94
 m
 =app/src/main/java/com/af/dentalla/domain/mapper/BaseMapper.kt,e\6\e645fe928a48aafed1c21ce274054dc6e25e975c
-j
-:app/src/main/java/com/af/dentalla/data/remote/dto/Cards.kt,2\d\2d99d7ed71d31fa6066b0160fe739ea933506b5b
 m
 =app/src/main/java/com/af/dentalla/domain/mapper/ListMapper.kt,f\9\f974561e48bf21c86f951a133a29821fba0317b7
 u
@@ -173,8 +161,6 @@ Y
 )app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 
 Oapp/src/main/java/com/af/dentalla/ui/patient/articles/PatientArticlesAdapter.kt,8\b\8b9bd5733b3a735d013aa031837b86b002cc73f1
-s
-Capp/src/main/java/com/af/dentalla/data/remote/dto/ArticleDtoList.kt,9\b\9bfb28dc7e8f11c2c6ccbb90b0d9238c6bd71c4f
 o
 ?app/src/main/java/com/af/dentalla/data/remote/dto/ArticleDto.kt,d\a\dac3e7e2e5ccc86da23e5cf9dd86936880173bd1
 
@@ -221,3 +207,17 @@ capp/src/main/java/com/af/dentalla/domain/usecase/authentication/login/ValidateF
 [app/src/main/java/com/af/dentalla/domain/usecase/authentication/login/LoginDoctorUseCase.kt,6\2\6253ae2f037427e6eb5c44e7a64b180df5c8d2f7
 
 ]app/src/main/java/com/af/dentalla/domain/usecase/authentication/signup/SignUpDoctorUseCase.kt,2\3\233dd07fac14a63d9ff154d74b9a817f7e5d98eb
+u
+Eapp/src/main/java/com/af/dentalla/data/remote/requests/LoginDoctor.kt,2\8\283f7537b6d8e7b8ed7fdf11949b31cd2e41c831
+t
+Dapp/src/main/java/com/af/dentalla/data/remote/requests/SignUpUser.kt,0\2\0223ec16a13c418dd3aa87ed675faaa912161036
+…
+Uapp/src/main/java/com/af/dentalla/domain/usecase/authentication/login/LoginUseCase.kt,a\9\a9e00e80f0b026f7915779a6f8c17da74212f3e3
+v
+Fapp/src/main/java/com/af/dentalla/data/remote/requests/LoginPatient.kt,8\0\80bb2e85bd44f4b57ef6797a11af6c1d2fecdc4c
+i
+9app/src/main/java/com/af/dentalla/utilities/Validation.kt,0\c\0c8ad05699f944c8ae48b0b79c89c2c04e96eb64
+n
+>app/src/main/java/com/af/dentalla/utilities/ValidationUtils.kt,9\f\9f80b9bdf3551728012e6e77003aaee38d40d137
+v
+Fapp/src/main/java/com/af/dentalla/utilities/SafeNavigationExtension.kt,5\e\5e28cd72a5377c49cf1ce53401d8fa3b73cae94c

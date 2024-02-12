@@ -106,6 +106,7 @@
             android:name="doctorId"
             app:argType="integer" />
     </fragment>
+    
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.af.dentalla.ui.auth.signup.SignUpFragment"

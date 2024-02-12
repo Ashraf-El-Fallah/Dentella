@@ -38,7 +38,13 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpLoginButton()
+        selectTheUserType()
+        binding.buttonSignIn.setOnClickListener { loginObserver() }
+        binding.textViewSignUp.setOnClickListener {
+            findNavController().safeNavigate(
+                LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment()
+            )
+        }
     }
 
 //    override fun isUserNameValid(userName: String) {
@@ -62,9 +68,9 @@ class LoginFragment : BaseFragment() {
 //        }
 //    }
 
-    private fun setUpLoginButton() {
-        binding.buttonSignIn.setOnClickListener { selectTheUserType() }
-    }
+//    private fun setUpLoginButton() {
+//        binding.buttonSignIn.setOnClickListener { selectTheUserType() }
+//    }
 
     private fun loginObserver() {
         viewModel.loginState.observe(viewLifecycleOwner) { loginState ->
@@ -99,9 +105,8 @@ class LoginFragment : BaseFragment() {
             isPasswordValid(password)
             val patient = LoginPatient(userName, password)
             viewModel.loginPatientLogic(patient)
-            loginObserver()
-        }
-        if (accountType == AccountManager.AccountType.DOCTOR) {
+//            loginObserver()
+        } else if (accountType == AccountManager.AccountType.DOCTOR) {
             binding.editTextUserName.gone()
             binding.editTextEmail.visible()
             email = binding.editTextEmail.toString()
@@ -109,7 +114,7 @@ class LoginFragment : BaseFragment() {
             isPasswordValid(password)
             val doctor = LoginDoctor(userName, password)
             viewModel.loginDoctorLogic(doctor)
-            loginObserver()
+//            loginObserver()
         }
     }
 }

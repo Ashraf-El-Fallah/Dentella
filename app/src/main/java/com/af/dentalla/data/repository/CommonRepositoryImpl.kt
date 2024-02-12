@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import kotlin.Exception
 
-class BaseRepositoryImpl @Inject constructor(
+class CommonRepositoryImpl @Inject constructor(
     private val service: ApiService,
     private val dataStorePreferencesService: DataStorePreferencesService
 ) : BaseRepository {

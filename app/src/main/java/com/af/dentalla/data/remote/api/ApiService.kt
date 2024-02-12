@@ -8,8 +8,6 @@ import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpUser
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.FieldMap
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -20,7 +18,6 @@ interface ApiService {
 //    suspend fun signUpPatient(@Body signUpPatient: SignUpPatient): SignUpResponse//Response<SignUpResponse>
 
 
-    @FormUrlEncoded
     @POST("/api/Account/{user_type}/register")
     suspend fun signUpUser(
         @Path("user_type") userType: String,

@@ -1,13 +1,10 @@
 package com.af.dentalla.data.repository
 
 import android.util.Log
-import com.af.dentalla.data.DataClassParser
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.CardsItemDto
 import com.af.dentalla.data.remote.requests.LoginPatient
-import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.PatientRepository
 import com.af.dentalla.utilities.AccountManager
@@ -17,7 +14,7 @@ import javax.inject.Inject
 
 class PatientRepositoryImpl @Inject constructor(
     private val service: ApiService,
-    private val baseRepositoryImpl: BaseRepositoryImpl
+    private val commonRepositoryImpl: CommonRepositoryImpl
 ) : PatientRepository {
     private val accountType = AccountManager.accountType
 
@@ -29,7 +26,7 @@ class PatientRepositoryImpl @Inject constructor(
                 val validateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginPatient)
                 if (validateLoginResponse.isSuccessful) {
-                    baseRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
+                    commonRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
                     Log.d("LoginPatient", "Login Successfully")
                     emit(NetWorkResponseState.Success(Unit))
                 } else {

@@ -1,6 +1,6 @@
 package com.af.dentalla.di.repository
 
-import com.af.dentalla.data.repository.BaseRepositoryImpl
+import com.af.dentalla.data.repository.CommonRepositoryImpl
 import com.af.dentalla.domain.repository.BaseRepository
 import dagger.Binds
 import dagger.Module
@@ -15,6 +15,6 @@ abstract class BaseRepositoryModule {
     @Binds
     @ViewModelScoped
     abstract fun bindBaseRepository(
-        baseRepositoryImpl: BaseRepositoryImpl
+        commonRepositoryImpl: CommonRepositoryImpl
     ):BaseRepository
 }

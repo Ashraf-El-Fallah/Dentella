@@ -41,6 +41,8 @@ class LoginViewModel @Inject constructor(
                     is NetWorkResponseState.Success -> _loginState.postValue(
                         ScreenState.Success(Unit)
                     )
+
+                    else -> {}
                 }
             }
         }
@@ -53,6 +55,7 @@ class LoginViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _loginState.postValue(ScreenState.Success(Unit))
+                    else -> {}
                 }
             }
         }

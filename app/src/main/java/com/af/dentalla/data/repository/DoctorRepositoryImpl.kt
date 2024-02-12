@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class DoctorRepositoryImpl @Inject constructor(
     private val service: ApiService,
-    private val baseRepositoryImpl: BaseRepositoryImpl,
+    private val commonRepositoryImpl: CommonRepositoryImpl,
 ) : DoctorRepository {
     private val accountType = AccountManager.accountType
     override fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Unit>> =
@@ -24,7 +24,7 @@ class DoctorRepositoryImpl @Inject constructor(
                 val validateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginDoctor)
                 if (validateLoginResponse.isSuccessful) {
-                    baseRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
+                    commonRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
                     Log.d("LoginDoctor", "Login Successfully")
                     emit(NetWorkResponseState.Success(Unit))
                 } else {
