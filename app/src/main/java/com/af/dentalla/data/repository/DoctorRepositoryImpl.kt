@@ -1,86 +1,68 @@
 package com.af.dentalla.data.repository
 
+import android.util.Log
 import com.af.dentalla.data.DataClassParser
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.api.ApiService
-import com.af.dentalla.data.remote.dto.ArticleDto
-import com.af.dentalla.data.remote.dto.LoginErrorResponse
-import com.af.dentalla.data.remote.dto.LoginResponse
-import com.af.dentalla.data.remote.dto.SignUpErrorResponse
-import com.af.dentalla.data.remote.requests.LoginUser
+import com.af.dentalla.data.remote.requests.LoginDoctor
 import com.af.dentalla.data.remote.requests.SignUpDoctor
-import com.af.dentalla.domain.entity.LoginEntity
-import com.af.dentalla.domain.entity.SignUpEntity
-import com.af.dentalla.domain.repository.BaseRepository
 import com.af.dentalla.domain.repository.DoctorRepository
 import com.af.dentalla.utilities.AccountManager
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class DoctorRepositoryImpl @Inject constructor(
     private val service: ApiService,
     private val baseRepositoryImpl: BaseRepositoryImpl,
-    private val dataClassParser: DataClassParser
 ) : DoctorRepository {
     private val accountType = AccountManager.accountType
-    override suspend fun loginDoctor(email: String, password: String): Boolean {
-        try {
-            val body = mapOf<String, Any>(
-                "email" to email,
-                "passWord" to password
-            ).toMap()
-
-            val validateLoginResponse = service.loginUser(accountType.toString().lowercase(), body)
-            if (validateLoginResponse.isSuccessful) {
-                validateLoginResponse.body()?.apply {
-                    baseRepositoryImpl.saveToken(token, tokenExpiration)
-                    return true
+    override fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Boolean>> =
+        flow {
+            Log.d("LoginDoctor", "Start login Doctor $loginDoctor")
+            emit(NetWorkResponseState.Loading)
+            try {
+                val validateLoginResponse =
+                    service.loginUser(accountType.toString().lowercase(), loginDoctor)
+                if (validateLoginResponse.isSuccessful) {
+                    baseRepositoryImpl.saveToken(validateLoginResponse.body()?.token)
+                    Log.d("LoginDoctor", "Login Successfully")
+                    emit(NetWorkResponseState.Success(true))
+                } else {
+                    val errorMessage =
+                        validateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
+                    Log.d("LoginDoctor", "Login failed :$errorMessage")
+                    emit(NetWorkResponseState.Error(Exception("Http error ${validateLoginResponse.code()}:$errorMessage")))
                 }
-            } else {
-                val errorResponse = dataClassParser.parseFromJson(
-                    validateLoginResponse.errorBody()?.toString(), LoginErrorResponse::class.java
-                )
-                throw Throwable("This use is ${errorResponse.error}")
+            } catch (e: Exception) {
+                Log.d("LoginDoctor", "Exception during login  ${e.message}", e)
+                emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
             }
-        } catch (e: Exception) {
-            throw Throwable(e)
         }
-        return false
-    }
 
-    override suspend fun signUpDoctor(
-        userName: String,
-        email: String,
-        phone: String,
-        password: String,
-        id: String
-    ): Boolean {
+
+    override fun signUpDoctor(
+        signUpDoctor: SignUpDoctor
+    ): Flow<NetWorkResponseState<Boolean>> = flow {
+        Log.d("SignUpPatient", "Start signing up patient $signUpDoctor")
+        emit(NetWorkResponseState.Loading)
         try {
-            val body = mapOf<String, Any>(
-                "email" to email,
-                "username" to userName,
-                "password" to password,
-                "phone_number" to phone,
-                "dentistID" to id
-            ).toMap()
             val validateSignUpResponse =
-                service.signUpUser(accountType.toString().lowercase(), body)
+                service.signUpUser(accountType.toString().lowercase(), signUpDoctor)
             if (validateSignUpResponse.isSuccessful) {
-                validateSignUpResponse.body()?.apply {
-                    NetWorkResponseState.Success(Unit)
-                }
-                return true
+                Log.d("SignUpPatient", "Sign Up Successfully")
+                emit(NetWorkResponseState.Success(true))
             } else {
-                val errorResponse = dataClassParser.parseFromJson(
-                    validateSignUpResponse.errorBody()?.toString(), SignUpErrorResponse::class.java
-                )
-                throw Throwable(errorResponse.message)
+                val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
+                Log.d("SignUpPatient", "Sign Up failed :$errorMessage")
+                emit(NetWorkResponseState.Error(Exception("Http error ${validateSignUpResponse.code()}:$errorMessage")))
             }
         } catch (e: Exception) {
-            throw Throwable(e)
+            Log.d("SignUpPatient", "Exception during sign up  ${e.message}")
+            emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
         }
-        return false
     }
+
 }
 
 //    override fun loginDoctor(loginUser: LoginUser): Flow<NetWorkResponseState<LoginEntity>> =

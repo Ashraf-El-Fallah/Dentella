@@ -1,7 +1,12 @@
 package com.af.dentalla.ui.auth.login
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.LoginDoctor
+import com.af.dentalla.data.remote.requests.LoginPatient
 import com.af.dentalla.domain.usecase.authentication.ValidateEmailFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.login.LoginPatientUseCase
 import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldPatientUseCase
@@ -11,9 +16,12 @@ import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldDoctorUs
 import com.af.dentalla.domain.usecase.authentication.login.ValidatePasswordFieldUseCase
 import com.af.dentalla.ui.Event
 import com.af.dentalla.utilities.AccountManager
+import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,149 +38,192 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
     private val accountType = AccountManager.accountType
 
-    private val _loginUIState = MutableStateFlow(LoginUiState())
-    val loginUiState = _loginUIState.asStateFlow()
+    //I'm not sure about using Boolean
+    private val _loginState = MutableLiveData<ScreenState<Boolean>>()
+    val loginState: LiveData<ScreenState<Boolean>> get() = _loginState
 
-    private val _loginEvent = MutableStateFlow<Event<LoginUIEvent?>>(Event(null))
-    val loginEvent = _loginEvent.asStateFlow()
 
-    fun onClickSignUp() {
-        _loginEvent.update { Event(LoginUIEvent.SignUpEvent(accountType)) }
-    }
-
-    fun onClickLoginForPatient() {
-        loginForPatient()
-    }
-
-    //doctor
-    fun onClickLoginForDoctor() {
-        loginForDoctor()
-    }
-
-    fun onEmailInputChanged(email: CharSequence) {
-        val emailFieldState = validateEmailFieldUseCase(email.toString())
-        _loginUIState.update {
-            it.copy(
-                email = email.toString(),
-                emailHelperText = emailFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldDoctorUseCase(
-                    loginUiState.value.email,
-                    loginUiState.value.password
-                )
-            )
-        }
-    }
-
-    fun onPasswordInputChangedForDoctor(password: CharSequence) {
-        val passwordFieldState =
-            validatePasswordFieldUseCase(password.toString())
-        _loginUIState.update {
-            it.copy(
-                password = password.toString(),
-                passwordHelperText = passwordFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldDoctorUseCase(
-                    loginUiState.value.email,
-                    loginUiState.value.password
-                )
-            )
-        }
-    }
-
-    private fun loginForDoctor() {
+    fun loginPatientLogic(loginPatient: LoginPatient) {
         viewModelScope.launch {
-            try {
-                _loginUIState.update { it.copy(isLoading = true) }
-                val loginState =
-                    loginPatientUseCase(
-                        loginUiState.value.userName,
-                        loginUiState.value.password
+            loginPatientUseCase(loginPatient).collect {
+                when (it) {
+                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Success -> _loginState.postValue(
+                        ScreenState.Success(
+                            true
+                        )
                     )
-                if (loginState) {
-                    onLoginSuccessfully()
-                    resetFormDoctor()
                 }
-            } catch (e: Throwable) {
-                onLoginError(e.message.toString())
             }
         }
     }
 
-    private fun resetFormDoctor() {
-        _loginUIState.update { it.copy(email = "", password = "") }
-    }
-
-
-    //patient//
-
-    fun onUserNameInputChanged(userName: CharSequence) {
-        val userNameFieldState = validateUserNameFieldUseCase(userName.toString())
-        _loginUIState.update {
-            it.copy(
-                userName = userName.toString(),
-                userNameHelperText = userNameFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldPatientUseCase(
-                    loginUiState.value.userName,
-                    loginUiState.value.password
-                )
-            )
-        }
-    }
-
-    fun onPasswordInputChangedForPatient(password: CharSequence) {
-        val passwordFieldState =
-            validatePasswordFieldUseCase(password.toString())
-        _loginUIState.update {
-            it.copy(
-                password = password.toString(),
-                passwordHelperText = passwordFieldState.errorMessage() ?: "",
-                isValidForm = validateFieldPatientUseCase(
-                    loginUiState.value.userName,
-                    loginUiState.value.password
-                )
-            )
-        }
-    }
-
-    private fun loginForPatient() {
+    fun loginDoctorLogic(loginDoctor: LoginDoctor) {
         viewModelScope.launch {
-            try {
-                _loginUIState.update { it.copy(isLoading = true) }
-                val loginState =
-                    loginDoctorUseCase(
-                        loginUiState.value.email,
-                        loginUiState.value.password
+            loginDoctorUseCase(loginDoctor).collect {
+                when (it) {
+                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Success -> _loginState.postValue(
+                        ScreenState.Success(
+                            true
+                        )
                     )
-                if (loginState) {
-                    onLoginSuccessfully()
-                    resetFormPatient()
                 }
-            } catch (e: Throwable) {
-                onLoginError(e.message.toString())
             }
         }
     }
 
-    private fun resetFormPatient() {
-        _loginUIState.update { it.copy(userName = "", password = "") }
-    }
-
-
-    private fun onLoginError(message: String) {
-        _loginUIState.update {
-            it.copy(
-                isLoading = false,
-                error = message,
-                passwordHelperText = message
-            )
-        }
-    }
-
-    private fun onLoginSuccessfully() {
-        _loginUIState.update { it.copy(isLoading = false) }
-        _loginEvent.update { Event(LoginUIEvent.LoginEvent(accountType)) }
-//        resetFormPatient()
-    }
 }
+
+///////ui state////////////////////////////////////////////////////////////////////////
+
+//private val _loginUIState = MutableStateFlow(LoginUiState())
+//    val loginUiState = _loginUIState.asStateFlow()
+//
+//    private val _loginEvent = MutableStateFlow<Event<LoginUIEvent?>>(Event(null))
+//    val loginEvent = _loginEvent.asStateFlow()
+//
+//    fun onClickSignUp() {
+//        _loginEvent.update { Event(LoginUIEvent.SignUpEvent(accountType)) }
+//    }
+//
+//    fun onClickLoginForPatient() {
+//        loginForPatient()
+//    }
+//
+//    //doctor
+//    fun onClickLoginForDoctor() {
+//        loginForDoctor()
+//    }
+//
+//    fun onEmailInputChanged(email: CharSequence) {
+//        val emailFieldState = validateEmailFieldUseCase(email.toString())
+//        _loginUIState.update {
+//            it.copy(
+//                email = email.toString(),
+//                emailHelperText = emailFieldState.errorMessage() ?: "",
+//                isValidForm = validateFieldDoctorUseCase(
+//                    loginUiState.value.email,
+//                    loginUiState.value.password
+//                )
+//            )
+//        }
+//    }
+//
+//    fun onPasswordInputChangedForDoctor(password: CharSequence) {
+//        val passwordFieldState =
+//            validatePasswordFieldUseCase(password.toString())
+//        _loginUIState.update {
+//            it.copy(
+//                password = password.toString(),
+//                passwordHelperText = passwordFieldState.errorMessage() ?: "",
+//                isValidForm = validateFieldDoctorUseCase(
+//                    loginUiState.value.email,
+//                    loginUiState.value.password
+//                )
+//            )
+//        }
+//    }
+//
+//    private fun loginForDoctor() {
+//        viewModelScope.launch {
+//            try {
+//                _loginUIState.update { it.copy(isLoading = true) }
+//                val loginState =
+//                    loginPatientUseCase(
+//                        loginUiState.value.userName,
+//                        loginUiState.value.password
+//                    )
+//                if (loginState) {
+//                    onLoginSuccessfully()
+//                    resetFormDoctor()
+//                }
+//            } catch (e: Throwable) {
+//                onLoginError(e.message.toString())
+//            }
+//        }
+//    }
+//
+//    private fun resetFormDoctor() {
+//        _loginUIState.update { it.copy(email = "", password = "") }
+//    }
+//
+//
+//    //patient//
+//
+//    fun onUserNameInputChanged(userName: CharSequence) {
+//        val userNameFieldState = validateUserNameFieldUseCase(userName.toString())
+//        _loginUIState.update {
+//            it.copy(
+//                userName = userName.toString(),
+//                userNameHelperText = userNameFieldState.errorMessage() ?: "",
+//                isValidForm = validateFieldPatientUseCase(
+//                    loginUiState.value.userName,
+//                    loginUiState.value.password
+//                )
+//            )
+//        }
+//    }
+//
+//    fun onPasswordInputChangedForPatient(password: CharSequence) {
+//        val passwordFieldState =
+//            validatePasswordFieldUseCase(password.toString())
+//        _loginUIState.update {
+//            it.copy(
+//                password = password.toString(),
+//                passwordHelperText = passwordFieldState.errorMessage() ?: "",
+//                isValidForm = validateFieldPatientUseCase(
+//                    loginUiState.value.userName,
+//                    loginUiState.value.password
+//                )
+//            )
+//        }
+//    }
+//
+//    private fun loginForPatient() {
+//        viewModelScope.launch {
+//            try {
+//                _loginUIState.update { it.copy(isLoading = true) }
+//                val loginState =
+//                    loginDoctorUseCase(
+//                        loginUiState.value.email,
+//                        loginUiState.value.password
+//                    )
+//                if (loginState) {
+//                    onLoginSuccessfully()
+//                    resetFormPatient()
+//                }
+//            } catch (e: Throwable) {
+//                onLoginError(e.message.toString())
+//            }
+//        }
+//    }
+//
+//    private fun resetFormPatient() {
+//        _loginUIState.update { it.copy(userName = "", password = "") }
+//    }
+//
+//
+//    private fun onLoginError(message: String) {
+//        _loginUIState.update {
+//            it.copy(
+//                isLoading = false,
+//                error = message,
+//                passwordHelperText = message
+//            )
+//        }
+//    }
+//
+//    private fun onLoginSuccessfully() {
+//        _loginUIState.update { it.copy(isLoading = false) }
+//        _loginEvent.update { Event(LoginUIEvent.LoginEvent(accountType)) }
+////        resetFormPatient()
+//    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 //    fun login(loginUser: LoginUser) {
 //        viewModelScope.launch(Dispatchers.IO) {

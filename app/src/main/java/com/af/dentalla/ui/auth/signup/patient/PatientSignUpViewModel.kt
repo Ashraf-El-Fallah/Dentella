@@ -5,54 +5,70 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.LoginPatient
+import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.domain.usecase.authentication.ValidateEmailFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.ValidatePhoneNumberFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.signup.SignUpPatientUseCase
 import com.af.dentalla.domain.usecase.authentication.signup.ValidatePasswordAndConfirmation
 import com.af.dentalla.ui.auth.signup.SignUpState
-import com.af.dentalla.utilities.FormFieldState
+import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PatientSignUpViewModel @Inject constructor(
-    private val signUpUseCase: SignUpPatientUseCase,
+    private val signUpPatientUseCase: SignUpPatientUseCase,
     private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
     private val validatePhoneNumberFieldUseCase: ValidatePhoneNumberFieldUseCase,
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
-    private val validatePasswordAndConfirmation: ValidatePasswordAndConfirmation
+    private val validatePasswordAndConfirmation: ValidatePasswordAndConfirmation,
 ) : ViewModel() {
-    private val _signUpState = MutableLiveData<NetWorkResponseState<SignUpState>>()
-    val signUpPatientState: LiveData<NetWorkResponseState<SignUpState>> get() = _signUpState
+    private val _signUpState = MutableLiveData<ScreenState<SignUpState>>()
+    val signUpPatientState: LiveData<ScreenState<SignUpState>> get() = _signUpState
 
-    fun signUp(
-        username: String,
-        email: String,
-        phone: String,
-        password: String,
-        confirmPassword: String,
-    ): Boolean {
-        var signUpState = false
+//    fun signUpForPatient(
+//        username: String,
+//        email: String,
+//        phone: String,
+//        password: String,
+//        confirmPassword: String,
+//    ): Boolean {
+//        var signUpState = false
+//        viewModelScope.launch {
+//            signUpState = signUpPatientUseCase(username, email, phone, password)
+//            isSignUpValidateForPatient(username, email, phone, password, confirmPassword)
+//        }
+//        return signUpState
+//    }
+
+
+    fun signUpForPatient(signUpPatient: SignUpPatient) {
         viewModelScope.launch {
-            signUpState = signUpUseCase(username, email, phone, password)
-            isSignUpValidate(username, email, phone, password, confirmPassword)
+            signUpPatientUseCase(signUpPatient).collect {
+                when (it) {
+                    is NetWorkResponseState.Error -> _signUpState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Loading -> _signUpState.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Success -> _signUpState.postValue(ScreenState.Success(it.result))
+                }
+            }
         }
-        return signUpState
     }
 
-    private fun isSignUpValidate(
+    private fun isSignUpValidateForPatient(
         username: String,
         email: String,
         phone: String,
         password: String,
         confirmPassword: String,
-    ) {
+    ): SignUpPatient {
         isUsernameValid(username)
         isEmailValid(email)
         isPhoneNumberValid(phone)
         isPasswordValid(password, confirmPassword)
+        return SignUpPatient(username, email, password, phone)
     }
 
     private fun isUsernameValid(userName: String) {

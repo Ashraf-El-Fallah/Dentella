@@ -10,10 +10,7 @@ import javax.inject.Inject
 class SignUpPatientUseCase @Inject constructor(
     private val repository: PatientRepository
 ) {
-    suspend operator fun invoke(
-        userName: String,
-        email: String,
-        phone: String,
-        password: String
-    ) = repository.signUpPatient(userName, email, phone, password)
+    operator fun invoke(
+        signUpPatient: SignUpPatient
+    ) = repository.signUpPatient(signUpPatient)
 }

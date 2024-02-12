@@ -51,7 +51,7 @@ class PatientSignUpFragment : Fragment() {
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
         isSignUpSuccessful =
-            viewModel.signUp(userName, email, phone, password, confirmPassword)
+            viewModel.signUpForPatient(userName, email, phone, password, confirmPassword)
 
 
         viewModel.signUpPatientState.observe(viewLifecycleOwner) { signUpState ->

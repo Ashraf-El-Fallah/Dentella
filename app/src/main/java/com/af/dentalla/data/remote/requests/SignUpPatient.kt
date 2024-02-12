@@ -7,4 +7,4 @@ data class SignUpPatient(
     val email: String,
     val password: String,
     val phone: String
-)
+) : SignUpUser

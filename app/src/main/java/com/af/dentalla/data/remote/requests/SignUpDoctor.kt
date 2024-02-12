@@ -1,6 +1,5 @@
 package com.af.dentalla.data.remote.requests
 
-import com.google.gson.annotations.SerializedName
 
 data class SignUpDoctor(
     val userName: String,
@@ -8,4 +7,4 @@ data class SignUpDoctor(
     val dentistID: String,
     val password: String,
     val phone: String
-)
+) : SignUpUser

@@ -33,7 +33,7 @@ class BaseRepositoryImpl @Inject constructor(
         }
     }
 
-    suspend fun saveToken(token: String?, expireDate: String) {
-        dataStorePreferencesService.saveTokenAndExpireDate(token, expireDate)
+    suspend fun saveToken(token: String?) {
+        dataStorePreferencesService.saveTokenAndExpireDate(token)
     }
 }

@@ -7,5 +7,6 @@ data class SignUpState(
     val emailState: FormFieldState = FormFieldState.Valid,
     val userNameState: FormFieldState = FormFieldState.Valid,
     val phoneNumberState: FormFieldState = FormFieldState.Valid,
-    val passwordState: FormFieldState = FormFieldState.Valid
+    val passwordState: FormFieldState = FormFieldState.Valid,
+    val idState: FormFieldState = FormFieldState.Valid
 )

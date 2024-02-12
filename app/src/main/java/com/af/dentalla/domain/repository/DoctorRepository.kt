@@ -1,18 +1,16 @@
 package com.af.dentalla.domain.repository
 
+import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.LoginDoctor
+import com.af.dentalla.data.remote.requests.LoginPatient
+import com.af.dentalla.data.remote.requests.SignUpDoctor
+import com.af.dentalla.data.remote.requests.SignUpPatient
+import kotlinx.coroutines.flow.Flow
+
 interface DoctorRepository {
 
-    suspend fun loginDoctor(
-        email: String,
-        password: String
-    ): Boolean
+    fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Boolean>>
+    fun signUpDoctor(signUpDoctor: SignUpDoctor): Flow<NetWorkResponseState<Boolean>>
 
-    suspend fun signUpDoctor(
-        userName: String,
-        email: String,
-        phone: String,
-        password: String,
-        id: String
-    ): Boolean
 
 }
