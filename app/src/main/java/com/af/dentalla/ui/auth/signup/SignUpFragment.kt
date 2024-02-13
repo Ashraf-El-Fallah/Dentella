@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.data.remote.requests.SignUpDoctor
 import com.af.dentalla.data.remote.requests.SignUpPatient
-import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.databinding.FragmentSignUpBinding
 import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utilities.AccountManager
@@ -38,11 +37,13 @@ class SignUpFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        signUpObserver()
+        selectTheUserType()
         setUpSignUpButton()
     }
 
     private fun setUpSignUpButton() {
-        binding.buttonSignUp.setOnClickListener { selectTheUserType() }
+        binding.buttonSignUp.setOnClickListener { validateUserDataValid() }
     }
 
     private fun isPhoneNumberValid(phoneNumber: String) {
@@ -62,24 +63,37 @@ class SignUpFragment : BaseFragment() {
         }
     }
 
-    private fun validateUserDataValid(): SignUpUser {
+    private fun validateUserDataValid() {
         val userName = binding.editTextUserName.text.toString()
         val email = binding.editTextEmail.text.toString()
         val phone = binding.editTextPhone.text.toString()
         val password = binding.editTextPassword.text.toString()
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
-        isUserNameValid(userName)
-        isEmailValid(email)
-        isPhoneNumberValid(phone)
-        isPasswordAndConformationPasswordValid(password, confirmPassword)
 
-        if (binding.editTextId.visibility == View.VISIBLE) {
-            val id = binding.editTextId.text.toString()
-            isIdValid(binding.editTextId.text.toString())
-            return SignUpDoctor(userName, email, password, phone, id)
+
+        binding.buttonSignUp.setOnClickListener {
+            if (accountType == AccountManager.AccountType.PATIENT) {
+                isUserNameValid(userName)
+                isEmailValid(email)
+                isPhoneNumberValid(phone)
+                isPasswordAndConformationPasswordValid(password, confirmPassword)
+                viewModel.signUpPatientLogic(SignUpPatient(userName, email, password, phone))
+            } else if (accountType == AccountManager.AccountType.DOCTOR) {
+                val id = binding.editTextId.text.toString()
+                isIdValid(binding.editTextId.text.toString())
+                viewModel.signUpDoctorLogic(SignUpDoctor(userName, email, password, phone, id))
+            }
         }
-        return SignUpPatient(userName, email, password, phone)
+//        binding.buttonSignUp.setOnClickListener {
+//            if (binding.editTextId.visibility == View.VISIBLE)
+//                if (accountType == AccountManager.AccountType.DOCTOR) {
+//                    val id = binding.editTextId.text.toString()
+//                    isIdValid(binding.editTextId.text.toString())
+//                    viewModel.signUpDoctorLogic(SignUpDoctor(userName, email, password, phone, id))
+//                }
+//        }
+
     }
 
     private fun isIdValid(id: String) {
@@ -91,16 +105,16 @@ class SignUpFragment : BaseFragment() {
 
     private fun selectTheUserType() {
         if (accountType == AccountManager.AccountType.PATIENT) {
-            binding.editTextId.gone()
-            val patientData = validateUserDataValid()
-            viewModel.signUpPatientLogic(patientData)
-            signUpObserver()
+            binding.textInputId.gone()
+//            val patientData = validateUserDataValid()
+//            viewModel.signUpPatientLogic(patientData)
+//            signUpObserver()
         }
         if (accountType == AccountManager.AccountType.DOCTOR) {
-            binding.editTextId.visible()
-            val doctorData = validateUserDataValid()
-            viewModel.signUpDoctorLogic(doctorData)
-            signUpObserver()
+            binding.textInputId.visible()
+//            val doctorData = validateUserDataValid()
+//            viewModel.signUpDoctorLogic(doctorData)
+//            signUpObserver()
         }
     }
 

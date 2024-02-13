@@ -38,39 +38,31 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loginObserver()
         selectTheUserType()
-        binding.buttonSignIn.setOnClickListener { loginObserver() }
+
+        binding.buttonSignIn.setOnClickListener {
+            password = binding.editTextPasswordLogin.text.toString()
+            if (accountType == AccountManager.AccountType.PATIENT) {
+                userName = binding.editTextUserName.toString()
+                isUserNameValid(userName)
+                isPasswordValid(password)
+                val patient = LoginPatient(userName, password)
+                viewModel.loginPatientLogic(patient)
+            } else if (accountType == AccountManager.AccountType.DOCTOR) {
+                email = binding.editTextEmail.toString()
+                isEmailValid(email)
+                isPasswordValid(password)
+                val doctor = LoginDoctor(userName, password)
+                viewModel.loginDoctorLogic(doctor)
+            }
+        }
         binding.textViewSignUp.setOnClickListener {
             findNavController().safeNavigate(
                 LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment()
             )
         }
     }
-
-//    override fun isUserNameValid(userName: String) {
-//        if (ValidationUtils.isUserNameNotValid(userName)) {
-//            requireView().showToastShort("This user name is not valid")
-//            return
-//        }
-//    }
-
-//    override fun isEmailValid(email: String) {
-//        if (ValidationUtils.isEmailNotValid(email)) {
-//            requireView().showToastShort("This email is not valid")
-//            return
-//        }
-//    }
-//
-//    override fun isPasswordValid(password: String) {
-//        if (ValidationUtils.isPasswordNotValid(password)) {
-//            requireView().showToastShort("This password is not valid")
-//            return
-//        }
-//    }
-
-//    private fun setUpLoginButton() {
-//        binding.buttonSignIn.setOnClickListener { selectTheUserType() }
-//    }
 
     private fun loginObserver() {
         viewModel.loginState.observe(viewLifecycleOwner) { loginState ->
@@ -96,25 +88,12 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun selectTheUserType() {
-        password = binding.editTextPasswordLogin.text.toString()
         if (accountType == AccountManager.AccountType.PATIENT) {
-            binding.editTextUserName.visible()
-            binding.editTextEmail.gone()
-            userName = binding.editTextUserName.toString()
-            isUserNameValid(userName)
-            isPasswordValid(password)
-            val patient = LoginPatient(userName, password)
-            viewModel.loginPatientLogic(patient)
-//            loginObserver()
+            binding.textInputUserName.visible()
+            binding.textInputEmail.gone()
         } else if (accountType == AccountManager.AccountType.DOCTOR) {
-            binding.editTextUserName.gone()
-            binding.editTextEmail.visible()
-            email = binding.editTextEmail.toString()
-            isEmailValid(email)
-            isPasswordValid(password)
-            val doctor = LoginDoctor(userName, password)
-            viewModel.loginDoctorLogic(doctor)
-//            loginObserver()
+            binding.textInputUserName.gone()
+            binding.textInputEmail.visible()
         }
     }
 }

@@ -170,8 +170,6 @@ Eapp/src/main/java/com/af/dentalla/data/mapper/ArticlesEntityMapper.kt,7\9\79a6
 u
 Eapp/src/main/java/com/af/dentalla/domain/repository/BaseRepository.kt,a\f\afd4b35ab21016292bd2b85cd185349a3961e055
 w
-Gapp/src/main/java/com/af/dentalla/data/repository/BaseRepositoryImpl.kt,3\d\3dd8f93af4cace7bc8cbfc8f79ed3fdc64942f1d
-w
 Gapp/src/main/java/com/af/dentalla/di/repository/BaseRepositoryModule.kt,1\7\178489070232ade29e73f2d4029630b1aa808474
 q
 Aapp/src/main/java/com/af/dentalla/data/remote/dto/CardsItemDto.kt,5\8\585f5062b0dfde0c26a74075e55e0f5e6adef300
@@ -221,3 +219,5 @@ i
 9app/src/main/java/com/af/dentalla/utilities/Validation.kt,0\c\0c8ad05699f944c8ae48b0b79c89c2c04e96eb64
 n
 >app/src/main/java/com/af/dentalla/utilities/ValidationUtils.kt,9\f\9f80b9bdf3551728012e6e77003aaee38d40d137
+y
+Iapp/src/main/java/com/af/dentalla/data/repository/CommonRepositoryImpl.kt,a\4\a4669893113375cb0105da74943bafab8933bced

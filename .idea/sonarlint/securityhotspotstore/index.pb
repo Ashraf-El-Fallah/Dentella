@@ -179,8 +179,6 @@ Oapp/src/main/java/com/af/dentalla/domain/usecase/articles/GetArticlesUseCase.kt
 Qapp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AllDoctorsCardsAdapter.kt,6\9\6928c44eac6d5249d0bc2f4b1251ca34e7c3a0c7
 m
 =app/src/main/java/com/af/dentalla/utilities/GlideExtension.kt,6\9\69906049395e311d6734a0bfc309aebc75349006
-w
-Gapp/src/main/java/com/af/dentalla/data/repository/BaseRepositoryImpl.kt,3\d\3dd8f93af4cace7bc8cbfc8f79ed3fdc64942f1d
 u
 Eapp/src/main/java/com/af/dentalla/domain/repository/BaseRepository.kt,a\f\afd4b35ab21016292bd2b85cd185349a3961e055
 w
@@ -221,3 +219,5 @@ n
 >app/src/main/java/com/af/dentalla/utilities/ValidationUtils.kt,9\f\9f80b9bdf3551728012e6e77003aaee38d40d137
 v
 Fapp/src/main/java/com/af/dentalla/utilities/SafeNavigationExtension.kt,5\e\5e28cd72a5377c49cf1ce53401d8fa3b73cae94c
+y
+Iapp/src/main/java/com/af/dentalla/data/repository/CommonRepositoryImpl.kt,a\4\a4669893113375cb0105da74943bafab8933bced
