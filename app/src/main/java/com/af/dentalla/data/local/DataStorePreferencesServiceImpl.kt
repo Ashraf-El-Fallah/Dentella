@@ -19,7 +19,7 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Context) :
 //
 //    }
 
-    override suspend fun saveTokenAndExpireDate(token: String?) {
+    override suspend fun saveToken(token: String?) {
         prefDataStore.edit { preferences ->
             preferences[stringPreferencesKey(TOKEN_KEY)] = token.toString()
 //            preferences[stringPreferencesKey(EXPIRY_KEY)] = expireDate

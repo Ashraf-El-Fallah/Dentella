@@ -1,12 +1,12 @@
 package com.af.dentalla.domain.usecase.authentication.login
 
 import com.af.dentalla.data.remote.requests.LoginPatient
-import com.af.dentalla.domain.repository.PatientRepository
+import com.af.dentalla.domain.repository.UserRepository
 import javax.inject.Inject
 
 class LoginPatientUseCase @Inject constructor(
-    private val repository: PatientRepository
+    private val repository: UserRepository
 ) {
     operator fun invoke(loginPatient: LoginPatient) =
-        repository.loginPatient(loginPatient)
+        repository.loginUser(loginPatient)
 }

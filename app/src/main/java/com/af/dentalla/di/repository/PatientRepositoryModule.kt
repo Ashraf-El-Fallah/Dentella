@@ -1,7 +1,7 @@
 package com.af.dentalla.di.repository
 
-import com.af.dentalla.data.repository.PatientRepositoryImpl
-import com.af.dentalla.domain.repository.PatientRepository
+import com.af.dentalla.data.repository.UserRepositoryImpl
+import com.af.dentalla.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +14,6 @@ abstract class PatientRepositoryModule {
     @Binds
     @ViewModelScoped
     abstract fun bindDoctorRepository(
-        patientRepository: PatientRepositoryImpl
-    ): PatientRepository
+        patientRepository: UserRepositoryImpl
+    ): UserRepository
 }

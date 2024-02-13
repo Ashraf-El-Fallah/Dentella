@@ -8,10 +8,10 @@ import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
 import kotlinx.coroutines.flow.Flow
 
-interface DoctorRepository {
-
-    fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Unit>>
-    fun signUpDoctor(signUpDoctor: SignUpUser): Flow<NetWorkResponseState<Unit>>
-
-
-}
+//interface DoctorRepository {
+//
+//    fun loginDoctor(loginDoctor: LoginDoctor): Flow<NetWorkResponseState<Unit>>
+//    fun signUpDoctor(signUpDoctor: SignUpUser): Flow<NetWorkResponseState<Unit>>
+//
+//
+//}

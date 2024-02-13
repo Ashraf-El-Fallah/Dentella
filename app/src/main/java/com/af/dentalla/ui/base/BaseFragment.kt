@@ -20,12 +20,12 @@ abstract class BaseFragment : Fragment() {
             requireView().showToastShort("This email is not valid")
             return
         }
+
     }
 
     protected open fun isPasswordValid(password: String) {
         if (ValidationUtils.isPasswordNotValid(password)) {
             requireView().showToastShort("This password is not valid")
-            return
         }
     }
 
