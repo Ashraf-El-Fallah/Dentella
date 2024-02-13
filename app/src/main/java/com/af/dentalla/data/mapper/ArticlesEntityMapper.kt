@@ -21,3 +21,14 @@ class ArticlesEntityMapper @Inject constructor() : ListMapper<ArticleDto, Articl
     }
 
 }
+
+fun ArticleDto.toDomainModel(): ArticlesEntity =
+    ArticlesEntity(
+        articleId = articleId,
+        content = content,
+        postingTime = createdAt,
+        doctorName = doctorName,
+        articleImage = imageUrl,
+        numberOfComments = numberOfComments,
+        title = title
+    )

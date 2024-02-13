@@ -571,3 +571,9 @@ w
 G.idea/sonarlint/issuestore/3/6/365899fc28f823039cb9033cd2bebdebbe14e133,f\7\f717cc2b332b25a2f2cddfdbcf9059ffd82c0e09
 Å
 Q.idea/sonarlint/securityhotspotstore/3/0/305beeaed045abed8e7012bf6c12ec7a8db646b2,9\8\98bff1b73522743d63ad1873afba1d49f2519c51
+w
+Gapp/src/main/java/com/af/dentalla/data/repository/UserRepositoryImpl.kt,4\b\4b80c35eac8c12e37557429e36cf9bba6a4c3e1d
+m
+=app/src/main/java/com/af/dentalla/data/repository/Resource.kt,a\8\a828c7ccbc3fec8d842341fd84c2c1865f2210bc
+u
+Eapp/src/main/java/com/af/dentalla/domain/repository/UserRepository.kt,3\2\32a50fc75f8f462f723d3494553c315cba805cf7

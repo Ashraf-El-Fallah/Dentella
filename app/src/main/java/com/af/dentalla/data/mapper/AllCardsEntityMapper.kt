@@ -19,3 +19,12 @@ class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsItemDto, AllC
     }
 
 }
+
+fun CardsItemDto.toDomainModel(): AllCardsEntity =
+    AllCardsEntity(
+        cardId = cardId,
+        currentUniversity = currentUniversity,
+        doctorName = doctorName,
+        doctorPhoto = doctorPhoto,
+        phoneNumber = phoneNumber
+    )

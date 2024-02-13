@@ -92,6 +92,7 @@ class UserRepositoryImpl @Inject constructor(
                     emit(NetWorkResponseState.Success(data))
                 } else {
                     emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    //class NullResponseException: Exception("Response body is null")
                 }
             } else {
                 emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
@@ -101,7 +102,7 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    suspend fun saveToken(token: String?) {
+    private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
     }
 }

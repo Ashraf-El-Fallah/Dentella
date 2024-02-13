@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.LoginDoctor
 import com.af.dentalla.data.remote.requests.LoginPatient
+import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.domain.usecase.authentication.ValidateEmailFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.login.LoginPatientUseCase
 import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldPatientUseCase
@@ -23,11 +24,6 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginPatientUseCase: LoginPatientUseCase,
     private val loginDoctorUseCase: LoginDoctorUseCase,
-    private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
-    private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
-    private val validateFieldPatientUseCase: ValidateFieldPatientUseCase,
-    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
-    private val validateFieldDoctorUseCase: ValidateFieldDoctorUseCase
 ) : ViewModel() {
     private val _loginState = MutableLiveData<ScreenState<Unit>>()
     val loginState: LiveData<ScreenState<Unit>> get() = _loginState
@@ -44,6 +40,10 @@ class LoginViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun loginUser(loginUser: LoginUser) {
+
     }
 
     fun loginDoctorLogic(loginDoctor: LoginDoctor) {

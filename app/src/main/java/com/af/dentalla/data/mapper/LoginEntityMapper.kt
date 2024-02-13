@@ -17,3 +17,9 @@ class LoginEntityMapper @Inject constructor() : BaseMapper<LoginResponse, LoginE
         )
     }
 }
+
+fun LoginResponse.toDomainModel(): LoginEntity =
+    LoginEntity(
+        token = token,
+        tokenExpiration = tokenExpiration
+    )

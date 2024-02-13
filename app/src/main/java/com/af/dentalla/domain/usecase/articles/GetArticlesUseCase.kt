@@ -1,6 +1,7 @@
 package com.af.dentalla.domain.usecase.articles
 
 import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.mapper.toDomainModel
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.mapper.ListMapper
@@ -22,3 +23,9 @@ class GetArticlesUseCase @Inject constructor(
         }
     }
 }
+
+//repository.getAllArticles().map {
+//    if (it is NetWorkResponseState.Success) {
+//        it.result.map { it.toDomainModel() }
+//    }
+//}
