@@ -13,11 +13,6 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-
-//    @POST("/api/Account/patient/register")
-//    suspend fun signUpPatient(@Body signUpPatient: SignUpPatient): SignUpResponse//Response<SignUpResponse>
-
-
     @POST("/api/Account/{user_type}/register")
     suspend fun signUpUser(
         @Path("user_type") userType: String,

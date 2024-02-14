@@ -4,7 +4,7 @@ import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.UserRepository
 import javax.inject.Inject
 
-class SignUpDoctorUseCase @Inject constructor(
+class SignUpUserUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
     operator fun invoke(signUpDoctor: SignUpUser) = repository.signUpUser(signUpDoctor)

@@ -8,25 +8,28 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 abstract class BaseFragment : Fragment() {
 
-    protected open fun isUserNameValid(userName: String) {
+    protected open fun isUserNameValid(userName: String): Boolean {
         if (ValidationUtils.isUserNameNotValid(userName)) {
             requireView().showToastShort("This user name is not valid")
-            return
+            return false
         }
+        return true
     }
 
-    protected open fun isEmailValid(email: String) {
+    protected open fun isEmailValid(email: String): Boolean {
         if (ValidationUtils.isEmailNotValid(email)) {
             requireView().showToastShort("This email is not valid")
-            return
+            return false
         }
-
+        return true
     }
 
-    protected open fun isPasswordValid(password: String) {
+    protected open fun isPasswordValid(password: String): Boolean {
         if (ValidationUtils.isPasswordNotValid(password)) {
             requireView().showToastShort("This password is not valid")
+            return false
         }
+        return true
     }
 
 //    abstract val layoutIdFragment: Int

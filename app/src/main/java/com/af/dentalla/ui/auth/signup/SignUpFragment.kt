@@ -24,8 +24,6 @@ class SignUpFragment : BaseFragment() {
     private val viewModel: SignUpViewModel by viewModels()
     private lateinit var binding: FragmentSignUpBinding
     private val accountType = AccountManager.accountType
-//    private var id: String = ""
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,82 +37,70 @@ class SignUpFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         signUpObserver()
         selectTheUserType()
-        setUpSignUpButton()
+        passUserDataToViewModel()
     }
 
-    private fun setUpSignUpButton() {
-        binding.buttonSignUp.setOnClickListener { validateUserDataValid() }
-    }
-
-    private fun isPhoneNumberValid(phoneNumber: String) {
+    private fun isPhoneNumberValid(phoneNumber: String): Boolean {
         if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
             requireView().showToastShort("This phone number is not valid")
-            return
+            return false
         }
+        return true
     }
 
     private fun isPasswordAndConformationPasswordValid(
         password: String,
         confirmPassword: String
-    ) {
+    ): Boolean {
         if (ValidationUtils.isPasswordAndConfirmationNotEqual(password, confirmPassword)) {
             requireView().showToastShort("This password is not valid or not equal confirmation password")
-            return
+            return false
         }
+        return true
     }
 
-    private fun validateUserDataValid() {
+    private fun isIdValid(id: String): Boolean {
+        if (ValidationUtils.isIdNotValid(id)) {
+            requireView().showToastShort("This id is not valid")
+            return false
+        }
+        return true
+    }
+
+    private fun passUserDataToViewModel() {
         val userName = binding.editTextUserName.text.toString()
         val email = binding.editTextEmail.text.toString()
         val phone = binding.editTextPhone.text.toString()
         val password = binding.editTextPassword.text.toString()
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
-
-
         binding.buttonSignUp.setOnClickListener {
             if (accountType == AccountManager.AccountType.PATIENT) {
-                isUserNameValid(userName)
-                isEmailValid(email)
-                isPhoneNumberValid(phone)
-                isPasswordAndConformationPasswordValid(password, confirmPassword)
-                viewModel.signUpPatientLogic(SignUpPatient(userName, email, password, phone))
+                if (isUserNameValid(userName) && isEmailValid(email) && isPhoneNumberValid(phone) && isPasswordAndConformationPasswordValid(
+                        password,
+                        confirmPassword
+                    )
+                ) {
+                    val signUpPatient = SignUpPatient(userName, email, password, phone)
+                    viewModel.signUpUserLogic(signUpPatient)
+                }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val id = binding.editTextId.text.toString()
-                isIdValid(binding.editTextId.text.toString())
-                viewModel.signUpDoctorLogic(SignUpDoctor(userName, email, password, phone, id))
+                if (isIdValid(id)) {
+                    val signUpDoctor = SignUpDoctor(userName, email, password, phone, id)
+                    viewModel.signUpUserLogic(signUpDoctor)
+                }
             }
         }
-//        binding.buttonSignUp.setOnClickListener {
-//            if (binding.editTextId.visibility == View.VISIBLE)
-//                if (accountType == AccountManager.AccountType.DOCTOR) {
-//                    val id = binding.editTextId.text.toString()
-//                    isIdValid(binding.editTextId.text.toString())
-//                    viewModel.signUpDoctorLogic(SignUpDoctor(userName, email, password, phone, id))
-//                }
-//        }
-
     }
 
-    private fun isIdValid(id: String) {
-        if (ValidationUtils.isIdNotValid(id)) {
-            requireView().showToastShort("This id is not valid")
-            return
-        }
-    }
 
     private fun selectTheUserType() {
         if (accountType == AccountManager.AccountType.PATIENT) {
             binding.textInputId.gone()
-//            val patientData = validateUserDataValid()
-//            viewModel.signUpPatientLogic(patientData)
-//            signUpObserver()
         }
         if (accountType == AccountManager.AccountType.DOCTOR) {
             binding.textInputId.visible()
-//            val doctorData = validateUserDataValid()
-//            viewModel.signUpDoctorLogic(doctorData)
-//            signUpObserver()
         }
     }
 

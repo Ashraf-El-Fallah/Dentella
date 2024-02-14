@@ -23,10 +23,10 @@ class LoginFragment : BaseFragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
     private val accountType = AccountManager.accountType
-    private var userName = ""
-    private var email = ""
-    private var password = ""
-
+//    private var userName = ""
+//    private var email = ""
+//    private var password = ""
+//
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,27 +40,32 @@ class LoginFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         loginObserver()
         selectTheUserType()
+        passUserDataToViewModel()
 
-        binding.buttonSignIn.setOnClickListener {
-            password = binding.editTextPasswordLogin.text.toString()
-            if (accountType == AccountManager.AccountType.PATIENT) {
-                userName = binding.editTextUserName.toString()
-                isUserNameValid(userName)
-                isPasswordValid(password)
-                val patient = LoginPatient(userName, password)
-                viewModel.loginPatientLogic(patient)
-            } else if (accountType == AccountManager.AccountType.DOCTOR) {
-                email = binding.editTextEmail.toString()
-                isEmailValid(email)
-                isPasswordValid(password)
-                val doctor = LoginDoctor(userName, password)
-                viewModel.loginDoctorLogic(doctor)
-            }
-        }
         binding.textViewSignUp.setOnClickListener {
             findNavController().safeNavigate(
                 LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment()
             )
+        }
+    }
+
+    private fun passUserDataToViewModel() {
+        val email = binding.editTextEmail.text.toString()
+        val password = binding.editTextPasswordLogin.text.toString()
+        val userName = binding.editTextUserName.text.toString()
+
+        binding.buttonSignIn.setOnClickListener {
+            if (accountType == AccountManager.AccountType.PATIENT) {
+                if (isUserNameValid(userName) && isPasswordValid(password)) {
+                    val loginPatient = LoginPatient(userName, password)
+                    viewModel.loginUserLogic(loginPatient)
+                }
+            } else if (accountType == AccountManager.AccountType.DOCTOR) {
+                if (isEmailValid(email) && isPasswordValid(password)) {
+                    val loginDoctor = LoginDoctor(email, password)
+                    viewModel.loginUserLogic(loginDoctor)
+                }
+            }
         }
     }
 

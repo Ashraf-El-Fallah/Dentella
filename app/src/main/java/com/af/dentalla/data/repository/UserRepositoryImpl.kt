@@ -44,21 +44,21 @@ class UserRepositoryImpl @Inject constructor(
         }
 
     override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> = flow {
-        Log.d("signUpUser", "Start signing up user $signUpUser")
+        Log.d("SignUpUser", "Start signing up user $signUpUser")
         emit(NetWorkResponseState.Loading)
         try {
             val validateSignUpResponse =
                 service.signUpUser(accountType.toString().lowercase(), signUpUser)
             if (validateSignUpResponse.isSuccessful) {
-                Log.d("signUpUser", "Sign Up Successfully")
+                Log.d("SignUpUser", "Sign Up Successfully")
                 emit(NetWorkResponseState.Success(Unit))
             } else {
                 val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
-                Log.d("signUpUser", "Sign Up failed :$errorMessage")
+                Log.d("SignUpUser", "Sign Up failed :$errorMessage")
                 emit(NetWorkResponseState.Error(Exception("Http error ${validateSignUpResponse.code()}:$errorMessage")))
             }
         } catch (e: Exception) {
-            Log.d("signUpUser", "Exception during sign up  ${e.message}")
+            Log.d("SignUpUser", "Exception during sign up  ${e.message}")
             emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
         }
     }

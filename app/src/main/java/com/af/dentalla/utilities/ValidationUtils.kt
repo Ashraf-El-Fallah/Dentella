@@ -5,7 +5,7 @@ import android.util.Patterns
 object ValidationUtils {
     fun isUserNameNotValid(userName: String) = (userName.isBlank() || userName.isEmpty())
     fun isEmailNotValid(email: String) =
-        (email.isEmpty() || email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
 
     fun isPhoneNumberNotValid(phoneNumber: String) =
         (phoneNumber.length != 11 || phoneNumber.isEmpty())

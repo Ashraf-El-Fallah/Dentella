@@ -5,15 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.remote.requests.LoginDoctor
-import com.af.dentalla.data.remote.requests.LoginPatient
-import com.af.dentalla.domain.usecase.authentication.ValidateEmailFieldUseCase
-import com.af.dentalla.domain.usecase.authentication.login.LoginPatientUseCase
-import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldPatientUseCase
-import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
-import com.af.dentalla.domain.usecase.authentication.login.LoginDoctorUseCase
-import com.af.dentalla.domain.usecase.authentication.login.ValidateFieldDoctorUseCase
-import com.af.dentalla.domain.usecase.authentication.login.ValidatePasswordFieldUseCase
+import com.af.dentalla.data.remote.requests.LoginUser
+import com.af.dentalla.domain.usecase.authentication.login.LoginUserUseCase
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,20 +14,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginPatientUseCase: LoginPatientUseCase,
-    private val loginDoctorUseCase: LoginDoctorUseCase,
-    private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
-    private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
-    private val validateFieldPatientUseCase: ValidateFieldPatientUseCase,
-    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
-    private val validateFieldDoctorUseCase: ValidateFieldDoctorUseCase
+    private val loginUserUseCase: LoginUserUseCase
 ) : ViewModel() {
     private val _loginState = MutableLiveData<ScreenState<Unit>>()
     val loginState: LiveData<ScreenState<Unit>> get() = _loginState
 
-    fun loginPatientLogic(loginPatient: LoginPatient) {
+    fun loginUserLogic(loginUser: LoginUser) {
         viewModelScope.launch {
-            loginPatientUseCase(loginPatient).collect {
+            loginUserUseCase(loginUser).collect {
                 when (it) {
                     is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
@@ -46,21 +33,21 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    fun loginDoctorLogic(loginDoctor: LoginDoctor) {
-        viewModelScope.launch {
-            loginDoctorUseCase(loginDoctor).collect {
-                when (it) {
-                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
-                    is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
-                    is NetWorkResponseState.Success -> _loginState.postValue(
-                        ScreenState.Success(
-                            Unit
-                        )
-                    )
-                }
-            }
-        }
-    }
+//    fun loginDoctorLogic(loginDoctor: LoginDoctor) {
+//        viewModelScope.launch {
+//            loginDoctorUseCase(loginDoctor).collect {
+//                when (it) {
+//                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
+//                    is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
+//                    is NetWorkResponseState.Success -> _loginState.postValue(
+//                        ScreenState.Success(
+//                            Unit
+//                        )
+//                    )
+//                }
+//            }
+//        }
+//    }
 
 
 }
