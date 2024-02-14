@@ -81,7 +81,7 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progressBar.gone()
                     binding.buttonSignIn.isEnabled = true
-                    requireView().showToastShort("please check your username and password ")
+                    requireView().showToastShort("Incorrect Personal information")
                 }
             }
         }

@@ -86,7 +86,13 @@ class SignUpFragment : BaseFragment() {
                 }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val id = binding.editTextId.text.toString()
-                if (isIdValid(id)) {
+                if (isIdValid(id) && isUserNameValid(userName) && isEmailValid(email) && isPhoneNumberValid(
+                        phone
+                    ) && isPasswordAndConformationPasswordValid(
+                        password,
+                        confirmPassword
+                    )
+                ) {
                     val signUpDoctor = SignUpDoctor(userName, email, password, phone, id)
                     viewModel.signUpUserLogic(signUpDoctor)
                 }
@@ -122,7 +128,7 @@ class SignUpFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-                    requireView().showToastShort("Please Check your personal information")
+                    requireView().showToastShort("Can't connect to data base")
                 }
             }
         }
