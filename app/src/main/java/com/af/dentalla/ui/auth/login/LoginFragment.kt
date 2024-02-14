@@ -23,10 +23,6 @@ class LoginFragment : BaseFragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
     private val accountType = AccountManager.accountType
-//    private var userName = ""
-//    private var email = ""
-//    private var password = ""
-//
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,17 +46,16 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun passUserDataToViewModel() {
-        val email = binding.editTextEmail.text.toString()
-        val password = binding.editTextPasswordLogin.text.toString()
-        val userName = binding.editTextUserName.text.toString()
-
         binding.buttonSignIn.setOnClickListener {
+            val password = binding.editTextPasswordLogin.text.toString()
             if (accountType == AccountManager.AccountType.PATIENT) {
+                val userName = binding.editTextUserName.text.toString()
                 if (isUserNameValid(userName) && isPasswordValid(password)) {
                     val loginPatient = LoginPatient(userName, password)
                     viewModel.loginUserLogic(loginPatient)
                 }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
+                val email = binding.editTextEmail.text.toString()
                 if (isEmailValid(email) && isPasswordValid(password)) {
                     val loginDoctor = LoginDoctor(email, password)
                     viewModel.loginUserLogic(loginDoctor)

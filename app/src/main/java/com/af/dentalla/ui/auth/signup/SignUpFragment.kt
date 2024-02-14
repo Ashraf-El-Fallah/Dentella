@@ -68,13 +68,13 @@ class SignUpFragment : BaseFragment() {
     }
 
     private fun passUserDataToViewModel() {
-        val userName = binding.editTextUserName.text.toString()
-        val email = binding.editTextEmail.text.toString()
-        val phone = binding.editTextPhone.text.toString()
-        val password = binding.editTextPassword.text.toString()
-        val confirmPassword = binding.editTextConfirmPassword.text.toString()
-
         binding.buttonSignUp.setOnClickListener {
+            val userName = binding.editTextUserName.text.toString()
+            val email = binding.editTextEmail.text.toString()
+            val phone = binding.editTextPhone.text.toString()
+            val password = binding.editTextPassword.text.toString()
+            val confirmPassword = binding.editTextConfirmPassword.text.toString()
+
             if (accountType == AccountManager.AccountType.PATIENT) {
                 if (isUserNameValid(userName) && isEmailValid(email) && isPhoneNumberValid(phone) && isPasswordAndConformationPasswordValid(
                         password,
