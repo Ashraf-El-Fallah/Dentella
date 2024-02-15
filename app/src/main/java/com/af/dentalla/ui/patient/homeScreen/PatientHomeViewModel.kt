@@ -5,8 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.domain.entity.AllCardsEntity
+import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.usecase.patient.GetAllDoctorsCardsUseCase
+import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversity
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -15,10 +16,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PatientHomeViewModel @Inject constructor(
-    private val getAllDoctorsCardsUseCase: GetAllDoctorsCardsUseCase
+    private val getAllDoctorsCardsUseCase: GetAllDoctorsCardsUseCase,
+    private val getCardsBySearchByUniversity: GetCardsBySearchByUniversity
 ) : ViewModel() {
-    private val _allCards = MutableLiveData<ScreenState<List<AllCardsEntity>>>()
-    val allCards: LiveData<ScreenState<List<AllCardsEntity>>> get() = _allCards
+    private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()
+    val allCards: LiveData<ScreenState<List<CardsEntity>>> get() = _allCards
 
     init {
         getAllCards()
@@ -35,5 +37,7 @@ class PatientHomeViewModel @Inject constructor(
             }
         }
     }
+
+
 
 }

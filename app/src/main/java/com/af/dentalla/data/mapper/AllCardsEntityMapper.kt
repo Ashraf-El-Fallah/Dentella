@@ -1,14 +1,14 @@
 package com.af.dentalla.data.mapper
 
-import com.af.dentalla.data.remote.dto.CardsItemDto
-import com.af.dentalla.domain.entity.AllCardsEntity
+import com.af.dentalla.data.remote.dto.CardsDto
+import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.mapper.ListMapper
 import javax.inject.Inject
 
-class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsItemDto, AllCardsEntity> {
-    override fun map(input: List<CardsItemDto>): List<AllCardsEntity> {
+class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEntity> {
+    override fun map(input: List<CardsDto>): List<CardsEntity> {
         return input.map {
-            AllCardsEntity(
+            CardsEntity(
                 cardId = it.cardId,
                 currentUniversity = it.currentUniversity,
                 doctorName = it.doctorName,
@@ -17,5 +17,14 @@ class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsItemDto, AllC
             )
         }
     }
+
+    fun CardsDto.toCardsEntity(): CardsEntity =
+        CardsEntity(
+            cardId = cardId,
+            currentUniversity = currentUniversity,
+            doctorName = doctorName,
+            doctorPhoto = doctorPhoto,
+            phoneNumber = phoneNumber
+        )
 
 }

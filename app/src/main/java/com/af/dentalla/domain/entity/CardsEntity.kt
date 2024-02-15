@@ -1,6 +1,6 @@
 package com.af.dentalla.domain.entity
 
-data class AllCardsEntity(
+data class CardsEntity(
     val cardId: Int,
     val currentUniversity: String,
     val doctorName: String,

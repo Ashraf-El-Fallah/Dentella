@@ -8,8 +8,6 @@ import javax.inject.Inject
 
 
 class LoginEntityMapper @Inject constructor() : BaseMapper<LoginResponse, LoginEntity> {
-
-
     override fun map(input: LoginResponse): LoginEntity {
         return LoginEntity(
             token = input.token,

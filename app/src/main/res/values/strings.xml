@@ -51,5 +51,7 @@
     <string name="please_add_user_name_or_password">Please add user name or password</string>
     <string name="welcome">Welcome</string>
     <string name="check_username_pass">Please check your username and password!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

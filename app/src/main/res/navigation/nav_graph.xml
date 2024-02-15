@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_homeFragment_to_doctorProfileFragment"
             app:destination="@id/doctorProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -98,7 +101,7 @@
         tools:layout="@layout/fragment_articles" />
     <fragment
         android:id="@+id/doctorProfileFragment"
-        android:name="com.af.dentalla.ui.patient.DoctorProfileFragment"
+        android:name="com.af.dentalla.ui.patient.doctorProfile.DoctorProfileFragment"
         android:label="fragment_doctor_profile"
         tools:layout="@layout/fragment_doctor_profile">
 
@@ -115,5 +118,17 @@
         <action
             android:id="@+id/action_signUpFragment_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.af.dentalla.ui.patient.homeScreen.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_doctorProfileFragment"
+            app:destination="@id/doctorProfileFragment" />
     </fragment>
 </navigation>

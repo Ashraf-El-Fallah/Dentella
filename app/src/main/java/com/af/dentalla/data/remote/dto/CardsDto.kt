@@ -2,7 +2,7 @@ package com.af.dentalla.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CardsItemDto(
+data class CardsDto(
     @SerializedName("cardId")
     val cardId: Int,
     @SerializedName("currentUniversity")

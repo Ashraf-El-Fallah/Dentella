@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentHomeBinding
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.safeNavigate
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,11 +31,19 @@ class PatientHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardsObserver()
+        allCardsObserver()
+        setUpSpecialitiesRecyclerView()
+        navigateToSearchFragment()
+    }
+
+    private fun navigateToSearchFragment() {
+        binding.editTextSearchHome.setOnClickListener {
+            findNavController().safeNavigate(PatientHomeFragmentDirections.actionHomeFragmentToSearchFragment())
+        }
     }
 
 
-    private fun cardsObserver() {
+    private fun allCardsObserver() {
         patientHomeViewModel.allCards.observe(viewLifecycleOwner) {
             when (it) {
                 ScreenState.Loading -> {
@@ -41,10 +52,10 @@ class PatientHomeFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progress.gone()
-                    binding.rvDoctors.adapter = AllDoctorsCardsAdapter { doctorCard ->
+                    binding.rvDoctors.adapter = DoctorsCardsAdapter { doctorCard ->
                         navigateToDoctorProfile(doctorCard.cardId)
                     }
-                    (binding.rvDoctors.adapter as AllDoctorsCardsAdapter).submitList(it.uiData)
+                    (binding.rvDoctors.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
@@ -57,6 +68,22 @@ class PatientHomeFragment : Fragment() {
                 }
             }
         }
+    }
+
+
+    private fun setUpSpecialitiesRecyclerView() {
+        val specialtiesList = listOf(
+            Speciality(R.drawable.cleaning, 1, "Cleaning"),
+            Speciality(R.drawable.dental_implant, 2, "Implants"),
+            Speciality(R.drawable.crown, 3, "Crowns"),
+            Speciality(R.drawable.denture, 4, "Dentures"),
+            Speciality(R.drawable.extraction, 5, "Extraction"),
+            Speciality(R.drawable.dental_filling, 5, "Filling"),
+        )
+
+        val adapter = SpecialtyAdapter(specialtiesList)
+        binding.recyclerViewSpeciality.adapter = adapter
+        binding.recyclerViewSpeciality.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun navigateToDoctorProfile(doctorId: Int) {

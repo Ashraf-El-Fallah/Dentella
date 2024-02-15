@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-private const val BASE_URL = "http://abdoelghany1-001-site1.ktempurl.com"
+private const val BASE_URL = "http://abdoelghany1-001-site1.ktempurl.com/api/"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -61,7 +61,6 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
-//            val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)

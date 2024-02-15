@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aandroid="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/procedures"
+    android:id="@+id/recycler_view_speciality"
     android:layout_width="88dp"
     android:layout_height="86dp"
     android:background="@drawable/procedure_style"
@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/img_speciality"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginTop="10dp"
@@ -22,6 +23,7 @@
             aandroid:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/text_view_speciality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="17dp"

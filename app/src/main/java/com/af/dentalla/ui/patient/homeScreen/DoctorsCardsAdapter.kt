@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemDoctorBinding
-import com.af.dentalla.domain.entity.AllCardsEntity
+import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.utilities.loadImage
 
-class AllDoctorsCardsAdapter(
-    private val onItemClick: (AllCardsEntity) -> Unit
-) : ListAdapter<AllCardsEntity, AllDoctorsCardsAdapter.AllDoctorsCardsViewHolder>(CardDiffCallback()) {
+class DoctorsCardsAdapter(
+    private val onItemClick: (CardsEntity) -> Unit
+) : ListAdapter<CardsEntity, DoctorsCardsAdapter.AllDoctorsCardsViewHolder>(CardDiffCallback()) {
 
     inner class AllDoctorsCardsViewHolder(private val binding: ItemDoctorBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(card: AllCardsEntity) {
+        fun bind(card: CardsEntity) {
             binding.apply {
                 imgDoctor.loadImage(card.doctorPhoto)
                 textViewDoctorName.text = card.doctorName
@@ -29,12 +29,12 @@ class AllDoctorsCardsAdapter(
         }
     }
 
-    private class CardDiffCallback : DiffUtil.ItemCallback<AllCardsEntity>() {
-        override fun areItemsTheSame(oldItem: AllCardsEntity, newItem: AllCardsEntity): Boolean {
+    private class CardDiffCallback : DiffUtil.ItemCallback<CardsEntity>() {
+        override fun areItemsTheSame(oldItem: CardsEntity, newItem: CardsEntity): Boolean {
             return oldItem.cardId == newItem.cardId
         }
 
-        override fun areContentsTheSame(oldItem: AllCardsEntity, newItem: AllCardsEntity): Boolean {
+        override fun areContentsTheSame(oldItem: CardsEntity, newItem: CardsEntity): Boolean {
             return oldItem == newItem
         }
 

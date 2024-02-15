@@ -59,19 +59,22 @@
             app:layout_constraintTop_toTopOf="@id/profile_img" />
 
         <EditText
-            android:id="@+id/search"
+            android:id="@+id/edit_text_search_home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"
-            android:background="@drawable/edti_text_search"
+            android:background="@drawable/edit_text_search"
+            android:clickable="true"
             android:drawableStart="@drawable/ic_search"
-            android:drawableEnd="@drawable/ic_mic"
             android:hint="@string/search"
             android:paddingStart="20dp"
             android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="@id/notification"
             app:layout_constraintStart_toStartOf="@id/profile_img"
             app:layout_constraintTop_toTopOf="parent" />
+        <!--            android:drawableEnd="@drawable/ic_mic"-->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ProgressBar
@@ -96,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/top_background" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/procedures"
+        android:id="@+id/recycler_view_speciality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -114,7 +117,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/procedures" />
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_speciality" />
 
     <TextView
         android:id="@+id/see_all"
@@ -127,7 +130,7 @@
         android:textColor="@color/blue"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/procedures" />
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_speciality" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_doctors"

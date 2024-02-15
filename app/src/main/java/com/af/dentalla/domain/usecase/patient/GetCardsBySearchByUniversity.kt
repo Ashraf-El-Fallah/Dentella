@@ -10,15 +10,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class GetAllDoctorsCardsUseCase @Inject constructor(
-    private val cardsEntityMapper: ListMapper<CardsDto, CardsEntity>,
+class GetCardsBySearchByUniversity @Inject constructor(
+    private val cardsEntity: ListMapper<CardsDto, CardsEntity>,
     private val repository: UserRepository
 ) {
-    operator fun invoke(): Flow<NetWorkResponseState<List<CardsEntity>>> {
-        return repository.getAllDoctorsCards().map {
-            it.mapResponse {
-                cardsEntityMapper.map(this)
-            }
+    operator fun invoke(university: String): Flow<NetWorkResponseState<List<CardsEntity>>> {
+        return repository.getCardsBySearchByUniversity(university).map {
+            it.mapResponse { cardsEntity.map(this) }
         }
     }
 }

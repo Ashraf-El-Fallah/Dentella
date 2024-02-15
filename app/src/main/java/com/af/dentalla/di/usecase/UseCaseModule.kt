@@ -4,11 +4,10 @@ package com.af.dentalla.di.usecase
 import com.af.dentalla.data.mapper.AllCardsEntityMapper
 import com.af.dentalla.data.mapper.ArticlesEntityMapper
 import com.af.dentalla.data.remote.dto.ArticleDto
-import com.af.dentalla.data.remote.dto.CardsItemDto
-import com.af.dentalla.domain.entity.AllCardsEntity
+import com.af.dentalla.data.remote.dto.CardsDto
+import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.mapper.ListMapper
-import com.af.dentalla.domain.usecase.authentication.signup.SignUpPatientUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -48,7 +47,7 @@ abstract class UseCaseModule {
     @ViewModelScoped
     abstract fun bindsAllDoctorsCards(
         allCardsEntityMapper: AllCardsEntityMapper
-    ): ListMapper<CardsItemDto, AllCardsEntity>
+    ): ListMapper<CardsDto, CardsEntity>
 
     @Binds
     @ViewModelScoped

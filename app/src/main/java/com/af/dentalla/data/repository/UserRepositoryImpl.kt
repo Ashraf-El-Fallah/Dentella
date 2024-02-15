@@ -5,7 +5,7 @@ import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.ArticleDto
-import com.af.dentalla.data.remote.dto.CardsItemDto
+import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.UserRepository
@@ -20,90 +20,121 @@ class UserRepositoryImpl @Inject constructor(
 ) : UserRepository {
     private val accountType = AccountManager.accountType
 
-    override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> =
-        flow {
+    override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> {
+        return flow {
             Log.d("LoginUser", "Start login user $loginUser")
             emit(NetWorkResponseState.Loading)
             try {
-                val validateLoginResponse =
+                val authenticateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginUser)
-                if (validateLoginResponse.isSuccessful) {
-                    saveToken(validateLoginResponse.body()?.token)
+                if (authenticateLoginResponse.isSuccessful) {
+                    saveToken(authenticateLoginResponse.body()?.token)
                     Log.d("LoginUser", "Login Successfully")
                     emit(NetWorkResponseState.Success(Unit))
                 } else {
                     val errorMessage =
-                        validateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
+                        authenticateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
                     Log.d("LoginUser", "Login failed :$errorMessage")
-                    emit(NetWorkResponseState.Error(Exception("Http error ${validateLoginResponse.code()}:$errorMessage")))
+                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateLoginResponse.code()}:$errorMessage")))
                 }
             } catch (e: Exception) {
                 Log.d("LoginUser", "Exception during login  ${e.message}", e)
                 emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
             }
         }
-
-    override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> = flow {
-        Log.d("SignUpUser", "Start signing up user $signUpUser")
-        emit(NetWorkResponseState.Loading)
-        try {
-            val validateSignUpResponse =
-                service.signUpUser(accountType.toString().lowercase(), signUpUser)
-            if (validateSignUpResponse.isSuccessful) {
-                Log.d("SignUpUser", "Sign Up Successfully")
-                emit(NetWorkResponseState.Success(Unit))
-            } else {
-                val errorMessage = validateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
-                Log.d("SignUpUser", "Sign Up failed :$errorMessage")
-                emit(NetWorkResponseState.Error(Exception("Http error ${validateSignUpResponse.code()}:$errorMessage")))
-            }
-        } catch (e: Exception) {
-            Log.d("SignUpUser", "Exception during sign up  ${e.message}")
-            emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
-        }
     }
 
-    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> = flow {
-        emit(NetWorkResponseState.Loading)
-        try {
-            val response = service.getAllDoctorsCards()
-            if (response.isSuccessful) {
-                val data = response.body()
-                if (data != null) {
-                    emit(NetWorkResponseState.Success(data))
+    override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            Log.d("SignUpUser", "Start signing up user $signUpUser")
+            emit(NetWorkResponseState.Loading)
+            try {
+                val authenticateSignUpResponse =
+                    service.signUpUser(accountType.toString().lowercase(), signUpUser)
+                if (authenticateSignUpResponse.isSuccessful) {
+                    Log.d("SignUpUser", "Sign Up Successfully")
+                    emit(NetWorkResponseState.Success(Unit))
                 } else {
-                    emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    val errorMessage =
+                        authenticateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
+                    Log.d("SignUpUser", "Sign Up failed :$errorMessage")
+                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateSignUpResponse.code()}:$errorMessage")))
                 }
-            } else {
-                emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
+            } catch (e: Exception) {
+                Log.d("SignUpUser", "Exception during sign up  ${e.message}")
+                emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
             }
-        } catch (e: Exception) {
-            emit(NetWorkResponseState.Error(e))
         }
     }
 
-    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> = flow {
-        emit(NetWorkResponseState.Loading)
-        try {
-            val response = service.getAllArticles()
-            if (response.isSuccessful) {
-                val data = response.body()
-                if (data != null) {
-                    emit(NetWorkResponseState.Success(data))
+    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                val response = service.getAllDoctorsCards()
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        emit(NetWorkResponseState.Success(data))
+                    } else {
+                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    }
                 } else {
-                    emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
                 }
-            } else {
-                emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
             }
-        } catch (e: Exception) {
-            emit(NetWorkResponseState.Error(e))
         }
     }
 
-    suspend fun saveToken(token: String?) {
+    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                val response = service.getAllArticles()
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        emit(NetWorkResponseState.Success(data))
+                    } else {
+                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    }
+                } else {
+                    emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
+                }
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                val response = service.searchAboutDoctorsByUniversity(university)
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        emit(NetWorkResponseState.Success(data))
+                    } else {
+                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    }
+                } else {
+                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
+                }
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
     }
+
+
 }
 
 ////signUp

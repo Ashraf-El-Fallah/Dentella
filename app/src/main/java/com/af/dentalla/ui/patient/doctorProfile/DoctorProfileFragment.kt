@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient
+package com.af.dentalla.ui.patient.doctorProfile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import com.af.dentalla.R
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class DoctorsProcedureFragment : Fragment() {
 
+@AndroidEntryPoint
+class DoctorProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doctors_procedure, container, false)
+        return inflater.inflate(R.layout.fragment_doctor_profile, container, false)
     }
 
 
