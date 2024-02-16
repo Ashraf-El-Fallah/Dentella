@@ -16,11 +16,13 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/procedure_image_style"
-            android:src="@drawable/dental"
             aandroid:layout_constraintEnd_toEndOf="parent"
             aandroid:layout_constraintStart_toStartOf="parent"
             aandroid:layout_constraintTop_toTopOf="parent" />
+        <!--            android:src="@drawable/dental"-->
+<!--        android:background="@drawable/procedure_image_style"-->
+
+
 
         <TextView
             android:id="@+id/text_view_speciality"

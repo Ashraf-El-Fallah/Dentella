@@ -38,6 +38,7 @@ class LoginFragment : BaseFragment() {
         selectTheUserType()
         passUserDataToViewModel()
 
+
         binding.textViewSignUp.setOnClickListener {
             findNavController().safeNavigate(
                 LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment()
@@ -51,13 +52,15 @@ class LoginFragment : BaseFragment() {
             if (accountType == AccountManager.AccountType.PATIENT) {
                 val userName = binding.editTextUserName.text.toString()
                 if (isUserNameValid(userName) && isPasswordValid(password)) {
-                    val loginPatient = LoginPatient(userName, password)
+                    val loginPatient = LoginPatient(
+                        userName = userName, passWord = password
+                    )
                     viewModel.loginUserLogic(loginPatient)
                 }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val email = binding.editTextEmail.text.toString()
                 if (isEmailValid(email) && isPasswordValid(password)) {
-                    val loginDoctor = LoginDoctor(email, password)
+                    val loginDoctor = LoginDoctor(email = email, passWord = password)
                     viewModel.loginUserLogic(loginDoctor)
                 }
             }
@@ -81,7 +84,7 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progressBar.gone()
                     binding.buttonSignIn.isEnabled = true
-                    requireView().showToastShort("Incorrect Personal information")
+//                    requireView().showToastShort("Incorrect Personal information")
                 }
             }
         }

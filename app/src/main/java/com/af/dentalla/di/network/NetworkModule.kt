@@ -1,5 +1,6 @@
 package com.af.dentalla.di.network
 
+import com.af.dentalla.data.remote.AuthInterceptor
 import com.af.dentalla.data.remote.api.ApiService
 import com.getkeepsafe.relinker.BuildConfig
 import com.google.gson.Gson
@@ -13,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
 
 private const val BASE_URL = "http://abdoelghany1-001-site1.ktempurl.com/api/"
 
@@ -31,14 +33,23 @@ object NetworkModule {
         return httpLoggingInterceptor
     }
 
+
     @Provides
     @Singleton
-    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-        return OkHttpClient.Builder()
+    fun provideOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
+    ): OkHttpClient {
+
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        return OkHttpClient.Builder().followRedirects(true)
+            .addInterceptor(logging)
             .connectTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
-            .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(authInterceptor)
             .retryOnConnectionFailure(true)
             .build()
     }

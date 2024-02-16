@@ -8,6 +8,16 @@
     tools:context=".ui.patient.doctorProfile.DoctorProfileFragment">
 
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/back"
         android:layout_width="40dp"
@@ -67,7 +77,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/doctor_procedure"
+            android:id="@+id/text_view_doctor_speciality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -85,7 +95,7 @@
             android:layout_marginTop="4dp"
             android:src="@drawable/phone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/doctor_procedure" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
 
         <TextView
             android:id="@+id/text_view_phone_number"
@@ -97,7 +107,7 @@
             android:textColor="@color/semi_dark_gray"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@id/phone_img"
-            app:layout_constraintTop_toBottomOf="@id/doctor_procedure" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/chat_now"
@@ -178,7 +188,7 @@
             app:layout_constraintTop_toBottomOf="@id/rv_date" />
 
         <TextView
-            android:id="@+id/about_paragraph"
+            android:id="@+id/text_view_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -192,128 +202,128 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/about" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/num_patients"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/num_patients_style"
-            app:layout_constraintEnd_toStartOf="@+id/rating"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/about_paragraph"
-            tools:layout_editor_absoluteY="412dp">
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/num_patients"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:background="@drawable/num_patients_style"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/rating"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/about_paragraph"-->
+        <!--            tools:layout_editor_absoluteY="412dp">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="17"
-                    android:textColor="@color/light_red" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="17"-->
+        <!--                    android:textColor="@color/light_red" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="patients"
-                    android:textColor="@color/light_red" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="patients"-->
+        <!--                    android:textColor="@color/light_red" />-->
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/experience"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/experence_style"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/rating"
-            app:layout_constraintTop_toBottomOf="@id/about_paragraph"
-            tools:layout_editor_absoluteY="413dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <!--            </LinearLayout>-->
+        <!--        </androidx.cardview.widget.CardView>-->
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="1"
-                    android:textColor="@color/tan" />
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/experience"-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="years of exp"
-                    android:textColor="@color/tan" />
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:background="@drawable/experence_style"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/rating"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/about_paragraph"-->
+        <!--            tools:layout_editor_absoluteY="413dp">-->
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/rating"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rating_style"
-            app:layout_constraintEnd_toStartOf="@+id/experience"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/num_patients"
-            app:layout_constraintTop_toBottomOf="@id/about_paragraph"
-            tools:layout_editor_absoluteY="412dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:layout_editor_absoluteX="275dp"
-                tools:layout_editor_absoluteY="413dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="3.4"
-                    android:textColor="@color/shade_of_green" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Rating"
-                    android:textColor="@color/shade_of_green" />
-
-            </LinearLayout>
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:orientation="vertical">-->
 
 
-        </androidx.cardview.widget.CardView>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="1"-->
+        <!--                    android:textColor="@color/tan" />-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/confirm"
-            android:layout_width="219dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="35dp"
-            android:background="@drawable/confirm_button_style"
-            android:text="@string/confirm"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="years of exp"-->
+        <!--                    android:textColor="@color/tan" />-->
+
+        <!--            </LinearLayout>-->
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/rating"-->
+
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:background="@drawable/rating_style"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/experience"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/num_patients"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/about_paragraph"-->
+        <!--            tools:layout_editor_absoluteY="412dp">-->
+
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:orientation="vertical"-->
+        <!--                tools:layout_editor_absoluteX="275dp"-->
+        <!--                tools:layout_editor_absoluteY="413dp">-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="3.4"-->
+        <!--                    android:textColor="@color/shade_of_green" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    android:text="Rating"-->
+        <!--                    android:textColor="@color/shade_of_green" />-->
+
+        <!--            </LinearLayout>-->
+
+
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/confirm"-->
+        <!--            android:layout_width="219dp"-->
+        <!--            android:layout_height="56dp"-->
+        <!--            android:layout_marginBottom="35dp"-->
+        <!--            android:background="@drawable/confirm_button_style"-->
+        <!--            android:text="@string/confirm"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="20sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

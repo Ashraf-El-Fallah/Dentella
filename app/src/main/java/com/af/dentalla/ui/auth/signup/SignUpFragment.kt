@@ -81,7 +81,12 @@ class SignUpFragment : BaseFragment() {
                         confirmPassword
                     )
                 ) {
-                    val signUpPatient = SignUpPatient(userName, email, password, phone)
+                    val signUpPatient = SignUpPatient(
+                        username = userName,
+                        email = email,
+                        password = password,
+                        phoneNumber = phone
+                    )
                     viewModel.signUpUserLogic(signUpPatient)
                 }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
@@ -93,7 +98,13 @@ class SignUpFragment : BaseFragment() {
                         confirmPassword
                     )
                 ) {
-                    val signUpDoctor = SignUpDoctor(userName, email, password, phone, id)
+                    val signUpDoctor = SignUpDoctor(
+                        username = userName,
+                        id = id,
+                        email = email,
+                        password = password,
+                        phoneNumber = phone
+                    )
                     viewModel.signUpUserLogic(signUpDoctor)
                 }
             }
@@ -128,7 +139,7 @@ class SignUpFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-                    requireView().showToastShort("Can't connect to data base")
+//                    requireView().showToastShort("Can't connect to data base")
                 }
             }
         }

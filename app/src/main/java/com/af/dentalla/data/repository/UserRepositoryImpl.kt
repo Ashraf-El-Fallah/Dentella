@@ -6,7 +6,9 @@ import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
+import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.requests.LoginUser
+import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utilities.AccountManager
@@ -27,16 +29,19 @@ class UserRepositoryImpl @Inject constructor(
             try {
                 val authenticateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginUser)
-                if (authenticateLoginResponse.isSuccessful) {
-                    saveToken(authenticateLoginResponse.body()?.token)
-                    Log.d("LoginUser", "Login Successfully")
-                    emit(NetWorkResponseState.Success(Unit))
-                } else {
-                    val errorMessage =
-                        authenticateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
-                    Log.d("LoginUser", "Login failed :$errorMessage")
-                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateLoginResponse.code()}:$errorMessage")))
-                }
+                emit(NetWorkResponseState.Success(Unit))
+                saveToken(authenticateLoginResponse.token)
+
+//                if (authenticateLoginResponse.isSuccessful) {
+//                    saveToken(authenticateLoginResponse.body()?.token)
+//                    Log.d("LoginUser", "Login Successfully")
+//                    emit(NetWorkResponseState.Success(Unit))
+//                } else {
+//                    val errorMessage =
+//                        authenticateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
+//                    Log.d("LoginUser", "Login failed :$errorMessage")
+//                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateLoginResponse.code()}:$errorMessage")))
+//                }
             } catch (e: Exception) {
                 Log.d("LoginUser", "Exception during login  ${e.message}", e)
                 emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
@@ -44,22 +49,28 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
+    //
     override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
+//        val user=SignUpPatient("aaa@gmail.com","aaaaaaaaa","01224217645","aaaaaaaaaaa")
         return flow {
             Log.d("SignUpUser", "Start signing up user $signUpUser")
             emit(NetWorkResponseState.Loading)
             try {
                 val authenticateSignUpResponse =
                     service.signUpUser(accountType.toString().lowercase(), signUpUser)
-                if (authenticateSignUpResponse.isSuccessful) {
-                    Log.d("SignUpUser", "Sign Up Successfully")
-                    emit(NetWorkResponseState.Success(Unit))
-                } else {
-                    val errorMessage =
-                        authenticateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
-                    Log.d("SignUpUser", "Sign Up failed :$errorMessage")
-                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateSignUpResponse.code()}:$errorMessage")))
-                }
+                emit(NetWorkResponseState.Success(Unit))
+
+                //                if (authenticateSignUpResponse.isSuccessful)
+//                {
+//                    Log.d("SignUpUser", "Sign Up Successfully")
+//                    emit(NetWorkResponseState.Success(Unit))
+//                } else {
+//                    val errorMessage =
+//                        authenticateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
+//                    Log.d("SignUpUser", "Sign Up failed :$errorMessage")
+//                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateSignUpResponse.code()}:$errorMessage")))
+//                }
+                Log.d("SignUpUser", "............ $signUpUser")
             } catch (e: Exception) {
                 Log.d("SignUpUser", "Exception during sign up  ${e.message}")
                 emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
@@ -90,20 +101,26 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
         return flow {
+            Log.d("Articles", "Start getting articles")
             emit(NetWorkResponseState.Loading)
             try {
                 val response = service.getAllArticles()
                 if (response.isSuccessful) {
+                    Log.d("Articles", "Articles got successfully")
                     val data = response.body()
                     if (data != null) {
+                        Log.d("Articles", "Articles got successfully")
                         emit(NetWorkResponseState.Success(data))
                     } else {
+                        Log.d("Articles", "Body is null")
                         emit(NetWorkResponseState.Error(Exception("Response body is null")))
                     }
                 } else {
+                    Log.d("Articles", "HTTP error")
                     emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
                 }
             } catch (e: Exception) {
+                Log.d("Articles", "exception")
                 emit(NetWorkResponseState.Error(e))
             }
         }
@@ -114,6 +131,27 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 val response = service.searchAboutDoctorsByUniversity(university)
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        emit(NetWorkResponseState.Success(data))
+                    } else {
+                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    }
+                } else {
+                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
+                }
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                val response = service.getDoctorProfile(cardId)
                 if (response.isSuccessful) {
                     val data = response.body()
                     if (data != null) {

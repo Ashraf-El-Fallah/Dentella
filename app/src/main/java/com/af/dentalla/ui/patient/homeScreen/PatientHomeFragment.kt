@@ -52,8 +52,10 @@ class PatientHomeFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progress.gone()
-                    binding.rvDoctors.adapter = DoctorsCardsAdapter { doctorCard ->
-                        navigateToDoctorProfile(doctorCard.cardId)
+                    binding.rvDoctors.apply {
+                        adapter = DoctorsCardsAdapter { doctorCard ->
+                            navigateToDoctorProfile(doctorCard.cardId)
+                        }
                     }
                     (binding.rvDoctors.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
@@ -83,7 +85,8 @@ class PatientHomeFragment : Fragment() {
 
         val adapter = SpecialtyAdapter(specialtiesList)
         binding.recyclerViewSpeciality.adapter = adapter
-        binding.recyclerViewSpeciality.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewSpeciality.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun navigateToDoctorProfile(doctorId: Int) {

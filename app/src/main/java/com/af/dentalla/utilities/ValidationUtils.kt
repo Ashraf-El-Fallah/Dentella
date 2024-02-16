@@ -12,7 +12,7 @@ object ValidationUtils {
 
     fun isIdNotValid(id: String) = (id.length <= 4 || id.isEmpty() || id.length > 10)
 
-    fun isPasswordNotValid(password: String) = password.length < 8
+    fun isPasswordNotValid(password: String) = password.length < 3
     fun isPasswordAndConfirmationNotEqual(password: String, confirmPassword: String) =
         (password.length < 8 || password.length > 15 || password != confirmPassword)
 }
