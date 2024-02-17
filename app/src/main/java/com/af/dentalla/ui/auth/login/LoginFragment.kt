@@ -1,5 +1,6 @@
 package com.af.dentalla.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.af.dentalla.data.remote.requests.LoginDoctor
 import com.af.dentalla.data.remote.requests.LoginPatient
 import com.af.dentalla.databinding.FragmentLoginBinding
+import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
@@ -78,7 +80,11 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Success -> {
                     binding.progressBar.gone()
                     binding.buttonSignIn.isEnabled = true
-                    findNavController().safeNavigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+//                    findNavController().safeNavigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
+//                    (activity as AuthenticationActivity).navigateToHomeActivity()
+                    val intent =
+                        Intent(this@LoginFragment.requireContext(), HomeActivity::class.java)
+                    startActivity(intent)
                 }
 
                 is ScreenState.Error -> {

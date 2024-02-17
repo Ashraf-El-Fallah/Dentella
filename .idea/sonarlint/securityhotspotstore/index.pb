@@ -3,8 +3,6 @@ D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-d
-4app/src/main/java/com/af/dentalla/ui/MainActivity.kt,5\9\59291171a95a6817fe9872afdfe35194a4c1f3af
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 i
@@ -13,8 +11,6 @@ p
 @app/src/main/java/com/af/dentalla/ui/Ai/ThirdSplashAiFragment.kt,3\4\346f822afe13a6ef62b45e62aecc897aff711bce
 q
 Aapp/src/main/java/com/af/dentalla/ui/Ai/SecondSplashAiFragment.kt,0\8\088eba37148be3c3b29221545cbc7d15f7a8ff4d
-p
-@app/src/main/java/com/af/dentalla/ui/Ai/FirstSplashAiFragment.kt,2\5\256a60ce4ad7dc1151511114f74751ad05268374
 n
 >app/src/main/java/com/af/dentalla/ui/PatientProfileFragment.kt,4\3\4310f386d1f4e5abaea83c1feb636519d4f493b3
 ]
@@ -125,8 +121,6 @@ j
 :app/src/main/java/com/af/dentalla/utilities/ScreenState.kt,8\9\894c1399753c786dad5b491a7da022720ddfb15c
 …
 Uapp/src/main/java/com/af/dentalla/domain/usecase/patient/GetAllDoctorsCardsUseCase.kt,d\1\d1b48114ed06b6d532a4f70892f19a57cb9a3e6a
-Y
-)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 
 Oapp/src/main/java/com/af/dentalla/ui/patient/articles/PatientArticlesAdapter.kt,8\b\8b9bd5733b3a735d013aa031837b86b002cc73f1
 o
@@ -460,8 +454,6 @@ G.idea/sonarlint/issuestore/5/8/58aeda7749948d5f0a9126cd1f316b65abc6394c,b\a\ba
 
 Q.idea/sonarlint/securityhotspotstore/9/a/9ac1b852b5754e1c6d52b17e4820e04439abe3d2,a\4\a4f00fd0df2bc7670f26f1a52ca5348d6918990e
 
-Q.idea/sonarlint/securityhotspotstore/2/5/256a60ce4ad7dc1151511114f74751ad05268374,9\1\9129fcb795675d2c35f6d088bdadad60b1b98cc2
-
 Q.idea/sonarlint/securityhotspotstore/c/b/cbe8fa1ad3fb936616859dbcd358ec86f175b9a2,2\0\209008ee8d85b72139f552523bfc08c7ca414070
 
 Q.idea/sonarlint/securityhotspotstore/5/c/5cb98dd1a785f4fcb50019ddb663ce1fc0c28669,4\c\4caff87876bb1ba8d3c171e87b3244a6bec0a309
@@ -521,3 +513,11 @@ Kapp/src/main/java/com/af/dentalla/domain/entity/DoctorAvailabilityEntity.kt,1\
 Sapp/src/main/java/com/af/dentalla/domain/usecase/patient/GetDoctorProfileUseCase.kt,8\9\89776bc185c3ef3fc3d2c3bf3b64a0b86049c11c
 w
 G.idea/sonarlint/issuestore/8/0/80fb185267855f4f1911d5b9d3fea5a4391e89f7,3\f\3f3db9f20634696f7d967f3d7747344aedc344e0
+k
+;app/src/main/java/com/af/dentalla/ui/Ai/SplashAiFragment.kt,8\d\8d940d8aa1c13702cad0d36b672055c81843a24a
+n
+>app/src/main/java/com/af/dentalla/ui/AuthenticationActivity.kt,4\5\454463fbfe6a444161736fe20989b0ef3e5c177f
+d
+4app/src/main/java/com/af/dentalla/ui/HomeActivity.kt,3\d\3dec3d90b7b9bc38fd6b1e539ca07900ea2dab2a
+q
+Aapp/src/main/java/com/af/dentalla/ui/doctor/DoctorHomeFragment.kt,9\2\92d5f8c43e8100f85be5af5a6e7f568d2382cbb8

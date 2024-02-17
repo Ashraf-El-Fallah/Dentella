@@ -45,7 +45,11 @@ class PatientArticlesFragment : Fragment() {
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
 //                    binding.rvArticles.adapter = PatientArticlesAdapter()
-                    (binding.rvArticles.adapter as PatientArticlesAdapter).submitList(it.uiData)
+//                    (binding.rvArticles.adapter as PatientArticlesAdapter).submitList(it.uiData)
+                    val adapter = binding.rvArticles.adapter
+                    if (adapter is PatientArticlesAdapter) {
+                        adapter.submitList(it.uiData)
+                    }
                 }
 
                 is ScreenState.Error -> {
