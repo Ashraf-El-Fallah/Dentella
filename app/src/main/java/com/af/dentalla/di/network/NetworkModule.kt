@@ -16,7 +16,8 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
-private const val BASE_URL = "http://abdoelghany1-001-site1.ktempurl.com/api/"
+//private const val BASE_URL = "http://abdoelghany1-001-site1.ktempurl.com/api/"
+private const val BASE_URL = "http://dentella.somee.com/api/"
 
 @Module
 @InstallIn(SingletonComponent::class)

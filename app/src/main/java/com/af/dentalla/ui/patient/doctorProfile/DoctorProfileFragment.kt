@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
+import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragmentDirections
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.loadImage
+import com.af.dentalla.utilities.safeNavigate
 import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +37,13 @@ class DoctorProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setProfileDetail()
+        setUpBackButton()
+    }
+
+    private fun setUpBackButton() {
+        binding.back.setOnClickListener {
+            findNavController().safeNavigate(DoctorProfileFragmentDirections.actionDoctorProfileFragmentToHomeFragment())
+        }
     }
 
     private fun setProfileDetail() {
@@ -42,7 +52,7 @@ class DoctorProfileFragment : Fragment() {
                 is ScreenState.Loading -> binding.progress.visible()
                 is ScreenState.Error -> {
                     binding.progress.gone()
-                    requireView().showToastShort(profileState.message)
+//                    requireView().showToastShort(profileState.message)
                 }
 
                 is ScreenState.Success -> {

@@ -58,9 +58,10 @@ class SearchFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progress.gone()
-                    binding.recyclerViewSearchedCards.adapter = DoctorsCardsAdapter { doctorCard ->
-                        navigateToDoctorProfile(doctorCard.cardId)
-                    }
+                    binding.recyclerViewSearchedCards.adapter =
+                        DoctorsCardsAdapter { doctorCardId ->
+                            navigateToDoctorProfile(doctorCardId)
+                        }
                     (binding.recyclerViewSearchedCards.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 

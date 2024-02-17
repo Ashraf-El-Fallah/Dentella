@@ -25,8 +25,8 @@ class UserRepositoryImpl @Inject constructor(
     override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> {
         return flow {
             Log.d("LoginUser", "Start login user $loginUser")
-            emit(NetWorkResponseState.Loading)
             try {
+                emit(NetWorkResponseState.Loading)
                 val authenticateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginUser)
                 emit(NetWorkResponseState.Success(Unit))
@@ -80,19 +80,21 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsDto>>> {
         return flow {
-            emit(NetWorkResponseState.Loading)
             try {
+                emit(NetWorkResponseState.Loading)
+
                 val response = service.getAllDoctorsCards()
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
-                }
+                emit(NetWorkResponseState.Success(response))
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    if (data != null) {
+//                        emit(NetWorkResponseState.Success(data))
+//                    } else {
+//                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+//                    }
+//                } else {
+//                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
+//                }
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
             }
@@ -102,23 +104,25 @@ class UserRepositoryImpl @Inject constructor(
     override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
         return flow {
             Log.d("Articles", "Start getting articles")
-            emit(NetWorkResponseState.Loading)
             try {
+                emit(NetWorkResponseState.Loading)
                 val response = service.getAllArticles()
-                if (response.isSuccessful) {
-                    Log.d("Articles", "Articles got successfully")
-                    val data = response.body()
-                    if (data != null) {
-                        Log.d("Articles", "Articles got successfully")
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        Log.d("Articles", "Body is null")
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    Log.d("Articles", "HTTP error")
-                    emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
-                }
+                emit(NetWorkResponseState.Success(response))
+
+//                if (response.isSuccessful) {
+//                    Log.d("Articles", "Articles got successfully")
+//                    val data = response.body()
+//                    if (data != null) {
+//                        Log.d("Articles", "Articles got successfully")
+//                        emit(NetWorkResponseState.Success(data))
+//                    } else {
+//                        Log.d("Articles", "Body is null")
+//                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+//                    }
+//                } else {
+//                    Log.d("Articles", "HTTP error")
+//                    emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
+//                }
             } catch (e: Exception) {
                 Log.d("Articles", "exception")
                 emit(NetWorkResponseState.Error(e))
@@ -149,19 +153,22 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>> {
         return flow {
-            emit(NetWorkResponseState.Loading)
             try {
+                emit(NetWorkResponseState.Loading)
+
                 val response = service.getDoctorProfile(cardId)
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
-                }
+                emit(NetWorkResponseState.Success(response))
+
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    if (data != null) {
+//                        emit(NetWorkResponseState.Success(data))
+//                    } else {
+//                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+//                    }
+//                } else {
+//                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
+//                }
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
             }

@@ -20,8 +20,8 @@ class AuthInterceptor @Inject constructor(dataStorePreferencesService: DataStore
 //        } else {
         Log.d("interceptorKKKKKKKK",".........")
         val request = chain.request().newBuilder()
-            .addHeader("Authorization", "Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
-//            .addHeader("Authorization", "Bearer $token")
+//            .addHeader("Authorization", "Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
+            .addHeader("Authorization", "Bearer $token")
 //            .addHeader("Content-Type", "application/json")
             .build()
 //        }

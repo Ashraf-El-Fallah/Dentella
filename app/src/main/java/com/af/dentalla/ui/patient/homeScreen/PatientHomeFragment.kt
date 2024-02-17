@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
+import com.af.dentalla.databinding.ActivityMainBinding
 import com.af.dentalla.databinding.FragmentHomeBinding
+import com.af.dentalla.ui.MainActivity
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.safeNavigate
@@ -20,14 +22,21 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PatientHomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+
+    //    private lateinit var bindingActivity: ActivityMainBinding
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+//        (activity as MainActivity).setVisible(true)
         return binding.root
     }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,20 +62,22 @@ class PatientHomeFragment : Fragment() {
                 is ScreenState.Success -> {
                     binding.progress.gone()
                     binding.rvDoctors.apply {
-                        adapter = DoctorsCardsAdapter { doctorCard ->
-                            navigateToDoctorProfile(doctorCard.cardId)
+                        adapter = DoctorsCardsAdapter { doctorCardId ->
+                            navigateToDoctorProfile(doctorCardId)
                         }
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
                     (binding.rvDoctors.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.gone()
-                    Toast.makeText(
-                        context,
-                        it.message,
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        it.message,
+//                        Toast.LENGTH_LONG
+//                    ).show()
                 }
             }
         }

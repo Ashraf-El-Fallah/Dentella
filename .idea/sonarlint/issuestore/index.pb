@@ -519,3 +519,5 @@ Fapp/src/main/java/com/af/dentalla/domain/entity/DoctorProfileEntity.kt,3\2\320
 Kapp/src/main/java/com/af/dentalla/domain/entity/DoctorAvailabilityEntity.kt,1\7\17f48b9e939be9425bd273229497af282d78cce9
 ƒ
 Sapp/src/main/java/com/af/dentalla/domain/usecase/patient/GetDoctorProfileUseCase.kt,8\9\89776bc185c3ef3fc3d2c3bf3b64a0b86049c11c
+w
+G.idea/sonarlint/issuestore/8/0/80fb185267855f4f1911d5b9d3fea5a4391e89f7,3\f\3f3db9f20634696f7d967f3d7747344aedc344e0

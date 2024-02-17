@@ -32,10 +32,10 @@ interface ApiService {
     ): LoginResponse//Response<LoginResponse>
 
     @GET("Card/GetAllCards")
-    suspend fun getAllDoctorsCards(): Response<List<CardsDto>>
+    suspend fun getAllDoctorsCards(): List<CardsDto>
 
     @GET("Article/GetAllArticles")
-    suspend fun getAllArticles(): Response<List<ArticleDto>>
+    suspend fun getAllArticles(): List<ArticleDto>
 
     @GET("Card/SearchCardsByUniversity/{university}")
     suspend fun searchAboutDoctorsByUniversity(
@@ -45,6 +45,6 @@ interface ApiService {
     @GET("Card/GetCardDetails/{cardId}")
     suspend fun getDoctorProfile(
         @Path("cardId") cardId: Int
-    ): Response<DoctorProfileDto>
+    ): DoctorProfileDto
 
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
@@ -37,6 +38,12 @@ class PatientArticlesFragment : Fragment() {
                 is ScreenState.Loading -> binding.progress.visible()
                 is ScreenState.Success -> {
                     binding.progress.gone()
+
+                    binding.rvArticles.apply {
+                        adapter = PatientArticlesAdapter()
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                    }
 //                    binding.rvArticles.adapter = PatientArticlesAdapter()
                     (binding.rvArticles.adapter as PatientArticlesAdapter).submitList(it.uiData)
                 }
