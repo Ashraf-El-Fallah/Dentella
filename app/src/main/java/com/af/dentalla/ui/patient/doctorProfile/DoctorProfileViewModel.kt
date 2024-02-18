@@ -26,7 +26,7 @@ class DoctorProfileViewModel @Inject constructor(
                 when (it) {
                     is NetWorkResponseState.Loading -> _doctorProfile.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Error -> _doctorProfile.postValue(ScreenState.Error(it.exception.message!!))
-                    is NetWorkResponseState.Success -> ScreenState.Success(it.result)
+                    is NetWorkResponseState.Success -> _doctorProfile.postValue(ScreenState.Success(it.result))
                 }
             }
         }

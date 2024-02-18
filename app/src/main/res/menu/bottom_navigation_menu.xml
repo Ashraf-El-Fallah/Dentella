@@ -12,6 +12,9 @@
         android:title="Articles" />
 
     <item
+        android:id="@+id/placeholder"
+        android:title="" />
+    <item
         android:id="@+id/firstSplashAiFragment"
         android:icon="@drawable/chat"
         android:title="Chat Ai" />

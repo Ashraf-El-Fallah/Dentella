@@ -20,6 +20,9 @@ class PatientArticlesViewModel @Inject constructor(
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
     val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
 
+    init {
+        getArticles()
+    }
     private fun getArticles() {
         viewModelScope.launch {
             getArticlesUseCase().collectLatest {

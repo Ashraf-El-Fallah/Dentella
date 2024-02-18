@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="com.af.dentalla.ui.ForgetPasswordFragment"
+        android:name="com.af.dentalla.ui.auth.ForgetPasswordFragment"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password">
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmationCodeFragment"
-        android:name="com.af.dentalla.ui.ConfirmationCodeFragment"
+        android:name="com.af.dentalla.ui.auth.ConfirmationCodeFragment"
         android:label="fragment_confirmation_code"
         tools:layout="@layout/fragment_confirmation_code">
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.af.dentalla.ui.ChangePasswordFragment"
+        android:name="com.af.dentalla.ui.auth.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password">
         <action

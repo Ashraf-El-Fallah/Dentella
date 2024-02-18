@@ -16,7 +16,6 @@ import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 

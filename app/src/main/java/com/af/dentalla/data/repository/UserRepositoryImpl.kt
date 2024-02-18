@@ -103,11 +103,13 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
         return flow {
-            Log.d("Articles", "Start getting articles")
+
             try {
                 emit(NetWorkResponseState.Loading)
+                Log.d("Articles", "Start getting articles")
                 val response = service.getAllArticles()
                 emit(NetWorkResponseState.Success(response))
+                Log.d("Articles", "Articles are getting successfully")
 
 //                if (response.isSuccessful) {
 //                    Log.d("Articles", "Articles got successfully")

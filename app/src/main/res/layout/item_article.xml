@@ -76,13 +76,14 @@
             android:layout_height="123dp"
             android:layout_marginHorizontal="18dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/image_article_style"
             android:src="@drawable/teeth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />
+<!--        android:background="@drawable/image_article_style"-->
 
-<!--        <TextView-->
+
+        <!--        <TextView-->
 <!--            android:id="@+id/comments"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->

@@ -17,7 +17,7 @@ class PatientArticlesAdapter :
 
         fun bind(article: ArticlesEntity) {
             binding.apply {
-                imageTeeth.loadImage(article.articleImage)
+                imageTeeth.loadImage(article.articleImage.toString())
                 textViewDoctorNameArticle.text = article.doctorName
                 textViewTime.text = article.postingTime
                 textViewArticleTitle.text = article.title
