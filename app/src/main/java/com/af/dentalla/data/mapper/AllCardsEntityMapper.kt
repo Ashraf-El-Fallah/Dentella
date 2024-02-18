@@ -9,22 +9,22 @@ class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEnt
     override fun map(input: List<CardsDto>): List<CardsEntity> {
         return input.map {
             CardsEntity(
-                cardId = it.cardId,
-                currentUniversity = it.currentUniversity,
-                doctorName = it.doctorName,
-                doctorPhoto = it.doctorPhoto,
-                phoneNumber = it.phoneNumber
+                cardId = it.cardId ?: 0,
+                currentUniversity = it.currentUniversity ?: "",
+                doctorName = it.doctorName ?: "",
+                doctorPhoto = it.doctorPhoto ?: "",
+                phoneNumber = it.phoneNumber ?: ""
             )
         }
     }
 
-    fun CardsDto.toCardsEntity(): CardsEntity =
-        CardsEntity(
-            cardId = cardId,
-            currentUniversity = currentUniversity,
-            doctorName = doctorName,
-            doctorPhoto = doctorPhoto,
-            phoneNumber = phoneNumber
-        )
+//    fun CardsDto.toCardsEntity(): CardsEntity =
+//        CardsEntity(
+//            cardId = cardId,
+//            currentUniversity = currentUniversity,
+//            doctorName = doctorName,
+//            doctorPhoto = doctorPhoto,
+//            phoneNumber = phoneNumber
+//        )
 
 }

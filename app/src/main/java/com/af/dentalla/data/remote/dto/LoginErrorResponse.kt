@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class LoginErrorResponse(
     @SerializedName("status")
-    val status: Int,
+    val status: Int?,
     @SerializedName("title")
-    val error: String,
+    val error: String?,
     @SerializedName("traceId")
-    val traceId: String,
+    val traceId: String?,
     @SerializedName("type")
-    val type: String
+    val type: String?
 )

@@ -157,8 +157,8 @@ class UserRepositoryImpl @Inject constructor(
         return flow {
             try {
                 emit(NetWorkResponseState.Loading)
-
                 val response = service.getDoctorProfile(cardId)
+                Log.d("ProfileDetails",response.doctorName.toString())
                 emit(NetWorkResponseState.Success(response))
 
 //                if (response.isSuccessful) {
@@ -172,6 +172,7 @@ class UserRepositoryImpl @Inject constructor(
 //                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
 //                }
             } catch (e: Exception) {
+                Log.d("ProfileDetails",e.message.toString())
                 emit(NetWorkResponseState.Error(e))
             }
         }

@@ -56,9 +56,10 @@ class DoctorProfileFragment : Fragment() {
                 }
 
                 is ScreenState.Success -> {
+                    binding.progress.gone()
                     val profile = profileState.uiData
                     binding.apply {
-                        doctorImg.loadImage(profile.doctorPhoto)
+//                        doctorImg.loadImage(profile.doctorPhoto)
                         textViewDoctorName.text = profile.doctorName
                         textViewDoctorSpeciality.text =
                             profile.specialty.toString() ///speciality is int

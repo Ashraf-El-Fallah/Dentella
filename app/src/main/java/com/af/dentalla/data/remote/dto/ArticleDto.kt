@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName
 
 data class ArticleDto(
     @SerializedName("articleId")
-    val articleId: Int,
+    val articleId: Int?,
     @SerializedName("content")
-    val content: String,
+    val content: String?,
     @SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String?,
     @SerializedName("doctorName")
-    val doctorName: String,
+    val doctorName: String?,
     @SerializedName("imageUrl")
-    val imageUrl: String,
+    val imageUrl: String?,
     @SerializedName("numberOfComments")
-    val numberOfComments: Int,
+    val numberOfComments: Int?,
     @SerializedName("numberOfLikes")
-    val numberOfLikes: Int,
+    val numberOfLikes: Int?,
     @SerializedName("title")
-    val title: String
+    val title: String?
 )

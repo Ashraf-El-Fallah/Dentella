@@ -9,13 +9,13 @@ class ArticlesEntityMapper @Inject constructor() : ListMapper<ArticleDto, Articl
     override fun map(input: List<ArticleDto>): List<ArticlesEntity> {
         return input.map {
             ArticlesEntity(
-                articleId = it.articleId,
-                content = it.content,
-                postingTime = it.createdAt,
-                doctorName = it.doctorName,
+                articleId = it.articleId ?: 0,
+                content = it.content ?: "",
+                postingTime = it.createdAt ?: "",
+                doctorName = it.doctorName ?: "",
                 articleImage = it.imageUrl,
-                numberOfComments = it.numberOfComments,
-                title = it.title
+                numberOfComments = it.numberOfComments ?: 0,
+                title = it.title ?: ""
             )
         }
     }

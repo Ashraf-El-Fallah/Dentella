@@ -6,12 +6,11 @@ import com.af.dentalla.domain.mapper.BaseMapper
 import javax.inject.Inject
 
 
-
 class LoginEntityMapper @Inject constructor() : BaseMapper<LoginResponse, LoginEntity> {
     override fun map(input: LoginResponse): LoginEntity {
         return LoginEntity(
-            token = input.token,
-            tokenExpiration = input.tokenExpiration
+            token = input.token ?: "",
+            tokenExpiration = input.tokenExpiration ?: ""
         )
     }
 }

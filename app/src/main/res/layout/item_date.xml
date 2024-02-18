@@ -11,7 +11,7 @@
         android:backgroundTint="@drawable/item_date_style">
 
         <TextView
-            android:id="@+id/day"
+            android:id="@+id/day_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -23,14 +23,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/day_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="day"
             android:textColor="@color/black"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="@id/day"
-            app:layout_constraintStart_toStartOf="@id/day"
-            app:layout_constraintTop_toBottomOf="@id/day" />
+            app:layout_constraintEnd_toEndOf="@id/day_number"
+            app:layout_constraintStart_toStartOf="@id/day_number"
+            app:layout_constraintTop_toBottomOf="@id/day_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

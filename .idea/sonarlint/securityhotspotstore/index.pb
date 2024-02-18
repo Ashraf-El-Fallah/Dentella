@@ -487,3 +487,13 @@ q
 Aapp/src/main/java/com/af/dentalla/ui/doctor/DoctorHomeFragment.kt,9\2\92d5f8c43e8100f85be5af5a6e7f568d2382cbb8
 s
 Capp/src/main/java/com/af/dentalla/ui/auth/AuthenticationActivity.kt,3\e\3e9908e4b870a8bf5d20b181a8c7fd1495b596f8
+w
+G.idea/sonarlint/issuestore/1/2/129d14ecd4989b98acb1b7c39ada9985067feb11,7\a\7a0f8166a75f05ab1bd6ccb1540427bf8a4f0a17
+s
+Capp/src/main/java/com/af/dentalla/ui/auth/ChangePasswordFragment.kt,1\d\1daf6744f7d307577fceb076bccad8d66c7f0294
+u
+Eapp/src/main/java/com/af/dentalla/ui/auth/ConfirmationCodeFragment.kt,1\b\1bf047bac2823fe408e1d07546f529bfc56d848d
+s
+Capp/src/main/java/com/af/dentalla/ui/auth/ForgetPasswordFragment.kt,7\e\7ede811845400dd3c8035e2c167b9652a29862dd
+‡
+Wapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/DoctorAvailabilityAdapter.kt,0\3\0361dc0aeb8d1d9fb9bc3ea7c046cf1d6c91234e
