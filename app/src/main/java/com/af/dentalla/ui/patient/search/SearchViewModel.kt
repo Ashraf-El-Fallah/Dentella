@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.homeScreen.search
+package com.af.dentalla.ui.patient.search
 
 import android.view.View
 import androidx.lifecycle.LiveData

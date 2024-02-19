@@ -60,7 +60,7 @@ class UserRepositoryImpl @Inject constructor(
                     service.signUpUser(accountType.toString().lowercase(), signUpUser)
                 emit(NetWorkResponseState.Success(Unit))
 
-                //                if (authenticateSignUpResponse.isSuccessful)
+                //if (authenticateSignUpResponse.isSuccessful)
 //                {
 //                    Log.d("SignUpUser", "Sign Up Successfully")
 //                    emit(NetWorkResponseState.Success(Unit))
@@ -100,6 +100,7 @@ class UserRepositoryImpl @Inject constructor(
             }
         }
     }
+
 
     override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
         return flow {
@@ -158,7 +159,7 @@ class UserRepositoryImpl @Inject constructor(
             try {
                 emit(NetWorkResponseState.Loading)
                 val response = service.getDoctorProfile(cardId)
-                Log.d("ProfileDetails",response.doctorName.toString())
+                Log.d("ProfileDetails", response.doctorName.toString())
                 emit(NetWorkResponseState.Success(response))
 
 //                if (response.isSuccessful) {
@@ -172,7 +173,19 @@ class UserRepositoryImpl @Inject constructor(
 //                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
 //                }
             } catch (e: Exception) {
-                Log.d("ProfileDetails",e.message.toString())
+                Log.d("ProfileDetails", e.message.toString())
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return flow {
+            try {
+                emit(NetWorkResponseState.Loading)
+                val response = service.getSpecialityCards(specialityId)
+                emit(NetWorkResponseState.Success(response))
+            } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
             }
         }

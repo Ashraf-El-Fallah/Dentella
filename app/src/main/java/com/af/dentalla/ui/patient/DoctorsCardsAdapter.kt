@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.homeScreen
+package com.af.dentalla.ui.patient
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

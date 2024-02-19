@@ -43,4 +43,8 @@ interface ApiService {
         @Path("cardId") cardId: Int
     ): DoctorProfileDto
 
+    @GET("Card/GetSpecsificCards/{specialty}")
+    suspend fun getSpecialityCards(
+        @Path("specialty") specialty: Int
+    ): List<CardsDto>
 }

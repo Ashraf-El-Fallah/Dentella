@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_doctorsSpecialitiesFragment"
+            app:destination="@id/doctorsSpecialitiesFragment" />
     </fragment>
 
     <fragment
@@ -50,6 +53,7 @@
         android:name="com.af.dentalla.ui.patient.articles.PatientArticlesFragment"
         android:label="fragment_articles"
         tools:layout="@layout/fragment_articles" />
+
     <fragment
         android:id="@+id/doctorProfileFragment"
         android:name="com.af.dentalla.ui.patient.doctorProfile.DoctorProfileFragment"
@@ -67,7 +71,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.af.dentalla.ui.patient.homeScreen.search.SearchFragment"
+        android:name="com.af.dentalla.ui.patient.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
         <action
@@ -85,5 +89,21 @@
         <action
             android:id="@+id/action_firstSplashAiFragment_to_aiChatFragment"
             app:destination="@id/aiChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorsSpecialitiesFragment"
+        android:name="com.af.dentalla.ui.patient.doctorsSpecialities.DoctorsSpecialitiesFragment"
+        android:label="fragment_doctors_procedure"
+        tools:layout="@layout/fragment_doctors_speciality">
+        <argument
+            android:name="specialityId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_doctorsSpecialitiesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_doctorsSpecialitiesFragment_to_doctorProfileFragment"
+            app:destination="@id/doctorProfileFragment" />
     </fragment>
 </navigation>

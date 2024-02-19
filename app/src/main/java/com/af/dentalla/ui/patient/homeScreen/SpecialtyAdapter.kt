@@ -5,7 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemSpecialityBinding
 
-class SpecialtyAdapter(private val specialities: List<Speciality>) :
+class SpecialtyAdapter(
+    private val specialities: List<Speciality>,
+    private val onItemClick: (Int) -> Unit
+) :
     RecyclerView.Adapter<SpecialtyAdapter.SpecialityViewHolderViewHolder>() {
 
     inner class SpecialityViewHolderViewHolder(private val binding: ItemSpecialityBinding) :
@@ -13,6 +16,9 @@ class SpecialtyAdapter(private val specialities: List<Speciality>) :
         fun bind(speciality: Speciality) {
             binding.imgSpeciality.setImageResource(speciality.imageDrawable)
             binding.textViewSpeciality.text = speciality.name
+            itemView.setOnClickListener {
+                onItemClick(speciality.id)
+            }
         }
     }
 

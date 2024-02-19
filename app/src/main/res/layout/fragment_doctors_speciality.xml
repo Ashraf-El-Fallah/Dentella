@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.patient.DoctorsSpecialitiesFragment">
+    tools:context=".ui.patient.doctorsSpecialities.DoctorsSpecialitiesFragment">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/back"
@@ -19,10 +29,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/procedure"
+        android:id="@+id/speciality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/procedure"
+        android:text="@string/speciality"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -32,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@id/back" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_doctors_procedures"
+        android:id="@+id/rv_doctors_specialities"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="20dp"
@@ -40,6 +50,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/procedure" />
+        app:layout_constraintTop_toBottomOf="@id/speciality" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

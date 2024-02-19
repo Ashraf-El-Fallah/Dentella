@@ -497,3 +497,7 @@ s
 Capp/src/main/java/com/af/dentalla/ui/auth/ForgetPasswordFragment.kt,7\e\7ede811845400dd3c8035e2c167b9652a29862dd
 ‡
 Wapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/DoctorAvailabilityAdapter.kt,0\3\0361dc0aeb8d1d9fb9bc3ea7c046cf1d6c91234e
+w
+G.idea/sonarlint/issuestore/0/c/0ceee4e088bb8dddc31d2f4b516ae81aa8620485,1\4\143f351f6d027573b28e1262586c7c0337a20291
+w
+G.idea/sonarlint/issuestore/9/3/93af87243cf9f619a845c883cf670578e4b09ea6,c\4\c40796f72d343986648c8e56941bf2d9b8211dd5

@@ -5,5 +5,6 @@ data class CardsEntity(
     val currentUniversity: String?,
     val doctorName: String,
     val doctorPhoto: String?,
-    val phoneNumber: String
+    val phoneNumber: String,
+    val speciality: Int
 )

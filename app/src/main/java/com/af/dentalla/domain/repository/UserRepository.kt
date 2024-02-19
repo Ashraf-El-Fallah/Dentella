@@ -7,6 +7,7 @@ import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
+import com.af.dentalla.ui.patient.homeScreen.Speciality
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
@@ -20,4 +21,6 @@ interface UserRepository {
     fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsDto>>>
 
     fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>>
+
+    fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>>
 }

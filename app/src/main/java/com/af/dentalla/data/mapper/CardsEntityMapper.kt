@@ -5,7 +5,7 @@ import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.mapper.ListMapper
 import javax.inject.Inject
 
-class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEntity> {
+class CardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEntity> {
     override fun map(input: List<CardsDto>): List<CardsEntity> {
         return input.map {
             CardsEntity(
@@ -13,7 +13,8 @@ class AllCardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEnt
                 currentUniversity = it.currentUniversity ?: "",
                 doctorName = it.doctorName ?: "",
                 doctorPhoto = it.doctorPhoto ?: "",
-                phoneNumber = it.phoneNumber ?: ""
+                phoneNumber = it.phoneNumber ?: "",
+                speciality = it.specialty ?: 0
             )
         }
     }

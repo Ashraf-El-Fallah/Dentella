@@ -39,7 +39,7 @@
     <string name="example">This is example that what can i do for you.</string>
     <string name="ask_me">Ask me anything...</string>
     <!-- strings.xml -->
-    <string name="procedure">procedure</string>
+    <string name="speciality">speciality</string>
     <string name="profile">profile</string>
     <string name="doctor_name">doctor name</string>
     <string name="doctor_procedure">doctor procedure</string>

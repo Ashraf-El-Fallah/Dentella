@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.homeScreen.search
+package com.af.dentalla.ui.patient.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentSearchBinding
-import com.af.dentalla.ui.patient.homeScreen.DoctorsCardsAdapter
+import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.safeNavigate

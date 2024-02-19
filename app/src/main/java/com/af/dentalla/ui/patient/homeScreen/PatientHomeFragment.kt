@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentPatientHomeBinding
+import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.safeNavigate
@@ -78,15 +79,21 @@ class PatientHomeFragment : Fragment() {
 
     private fun setUpSpecialitiesRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.cleaning, 1, "Cleaning"),
-            Speciality(R.drawable.dental_implant, 2, "Implants"),
-            Speciality(R.drawable.crown, 3, "Crowns"),
-            Speciality(R.drawable.denture, 4, "Dentures"),
-            Speciality(R.drawable.extraction, 5, "Extraction"),
-            Speciality(R.drawable.dental_filling, 5, "Filling"),
+            Speciality(R.drawable.cleaning, 0, "Cleaning"),
+            Speciality(R.drawable.dental_filling, 1, "Filling"),
+            Speciality(R.drawable.crown, 2, "Crowns"),
+            Speciality(R.drawable.dental_implant, 3, "Implants"),
+            Speciality(R.drawable.extraction, 4, "Extraction"),
+            Speciality(R.drawable.denture, 5, "Dentures"),
         )
 
-        val adapter = SpecialtyAdapter(specialtiesList)
+        val adapter = SpecialtyAdapter(specialtiesList) { specialityId ->
+            val action =
+                PatientHomeFragmentDirections.actionHomeFragmentToDoctorsSpecialitiesFragment(
+                    specialityId
+                )
+            findNavController().navigate(action)
+        }
         binding.recyclerViewSpeciality.adapter = adapter
         binding.recyclerViewSpeciality.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)

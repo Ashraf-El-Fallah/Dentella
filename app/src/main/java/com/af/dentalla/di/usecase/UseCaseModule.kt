@@ -1,7 +1,7 @@
 package com.af.dentalla.di.usecase
 
 
-import com.af.dentalla.data.mapper.AllCardsEntityMapper
+import com.af.dentalla.data.mapper.CardsEntityMapper
 import com.af.dentalla.data.mapper.ArticlesEntityMapper
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
@@ -46,7 +46,7 @@ abstract class UseCaseModule {
     @Binds
     @ViewModelScoped
     abstract fun bindsAllDoctorsCards(
-        allCardsEntityMapper: AllCardsEntityMapper
+        cardsEntityMapper: CardsEntityMapper
     ): ListMapper<CardsDto, CardsEntity>
 
     @Binds
