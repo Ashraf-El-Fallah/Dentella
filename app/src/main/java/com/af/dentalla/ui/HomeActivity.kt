@@ -30,9 +30,11 @@ class HomeActivity : AppCompatActivity() {
         if (accountType == AccountManager.AccountType.DOCTOR) {
             val doctorFragment = DoctorHomeFragment()
             transaction.replace(R.id.nav_host_home_fragment, doctorFragment)
+            transaction.commit()
         } else if (accountType == AccountManager.AccountType.PATIENT) {
             val patientFragment = PatientHomeFragment()
             transaction.replace(R.id.nav_host_home_fragment, patientFragment)
+            transaction.commit()
         }
     }
 

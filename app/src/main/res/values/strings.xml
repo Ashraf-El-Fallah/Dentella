@@ -10,7 +10,7 @@
     <string name="forget_your_password">Forgot your password?</string>
     <string name="or">or</string>
     <string name="signin_with_google">Sign in with Google</string>
-    <string name="don_have_account">Don not have account?</string>
+    <string name="don_have_account">Do not have account?</string>
     <string name="create_account">Create account</string>
     <string name="user_name">User Name</string>
     <string name="phone">Phone</string>
@@ -35,8 +35,8 @@
     <string name="available_doctor">Available doctor</string>
     <string name="book_now">Book Now</string>
     <string name="skip">Skip</string>
-    <string name="ai_card1">ChatGPT is an artificial-intelligence chatbot developed by Open AI</string>
-    <string name="example">This is example that what can i do for you.</string>
+    <string name="ai_card1">Predict diseases before become infected</string>
+    <string name="example">Upload your teeth picture to  see the result.</string>
     <string name="ask_me">Ask me anything...</string>
     <!-- strings.xml -->
     <string name="speciality">speciality</string>

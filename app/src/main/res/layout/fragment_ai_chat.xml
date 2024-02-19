@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.Ai.AiChatFragment">
 
+
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -22,7 +23,7 @@
         android:layout_width="122dp"
         android:layout_height="122dp"
         android:layout_marginHorizontal="153dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/robot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,61 +47,62 @@
             android:gravity="center"
             android:text="@string/ai_card1"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card2"
-        android:layout_width="0dp"
-        android:layout_height="88dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="21dp"
-        android:background="@drawable/card_ai_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card1">
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/card2"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="88dp"-->
+    <!--        android:layout_marginHorizontal="25dp"-->
+    <!--        android:layout_marginTop="21dp"-->
+    <!--        android:background="@drawable/card_ai_style"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/card1">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/ai_card1"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/ai_card1"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="16sp" />-->
+    <!--    </androidx.cardview.widget.CardView>-->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card3"
-        android:layout_width="0dp"
-        android:layout_height="88dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="21dp"
-        android:background="@drawable/card_ai_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card2">
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/card3"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="88dp"-->
+    <!--        android:layout_marginHorizontal="25dp"-->
+    <!--        android:layout_marginTop="21dp"-->
+    <!--        android:background="@drawable/card_ai_style"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/card2">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/ai_card1"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/ai_card1"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="16sp" />-->
+    <!--    </androidx.cardview.widget.CardView>-->
 
     <TextView
         android:id="@+id/example"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:text="@string/example"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card3" />
+        app:layout_constraintTop_toBottomOf="@id/card1" />
 
     <EditText
         android:id="@+id/ai_search"
@@ -108,7 +110,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/edit_text_ai_style"
         android:drawableEnd="@drawable/scan"
         android:hint="@string/ask_me"

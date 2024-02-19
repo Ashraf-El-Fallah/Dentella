@@ -6,13 +6,13 @@ open class SignUpUser(
     @SerializedName("email")
     val email: String? = null,
 
-    @SerializedName("password")
+    @SerializedName("passWord")
     val password: String? = null,
 
-    @SerializedName("phone_number")
+    @SerializedName("phoneNumber")
     val phoneNumber: String? = null,
 
-    @SerializedName("username")
+    @SerializedName("userName")
     val username: String? = null,
 
     @SerializedName("dentistID")

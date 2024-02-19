@@ -34,6 +34,9 @@ class SplashAiFragment : Fragment() {
         binding.arrowToSkip.setOnClickListener {
             findNavController().safeNavigate(SplashAiFragmentDirections.actionFirstSplashAiFragmentToAiChatFragment())
         }
+        binding.skip.setOnClickListener {
+            findNavController().safeNavigate(SplashAiFragmentDirections.actionFirstSplashAiFragmentToAiChatFragment())
+        }
     }
 
 
