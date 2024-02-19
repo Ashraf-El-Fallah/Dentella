@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.EditProfileFragment">
@@ -19,34 +20,180 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/edit_profile"
+        android:id="@+id/text_view_edit_or_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Profile"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:text="Edit"
+        android:textColor="@color/cyan_blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_my_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="My Account"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/back" />
+        app:layout_constraintEnd_toStartOf="@id/text_view_edit_or_save"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_img"
         android:layout_width="148dp"
         android:layout_height="152dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/edit_profile" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_my_account" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_profile_style" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_img">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="229dp"
-        android:layout_height="57dp"
-        android:background="@drawable/update_button_style" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="User Name"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_name"
+                app:layout_constraintStart_toStartOf="@id/edit_text_name" />
+
+            <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:hint="Write your user name"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_mobile_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Mobile Number"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_mobile_number"
+                app:layout_constraintStart_toStartOf="@id/edit_text_mobile_number" />
+
+            <EditText
+                android:id="@+id/edit_text_mobile_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:hint="Write your phone number"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_name" />
+
+            <TextView
+                android:id="@+id/text_view_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Email"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_email"
+                app:layout_constraintStart_toStartOf="@id/edit_text_email" />
+
+            <EditText
+                android:id="@+id/edit_text_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:hint="Write your email"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_mobile_number" />
+
+            <TextView
+                android:id="@+id/text_view_current_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Current University"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_current_university"
+                app:layout_constraintStart_toStartOf="@id/edit_text_current_university" />
+
+            <EditText
+                android:id="@+id/edit_text_current_university"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:hint="Write your current university"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_email" />
+
+            <TextView
+                android:id="@+id/text_view_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Bio"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_bio"
+                app:layout_constraintStart_toStartOf="@id/edit_text_bio" />
+
+            <EditText
+                android:id="@+id/edit_text_bio"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:hint="Write something about you.."
+                android:paddingStart="10dp"
+                android:paddingBottom="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_current_university" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+    <!--        android:layout_width="229dp"-->
+    <!--        android:layout_height="57dp"-->
+    <!--        android:background="@drawable/update_button_style" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

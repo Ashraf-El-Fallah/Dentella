@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentArticlesBinding
+import com.af.dentalla.ui.Ai.AiChatFragmentDirections
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.safeNavigate
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +33,13 @@ class PatientArticlesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         articlesObserver()
+        backToHome()
+    }
+
+    private fun backToHome() {
+        binding.back.setOnClickListener {
+            findNavController().safeNavigate(PatientArticlesFragmentDirections.actionArticlesFragmentToHomeFragment())
+        }
     }
 
     private fun articlesObserver() {

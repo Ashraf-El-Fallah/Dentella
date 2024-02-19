@@ -8,6 +8,7 @@
 
 
     <ImageView
+        android:id="@+id/back_to_splash"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="18dp"

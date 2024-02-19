@@ -41,18 +41,32 @@
         <action
             android:id="@+id/action_aiChatFragment_to_firstSplashAiFragment"
             app:destination="@id/firstSplashAiFragment" />
+        <action
+            android:id="@+id/action_aiChatFragment_to_firstSplashAiFragment2"
+            app:destination="@id/firstSplashAiFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/patientProfileFragment"
         android:name="com.af.dentalla.ui.PatientProfileFragment"
         android:label="fragment_patient_profile"
-        tools:layout="@layout/fragment_patient_profile" />
+        tools:layout="@layout/fragment_patient_profile">
+        <action
+            android:id="@+id/action_patientProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_patientProfileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/articlesFragment"
         android:name="com.af.dentalla.ui.patient.articles.PatientArticlesFragment"
         android:label="fragment_articles"
-        tools:layout="@layout/fragment_articles" />
+        tools:layout="@layout/fragment_articles">
+        <action
+            android:id="@+id/action_articlesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/doctorProfileFragment"
@@ -105,5 +119,18 @@
         <action
             android:id="@+id/action_doctorsSpecialitiesFragment_to_doctorProfileFragment"
             app:destination="@id/doctorProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.af.dentalla.ui.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_patientProfileFragment"
+            app:destination="@id/patientProfileFragment" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
