@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
 import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragmentDirections
@@ -65,8 +66,23 @@ class DoctorProfileFragment : Fragment() {
                             profile.specialty.toString() ///speciality is int
                         textViewPhoneNumber.text = profile.phoneNumber
                         textViewAbout.text = profile.about
+
+                        profile.doctorAvailability.let { doctorAvailabilityEntities ->
+                            if (doctorAvailabilityEntities.isNotEmpty()) {
+                                val adapter =
+                                    AvailableDatesAdapter(doctorAvailabilityEntities.flatMap {
+                                        it.availableDates ?: emptyList()
+                                    })
+                                rvDate.layoutManager =
+                                    LinearLayoutManager(
+                                        activity,
+                                        LinearLayoutManager.HORIZONTAL,
+                                        false
+                                    )
+                                rvDate.adapter = adapter
+                            }
+                        }
                     }
-                    //availability not finished
                 }
             }
         }

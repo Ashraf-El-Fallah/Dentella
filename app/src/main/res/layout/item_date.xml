@@ -7,20 +7,42 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cyan_blue"
-        android:backgroundTint="@drawable/item_date_style">
+        android:background="@color/cyan_blue">
+        <!--        android:backgroundTint="@drawable/item_date_style">-->
 
         <TextView
             android:id="@+id/day_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:text="11"
             android:textColor="@color/black"
             android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            app:layout_constraintEnd_toStartOf="@id/month_number"
+            app:layout_constraintStart_toEndOf="@id/day_number"
+            app:layout_constraintTop_toTopOf="@id/day_number" />
+
+        <TextView
+            android:id="@+id/month_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="11"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/day_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/day_number"
+            app:layout_constraintTop_toTopOf="@id/day_number" />
 
         <TextView
             android:id="@+id/day_name"
@@ -29,8 +51,8 @@
             android:text="day"
             android:textColor="@color/black"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="@id/day_number"
-            app:layout_constraintStart_toStartOf="@id/day_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/day_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

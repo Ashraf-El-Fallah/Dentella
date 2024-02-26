@@ -481,8 +481,6 @@ u
 Eapp/src/main/java/com/af/dentalla/ui/auth/ConfirmationCodeFragment.kt,1\b\1bf047bac2823fe408e1d07546f529bfc56d848d
 s
 Capp/src/main/java/com/af/dentalla/ui/auth/ForgetPasswordFragment.kt,7\e\7ede811845400dd3c8035e2c167b9652a29862dd
-‡
-Wapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/DoctorAvailabilityAdapter.kt,0\3\0361dc0aeb8d1d9fb9bc3ea7c046cf1d6c91234e
 w
 G.idea/sonarlint/issuestore/0/c/0ceee4e088bb8dddc31d2f4b516ae81aa8620485,1\4\143f351f6d027573b28e1262586c7c0337a20291
 w
@@ -501,3 +499,5 @@ v
 Fapp/src/main/java/com/af/dentalla/ui/patient/search/SearchViewModel.kt,a\5\a53c5e881bffdbe53b3ac68ee255cb3815b35e58
 u
 Eapp/src/main/java/com/af/dentalla/ui/patient/search/SearchFragment.kt,7\c\7ca9aa229abb080e4b54817ab357c975ed283f4e
+ƒ
+Sapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableDatesAdapter.kt,1\e\1ee14e99bcb31306c5f2fb9d723550f41d2c174a
