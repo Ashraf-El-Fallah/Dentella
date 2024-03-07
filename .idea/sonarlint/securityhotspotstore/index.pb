@@ -501,3 +501,11 @@ v
 Fapp/src/main/java/com/af/dentalla/ui/patient/search/SearchViewModel.kt,a\5\a53c5e881bffdbe53b3ac68ee255cb3815b35e58
 ƒ
 Sapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableDatesAdapter.kt,1\e\1ee14e99bcb31306c5f2fb9d723550f41d2c174a
+n
+>app/src/main/java/com/af/dentalla/ui/UpdatePasswordFragment.kt,e\1\e124185b930daa13d2a78ee8e8d3768bc82b3fe6
+m
+=app/src/main/java/com/af/dentalla/ui/UpdateProfileFragment.kt,d\4\d4b7f1f76a948a645a767fe4f33b0f758d631da1
+|
+Lapp/src/main/java/com/af/dentalla/ui/updateprofile/UpdatePasswordFragment.kt,a\b\ab99cabf808be6d02db2f97a165fabca8913426c
+y
+Iapp/src/main/java/com/af/dentalla/ui/updateprofile/EditProfileFragment.kt,0\d\0dbc74f710e094bd8eb00e110781de7ea26caaf6

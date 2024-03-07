@@ -1,4 +1,4 @@
-package com.af.dentalla.ui
+package com.af.dentalla.ui.updateprofile
 
 import android.os.Bundle
 import android.text.Editable
@@ -33,6 +33,7 @@ class EditProfileFragment : Fragment() {
         saveAllHintsForAllEditTexts()
         changeBetweenSaveAndEdit()
         navigateToHomeScreen()
+        binding.editTextEmail.setText("aaa")
     }
 
     private fun setTheEditTextsNotEditable() {

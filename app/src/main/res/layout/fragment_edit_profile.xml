@@ -5,7 +5,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EditProfileFragment">
+    tools:context=".ui.updateprofile.EditProfileFragment">
 
     <ImageView
         android:id="@+id/back"
@@ -139,13 +139,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edit_text_mobile_number" />
 
+            <EditText
+                android:id="@+id/edit_text_update_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edit_text_profile_style"
+                android:clickable="true"
+                android:drawableEnd="@drawable/arrow_to_update_password"
+                android:hint="Password"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_email" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/text_input_update_password"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginHorizontal="20dp"-->
+            <!--                android:layout_marginTop="18dp"-->
+
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/edit_text_email">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/edit_text_update_password"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:drawableEnd="@drawable/arrow"-->
+            <!--                    android:background="@drawable/edit_text_profile_style"-->
+            <!--                    android:paddingStart="10dp" />-->
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
             <TextView
                 android:id="@+id/text_view_current_university"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Current University"
+                android:text="Location"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_current_university"
                 app:layout_constraintStart_toStartOf="@id/edit_text_current_university" />
@@ -161,7 +198,7 @@
                 android:paddingStart="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_text_email" />
+                app:layout_constraintTop_toBottomOf="@id/edit_text_update_password" />
 
             <TextView
                 android:id="@+id/text_view_bio"
@@ -169,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Bio"
+                android:text="About"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_bio"
                 app:layout_constraintStart_toStartOf="@id/edit_text_bio" />

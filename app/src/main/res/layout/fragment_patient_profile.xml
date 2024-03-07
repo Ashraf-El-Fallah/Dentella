@@ -81,46 +81,46 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:id="@+id/change_language"-->
-    <!--        android:layout_width="390dp"-->
-    <!--        android:layout_height="47dp"-->
-    <!--        android:layout_marginHorizontal="20dp"-->
-    <!--        android:layout_marginTop="24dp"-->
-    <!--        android:background="@drawable/card_setting_style"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/edit_profile">-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_change_language"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:clickable="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/card_setting_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile">
 
-    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/language"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <!--            <ImageView-->
-    <!--                android:id="@+id/image2"-->
-    <!--                android:layout_width="38dp"-->
-    <!--                android:layout_height="38dp"-->
-    <!--                android:layout_margin="10dp"-->
-    <!--                android:src="@drawable/language"-->
-    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                app:layout_constraintStart_toStartOf="parent"-->
-    <!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="change Language"
+                android:textColor="@color/shade_of_blue"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@id/image2"
+                app:layout_constraintStart_toEndOf="@id/image2"
+                app:layout_constraintTop_toTopOf="@id/image2" />
 
-    <!--            <TextView-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginStart="5dp"-->
-    <!--                android:text="change Language"-->
-    <!--                android:textColor="@color/shade_of_blue"-->
-    <!--                android:textSize="17sp"-->
-    <!--                app:layout_constraintBottom_toBottomOf="@id/image2"-->
-    <!--                app:layout_constraintStart_toEndOf="@id/image2"-->
-    <!--                app:layout_constraintTop_toTopOf="@id/image2" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-    <!--    </androidx.cardview.widget.CardView>-->
+    </androidx.cardview.widget.CardView>
 
     <!--    <androidx.cardview.widget.CardView-->
     <!--        android:id="@+id/branches"-->
@@ -163,7 +163,7 @@
     <!--    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/logout"
+        android:id="@+id/card_view_logout"
         android:layout_width="match_parent"
         android:layout_height="47dp"
         android:layout_marginHorizontal="30dp"
@@ -171,7 +171,7 @@
         android:background="@drawable/card_setting_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile">
+        app:layout_constraintTop_toBottomOf="@id/card_view_change_language">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
