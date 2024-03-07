@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.patient.articles.PatientArticlesFragment">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_add_article"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:drawableLeft="@drawable/adding_button"
+        android:padding="22dp"
+        android:background="@drawable/add_article_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"

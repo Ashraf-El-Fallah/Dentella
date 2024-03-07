@@ -13,8 +13,10 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
 
-class AvailableDatesAdapter(private val availableDates: List<String>) : ListAdapter<String, AvailableDatesAdapter.DateViewHolder>(DiffCallback()) {
-    inner class DateViewHolder(private val binding: ItemDateBinding) : RecyclerView.ViewHolder(binding.root) {
+class AvailableDatesAdapter(private val availableDates: List<String>) :
+    ListAdapter<String, AvailableDatesAdapter.DateViewHolder>(DiffCallback()) {
+    inner class DateViewHolder(private val binding: ItemDateBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(date: String) {
             val (month, dayName, dayNumber) = parseDate(date)
@@ -33,8 +35,8 @@ class AvailableDatesAdapter(private val availableDates: List<String>) : ListAdap
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DateViewHolder, position: Int) {
 //        if (position != RecyclerView.NO_POSITION && position < itemCount) {
-            val date = getItem(position)
-            holder.bind(date)
+        val date = getItem(position)
+        holder.bind(date)
 //        } else {
 //            Log.e("Adapter", "Invalid position: $position")
 //        }
