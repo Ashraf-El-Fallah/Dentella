@@ -481,3 +481,11 @@ p
 @app/src/main/java/com/af/dentalla/ui/articles/ArticlesAdapter.kt,b\e\be3ab7ea41b56e83a71d400b4e1852632aa89f2a
 |
 Lapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/DoctorHomeFragment.kt,e\2\e2259261e10eeaa1f1febe2bfbcf8a32ab48d899
+o
+?app/src/main/java/com/af/dentalla/ui/setting/SettingFragment.kt,2\2\22959535f3562ac00f6fe91662058583af97c4de
+Å
+Qapp/src/main/java/com/af/dentalla/ui/setting/ChangeLanguageBottomSheetFragment.kt,3\1\31f7adf2f397522dded427370617fb4b7059a018
+Ñ
+Tapp/src/main/java/com/af/dentalla/ui/setting/updateProfile/UpdatePasswordFragment.kt,9\e\9e5e6c55c4c3f8c704211e7d24b932f70accfc8e
+Å
+Qapp/src/main/java/com/af/dentalla/ui/setting/updateProfile/EditProfileFragment.kt,1\9\19a0959e1c7eae9b5e4a645a632686b6818c5457

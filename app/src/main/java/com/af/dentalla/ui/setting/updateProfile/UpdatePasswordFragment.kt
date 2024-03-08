@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.updateProfile
+package com.af.dentalla.ui.setting.updateProfile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

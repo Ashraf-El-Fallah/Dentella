@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SettingFragment">
+    tools:context=".ui.setting.SettingFragment">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/back"-->
-<!--        android:layout_width="40dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:background="@drawable/back_button_style"-->
-<!--        android:paddingStart="10dp"-->
-<!--        android:src="@drawable/ic_back"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/back"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="15dp"-->
+    <!--        android:background="@drawable/back_button_style"-->
+    <!--        android:paddingStart="10dp"-->
+    <!--        android:src="@drawable/ic_back"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/setting"
@@ -84,10 +84,11 @@
         android:id="@+id/card_view_change_language"
         android:layout_width="match_parent"
         android:layout_height="47dp"
-        android:clickable="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/card_setting_style"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile">

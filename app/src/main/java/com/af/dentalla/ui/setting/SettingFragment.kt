@@ -1,4 +1,4 @@
-package com.af.dentalla.ui
+package com.af.dentalla.ui.setting
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,6 +25,7 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         goToEditProfile()
+        showBottomSheet()
     }
 
 //    private fun backToHome() {
@@ -41,4 +42,12 @@ class SettingFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
+
+    private fun showBottomSheet() {
+        binding.cardViewChangeLanguage.setOnClickListener {
+            val bottomSheetFragment = ChangeLanguageBottomSheetFragment()
+            bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
+        }
+    }
+
 }
