@@ -44,6 +44,7 @@ class PatientHomeFragment : Fragment() {
         navigateToSearchFragment()
     }
 
+
     private fun navigateToSearchScreen() {
         findNavController().safeNavigate(PatientHomeFragmentDirections.actionHomeFragmentToSearchFragment())
     }

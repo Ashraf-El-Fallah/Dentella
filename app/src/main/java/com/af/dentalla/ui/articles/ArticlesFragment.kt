@@ -34,17 +34,18 @@ class ArticlesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         articlesObserver()
+        showDialogToWriteArticle()
     }
-
-//    private fun backToHome() {
-//        binding.back.setOnClickListener {
-//            findNavController().safeNavigate(PatientArticlesFragmentDirections.actionArticlesFragmentToHomeFragment())
-//        }
-//    }
 
     private fun showAddArticlesButtonForDoctors() {
         if (accountType == AccountManager.AccountType.DOCTOR) {
             binding.buttonAddArticle.visible()
+        }
+    }
+
+    private fun showDialogToWriteArticle() {
+        binding.buttonAddArticle.setOnClickListener {
+            AddArticleDialog(requireContext()).show()
         }
     }
 

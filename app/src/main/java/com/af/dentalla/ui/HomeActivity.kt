@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
 import com.af.dentalla.databinding.ActivityHomeBinding
+import com.af.dentalla.ui.patient.homeScreen.AddPostDialog
 import com.af.dentalla.utilities.AccountManager
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,6 +20,15 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         initBottomNavigation()
         navigateToHomeFragment()
+        showDialogDependingOnUserType()
+    }
+
+    private fun showDialogDependingOnUserType() {
+        if (accountType == AccountManager.AccountType.PATIENT) {
+            binding.centerButton.setOnClickListener {
+                AddPostDialog(this).show()
+            }
+        }
     }
 
     private fun navigateToHomeFragment() {

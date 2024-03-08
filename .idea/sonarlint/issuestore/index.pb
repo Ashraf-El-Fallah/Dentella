@@ -477,3 +477,7 @@ Qapp/src/main/java/com/af/dentalla/ui/setting/ChangeLanguageBottomSheetFragment.
 Tapp/src/main/java/com/af/dentalla/ui/setting/updateProfile/UpdatePasswordFragment.kt,9\e\9e5e6c55c4c3f8c704211e7d24b932f70accfc8e
 Å
 Qapp/src/main/java/com/af/dentalla/ui/setting/updateProfile/EditProfileFragment.kt,1\9\19a0959e1c7eae9b5e4a645a632686b6818c5457
+q
+Aapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialog.kt,6\3\63183e5b02c688f37b4728a0d10eaf3da5b84c98
+x
+Happ/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialog.kt,b\c\bc8d80e82c822b2c92d44505fc0bc9e6e023797f
