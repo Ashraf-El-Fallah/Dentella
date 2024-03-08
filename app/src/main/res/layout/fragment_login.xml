@@ -47,6 +47,7 @@
                 android:hint="@string/user_name"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
+                app:boxBackgroundMode="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">
@@ -74,6 +75,7 @@
                 android:hint="email"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
+                app:boxBackgroundMode="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">
@@ -104,6 +106,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:boxBackgroundMode="none"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -112,8 +115,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"
                     android:inputType="textPassword"
+                    android:padding="1dp"
                     android:maxLines="1" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--app:helperText="@{viewModel.loginUiState.passwordHelperText}"-->

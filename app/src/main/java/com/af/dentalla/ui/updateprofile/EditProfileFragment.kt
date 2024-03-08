@@ -33,7 +33,15 @@ class EditProfileFragment : Fragment() {
         saveAllHintsForAllEditTexts()
         changeBetweenSaveAndEdit()
         navigateToHomeScreen()
-        binding.editTextEmail.setText("aaa")
+        navigateToUpdatePasswordScreen()
+    }
+
+    private fun navigateToUpdatePasswordScreen() {
+        binding.editTextUpdatePassword.setOnClickListener {
+            val action =
+                EditProfileFragmentDirections.actionEditProfileFragmentToUpdatePasswordFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun setTheEditTextsNotEditable() {
