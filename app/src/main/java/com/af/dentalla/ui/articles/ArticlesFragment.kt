@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentArticlesBinding
+import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.visible
@@ -18,12 +19,15 @@ import dagger.hilt.android.AndroidEntryPoint
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: ArticlesViewModel by viewModels()
+    private val accountType = AccountManager.accountType
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentArticlesBinding.inflate(inflater, container, false)
+        showAddArticlesButtonForDoctors()
         return binding.root
     }
 
@@ -37,6 +41,12 @@ class ArticlesFragment : Fragment() {
 //            findNavController().safeNavigate(PatientArticlesFragmentDirections.actionArticlesFragmentToHomeFragment())
 //        }
 //    }
+
+    private fun showAddArticlesButtonForDoctors() {
+        if (accountType == AccountManager.AccountType.DOCTOR) {
+            binding.buttonAddArticle.visible()
+        }
+    }
 
     private fun articlesObserver() {
         articlesViewModel.articles.observe(viewLifecycleOwner) {
