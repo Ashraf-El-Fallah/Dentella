@@ -147,7 +147,7 @@
     </fragment>
     <fragment
         android:id="@+id/doctorHomeFragment"
-        android:name="com.af.dentalla.ui.doctor.DoctorHomeFragment"
+        android:name="com.af.dentalla.ui.doctor.homeScreen.DoctorHomeFragment"
         android:label="fragment_doctor_home"
         tools:layout="@layout/fragment_doctor_home" />
 </navigation>

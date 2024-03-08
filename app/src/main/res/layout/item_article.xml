@@ -11,37 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img_doctor_article"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/img"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_view_doctor_name_article"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:text="@string/doctor_name"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/img_doctor_article"
-            app:layout_constraintTop_toTopOf="@id/img_doctor_article" />
-
-        <TextView
-            android:id="@+id/text_view_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:text="15 min"
-            android:textColor="@color/dark_gray"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/img_doctor_article"
-            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_name_article" />
+      <include layout="@layout/base_item"
+          android:id="@+id/base_item"/>
 
         <TextView
             android:id="@+id/text_view_article_content"
@@ -64,11 +35,11 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="18dp"
             android:text="Brush Twice a Day:"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="65dp"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/img_doctor_article"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/image_teeth"

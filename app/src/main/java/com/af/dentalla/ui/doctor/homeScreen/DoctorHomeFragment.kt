@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.doctor
+package com.af.dentalla.ui.doctor.homeScreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

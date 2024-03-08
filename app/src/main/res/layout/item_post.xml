@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="390dp"
+    android:layout_height="114dp"
+    android:background="@drawable/post_style">
+
+    <include
+        android:id="@+id/base_item"
+        layout="@layout/base_item" />
+
+    <include
+        layout="@layout/base_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp" />
+
+</androidx.cardview.widget.CardView>

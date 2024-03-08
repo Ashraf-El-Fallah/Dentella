@@ -190,8 +190,6 @@ Q.idea/sonarlint/securityhotspotstore/a/4/a4669893113375cb0105da74943bafab8933bc
 w
 G.idea/sonarlint/issuestore/7/9/79a6b70731f473f270884496defb0a6fd49a7362,2\0\20b9fcef588a629aedc595d1c1698e2d9a7bdd31
 Å
-Q.idea/sonarlint/securityhotspotstore/c/6/c660aef89b14a0432011821b88095c5ea9bbeaac,f\f\ff046f92f1470884573999de30c124d394284683
-Å
 Q.idea/sonarlint/securityhotspotstore/8/0/80bb2e85bd44f4b57ef6797a11af6c1d2fecdc4c,1\8\187c87c07fda4a4c3f6a898f2d59717ac20e3a3f
 w
 G.idea/sonarlint/issuestore/9/9/99698216e673f532838afd620ccbad8f9b8843c1,a\9\a9e1279f245538c83f0e7cb5830299d7a81ee0db
@@ -209,12 +207,8 @@ G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0
 Q.idea/sonarlint/securityhotspotstore/7/9/79a6b70731f473f270884496defb0a6fd49a7362,f\3\f316928948b5a12845a69321fa0c5b852d07ea00
 w
 G.idea/sonarlint/issuestore/5/e/5e28cd72a5377c49cf1ce53401d8fa3b73cae94c,a\b\ab8cfb271f8a06daa60e7d89a4212cc913399d7c
-Å
-Q.idea/sonarlint/securityhotspotstore/4/9/49108eb298e1d34e7e43452bd91ceb9534e1b7c5,7\b\7b37462ce90157c3564ef7f5559861f1349b3bf8
 w
 G.idea/sonarlint/issuestore/9/f/9f80b9bdf3551728012e6e77003aaee38d40d137,c\5\c54d04df49f93aee54abefcdcc8794d3c0802b54
-Å
-Q.idea/sonarlint/securityhotspotstore/9/3/93af87243cf9f619a845c883cf670578e4b09ea6,7\0\7010a6e568e8b7ace9ccc0ac3d7bb923b2fc60a8
 Å
 Q.idea/sonarlint/securityhotspotstore/0/c/0ceee4e088bb8dddc31d2f4b516ae81aa8620485,7\e\7e1d31f6fe6a4a23c185017da45934435a77d950
 Å
@@ -239,8 +233,6 @@ w
 G.idea/sonarlint/issuestore/4/7/470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8,b\0\b0d6e1ead00e07d70a0815f61dbeae049af095d7
 w
 G.idea/sonarlint/issuestore/4/7/471eafb607934b0ec420dedea24701c9354e4719,c\0\c0aee1a7ab93748c926f8cf076bf85ed8d6d1fe1
-Å
-Q.idea/sonarlint/securityhotspotstore/8/b/8b9bd5733b3a735d013aa031837b86b002cc73f1,c\2\c2298534c131ba7d8973f148789d8a703b9af949
 w
 G.idea/sonarlint/issuestore/8/9/894c1399753c786dad5b491a7da022720ddfb15c,1\a\1a40d4b065f7232609f9dc30e60389aac526fb04
 Å
@@ -328,8 +320,6 @@ G.idea/sonarlint/issuestore/0/b/0bb65912e86248dbd3996ceaf35fab35448dac7e,a\4\a4
 Å
 Q.idea/sonarlint/securityhotspotstore/a/c/acacb37b0c6315eccc03b6aa9579ad043748e611,a\5\a580639bb73afd36b319df5468165b87de3bff8d
 Å
-Q.idea/sonarlint/securityhotspotstore/a/d/adf78adb1a4e8f1efb08fd709b868686abca0971,0\2\02fabaebc5e5bffdc4dc5250cb173986911221da
-Å
 Q.idea/sonarlint/securityhotspotstore/c/1/c1cde89c30d3fb758646419a243f6f2f43d3205f,6\2\629485c6414d50dcffd313a34c8397c4ca799f0e
 Å
 Q.idea/sonarlint/securityhotspotstore/a/e/aec987e0560c8c6e2028b6962f6898ace5f1183a,b\8\b85ea69c1e3c445179af6d9f5306834b50f01635
@@ -370,8 +360,6 @@ G.idea/sonarlint/issuestore/4/b/4bb1f4e640ac876b5308ee6ac814e184509ead7f,3\2\32
 Å
 Q.idea/sonarlint/securityhotspotstore/4/b/4bb1f4e640ac876b5308ee6ac814e184509ead7f,4\7\47417b0ab47e257bd52f5cca36d624cff8460d4f
 Å
-Q.idea/sonarlint/securityhotspotstore/4/3/4310f386d1f4e5abaea83c1feb636519d4f493b3,4\9\4999364b804403a3546f38eb99db6742c2775c03
-Å
 Q.idea/sonarlint/securityhotspotstore/7/9/79c1bf5a4543eff4ce79e3eb36b41f934b318124,b\2\b257f7220d80686e171443f9b0e9c67a26b8ea44
 Å
 Q.idea/sonarlint/securityhotspotstore/4/5/4577f52a5192f66761e33cb8b455beb0101a4693,c\6\c6bdc442fdba05df3b507f6f98825bade47b459c
@@ -389,8 +377,6 @@ G.idea/sonarlint/issuestore/3/0/305beeaed045abed8e7012bf6c12ec7a8db646b2,1\4\14
 Q.idea/sonarlint/securityhotspotstore/f/f/fff806b230d6e27698dbdd4c9518fd76a61141ee,3\9\39e478b007527740f3d08b0759458d3b724e53cc
 Å
 Q.idea/sonarlint/securityhotspotstore/2/3/23929350d1c3c8da32aadc2a71c45e5603389f1f,6\5\65c549078c6c9e942c3d513f9fa982a0f1d42c3d
-Å
-Q.idea/sonarlint/securityhotspotstore/9/a/9ac1b852b5754e1c6d52b17e4820e04439abe3d2,a\4\a4f00fd0df2bc7670f26f1a52ca5348d6918990e
 Å
 Q.idea/sonarlint/securityhotspotstore/c/b/cbe8fa1ad3fb936616859dbcd358ec86f175b9a2,2\0\209008ee8d85b72139f552523bfc08c7ca414070
 w
@@ -493,3 +479,5 @@ Bapp/src/main/java/com/af/dentalla/ui/articles/ArticlesViewModel.kt,f\7\f78da25
 Lapp/src/main/java/com/af/dentalla/ui/updateProfile/UpdatePasswordFragment.kt,b\4\b4697076ece09c37deb6970cfb98382469f190b7
 p
 @app/src/main/java/com/af/dentalla/ui/articles/ArticlesAdapter.kt,b\e\be3ab7ea41b56e83a71d400b4e1852632aa89f2a
+|
+Lapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/DoctorHomeFragment.kt,e\2\e2259261e10eeaa1f1febe2bfbcf8a32ab48d899
