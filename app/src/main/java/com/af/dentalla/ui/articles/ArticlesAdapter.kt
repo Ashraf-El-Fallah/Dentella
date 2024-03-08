@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.af.dentalla.databinding.BaseItemBinding
 import com.af.dentalla.databinding.ItemArticleBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.utilities.loadImage
@@ -14,16 +15,21 @@ class ArticlesAdapter :
         ArticleDiffCallBack()
     ) {
 
-    inner class PatientArticlesViewHolder(private val binding: ItemArticleBinding) :
+    inner class PatientArticlesViewHolder(
+        private val binding: ItemArticleBinding,
+        private val baseItemBinding: BaseItemBinding
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: ArticlesEntity) {
             binding.apply {
                 imageTeeth.loadImage(article.articleImage.toString())
-                textViewDoctorNameArticle.text = article.doctorName
-                textViewTime.text = article.postingTime
                 textViewArticleTitle.text = article.title
                 textViewArticleContent.text = article.content
+            }
+            baseItemBinding.apply {
+                textViewDoctorNameArticle.text = article.doctorName
+                textViewTime.text = article.postingTime
             }
 
         }
@@ -31,7 +37,8 @@ class ArticlesAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientArticlesViewHolder {
         return PatientArticlesViewHolder(
-            ItemArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            BaseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

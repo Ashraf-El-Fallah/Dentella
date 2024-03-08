@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
+import com.af.dentalla.databinding.BaseHomeScreenBinding
+import com.af.dentalla.databinding.BaseItemBinding
 import com.af.dentalla.databinding.FragmentPatientHomeBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utilities.ScreenState
@@ -22,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PatientHomeFragment : Fragment() {
     private lateinit var binding: FragmentPatientHomeBinding
+    private lateinit var baseHomeBinding: BaseHomeScreenBinding
 
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
     override fun onCreateView(
@@ -29,6 +32,7 @@ class PatientHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPatientHomeBinding.inflate(inflater, container, false)
+        baseHomeBinding = BaseHomeScreenBinding.bind(binding.topBackground.root)
         return binding.root
     }
 
@@ -45,10 +49,10 @@ class PatientHomeFragment : Fragment() {
     }
 
     private fun navigateToSearchFragment() {
-        binding.editTextSearchHome.setOnClickListener {
+        baseHomeBinding.editTextSearchHome.setOnClickListener {
             navigateToSearchScreen()
         }
-        binding.editTextSearchHome.addTextChangedListener(object : TextWatcher {
+        baseHomeBinding.editTextSearchHome.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
