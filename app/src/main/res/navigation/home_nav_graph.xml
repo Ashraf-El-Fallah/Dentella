@@ -145,4 +145,9 @@
             android:id="@+id/action_updatePasswordFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/doctorHomeFragment2"
+        android:name="com.af.dentalla.ui.doctor.DoctorHomeFragment"
+        android:label="fragment_doctor_home"
+        tools:layout="@layout/fragment_doctor_home" />
 </navigation>

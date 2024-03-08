@@ -2,6 +2,7 @@ package com.af.dentalla.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
@@ -15,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val accountType = AccountManager.accountType
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -25,17 +25,15 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun navigateToHomeFragment() {
-        val fragmentManager = supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
-        if (accountType == AccountManager.AccountType.DOCTOR) {
-            val doctorFragment = DoctorHomeFragment()
-            transaction.replace(R.id.nav_host_home_fragment, doctorFragment)
-//            transaction.commit()
-        } else if (accountType == AccountManager.AccountType.PATIENT) {
-            val patientFragment = PatientHomeFragment()
-            transaction.replace(R.id.nav_host_home_fragment, patientFragment)
-//            transaction.commit()
+        val startDestination = if (accountType == AccountManager.AccountType.DOCTOR) {
+            R.id.doctorHomeFragment2
+        } else {
+            R.id.homeFragment
         }
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(startDestination)
     }
 
     private fun initBottomNavigation() {
