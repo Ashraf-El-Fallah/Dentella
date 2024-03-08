@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.articles
+package com.af.dentalla.ui.articles
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +9,10 @@ import com.af.dentalla.databinding.ItemArticleBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.utilities.loadImage
 
-class PatientArticlesAdapter :
-    ListAdapter<ArticlesEntity, PatientArticlesAdapter.PatientArticlesViewHolder>(ArticleDiffCallBack()) {
+class ArticlesAdapter :
+    ListAdapter<ArticlesEntity, ArticlesAdapter.PatientArticlesViewHolder>(
+        ArticleDiffCallBack()
+    ) {
 
     inner class PatientArticlesViewHolder(private val binding: ItemArticleBinding) :
         RecyclerView.ViewHolder(binding.root) {

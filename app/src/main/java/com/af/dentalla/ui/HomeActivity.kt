@@ -2,13 +2,10 @@ package com.af.dentalla.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
 import com.af.dentalla.databinding.ActivityHomeBinding
-import com.af.dentalla.ui.doctor.DoctorHomeFragment
-import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragment
 import com.af.dentalla.utilities.AccountManager
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +23,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun navigateToHomeFragment() {
         val startDestination = if (accountType == AccountManager.AccountType.DOCTOR) {
-            R.id.doctorHomeFragment2
+            R.id.doctorHomeFragment
         } else {
-            R.id.homeFragment
+            R.id.patientHomeFragment
         }
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment

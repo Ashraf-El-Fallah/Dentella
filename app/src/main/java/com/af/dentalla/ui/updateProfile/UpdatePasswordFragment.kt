@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.updateprofile
+package com.af.dentalla.ui.updateProfile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.R
-import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.databinding.FragmentUpdatePasswordBinding
-import com.af.dentalla.databinding.ItemDateBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

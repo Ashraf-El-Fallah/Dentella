@@ -6,40 +6,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.databinding.FragmentPatientProfileBinding
-import com.af.dentalla.utilities.safeNavigate
+import com.af.dentalla.databinding.FragmentSettingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class PatientProfileFragment : Fragment() {
-    private lateinit var binding: FragmentPatientProfileBinding
+class SettingFragment : Fragment() {
+    private lateinit var binding: FragmentSettingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPatientProfileBinding.inflate(inflater, container, false)
+        binding = FragmentSettingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backToHome()
         goToEditProfile()
     }
 
-    private fun backToHome() {
-        binding.back.setOnClickListener {
-            findNavController().safeNavigate(PatientProfileFragmentDirections.actionPatientProfileFragmentToHomeFragment())
-        }
-    }
+//    private fun backToHome() {
+//        binding.back.setOnClickListener {
+//            findNavController().safeNavigate(SettingFragmentDirections.actionPatientProfileFragmentToHomeFragment())
+//        }
+//    }
 
     private fun goToEditProfile() {
         binding.cardViewEditProfile.setOnClickListener {
 //            findNavController().safeNavigate(PatientProfileFragmentDirections.actionPatientProfileFragmentToEditProfileFragment())
             val action =
-                PatientProfileFragmentDirections.actionPatientProfileFragmentToEditProfileFragment()
+                SettingFragmentDirections.actionPatientProfileFragmentToEditProfileFragment()
             findNavController().navigate(action)
         }
     }

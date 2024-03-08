@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host_home_fragment"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/patientHomeFragment">
 
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/patientHomeFragment"
         android:name="com.af.dentalla.ui.patient.homeScreen.PatientHomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_patient_home">
         <action
             android:id="@+id/action_homeFragment_to_patientProfileFragment"
-            app:destination="@id/patientProfileFragment" />
+            app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_homeFragment_to_articlesFragment"
             app:destination="@id/articlesFragment" />
@@ -47,25 +47,25 @@
     </fragment>
 
     <fragment
-        android:id="@+id/patientProfileFragment"
-        android:name="com.af.dentalla.ui.PatientProfileFragment"
+        android:id="@+id/settingFragment"
+        android:name="com.af.dentalla.ui.SettingFragment"
         android:label="fragment_patient_profile"
-        tools:layout="@layout/fragment_patient_profile">
+        tools:layout="@layout/fragment_setting">
         <action
             android:id="@+id/action_patientProfileFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
         <action
             android:id="@+id/action_patientProfileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/articlesFragment"
-        android:name="com.af.dentalla.ui.patient.articles.PatientArticlesFragment"
+        android:name="com.af.dentalla.ui.articles.ArticlesFragment"
         android:label="fragment_articles"
         tools:layout="@layout/fragment_articles">
         <action
             android:id="@+id/action_articlesFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
     </fragment>
 
     <fragment
@@ -79,7 +79,7 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_doctorProfileFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
     </fragment>
 
 
@@ -90,7 +90,7 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
         <action
             android:id="@+id/action_searchFragment_to_doctorProfileFragment"
             app:destination="@id/doctorProfileFragment" />
@@ -115,7 +115,7 @@
 
         <action
             android:id="@+id/action_doctorsSpecialitiesFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
         <action
             android:id="@+id/action_doctorsSpecialitiesFragment_to_doctorProfileFragment"
             app:destination="@id/doctorProfileFragment" />
@@ -123,22 +123,22 @@
 
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.af.dentalla.ui.updateprofile.EditProfileFragment"
+        android:name="com.af.dentalla.ui.updateProfile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
         <action
             android:id="@+id/action_editProfileFragment_to_patientProfileFragment"
-            app:destination="@id/patientProfileFragment" />
+            app:destination="@id/settingFragment" />
         <action
             android:id="@+id/action_editProfileFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
         <action
             android:id="@+id/action_editProfileFragment_to_updatePasswordFragment"
             app:destination="@id/updatePasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/updatePasswordFragment"
-        android:name="com.af.dentalla.ui.updateprofile.UpdatePasswordFragment"
+        android:name="com.af.dentalla.ui.updateProfile.UpdatePasswordFragment"
         android:label="fragment_update_password"
         tools:layout="@layout/fragment_update_password">
         <action
@@ -146,7 +146,7 @@
             app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
-        android:id="@+id/doctorHomeFragment2"
+        android:id="@+id/doctorHomeFragment"
         android:name="com.af.dentalla.ui.doctor.DoctorHomeFragment"
         android:label="fragment_doctor_home"
         tools:layout="@layout/fragment_doctor_home" />

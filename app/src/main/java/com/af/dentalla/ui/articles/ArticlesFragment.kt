@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.articles
+package com.af.dentalla.ui.articles
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,20 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentArticlesBinding
-import com.af.dentalla.ui.Ai.AiChatFragmentDirections
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.safeNavigate
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PatientArticlesFragment : Fragment() {
+class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
-    private val articlesViewModel: PatientArticlesViewModel by viewModels()
+    private val articlesViewModel: ArticlesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,14 +30,13 @@ class PatientArticlesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         articlesObserver()
-        backToHome()
     }
 
-    private fun backToHome() {
-        binding.back.setOnClickListener {
-            findNavController().safeNavigate(PatientArticlesFragmentDirections.actionArticlesFragmentToHomeFragment())
-        }
-    }
+//    private fun backToHome() {
+//        binding.back.setOnClickListener {
+//            findNavController().safeNavigate(PatientArticlesFragmentDirections.actionArticlesFragmentToHomeFragment())
+//        }
+//    }
 
     private fun articlesObserver() {
         articlesViewModel.articles.observe(viewLifecycleOwner) {
@@ -52,7 +48,7 @@ class PatientArticlesFragment : Fragment() {
                     binding.rvArticles.apply {
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                        adapter = PatientArticlesAdapter().apply {
+                        adapter = ArticlesAdapter().apply {
                             submitList(it.uiData)
                         }
                     }

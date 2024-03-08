@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.af.dentalla.ui.splash.SplashScreenFragment"
+        android:name="com.af.dentalla.ui.selectUserType.SelectUserTypeScreenFragment"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen">
+        tools:layout="@layout/fragment_select_user_type_screen">
         <action
             android:id="@+id/action_splashScreen_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />
@@ -36,7 +36,7 @@
             app:destination="@id/forgetPasswordFragment" />
         <action
             android:id="@+id/action_loginAccountFragment_to_homeFragment5"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/patientHomeFragment" />
         <action
             android:id="@+id/action_loginAccountFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />

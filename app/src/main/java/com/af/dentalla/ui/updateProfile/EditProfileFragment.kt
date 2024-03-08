@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.updateprofile
+package com.af.dentalla.ui.updateProfile
 
 import android.os.Bundle
 import android.text.Editable
@@ -96,7 +96,7 @@ class EditProfileFragment : Fragment() {
 
     private fun navigateToHomeScreen() {
         binding.back.setOnClickListener {
-            findNavController().safeNavigate(EditProfileFragmentDirections.actionEditProfileFragmentToHomeFragment())
+            findNavController().safeNavigate(EditProfileFragmentDirections.actionEditProfileFragmentToPatientProfileFragment())
         }
     }
 }

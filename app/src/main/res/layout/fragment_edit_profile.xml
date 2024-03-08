@@ -5,7 +5,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.updateprofile.EditProfileFragment">
+    tools:context=".ui.updateProfile.EditProfileFragment">
 
     <ImageView
         android:id="@+id/back"

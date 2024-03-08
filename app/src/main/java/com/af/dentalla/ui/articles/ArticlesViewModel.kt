@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.articles
+package com.af.dentalla.ui.articles
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PatientArticlesViewModel @Inject constructor(
+class ArticlesViewModel @Inject constructor(
     private val getArticlesUseCase: GetArticlesUseCase
 ) : ViewModel() {
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
