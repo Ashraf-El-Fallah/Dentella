@@ -481,3 +481,7 @@ q
 Aapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialog.kt,6\3\63183e5b02c688f37b4728a0d10eaf3da5b84c98
 x
 Happ/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialog.kt,b\c\bc8d80e82c822b2c92d44505fc0bc9e6e023797f
+l
+<app/src/main/java/com/af/dentalla/data/remote/dto/PostDto.kt,e\f\efb99d99dc5a97732b84f7d0f1f43776f6e9bfac
+p
+@app/src/main/java/com/af/dentalla/data/remote/dto/PostDtoItem.kt,3\9\39db263e62f592bd018621af6f66454868dea661
