@@ -7,6 +7,7 @@ import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
+import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -191,6 +192,18 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>> {
+        return flow {
+            try {
+                emit(NetWorkResponseState.Loading)
+                val response = service.getAllPosts()
+                emit(NetWorkResponseState.Success(response))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
     private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
     }
@@ -198,64 +211,3 @@ class UserRepositoryImpl @Inject constructor(
 
 }
 
-////signUp
-//override suspend fun signUpPatient(
-//        userName: String,
-//        email: String,
-//        phone: String,
-//        password: String
-//    ): Boolean {
-//        try {
-//            val body = mapOf<String, Any>(
-//                "email" to email,
-//                "username" to userName,
-//                "password" to password,
-//                "phone_number" to phone
-//            ).toMap()
-//            val validateSignUpResponse =
-//                service.signUpUser(accountType.toString().lowercase(), body)
-//            if (validateSignUpResponse.isSuccessful) {
-//                validateSignUpResponse.body()?.apply {
-//                    NetWorkResponseState.Success(Unit)
-//                    //validateSignUpResponse.body()?.message?.let { SignUpResponse(it) }
-////                    return true
-//                }
-//                return true
-//            } else {
-//                val errorResponse = dataClassParser.parseFromJson(
-//                    validateSignUpResponse.errorBody()?.toString(), SignUpErrorResponse::class.java
-//                )
-//                throw Throwable(errorResponse.message)
-//            }
-//        } catch (e: Exception) {
-//            throw Throwable(e)
-//        }
-//        return false
-//    }
-
-
-//    override fun signUpPatient(signUpPatient: SignUpPatient): Flow<NetWorkResponseState<SignUpEntity>> =
-//        remoteDataSource.signUpPatient(signUpPatient).map {
-//            it.mapResponse {
-//                signUpEntityMapper.map(this)
-//            }
-//        }.flowOn(ioDispatcher)
-
-
-//        remoteDataSource.loginPatient(loginUser).map {
-//            it.mapResponse {
-//                loginEntityMapper.map(this)
-//            }
-//        }.flowOn(ioDispatcher)
-
-
-//    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsItemDto>>> {
-//        return flow {
-//            emit(NetWorkResponseState.Loading)
-//            try {
-//                val response = service.getAllDoctorsCards()
-//                emit(NetWorkResponseState.Success(response))
-//            } catch (e: Exception) {
-//                emit(NetWorkResponseState.Error(e))
-//            }
-//        }

@@ -4,6 +4,7 @@ import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
+import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -23,4 +24,6 @@ interface UserRepository {
     fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>>
 
     fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>>
+
+    fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>>
 }
