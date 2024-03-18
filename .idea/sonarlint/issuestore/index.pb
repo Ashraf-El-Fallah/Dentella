@@ -497,3 +497,7 @@ v
 Fapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPosts.kt,8\7\8755c1ca32ad122694974897d2c99de7839bde6b
 }
 Mapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPostsUseCase.kt,5\0\509e6fb228af900d8c094eb629e57ecbd5fc315c
+}
+Mapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/DoctorHomeViewModel.kt,3\3\33c99af72eab0814313aed0f7941f4bb24776832
+v
+Fapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/PostsAdapter.kt,f\7\f7f989af0d67cc402ed62910d3b076c71c594978
