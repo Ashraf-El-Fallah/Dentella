@@ -485,3 +485,15 @@ l
 <app/src/main/java/com/af/dentalla/data/remote/dto/PostDto.kt,e\f\efb99d99dc5a97732b84f7d0f1f43776f6e9bfac
 p
 @app/src/main/java/com/af/dentalla/data/remote/dto/PostDtoItem.kt,3\9\39db263e62f592bd018621af6f66454868dea661
+r
+Bapp/src/main/java/com/af/dentalla/data/mapper/PostsEntityMapper.kt,f\3\f38321c85825521e09d8b31c7169ad9f51fdd0cd
+n
+>app/src/main/java/com/af/dentalla/domain/entity/PostsEntity.kt,4\f\4fcca90fc8a691bc841a5cf9491a845814c4a906
+m
+=app/src/main/java/com/af/dentalla/domain/entity/PostEntity.kt,1\2\12d6a71f7ea7ec96741e5e21b74b1c740c67cd25
+w
+Gapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAll Posts.kt,3\e\3e19c3665d1b725d1c3914f84cc4740e0fd3d58f
+v
+Fapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPosts.kt,8\7\8755c1ca32ad122694974897d2c99de7839bde6b
+}
+Mapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPostsUseCase.kt,5\0\509e6fb228af900d8c094eb629e57ecbd5fc315c
