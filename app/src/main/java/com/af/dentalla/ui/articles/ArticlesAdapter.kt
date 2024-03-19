@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.BaseItemBinding
 import com.af.dentalla.databinding.ItemArticleBinding
+import com.af.dentalla.databinding.ItemPostBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.utilities.loadImage
 
@@ -16,8 +17,7 @@ class ArticlesAdapter :
     ) {
 
     inner class PatientArticlesViewHolder(
-        private val binding: ItemArticleBinding,
-        private val baseItemBinding: BaseItemBinding
+        private val binding: ItemArticleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: ArticlesEntity) {
@@ -25,20 +25,16 @@ class ArticlesAdapter :
                 imageTeeth.loadImage(article.articleImage.toString())
                 textViewArticleTitle.text = article.title
                 textViewArticleContent.text = article.content
+                baseItem.textViewDoctorNameArticle.text = article.doctorName
+                baseItem.textViewTime.text = article.postingTime
             }
-            baseItemBinding.apply {
-                textViewDoctorNameArticle.text = article.doctorName
-                textViewTime.text = article.postingTime
-            }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientArticlesViewHolder {
-        return PatientArticlesViewHolder(
-            ItemArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            BaseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemArticleBinding.inflate(inflater, parent, false)
+        return PatientArticlesViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PatientArticlesViewHolder, position: Int) {
