@@ -18,8 +18,7 @@ class ArticlesAdapter :
     inner class PatientArticlesViewHolder(
         private val binding: ItemArticleBinding,
         private val baseItemBinding: BaseItemBinding
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: ArticlesEntity) {
             binding.apply {

@@ -14,6 +14,7 @@ import com.af.dentalla.R
 import com.af.dentalla.databinding.BaseHomeScreenBinding
 import com.af.dentalla.databinding.BaseItemBinding
 import com.af.dentalla.databinding.FragmentPatientHomeBinding
+import com.af.dentalla.databinding.ProgressBarBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
@@ -25,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PatientHomeFragment : Fragment() {
     private lateinit var binding: FragmentPatientHomeBinding
     private lateinit var baseHomeBinding: BaseHomeScreenBinding
+    private lateinit var progressBarBinding: ProgressBarBinding
 
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
     override fun onCreateView(
@@ -33,6 +35,8 @@ class PatientHomeFragment : Fragment() {
     ): View {
         binding = FragmentPatientHomeBinding.inflate(inflater, container, false)
         baseHomeBinding = BaseHomeScreenBinding.bind(binding.topBackground.root)
+        progressBarBinding = ProgressBarBinding.bind(binding.progress.root)
+
         return binding.root
     }
 
@@ -71,11 +75,11 @@ class PatientHomeFragment : Fragment() {
         patientHomeViewModel.allCards.observe(viewLifecycleOwner) {
             when (it) {
                 ScreenState.Loading -> {
-                    binding.progress.visible()
+                    progressBarBinding.progress.visible()
                 }
 
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    progressBarBinding.progress.gone()
                     binding.rvDoctors.apply {
                         adapter = DoctorsCardsAdapter { doctorCardId ->
                             navigateToDoctorProfile(doctorCardId)
@@ -87,7 +91,7 @@ class PatientHomeFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    progressBarBinding.progress.gone()
 //                    Toast.makeText(
 //                        context,
 //                        it.message,

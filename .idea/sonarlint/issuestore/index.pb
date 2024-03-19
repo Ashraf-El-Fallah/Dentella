@@ -27,8 +27,6 @@ g
 7app/src/main/java/com/af/dentalla/ui/ArticleFragment.kt,1\f\1f2948e099ed1a74b649977eadb65a78d815da6d
 m
 =app/src/main/java/com/af/dentalla/di/network/NetworkModule.kt,a\e\aec987e0560c8c6e2028b6962f6898ace5f1183a
-s
-Capp/src/main/java/com/af/dentalla/data/mapper/SignUpEntityMapper.kt,7\8\78410dbc533cfad0dcdfc511412274a9a597af55
 r
 Bapp/src/main/java/com/af/dentalla/data/mapper/LoginEntityMapper.kt,7\9\79c1bf5a4543eff4ce79e3eb36b41f934b318124
 d
@@ -37,10 +35,6 @@ o
 ?app/src/main/java/com/af/dentalla/domain/entity/SignUpEntity.kt,c\4\c46a6aa8df1c1f30005058c75f706417e7d10763
 n
 >app/src/main/java/com/af/dentalla/domain/entity/LoginEntity.kt,4\7\471eafb607934b0ec420dedea24701c9354e4719
-y
-Iapp/src/main/java/com/af/dentalla/data/repository/DoctorRepositoryImpl.kt,4\2\4233c9c67441172c020aea59a52782879a5f178b
-w
-Gapp/src/main/java/com/af/dentalla/domain/repository/DoctorRepository.kt,5\5\552aab1f5412f94ae8fa76549203605e28fbf9ca
 k
 ;app/src/main/java/com/af/dentalla/di/mapper/MapperModule.kt,4\7\470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8
 r
@@ -107,8 +101,6 @@ q
 Aapp/src/main/java/com/af/dentalla/domain/entity/ArticlesEntity.kt,0\c\0ceee4e088bb8dddc31d2f4b516ae81aa8620485
 u
 Eapp/src/main/java/com/af/dentalla/data/mapper/ArticlesEntityMapper.kt,7\9\79a6b70731f473f270884496defb0a6fd49a7362
-u
-Eapp/src/main/java/com/af/dentalla/domain/repository/BaseRepository.kt,a\f\afd4b35ab21016292bd2b85cd185349a3961e055
 
 Oapp/src/main/java/com/af/dentalla/domain/usecase/articles/GetArticlesUseCase.kt,e\4\e412a8fbc84ecf35517753c873ff5f0649856402
 m
@@ -147,8 +139,6 @@ i
 9app/src/main/java/com/af/dentalla/utilities/Validation.kt,0\c\0c8ad05699f944c8ae48b0b79c89c2c04e96eb64
 n
 >app/src/main/java/com/af/dentalla/utilities/ValidationUtils.kt,9\f\9f80b9bdf3551728012e6e77003aaee38d40d137
-y
-Iapp/src/main/java/com/af/dentalla/data/repository/CommonRepositoryImpl.kt,a\4\a4669893113375cb0105da74943bafab8933bced
 
 Q.idea/sonarlint/securityhotspotstore/4/7/470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8,0\b\0b769aa7ba0587088401976f7e507cb9e6c12494
 
@@ -336,8 +326,6 @@ G.idea/sonarlint/issuestore/8/0/80bb2e85bd44f4b57ef6797a11af6c1d2fecdc4c,6\3\63
 
 Q.idea/sonarlint/securityhotspotstore/5/e/5e28cd72a5377c49cf1ce53401d8fa3b73cae94c,5\6\56fbca722d8bcf4649b0bd085352df41e2cb5419
 w
-G.idea/sonarlint/issuestore/5/5/552aab1f5412f94ae8fa76549203605e28fbf9ca,8\8\88e758b0c987bc466b89f5064e2eca26db639be7
-w
 G.idea/sonarlint/issuestore/8/3/837765cd949cc7b1e62ecab2755df33830c5bc72,8\6\86d0ebc4250b939068731421fc2fc1c88d7a361c
 
 Q.idea/sonarlint/securityhotspotstore/9/f/9f80b9bdf3551728012e6e77003aaee38d40d137,b\0\b0975fc1c48d04ccd497223a4311d5e031da62d8
@@ -487,14 +475,8 @@ p
 @app/src/main/java/com/af/dentalla/data/remote/dto/PostDtoItem.kt,3\9\39db263e62f592bd018621af6f66454868dea661
 r
 Bapp/src/main/java/com/af/dentalla/data/mapper/PostsEntityMapper.kt,f\3\f38321c85825521e09d8b31c7169ad9f51fdd0cd
-n
->app/src/main/java/com/af/dentalla/domain/entity/PostsEntity.kt,4\f\4fcca90fc8a691bc841a5cf9491a845814c4a906
 m
 =app/src/main/java/com/af/dentalla/domain/entity/PostEntity.kt,1\2\12d6a71f7ea7ec96741e5e21b74b1c740c67cd25
-w
-Gapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAll Posts.kt,3\e\3e19c3665d1b725d1c3914f84cc4740e0fd3d58f
-v
-Fapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPosts.kt,8\7\8755c1ca32ad122694974897d2c99de7839bde6b
 }
 Mapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPostsUseCase.kt,5\0\509e6fb228af900d8c094eb629e57ecbd5fc315c
 }

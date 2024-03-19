@@ -9,10 +9,12 @@ import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.PostEntity
 import com.af.dentalla.domain.usecase.doctor.GetAllPostsUseCase
 import com.af.dentalla.utilities.ScreenState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class DoctorHomeViewModel @Inject constructor(
     private val getAllPostsUseCase: GetAllPostsUseCase
 ) : ViewModel() {

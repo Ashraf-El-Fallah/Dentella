@@ -9,6 +9,7 @@
         layout="@layout/base_item" />
 
     <include
+        android:id="@+id/base_text"
         layout="@layout/base_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
