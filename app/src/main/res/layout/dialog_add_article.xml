@@ -17,5 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include layout="@layout/dialog_add" />
+    <include
+        android:id="@+id/add_dialog"
+        layout="@layout/dialog_add" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

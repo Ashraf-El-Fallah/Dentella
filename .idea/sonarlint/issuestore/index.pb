@@ -71,10 +71,6 @@ m
 =app/src/main/java/com/af/dentalla/utilities/AccountManager.kt,5\6\56f6f9bd83848648dff0f22ecc440fc63cc1af0b
 p
 @app/src/main/java/com/af/dentalla/data/remote/AuthInterceptor.kt,b\9\b9911b89df0caa16f9f30957b01e26f1d0b0b83f
-f
-6app/src/main/java/com/af/dentalla/di/provideContext.kt,2\3\23929350d1c3c8da32aadc2a71c45e5603389f1f
-f
-6app/src/main/java/com/af/dentalla/di/ProvideContext.kt,4\b\4bb1f4e640ac876b5308ee6ac814e184509ead7f
 é
 ^app/src/main/java/com/af/dentalla/domain/usecase/authentication/signup/SignUpPatientUseCase.kt,3\d\3d7c42bf271ec3bb30e887d36e0a3df3fa9d4030
 å
@@ -333,8 +329,6 @@ Q.idea/sonarlint/securityhotspotstore/3/d/3d7c42bf271ec3bb30e887d36e0a3df3fa9d40
 Q.idea/sonarlint/securityhotspotstore/7/8/780f2499bdbe996b893dde21c1404543b4ab6a78,5\9\5914425a1f453226f253883c6e4d987f672f4157
 w
 G.idea/sonarlint/issuestore/0/e/0e669ed318d9cff7a1da18c37a13544259f8edba,9\4\94470e54fb0bc1f77c6934cee41d8b21a13b2f00
-w
-G.idea/sonarlint/issuestore/4/b/4bb1f4e640ac876b5308ee6ac814e184509ead7f,3\2\3252741395e4e987075ff6671e7482c050e057cd
 Å
 Q.idea/sonarlint/securityhotspotstore/4/b/4bb1f4e640ac876b5308ee6ac814e184509ead7f,4\7\47417b0ab47e257bd52f5cca36d624cff8460d4f
 Å
@@ -473,5 +467,11 @@ Mapp/src/main/java/com/af/dentalla/domain/usecase/doctor/GetAllPostsUseCase.kt,
 Mapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/DoctorHomeViewModel.kt,3\3\33c99af72eab0814313aed0f7941f4bb24776832
 v
 Fapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/PostsAdapter.kt,f\7\f7f989af0d67cc402ed62910d3b076c71c594978
-t
-Dapp/src/main/java/com/af/dentalla/data/remote/requests/AddArticle.kt,a\3\a30798504893e05fa1596d9b46b4a6c3294f3453
+q
+Aapp/src/main/java/com/af/dentalla/data/remote/requests/Article.kt,9\b\9b3fec2303b4342c7560d37745404222b581504c
+~
+Napp/src/main/java/com/af/dentalla/domain/usecase/articles/AddArticleUseCase.kt,3\0\30a317afef8bd02d2f2e1127daeae6d837b304b0
+r
+Bapp/src/main/java/com/af/dentalla/ui/articles/AddDialogListener.kt,2\9\29d4bad7c766674a7977fb8af6bfe9d4b24e28b1
+w
+G.idea/sonarlint/issuestore/3/d/3d7c42bf271ec3bb30e887d36e0a3df3fa9d4030,e\3\e3276f1acb9fc878a8ebcabdef23875bb6a98f52

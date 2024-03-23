@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
@@ -45,7 +46,12 @@ class ArticlesFragment : Fragment() {
 
     private fun showDialogToWriteArticle() {
         binding.buttonAddArticle.setOnClickListener {
-            AddArticleDialog(requireContext()).show()
+            AddArticleDialog(requireContext(),
+                object : AddDialogListener {
+                    override fun onArticleAdded(article: Article) {
+                        articlesViewModel.addArticle(article)
+                    }
+                }).show()
         }
     }
 
@@ -63,12 +69,6 @@ class ArticlesFragment : Fragment() {
                             submitList(it.uiData)
                         }
                     }
-//                    binding.rvArticles.adapter = PatientArticlesAdapter()
-//                    (binding.rvArticles.adapter as PatientArticlesAdapter).submitList(it.uiData)
-//                    val adapter = binding.rvArticles.adapter
-//                    if (adapter is PatientArticlesAdapter) {
-//                        adapter.submitList(it.uiData)
-//                    }
                 }
 
                 is ScreenState.Error -> {

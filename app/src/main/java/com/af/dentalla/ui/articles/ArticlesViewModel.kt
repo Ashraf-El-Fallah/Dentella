@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.domain.entity.ArticlesEntity
+import com.af.dentalla.domain.usecase.articles.AddArticleUseCase
 import com.af.dentalla.domain.usecase.articles.GetArticlesUseCase
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ArticlesViewModel @Inject constructor(
-    private val getArticlesUseCase: GetArticlesUseCase
+    private val getArticlesUseCase: GetArticlesUseCase,
+    private val addArticleUseCase: AddArticleUseCase
 ) : ViewModel() {
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
     val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
@@ -23,6 +26,7 @@ class ArticlesViewModel @Inject constructor(
     init {
         getArticles()
     }
+
     private fun getArticles() {
         viewModelScope.launch {
             getArticlesUseCase().collectLatest {
@@ -32,6 +36,12 @@ class ArticlesViewModel @Inject constructor(
                     is NetWorkResponseState.Success -> _articles.postValue(ScreenState.Success(it.result))
                 }
             }
+        }
+    }
+
+    fun addArticle(article: Article) {
+        viewModelScope.launch {
+            addArticleUseCase(article)
         }
     }
 }

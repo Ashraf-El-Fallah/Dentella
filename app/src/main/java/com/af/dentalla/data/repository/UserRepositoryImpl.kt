@@ -8,9 +8,8 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
-import com.af.dentalla.data.remote.requests.AddArticle
+import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.LoginUser
-import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utilities.AccountManager
@@ -204,12 +203,18 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun addArticle(article: AddArticle): Flow<NetWorkResponseState<Unit>> {
+    override fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>> {
         return flow {
+            Log.d("ARTICLE","Loading article")
             emit(NetWorkResponseState.Loading)
             try {
+                Log.d("ARTICLE","Start adding article")
+                service.addArticle(article)
                 emit(NetWorkResponseState.Success(Unit))
+                Log.d("ARTICLE","Finish adding article")
+
             } catch (e: Exception) {
+                Log.d("ARTICLE","can't add article")
                 emit(NetWorkResponseState.Error(e))
             }
         }

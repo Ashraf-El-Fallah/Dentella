@@ -3,23 +3,32 @@ package com.af.dentalla.ui.articles
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.DialogAddArticleBinding
-import com.af.dentalla.databinding.DialogAddBinding
 
-class AddArticleDialog(context: Context) : AppCompatDialog(context) {
+class AddArticleDialog(context: Context, private val addDialogListener: AddDialogListener) :
+    AppCompatDialog(context) {
     private lateinit var binding: DialogAddArticleBinding
-    private lateinit var addBaseBinding: DialogAddBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        addBaseBinding = DialogAddBinding.inflate(layoutInflater)
         binding = DialogAddArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        addBaseBinding.imgViewCancel.setOnClickListener {
+        binding.addDialog.buttonPost.setOnClickListener {
+            val input = binding.addDialog.editTextToWrite.text.toString()
+            if (input.isNullOrEmpty()) {
+                Toast.makeText(context, "Please enter article to post", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            val article = Article(content = input, imageData = null, title = null)
+            addDialogListener.onArticleAdded(article)
+            dismiss()
+        }
+        binding.addDialog.imgViewCancel.setOnClickListener {
             cancel()
         }
     }
