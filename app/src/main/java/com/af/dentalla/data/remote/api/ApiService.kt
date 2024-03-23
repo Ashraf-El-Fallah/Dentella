@@ -7,6 +7,7 @@ import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.PostDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
+import com.af.dentalla.data.remote.requests.AddArticle
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpUser
 import retrofit2.Response
@@ -52,4 +53,9 @@ interface ApiService {
 
     @GET("Post/GetAllPosts")
     suspend fun getAllPosts(): List<PostDtoItem>
+
+    @POST("Article/AddArticles")
+    suspend fun addArticle(
+        @Body article: AddArticle
+    )
 }

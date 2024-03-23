@@ -8,6 +8,7 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
+import com.af.dentalla.data.remote.requests.AddArticle
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -52,7 +53,6 @@ class UserRepositoryImpl @Inject constructor(
 
     //
     override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
-//        val user=SignUpPatient("aaa@gmail.com","aaaaaaaaa","01224217645","aaaaaaaaaaa")
         return flow {
             Log.d("SignUpUser", "Start signing up user $signUpUser")
             emit(NetWorkResponseState.Loading)
@@ -203,6 +203,18 @@ class UserRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    override fun addArticle(article: AddArticle): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                emit(NetWorkResponseState.Success(Unit))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
 
     private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
