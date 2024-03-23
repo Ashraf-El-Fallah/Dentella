@@ -10,6 +10,7 @@ import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.LoginUser
+import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utilities.AccountManager
@@ -205,16 +206,28 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>> {
         return flow {
-            Log.d("ARTICLE","Loading article")
+            Log.d("ARTICLE", "Loading article")
             emit(NetWorkResponseState.Loading)
             try {
-                Log.d("ARTICLE","Start adding article")
+                Log.d("ARTICLE", "Start adding article")
                 service.addArticle(article)
                 emit(NetWorkResponseState.Success(Unit))
-                Log.d("ARTICLE","Finish adding article")
+                Log.d("ARTICLE", "Finish adding article")
 
             } catch (e: Exception) {
-                Log.d("ARTICLE","can't add article")
+                Log.d("ARTICLE", "can't add article")
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun addPost(post: Post): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                service.addPost(post)
+                emit(NetWorkResponseState.Success(Unit))
+            } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
             }
         }

@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.domain.entity.CardsEntity
+import com.af.dentalla.domain.usecase.patient.AddPostUseCase
 import com.af.dentalla.domain.usecase.patient.GetAllDoctorsCardsUseCase
 import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversity
 import com.af.dentalla.domain.usecase.patient.GetSpecialityCardsUseCase
@@ -18,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class PatientHomeViewModel @Inject constructor(
     private val getAllDoctorsCardsUseCase: GetAllDoctorsCardsUseCase,
-    private val getCardsBySearchByUniversity: GetCardsBySearchByUniversity
+    private val getCardsBySearchByUniversity: GetCardsBySearchByUniversity,
+    private val addPostUseCase: AddPostUseCase
 ) : ViewModel() {
     private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()
     val allCards: LiveData<ScreenState<List<CardsEntity>>> get() = _allCards
@@ -39,7 +42,11 @@ class PatientHomeViewModel @Inject constructor(
         }
     }
 
-
+    fun addPots(post: Post) {
+        viewModelScope.launch {
+            addPostUseCase(post)
+        }
+    }
 
 
 }

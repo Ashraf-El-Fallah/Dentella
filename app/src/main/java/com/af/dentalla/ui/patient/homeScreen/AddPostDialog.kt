@@ -3,24 +3,36 @@ package com.af.dentalla.ui.patient.homeScreen
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.databinding.DialogAddArticleBinding
 import com.af.dentalla.databinding.DialogAddBinding
 import com.af.dentalla.databinding.DialogAddPostBinding
 
-class AddPostDialog(context: Context) : AppCompatDialog(context) {
+class AddPostDialog(context: Context, private val addPostDialogListener: AddPostDialogListener) :
+    AppCompatDialog(context) {
     private lateinit var binding: DialogAddPostBinding
-    private lateinit var addBaseBinding: DialogAddBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        addBaseBinding = DialogAddBinding.inflate(layoutInflater)
         binding = DialogAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        addBaseBinding.imgViewCancel.setOnClickListener {
+        binding.addDialog.buttonPost.setOnClickListener {
+            val content = binding.addDialog.editTextToWrite.text.toString()
+            if (content.isNullOrEmpty()) {
+                Toast.makeText(context, "Please add content for posting", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            val post = Post(content = content)
+            addPostDialogListener.onPostAdded(post)
+            dismiss()
+        }
+
+        binding.addDialog.imgViewCancel.setOnClickListener {
             cancel()
         }
     }

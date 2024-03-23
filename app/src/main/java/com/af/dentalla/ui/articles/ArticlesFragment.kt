@@ -47,7 +47,7 @@ class ArticlesFragment : Fragment() {
     private fun showDialogToWriteArticle() {
         binding.buttonAddArticle.setOnClickListener {
             AddArticleDialog(requireContext(),
-                object : AddDialogListener {
+                object : AddArticleDialogListener {
                     override fun onArticleAdded(article: Article) {
                         articlesViewModel.addArticle(article)
                     }

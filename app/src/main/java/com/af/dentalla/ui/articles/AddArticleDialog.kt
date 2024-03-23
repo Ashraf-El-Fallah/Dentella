@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatDialog
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.DialogAddArticleBinding
 
-class AddArticleDialog(context: Context, private val addDialogListener: AddDialogListener) :
+class AddArticleDialog(context: Context, private val addArticleDialogListener: AddArticleDialogListener) :
     AppCompatDialog(context) {
     private lateinit var binding: DialogAddArticleBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class AddArticleDialog(context: Context, private val addDialogListener: AddDialo
                 return@setOnClickListener
             }
             val article = Article(content = input, imageData = null, title = null)
-            addDialogListener.onArticleAdded(article)
+            addArticleDialogListener.onArticleAdded(article)
             dismiss()
         }
         binding.addDialog.imgViewCancel.setOnClickListener {

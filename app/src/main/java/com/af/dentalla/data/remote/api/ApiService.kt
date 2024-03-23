@@ -8,6 +8,7 @@ import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.LoginUser
+import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
 import retrofit2.Response
 import retrofit2.http.Body
@@ -56,5 +57,10 @@ interface ApiService {
     @POST("Article/AddArticles")
     suspend fun addArticle(
         @Body article: Article
+    )
+
+    @POST("Post/AddPost")
+    suspend fun addPost(
+        @Body post: Post
     )
 }

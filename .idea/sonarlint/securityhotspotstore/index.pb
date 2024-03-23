@@ -479,3 +479,11 @@ v
 Fapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddCardFragment.kt,b\2\b27bb5de9f5971b727ddbfab201727b69234704c
 w
 Gapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddCardViewModel.kt,7\1\71c1590cb0f3fd401ce480cbf4dde9a3822841e9
+n
+>app/src/main/java/com/af/dentalla/data/remote/requests/Post.kt,7\9\79f6a669f3d47e8f045c5dee23759408fd3fb44b
+z
+Japp/src/main/java/com/af/dentalla/domain/usecase/patient/AddPostUseCase.kt,6\f\6f56eac45ed0dfeb496ef554446a80109810dacb
+y
+Iapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialogListener.kt,e\8\e813078a06ff853589fa5b770858b84cf6481c27
+€
+Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.kt,b\d\bda9a2952a92f104e74329b6be649cf317791c0e
