@@ -2,6 +2,7 @@ package com.af.dentalla.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
@@ -24,9 +25,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showDialogDependingOnUserType() {
-        if (accountType == AccountManager.AccountType.PATIENT) {
-            binding.centerButton.setOnClickListener {
+        binding.centerButton.setOnClickListener {
+            if (accountType == AccountManager.AccountType.PATIENT) {
                 AddPostDialog(this).show()
+            } else {
+                findNavController(R.id.nav_host_home_fragment).navigate(R.id.addCardFragment)
             }
         }
     }

@@ -149,5 +149,18 @@
         android:id="@+id/doctorHomeFragment"
         android:name="com.af.dentalla.ui.doctor.homeScreen.DoctorHomeFragment"
         android:label="fragment_doctor_home"
-        tools:layout="@layout/fragment_doctor_home" />
+        tools:layout="@layout/fragment_doctor_home" >
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.af.dentalla.ui.doctor.addCard.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card" >
+        <action
+            android:id="@+id/action_addCardFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
+    </fragment>
 </navigation>

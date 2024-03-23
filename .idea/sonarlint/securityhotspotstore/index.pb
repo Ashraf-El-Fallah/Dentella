@@ -475,3 +475,7 @@ r
 Bapp/src/main/java/com/af/dentalla/ui/articles/AddDialogListener.kt,2\9\29d4bad7c766674a7977fb8af6bfe9d4b24e28b1
 w
 G.idea/sonarlint/issuestore/3/d/3d7c42bf271ec3bb30e887d36e0a3df3fa9d4030,e\3\e3276f1acb9fc878a8ebcabdef23875bb6a98f52
+v
+Fapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddCardFragment.kt,b\2\b27bb5de9f5971b727ddbfab201727b69234704c
+w
+Gapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddCardViewModel.kt,7\1\71c1590cb0f3fd401ce480cbf4dde9a3822841e9
