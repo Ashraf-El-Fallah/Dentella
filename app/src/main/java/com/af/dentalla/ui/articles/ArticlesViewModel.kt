@@ -1,5 +1,6 @@
 package com.af.dentalla.ui.articles
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,6 +42,7 @@ class ArticlesViewModel @Inject constructor(
 
     fun addArticle(article: Article) {
         viewModelScope.launch {
+            Log.d("ARTICLE","...........")
             addArticleUseCase(article)
         }
     }
