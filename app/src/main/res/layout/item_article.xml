@@ -3,16 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="320dp"
-    android:layout_marginHorizontal="18dp"
-    android:background="@drawable/article_style">
+    android:layout_height="wrap_content"
+    android:background="@drawable/doctor_profile_style"
+    app:cardElevation="9dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <include layout="@layout/base_item"
-          android:id="@+id/base_item"/>
+        <include
+            android:id="@+id/base_item"
+            layout="@layout/base_item" />
 
         <TextView
             android:id="@+id/text_view_article_content"
@@ -32,63 +34,63 @@
             android:id="@+id/text_view_article_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="18dp"
-            android:text="Brush Twice a Day:"
             android:layout_marginTop="65dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:text="Brush Twice a Day:"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:id="@+id/image_teeth"
-            android:layout_width="371.92dp"
-            android:layout_height="123dp"
-            android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/teeth"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />
-<!--        android:background="@drawable/image_article_style"-->
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/image_teeth"-->
+        <!--            android:layout_width="371.92dp"-->
+        <!--            android:layout_height="123dp"-->
+        <!--            android:layout_marginHorizontal="18dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:src="@drawable/teeth"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />-->
+        <!--        android:background="@drawable/image_article_style"-->
 
 
         <!--        <TextView-->
-<!--            android:id="@+id/comments"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="22dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginBottom="4dp"-->
-<!--            android:text="comments"-->
-<!--            android:textColor="@color/dark_gray"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
+        <!--            android:id="@+id/comments"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="22dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:text="comments"-->
+        <!--            android:textColor="@color/dark_gray"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
 
 
-<!--        <ImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:layout_marginEnd="2dp"-->
-<!--            android:layout_marginBottom="4dp"-->
-<!--            android:src="@drawable/heart"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/likes"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/likes"-->
-<!--            app:layout_constraintTop_toTopOf="@id/likes" />-->
+        <!--        <ImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:layout_marginEnd="2dp"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:src="@drawable/heart"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/likes"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/likes"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/likes" />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/likes"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:layout_marginEnd="32dp"-->
-<!--            android:text="likes"-->
-<!--            android:textColor="@color/dark_gray"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/likes"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:layout_marginEnd="32dp"-->
+        <!--            android:text="likes"-->
+        <!--            android:textColor="@color/dark_gray"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/image_teeth" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
