@@ -50,7 +50,6 @@ class DoctorHomeFragment : Fragment() {
                         }
                     }
                 }
-
                 is ScreenState.Error -> progressBarBinding.progress.gone()
             }
         }

@@ -41,7 +41,7 @@ class DoctorsSpecialitiesFragment : Fragment() {
     }
 
     private fun backToLastScreen() {
-        binding.back.setOnClickListener {
+        binding.back.root.setOnClickListener {
             findNavController().safeNavigate(DoctorsSpecialitiesFragmentDirections.actionDoctorsSpecialitiesFragmentToHomeFragment())
         }
     }
@@ -80,7 +80,9 @@ class DoctorsSpecialitiesFragment : Fragment() {
 
     private fun navigateToDoctorProfile(doctorId: Int) {
         val action =
-            DoctorsSpecialitiesFragmentDirections.actionDoctorsSpecialitiesFragmentToDoctorProfileFragment(doctorId)
+            DoctorsSpecialitiesFragmentDirections.actionDoctorsSpecialitiesFragmentToDoctorProfileFragment(
+                doctorId
+            )
         findNavController().navigate(action)
     }
 
