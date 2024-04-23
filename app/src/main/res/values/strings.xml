@@ -40,7 +40,7 @@
     <string name="ask_me">Ask me anything...</string>
     <!-- strings.xml -->
     <string name="speciality">speciality</string>
-    <string name="profile">profile</string>
+    <string name="profile">Profile</string>
     <string name="doctor_name">doctor name</string>
     <string name="doctor_procedure">doctor procedure</string>
     <string name="chat_now">chat now</string>

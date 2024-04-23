@@ -16,11 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include
+        android:id="@+id/back"
+        layout="@layout/base_back" />
+
+
     <EditText
         android:id="@+id/edit_text_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="70dp"
         android:background="@drawable/edit_text_search"
         android:hint="@string/search"
         android:paddingStart="20dp"

@@ -9,6 +9,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentSearchBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utilities.ScreenState
@@ -37,6 +38,14 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         searchAboutCards()
         searchedCardsObserver()
+        navigateToHomeScreen()
+    }
+
+    private fun navigateToHomeScreen() {
+        binding.back.root.setOnClickListener {
+            val action = SearchFragmentDirections.actionSearchFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun searchAboutCards() {
@@ -58,16 +67,21 @@ class SearchFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progress.gone()
-                    binding.recyclerViewSearchedCards.adapter =
-                        DoctorsCardsAdapter { doctorCardId ->
-                            navigateToDoctorProfile(doctorCardId)
-                        }
+                    binding.recyclerViewSearchedCards.apply {
+                        adapter =
+                            DoctorsCardsAdapter { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            }
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                    }
+
                     (binding.recyclerViewSearchedCards.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.gone()
-                    requireView().showToastShort(it.message)
+//                    requireView().showToastShort(it.message)
                 }
             }
         }

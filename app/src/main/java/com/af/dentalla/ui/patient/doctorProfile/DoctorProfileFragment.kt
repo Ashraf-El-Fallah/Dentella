@@ -42,8 +42,8 @@ class DoctorProfileFragment : Fragment() {
     }
 
     private fun setUpBackButton() {
-        binding.back.setOnClickListener {
-            findNavController().safeNavigate(DoctorProfileFragmentDirections.actionDoctorProfileFragmentToHomeFragment())
+        binding.back.root.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 
