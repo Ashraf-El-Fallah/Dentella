@@ -19,9 +19,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/back"
-        layout="@layout/base_back" />
+<!--    <include-->
+<!--        android:id="@+id/back"-->
+<!--        layout="@layout/base_back" />-->
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_layout"

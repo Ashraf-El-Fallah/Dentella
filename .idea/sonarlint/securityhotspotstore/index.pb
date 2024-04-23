@@ -481,3 +481,5 @@ y
 Iapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialogListener.kt,e\8\e813078a06ff853589fa5b770858b84cf6481c27
 €
 Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.kt,b\d\bda9a2952a92f104e74329b6be649cf317791c0e
+{
+Kapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddSpecialityAdapter.kt,9\6\9633a0ca4c775826fcc671e9d304ff39d79558f6
