@@ -12,12 +12,6 @@ class AuthInterceptor @Inject constructor(dataStorePreferencesService: DataStore
 //    dataStorePreferencesService: DataStorePreferencesService
     private val token = dataStorePreferencesService.getToken()
     override fun intercept(chain: Interceptor.Chain): Response {
-//        val request = if (isLoginRequest(chain.request()))
-//        {
-//            chain.request().newBuilder()
-//                .addHeader("Authorization", "Bearer $token")
-//                .build()
-//        } else {
         Log.d("interceptorKKKKKKKK",".........")
         val request = chain.request().newBuilder()
 //            .addHeader("Authorization", "Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
@@ -28,36 +22,6 @@ class AuthInterceptor @Inject constructor(dataStorePreferencesService: DataStore
         return chain.proceed(request)
     }
 }
-
-
-//    override fun intercept(chain: Interceptor.Chain): Response {
-//        val requestBuilder =
-//            chain.request().newBuilder()
-//                .addHeader("Authorization", "Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
-//        if (token.isNotBlank()) {
-//            requestBuilder.addHeader("Authorization", "Bearer $token")
-//        }
-//        val request = requestBuilder.build()
-//        return chain.proceed(request)
-//    }
-
-//    override fun intercept(chain: Interceptor.Chain): Response {
-//        val username = "11161076"
-//        val password = "60-dayfreetrial"
-//        val credentials = "$username:$password"
-//        val basicAuth = "Basic " + Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
-//
-//        val requestBuilder =
-//            chain.request().newBuilder()
-//                .addHeader("Authorization", basicAuth)//"Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
-//        if (token.isNotBlank()) {
-//            requestBuilder.addHeader("Authorization", "Bearer $token")
-//        }
-//        val request = requestBuilder.build()
-//        return chain.proceed(request)
-//    }
-
-
 
 private fun isSignUpRequest(request: Request): Boolean {
     val pathSegments = request.url.encodedPathSegments
