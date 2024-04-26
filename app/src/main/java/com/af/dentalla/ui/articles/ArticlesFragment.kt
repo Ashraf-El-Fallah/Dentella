@@ -1,5 +1,6 @@
 package com.af.dentalla.ui.articles
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
+import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.utilities.AccountManager
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
@@ -36,6 +38,7 @@ class ArticlesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         articlesObserver()
         showDialogToWriteArticle()
+        addArticleObserver()
     }
 
     private fun showAddArticlesButtonForDoctors() {
@@ -55,6 +58,21 @@ class ArticlesFragment : Fragment() {
         }
     }
 
+    private fun addArticleObserver() {
+        articlesViewModel.addArticleState.observe(viewLifecycleOwner) { addArticleState ->
+            when (addArticleState) {
+                is ScreenState.Loading -> {
+                    binding.progress.visible()
+                }
+                is ScreenState.Success -> {
+                    binding.progress.gone()
+                }
+                is ScreenState.Error -> {
+                    binding.progress.gone()
+                }
+            }
+        }
+    }
     private fun articlesObserver() {
         articlesViewModel.articles.observe(viewLifecycleOwner) {
             when (it) {
@@ -70,7 +88,6 @@ class ArticlesFragment : Fragment() {
                         }
                     }
                 }
-
                 is ScreenState.Error -> {
                     binding.progress.gone()
                     Toast.makeText(

@@ -12,6 +12,7 @@ import com.af.dentalla.domain.usecase.articles.AddArticleUseCase
 import com.af.dentalla.domain.usecase.articles.GetArticlesUseCase
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,7 +23,10 @@ class ArticlesViewModel @Inject constructor(
     private val addArticleUseCase: AddArticleUseCase
 ) : ViewModel() {
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
+    private val _addArticleState = MutableLiveData<ScreenState<Unit>>()
+
     val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
+    val addArticleState: LiveData<ScreenState<Unit>> get() = _addArticleState
 
     init {
         getArticles()
@@ -42,8 +46,18 @@ class ArticlesViewModel @Inject constructor(
 
     fun addArticle(article: Article) {
         viewModelScope.launch {
-            Log.d("ARTICLE","...........")
-            addArticleUseCase(article)
+            addArticleUseCase(article).collect {
+                when (it) {
+                    is NetWorkResponseState.Error -> _addArticleState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Loading -> _addArticleState.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Success -> _addArticleState.postValue(
+                        ScreenState.Success(
+                            it.result
+                        )
+                    )
+                }
+            }
+//            Log.d("ARTICLE", "...........")
         }
     }
 }

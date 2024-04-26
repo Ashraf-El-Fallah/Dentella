@@ -7,11 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.databinding.ActivityHomeBinding
-import com.af.dentalla.ui.articles.AddArticleDialog
-import com.af.dentalla.ui.articles.AddArticleDialogListener
 import com.af.dentalla.ui.patient.homeScreen.AddPostDialog
 import com.af.dentalla.ui.patient.homeScreen.AddPostDialogListener
 import com.af.dentalla.ui.patient.homeScreen.PatientHomeViewModel

@@ -33,21 +33,6 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-//    fun loginDoctorLogic(loginDoctor: LoginDoctor) {
-//        viewModelScope.launch {
-//            loginDoctorUseCase(loginDoctor).collect {
-//                when (it) {
-//                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
-//                    is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
-//                    is NetWorkResponseState.Success -> _loginState.postValue(
-//                        ScreenState.Success(
-//                            Unit
-//                        )
-//                    )
-//                }
-//            }
-//        }
-//    }
 
 
 }
