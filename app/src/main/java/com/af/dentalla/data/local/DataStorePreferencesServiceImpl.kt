@@ -2,12 +2,14 @@ package com.af.dentalla.data.local
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -18,8 +20,14 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
     )
     private val prefDataStore = context.preferencesDataStore
     override suspend fun saveToken(token: String?) {
-        prefDataStore.edit { preferences ->
-            preferences[stringPreferencesKey(TOKEN_KEY)] = token.toString()
+        Log.d("Token interceptor", "......")
+//        prefDataStore.edit { preferences ->
+//            preferences[stringPreferencesKey(TOKEN_KEY)] = token.toString()
+//        }
+        token?.let {
+            prefDataStore.edit { preferences ->
+                preferences[stringPreferencesKey(TOKEN_KEY)] = it
+            }
         }
     }
 

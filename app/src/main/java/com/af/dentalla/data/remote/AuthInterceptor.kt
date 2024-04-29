@@ -13,6 +13,7 @@ class AuthInterceptor @Inject constructor(dataStorePreferencesService: DataStore
     private val token = dataStorePreferencesService.getToken()
     override fun intercept(chain: Interceptor.Chain): Response {
         Log.d("interceptorKKKKKKKK",".........")
+        Log.d("Token interceptor",token)
         val request = chain.request().newBuilder()
 //            .addHeader("Authorization", "Basic MTExNjEwNzY6NjAtZGF5ZnJlZXRyaWFs")
             .addHeader("Authorization", "Bearer $token")

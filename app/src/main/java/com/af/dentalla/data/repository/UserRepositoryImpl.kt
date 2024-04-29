@@ -31,19 +31,8 @@ class UserRepositoryImpl @Inject constructor(
                 emit(NetWorkResponseState.Loading)
                 val authenticateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginUser)
-                emit(NetWorkResponseState.Success(Unit))
                 saveToken(authenticateLoginResponse.token)
-
-//                if (authenticateLoginResponse.isSuccessful) {
-//                    saveToken(authenticateLoginResponse.body()?.token)
-//                    Log.d("LoginUser", "Login Successfully")
-//                    emit(NetWorkResponseState.Success(Unit))
-//                } else {
-//                    val errorMessage =
-//                        authenticateLoginResponse.errorBody()?.toString() ?: "Unknown Error"
-//                    Log.d("LoginUser", "Login failed :$errorMessage")
-//                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateLoginResponse.code()}:$errorMessage")))
-//                }
+                emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
                 Log.d("LoginUser", "Exception during login  ${e.message}", e)
                 emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
@@ -61,16 +50,6 @@ class UserRepositoryImpl @Inject constructor(
                     service.signUpUser(accountType.toString().lowercase(), signUpUser)
                 emit(NetWorkResponseState.Success(Unit))
 
-                //if (authenticateSignUpResponse.isSuccessful)
-//                {
-//                    Log.d("SignUpUser", "Sign Up Successfully")
-//                    emit(NetWorkResponseState.Success(Unit))
-//                } else {
-//                    val errorMessage =
-//                        authenticateSignUpResponse.errorBody()?.toString() ?: "Unknown Error"
-//                    Log.d("SignUpUser", "Sign Up failed :$errorMessage")
-//                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateSignUpResponse.code()}:$errorMessage")))
-//                }
                 Log.d("SignUpUser", "............ $signUpUser")
             } catch (e: Exception) {
                 Log.d("SignUpUser", "Exception during sign up  ${e.message}")

@@ -483,7 +483,3 @@ Iapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialogListener.kt,e\8\
 Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.kt,b\d\bda9a2952a92f104e74329b6be649cf317791c0e
 {
 Kapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddSpecialityAdapter.kt,9\6\9633a0ca4c775826fcc671e9d304ff39d79558f6
-l
-<app/src/main/java/com/af/dentalla/data/remote/requests/aa.kt,2\1\215722b13ae1ee4d6773ed0d276977471a14cc7e
-k
-;app/src/main/java/com/af/dentalla/data/remote/requests/a.kt,3\9\399a7a62dd4e426dd0f9f175d12b7eaebfc47609

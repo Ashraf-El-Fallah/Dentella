@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface DataStorePreferencesService {
     suspend fun saveToken(token: String?)
-     fun getToken(): String
+    fun getToken(): String
 
     suspend fun getExpireDate(): Flow<String?>
 }
