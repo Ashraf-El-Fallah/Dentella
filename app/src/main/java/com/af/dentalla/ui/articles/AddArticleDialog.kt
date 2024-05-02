@@ -24,7 +24,7 @@ class AddArticleDialog(context: Context, private val addArticleDialogListener: A
                 Toast.makeText(context, "Please enter article to post", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            val article = Article(content = input, imageData = null, title = null)
+            val article = Article(content = input, imageData = "", title = "Adding New Information about teeth health")
             addArticleDialogListener.onArticleAdded(article)
             dismiss()
         }

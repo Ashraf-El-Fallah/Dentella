@@ -28,7 +28,7 @@ interface ApiService {
     suspend fun loginUser(
         @Path("user_type") userType: String,
         @Body user: LoginUser
-    ): LoginResponse//Response<LoginResponse>
+    ): Response<LoginResponse>//Response<LoginResponse>
 
     @GET("Card/GetAllCards")
     suspend fun getAllDoctorsCards(): List<CardsDto>

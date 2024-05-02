@@ -10,6 +10,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -21,9 +22,6 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
     private val prefDataStore = context.preferencesDataStore
     override suspend fun saveToken(token: String?) {
         Log.d("Token interceptor", "......")
-//        prefDataStore.edit { preferences ->
-//            preferences[stringPreferencesKey(TOKEN_KEY)] = token.toString()
-//        }
         token?.let {
             prefDataStore.edit { preferences ->
                 preferences[stringPreferencesKey(TOKEN_KEY)] = it
@@ -31,10 +29,10 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
         }
     }
 
-    override fun getToken(): String {
+    override suspend fun getToken(): String? {
         return prefDataStore.data.map { preferences ->
             preferences[stringPreferencesKey(TOKEN_KEY)]
-        }.toString()
+        }.firstOrNull()
     }
 
     override suspend fun getExpireDate(): Flow<String?> {

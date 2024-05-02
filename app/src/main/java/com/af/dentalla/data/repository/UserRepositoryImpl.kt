@@ -31,8 +31,17 @@ class UserRepositoryImpl @Inject constructor(
                 emit(NetWorkResponseState.Loading)
                 val authenticateLoginResponse =
                     service.loginUser(accountType.toString().lowercase(), loginUser)
-                saveToken(authenticateLoginResponse.token)
-                emit(NetWorkResponseState.Success(Unit))
+                if (authenticateLoginResponse.isSuccessful) {
+                    if (authenticateLoginResponse != null) {
+                        Log.d("LoginUser", "Login  Successfully $loginUser")
+                        saveToken(authenticateLoginResponse.body()?.token)
+                        emit(NetWorkResponseState.Success(Unit))
+                    } else {
+                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    }
+                } else {
+                    emit(NetWorkResponseState.Error(Exception("HTTP error ${authenticateLoginResponse.code()}")))
+                }
             } catch (e: Exception) {
                 Log.d("LoginUser", "Exception during login  ${e.message}", e)
                 emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
@@ -49,7 +58,6 @@ class UserRepositoryImpl @Inject constructor(
                 val authenticateSignUpResponse =
                     service.signUpUser(accountType.toString().lowercase(), signUpUser)
                 emit(NetWorkResponseState.Success(Unit))
-
                 Log.d("SignUpUser", "............ $signUpUser")
             } catch (e: Exception) {
                 Log.d("SignUpUser", "Exception during sign up  ${e.message}")
