@@ -62,23 +62,26 @@ class ArticlesFragment : Fragment() {
         articlesViewModel.addArticleState.observe(viewLifecycleOwner) { addArticleState ->
             when (addArticleState) {
                 is ScreenState.Loading -> {
-                    binding.progress.visible()
+                    binding.progress.root.visible()
                 }
+
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.root.gone()
                 }
+
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.root.gone()
                 }
             }
         }
     }
+
     private fun articlesObserver() {
         articlesViewModel.articles.observe(viewLifecycleOwner) {
             when (it) {
-                is ScreenState.Loading -> binding.progress.visible()
+                is ScreenState.Loading -> binding.progress.root.visible()
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.root.gone()
 
                     binding.rvArticles.apply {
                         layoutManager =
@@ -88,8 +91,9 @@ class ArticlesFragment : Fragment() {
                         }
                     }
                 }
+
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.root.gone()
                     Toast.makeText(
                         context,
                         it.message,

@@ -10,7 +10,6 @@ import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.usecase.patient.AddPostUseCase
 import com.af.dentalla.domain.usecase.patient.GetAllDoctorsCardsUseCase
 import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversity
-import com.af.dentalla.domain.usecase.patient.GetSpecialityCardsUseCase
 import com.af.dentalla.utilities.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -24,7 +23,9 @@ class PatientHomeViewModel @Inject constructor(
     private val addPostUseCase: AddPostUseCase
 ) : ViewModel() {
     private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()
+    private val _addPostState = MutableLiveData<ScreenState<Unit>>()
     val allCards: LiveData<ScreenState<List<CardsEntity>>> get() = _allCards
+    val addPostState : LiveData<ScreenState<Unit>> get() = _addPostState
 
     init {
         getAllCards()
@@ -42,9 +43,15 @@ class PatientHomeViewModel @Inject constructor(
         }
     }
 
-    fun addPots(post: Post) {
+    fun addPost(post: Post) {
         viewModelScope.launch {
-            addPostUseCase(post)
+            addPostUseCase(post).collect {
+                when (it) {
+                    is NetWorkResponseState.Error -> _addPostState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Success -> _addPostState.postValue(ScreenState.Success(it.result))
+                    is NetWorkResponseState.Loading -> _addPostState.postValue(ScreenState.Loading)
+                }
+            }
         }
     }
 

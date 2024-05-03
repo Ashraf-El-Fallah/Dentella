@@ -7,6 +7,10 @@
     tools:context=".ui.HomeActivity">
 
 
+    <include
+        android:id="@+id/progress"
+        layout="@layout/base_progress_bar" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_home_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -24,9 +28,9 @@
         android:id="@+id/centerButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/button_navigation_style"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
         android:paddingBottom="25dp"
         android:text="+"
         android:textAlignment="center"

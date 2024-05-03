@@ -13,6 +13,9 @@ import com.af.dentalla.ui.patient.homeScreen.AddPostDialog
 import com.af.dentalla.ui.patient.homeScreen.AddPostDialogListener
 import com.af.dentalla.ui.patient.homeScreen.PatientHomeViewModel
 import com.af.dentalla.utilities.AccountManager
+import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +30,26 @@ class HomeActivity : AppCompatActivity() {
         initBottomNavigation()
         navigateToHomeFragment()
         showDialogDependingOnUserType()
+        addPostObserver()
+    }
+
+
+    private fun addPostObserver() {
+        patientHomeViewModel.addPostState.observe(this) { addPostState ->
+            when (addPostState) {
+                is ScreenState.Loading -> {
+                    binding.progress.root.visible()
+                }
+
+                is ScreenState.Success -> {
+                    binding.progress.root.gone()
+                }
+
+                is ScreenState.Error -> {
+                    binding.progress.root.gone()
+                }
+            }
+        }
     }
 
     private fun showDialogDependingOnUserType() {
@@ -35,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
                 AddPostDialog(this,
                     object : AddPostDialogListener {
                         override fun onPostAdded(post: Post) {
-                            patientHomeViewModel.addPots(post)
+                            patientHomeViewModel.addPost(post)
                         }
                     }).show()
             } else {

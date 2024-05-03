@@ -57,7 +57,6 @@ class ArticlesViewModel @Inject constructor(
                     )
                 }
             }
-//            Log.d("ARTICLE", "...........")
         }
     }
 }
