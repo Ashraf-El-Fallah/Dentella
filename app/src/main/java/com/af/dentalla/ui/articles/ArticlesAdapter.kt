@@ -23,7 +23,7 @@ class ArticlesAdapter :
         fun bind(article: ArticlesEntity) {
             binding.apply {
 //                imageTeeth.loadImage(article.articleImage.toString())
-                textViewArticleTitle.text = article.title
+//                textViewArticleTitle.text = article.title
                 textViewArticleContent.text = article.content
                 baseItem.textViewDoctorNameArticle.text = article.doctorName
                 baseItem.textViewTime.text = article.postingTime

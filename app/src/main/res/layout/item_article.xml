@@ -19,29 +19,32 @@
         <TextView
             android:id="@+id/text_view_article_content"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="Because Brushing helps remove plaque,a sticky film of bacteria"
             android:textColor="@color/black"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_article_title" />
-
-        <TextView
-            android:id="@+id/text_view_article_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="65dp"
-            android:text="Brush Twice a Day:"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/text_view_article_title"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="18dp"-->
+        <!--            android:layout_marginTop="65dp"-->
+        <!--            android:text="Brush Twice a Day:"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <!--        <ImageView-->
         <!--            android:id="@+id/image_teeth"-->
