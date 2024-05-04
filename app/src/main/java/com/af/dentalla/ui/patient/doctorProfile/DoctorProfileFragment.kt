@@ -1,6 +1,7 @@
 package com.af.dentalla.ui.patient.doctorProfile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -67,19 +68,21 @@ class DoctorProfileFragment : Fragment() {
                         textViewPhoneNumber.text = profile.phoneNumber
                         textViewAbout.text = profile.about
 
+
                         profile.doctorAvailability.let { doctorAvailabilityEntities ->
                             if (doctorAvailabilityEntities.isNotEmpty()) {
-                                val adapter =
-                                    AvailableDatesAdapter(doctorAvailabilityEntities.flatMap {
-                                        it.availableDates ?: emptyList()
-                                    })
-                                rvDate.layoutManager =
-                                    LinearLayoutManager(
+                                binding.rvDate.apply {
+                                    layoutManager = LinearLayoutManager(
                                         activity,
                                         LinearLayoutManager.HORIZONTAL,
                                         false
                                     )
-                                rvDate.adapter = adapter
+                                    adapter = AvailableDatesAdapter(
+                                        doctorAvailabilityEntities.flatMap {
+                                            it.availableDates ?: emptyList()
+                                        }
+                                    )
+                                }
                             }
                         }
                     }
@@ -87,6 +90,5 @@ class DoctorProfileFragment : Fragment() {
             }
         }
     }
-
-
 }
+

@@ -13,10 +13,12 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
 
-class AvailableDatesAdapter(private val availableDates: List<String>) :
+class AvailableDatesAdapter(private val dates: List<String>) :
     ListAdapter<String, AvailableDatesAdapter.DateViewHolder>(DiffCallback()) {
+
     inner class DateViewHolder(private val binding: ItemDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(date: String) {
             val (month, dayName, dayNumber) = parseDate(date)
@@ -34,21 +36,13 @@ class AvailableDatesAdapter(private val availableDates: List<String>) :
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DateViewHolder, position: Int) {
-//        if (position != RecyclerView.NO_POSITION && position < itemCount) {
-        val date = getItem(position)
+        val date = dates[position]
         holder.bind(date)
-//        } else {
-//            Log.e("Adapter", "Invalid position: $position")
-//        }
     }
-
-//    override fun getItemCount(): Int {
-//        return availableDates.size
-//    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun parseDate(input: String): Triple<String, String, Int> {
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddTHH:mm:ss")
         val dateTime = LocalDateTime.parse(input, formatter)
         val month = dateTime.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
         val dayOfWeek = dateTime.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
