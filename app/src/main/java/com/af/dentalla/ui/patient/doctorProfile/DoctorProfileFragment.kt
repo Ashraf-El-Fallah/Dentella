@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
+import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragmentDirections
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
@@ -68,23 +69,17 @@ class DoctorProfileFragment : Fragment() {
                         textViewPhoneNumber.text = profile.phoneNumber
                         textViewAbout.text = profile.about
 
-
-                        profile.doctorAvailability.let { doctorAvailabilityEntities ->
-                            if (doctorAvailabilityEntities.isNotEmpty()) {
-                                binding.rvDate.apply {
-                                    layoutManager = LinearLayoutManager(
-                                        activity,
-                                        LinearLayoutManager.HORIZONTAL,
-                                        false
-                                    )
-                                    adapter = AvailableDatesAdapter(
-                                        doctorAvailabilityEntities.flatMap {
-                                            it.availableDates ?: emptyList()
-                                        }
-                                    )
-                                }
-                            }
+                        val availableDates = profile.doctorAvailability.flatMap {
+                            it.availableDates ?: emptyList()
                         }
+                        rvDate.apply {
+                            adapter = AvailableDatesAdapter(
+                                availableDates
+                            )
+                            layoutManager =
+                                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                        }
+                        (binding.rvDate.adapter as AvailableDatesAdapter).submitList(availableDates)
                     }
                 }
             }

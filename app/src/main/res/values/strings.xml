@@ -44,7 +44,7 @@
     <string name="doctor_name">doctor name</string>
     <string name="doctor_procedure">doctor procedure</string>
     <string name="chat_now">chat now</string>
-    <string name="schedule">schedule</string>
+    <string name="available_dates">Available Dates</string>
     <string name="month">month</string>
     <string name="update">Update your password</string>
     <string name="article">Article</string>

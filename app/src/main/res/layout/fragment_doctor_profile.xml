@@ -26,11 +26,11 @@
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/profile"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,6 @@
         app:layout_constraintTop_toBottomOf="@id/profile" />
 
     <!--    android:src="@drawable/doctor"-->
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -123,42 +122,43 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/schedule"
+            android:text="@string/available_dates"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phone_img" />
 
-        <ImageView
-            android:id="@+id/back_month"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_back_month"
-            app:layout_constraintBottom_toBottomOf="@id/month"
-            app:layout_constraintEnd_toStartOf="@id/month"
-            app:layout_constraintTop_toTopOf="@id/month" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/back_month"-->
+        <!--            android:layout_width="20dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:src="@drawable/ic_back_month"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/month"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
 
-        <TextView
-            android:id="@+id/month"
-            android:layout_width="26dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="258dp"
-            android:layout_marginEnd="35dp"
-            android:text="@string/month"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@id/schedule"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/schedule" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/month"-->
+        <!--            android:layout_width="26dp"-->
+        <!--            android:layout_height="21dp"-->
+        <!--            android:layout_marginStart="258dp"-->
+        <!--            android:layout_marginEnd="35dp"-->
+        <!--            android:text="@string/month"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="13sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/schedule"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/schedule" />-->
 
-        <ImageView
-            android:id="@+id/next_month"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
-            android:src="@drawable/ic_next_month"
-            app:layout_constraintBottom_toBottomOf="@id/month"
-            app:layout_constraintStart_toEndOf="@id/month"
-            app:layout_constraintTop_toTopOf="@id/month" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/next_month"-->
+        <!--            android:layout_width="33dp"-->
+        <!--            android:layout_height="33dp"-->
+        <!--            android:src="@drawable/ic_next_month"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/month"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_date"
@@ -179,6 +179,7 @@
             android:text="About"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_date" />
 

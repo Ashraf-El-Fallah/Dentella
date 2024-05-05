@@ -1,6 +1,7 @@
 package com.af.dentalla.ui.patient.doctorProfile
 
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemDateBinding
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
@@ -19,12 +21,13 @@ class AvailableDatesAdapter(private val dates: List<String>) :
     inner class DateViewHolder(private val binding: ItemDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(date: String) {
-            val (month, dayName, dayNumber) = parseDate(date)
+            val (year, month, dayInfo) = parseDate(date)
+            val (dayOfMonth, dayOfWeek) = dayInfo.split(", ")
+            binding.yearNumber.text = year
             binding.monthNumber.text = month
-            binding.dayName.text = dayName
-            binding.dayNumber.text = dayNumber.toString()
+            binding.dayName.text = dayOfWeek
+            binding.dayNumber.text = dayOfMonth
         }
     }
 
@@ -34,22 +37,24 @@ class AvailableDatesAdapter(private val dates: List<String>) :
         return DateViewHolder(binding)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DateViewHolder, position: Int) {
         val date = dates[position]
         holder.bind(date)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun parseDate(input: String): Triple<String, String, Int> {
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddTHH:mm:ss")
-        val dateTime = LocalDateTime.parse(input, formatter)
-        val month = dateTime.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
-        val dayOfWeek = dateTime.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
-        val dayOfMonth = dateTime.dayOfMonth
-        return Triple(month, dayOfWeek, dayOfMonth)
-    }
 
+    private fun parseDate(input: String): Triple<String, String, String> {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+        val date = inputFormat.parse(input)
+        val calendar = Calendar.getInstance().apply { time = date }
+
+        val year = calendar.get(Calendar.YEAR).toString()
+        val month = (calendar.get(Calendar.MONTH) + 1).toString()
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH).toString()
+        val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
+
+        return Triple(year, month, "$dayOfMonth, $dayOfWeek")
+    }
     private class DiffCallback : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
             return oldItem == newItem

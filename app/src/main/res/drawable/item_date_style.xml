@@ -1,5 +1,6 @@
+
+
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="61dp"
     android:height="65dp"
     android:viewportWidth="61"
@@ -11,5 +12,3 @@
             android:pathData="M0 0V65H61V0" />
     </group>
 </vector>
-
-    <!--    android:fillColor="#95D8F2"-->
