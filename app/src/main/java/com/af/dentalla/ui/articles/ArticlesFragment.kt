@@ -79,7 +79,7 @@ class ArticlesFragment : Fragment() {
     private fun articlesObserver() {
         articlesViewModel.articles.observe(viewLifecycleOwner) {
             when (it) {
-                is ScreenState.Loading -> binding.progress.root.visible()
+                is ScreenState.Loading -> binding.progress.progress.visible()
                 is ScreenState.Success -> {
                     binding.progress.root.gone()
 

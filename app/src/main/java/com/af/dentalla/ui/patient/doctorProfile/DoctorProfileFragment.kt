@@ -61,7 +61,7 @@ class DoctorProfileFragment : Fragment() {
                     binding.progress.gone()
                     val profile = profileState.uiData
                     binding.apply {
-//                        doctorImg.loadImage(profile.doctorPhoto)
+                        doctorImg.loadImage(profile.doctorPhoto)
                         textViewDoctorName.text = profile.doctorName
                         textViewDoctorSpeciality.text =
                             profile.specialty.toString() ///speciality is int
@@ -74,11 +74,12 @@ class DoctorProfileFragment : Fragment() {
                         rvDate.apply {
                             adapter = AvailableDatesAdapter(
                                 availableDates
-                            )
+                            ).apply {
+                                submitList(availableDates)
+                            }
                             layoutManager =
                                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                         }
-                        (binding.rvDate.adapter as AvailableDatesAdapter).submitList(availableDates)
                     }
                 }
             }

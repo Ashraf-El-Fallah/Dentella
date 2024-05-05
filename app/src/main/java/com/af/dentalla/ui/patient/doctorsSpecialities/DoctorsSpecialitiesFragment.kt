@@ -59,20 +59,14 @@ class DoctorsSpecialitiesFragment : Fragment() {
                     binding.rvDoctorsSpecialities.apply {
                         adapter = DoctorsCardsAdapter { doctorCardId ->
                             navigateToDoctorProfile(doctorCardId)
-                        }
+                        }.apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
-                    (binding.rvDoctorsSpecialities.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.gone()
-//                    Toast.makeText(
-//                        context,
-//                        it.message,
-//                        Toast.LENGTH_LONG
-//                    ).show()
                 }
             }
         }

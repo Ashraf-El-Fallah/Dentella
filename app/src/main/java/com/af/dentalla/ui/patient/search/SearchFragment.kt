@@ -71,17 +71,14 @@ class SearchFragment : Fragment() {
                         adapter =
                             DoctorsCardsAdapter { doctorCardId ->
                                 navigateToDoctorProfile(doctorCardId)
-                            }
+                            }.apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
-
-                    (binding.recyclerViewSearchedCards.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.gone()
-//                    requireView().showToastShort(it.message)
                 }
             }
         }

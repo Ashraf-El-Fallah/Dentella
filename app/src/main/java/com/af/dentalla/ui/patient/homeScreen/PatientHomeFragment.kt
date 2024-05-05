@@ -83,20 +83,14 @@ class PatientHomeFragment : Fragment() {
                     binding.rvDoctors.apply {
                         adapter = DoctorsCardsAdapter { doctorCardId ->
                             navigateToDoctorProfile(doctorCardId)
-                        }
+                        }.apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
-                    (binding.rvDoctors.adapter as DoctorsCardsAdapter).submitList(it.uiData)
                 }
 
                 is ScreenState.Error -> {
                     progressBarBinding.progress.gone()
-//                    Toast.makeText(
-//                        context,
-//                        it.message,
-//                        Toast.LENGTH_LONG
-//                    ).show()
                 }
             }
         }
