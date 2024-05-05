@@ -37,7 +37,7 @@
     <string name="skip">Skip</string>
     <string name="ai_card1">Predict diseases before become infected</string>
     <string name="example">Upload your teeth picture to  see the result.</string>
-    <string name="ask_me">Ask me anything...</string>
+    <string name="ask_me">Click on the arrow to see our model ...</string>
     <!-- strings.xml -->
     <string name="speciality">speciality</string>
     <string name="profile">Profile</string>

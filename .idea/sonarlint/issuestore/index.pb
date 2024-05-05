@@ -483,3 +483,11 @@ Iapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialogListener.kt,e\8\
 Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.kt,b\d\bda9a2952a92f104e74329b6be649cf317791c0e
 {
 Kapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddSpecialityAdapter.kt,9\6\9633a0ca4c775826fcc671e9d304ff39d79558f6
+i
+9app/src/main/java/com/af/dentalla/ui/ai/AiChatFragment.kt,9\8\98cc5573dd57a649f5daf4af8b0d5a6a1231631c
+p
+@app/src/main/java/com/af/dentalla/ui/ai/ThirdSplashAiFragment.kt,2\b\2bdee5f6bc5d0944f393b3af3bd0ad918f18b0cc
+q
+Aapp/src/main/java/com/af/dentalla/ui/ai/SecondSplashAiFragment.kt,8\0\800656f879e43c64370539e81cadfd1f53148461
+k
+;app/src/main/java/com/af/dentalla/ui/ai/SplashAiFragment.kt,a\8\a8c94c9c11ee9c72320e2f10e2deff7a403676f0

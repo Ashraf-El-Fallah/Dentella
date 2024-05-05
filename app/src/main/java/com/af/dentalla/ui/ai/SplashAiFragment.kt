@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.Ai
+package com.af.dentalla.ui.ai
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentSplashAiBinding
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.safeNavigate
@@ -37,17 +36,6 @@ class SplashAiFragment : Fragment() {
         binding.skip.setOnClickListener {
             findNavController().safeNavigate(SplashAiFragmentDirections.actionFirstSplashAiFragmentToAiChatFragment())
         }
-    }
-
-
-    private fun hideFirstScreen() {
-        binding.imgViewAi.gone()
-        binding.textViewAiIntro.gone()
-    }
-
-    private fun showSecondScreen() {
-        binding.imgViewAi2.visible()
-        binding.textViewAiIntro2.visible()
     }
 
 }

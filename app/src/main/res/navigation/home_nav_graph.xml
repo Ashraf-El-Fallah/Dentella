@@ -35,7 +35,7 @@
         tools:layout="@layout/fragment_article" />
     <fragment
         android:id="@+id/aiChatFragment"
-        android:name="com.af.dentalla.ui.Ai.AiChatFragment"
+        android:name="com.af.dentalla.ui.ai.AiChatFragment"
         android:label="fragment_ai_chat"
         tools:layout="@layout/fragment_ai_chat">
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstSplashAiFragment"
-        android:name="com.af.dentalla.ui.Ai.SplashAiFragment"
+        android:name="com.af.dentalla.ui.ai.SplashAiFragment"
         android:label="fragment_first_splash_ai"
         tools:layout="@layout/fragment_splash_ai">
         <action

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_screen_ai_style"
-    tools:context=".ui.Ai.SplashAiFragment">
+    tools:context=".ui.ai.SplashAiFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
