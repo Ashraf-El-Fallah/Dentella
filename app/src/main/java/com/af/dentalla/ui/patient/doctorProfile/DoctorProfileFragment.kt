@@ -55,7 +55,6 @@ class DoctorProfileFragment : Fragment() {
                 is ScreenState.Loading -> binding.progress.visible()
                 is ScreenState.Error -> {
                     binding.progress.gone()
-//                    requireView().showToastShort(profileState.message)
                 }
 
                 is ScreenState.Success -> {

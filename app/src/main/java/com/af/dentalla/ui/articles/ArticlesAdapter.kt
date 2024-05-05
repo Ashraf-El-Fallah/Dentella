@@ -10,6 +10,8 @@ import com.af.dentalla.databinding.ItemArticleBinding
 import com.af.dentalla.databinding.ItemPostBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.utilities.loadImage
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ArticlesAdapter :
     ListAdapter<ArticlesEntity, ArticlesAdapter.PatientArticlesViewHolder>(
@@ -22,14 +24,25 @@ class ArticlesAdapter :
 
         fun bind(article: ArticlesEntity) {
             binding.apply {
-//                imageTeeth.loadImage(article.articleImage.toString())
+                baseItem.imgDoctorArticle.loadImage(article.articleImage.toString())
 //                textViewArticleTitle.text = article.title
                 textViewArticleContent.text = article.content
                 baseItem.textViewDoctorNameArticle.text = article.doctorName
-                baseItem.textViewTime.text = article.postingTime
+
+                val formattedPostingTime = formatDateTime(article.postingTime)
+                baseItem.textViewTime.text = formattedPostingTime
             }
         }
     }
+
+    private fun formatDateTime(input: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd MMMM yyyy, HH:mm:ss", Locale.getDefault())
+
+        val date = inputFormat.parse(input)
+        return outputFormat.format(date)
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientArticlesViewHolder {
         val inflater = LayoutInflater.from(parent.context)

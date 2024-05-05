@@ -1,18 +1,12 @@
 package com.af.dentalla.ui.patient.doctorProfile
 
-import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemDateBinding
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.TextStyle
 import java.util.*
 
 class AvailableDatesAdapter(private val dates: List<String>) :
