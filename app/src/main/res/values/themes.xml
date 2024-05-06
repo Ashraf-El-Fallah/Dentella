@@ -2,25 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Dentalla" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:timePickerStyle">@style/MyTimePickerLight</item>
     </style>
 
 
     <style name="Theme.Dentalla" parent="Base.Theme.Dentalla" />
-
-    <!--    <style name="CustomDatePicker" parent="@android:style/Widget.DatePicker">-->
-    <!--        &lt;!&ndash; Customize properties here &ndash;&gt;-->
-    <!--        <item name="android:textColor">@color/black</item>-->
-    <!--        <item name="android:headerDayOfMonthTextAppearance">@color/cyan_blue</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="CustomDatePickerDialog" parent="@android:style/Widget.DatePicker">-->
-    <!--        <item name="android:datePickerStyle">@style/CustomDatePicker</item>-->
-    <!--    </style>-->
-
-    <style name="CustomDatePicker" parent="@android:style/Widget.DatePicker">
-        <item name="android:headerBackground">@color/blue</item>
-        <item name="android:calendarTextColor">@color/cyan_blue</item>
-        <item name="android:dayOfWeekBackground">@android:color/darker_gray</item>
-    </style>
 </resources>

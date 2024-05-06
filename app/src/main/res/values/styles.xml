@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@android:color/holo_blue_dark</item>
+        <item name="colorPrimary">@android:color/darker_gray</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+
+    <style name="MyTimePickerLight" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:headerBackground">@color/cyan_blue</item>
+        <item name="android:numbersTextColor">@color/black</item>
+        <item name="android:numbersSelectorColor">@android:color/holo_blue_dark</item>
+        <item name="android:numbersBackgroundColor">@color/white</item>
+        <item name="android:background">@color/white</item>
+    </style>
+</resources>
