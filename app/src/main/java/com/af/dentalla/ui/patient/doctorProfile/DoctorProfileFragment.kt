@@ -1,7 +1,6 @@
 package com.af.dentalla.ui.patient.doctorProfile
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,15 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
-import com.af.dentalla.ui.patient.DoctorsCardsAdapter
-import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragmentDirections
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.loadImage
-import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.showToastShort
 import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 

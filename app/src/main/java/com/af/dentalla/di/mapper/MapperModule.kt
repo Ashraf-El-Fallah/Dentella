@@ -24,8 +24,4 @@ abstract class MapperModule {
     @Binds
     @ViewModelScoped
     abstract fun bindDoctorEntityMapper(doctorProfileEntityMapper: DoctorProfileEntityMapper): BaseMapper<DoctorProfileDto, DoctorProfileEntity>
-
-//    @Binds
-//    @ViewModelScoped
-//    abstract fun bindSignUpEntityMapper(signUpEntityMapper: SignUpEntityMapper): BaseMapper<SignUpResponse, SignUpEntity>
 }

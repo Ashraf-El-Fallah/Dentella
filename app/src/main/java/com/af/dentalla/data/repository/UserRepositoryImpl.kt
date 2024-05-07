@@ -9,6 +9,7 @@ import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.Article
+import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -200,7 +201,6 @@ class UserRepositoryImpl @Inject constructor(
                 service.addArticle(article)
                 emit(NetWorkResponseState.Success(Unit))
                 Log.d("ARTICLE", "Finish adding article")
-
             } catch (e: Exception) {
                 Log.d("ARTICLE", "can't add article")
                 emit(NetWorkResponseState.Error(e))
@@ -213,6 +213,18 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 service.addPost(post)
+                emit(NetWorkResponseState.Success(Unit))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun addCard(card: Card): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                service.addCard(card)
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))

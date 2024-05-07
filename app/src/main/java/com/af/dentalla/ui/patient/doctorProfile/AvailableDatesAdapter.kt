@@ -9,13 +9,13 @@ import com.af.dentalla.databinding.ItemDateBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AvailableDatesAdapter(private val dates: List<String>) :
+class AvailableDatesAdapter(private val dates: List<String?>) :
     ListAdapter<String, AvailableDatesAdapter.DateViewHolder>(DiffCallback()) {
 
     inner class DateViewHolder(private val binding: ItemDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(date: String) {
+        fun bind(date: String?) {
             val (year, month, dayInfo) = parseDate(date)
             val (dayOfMonth, dayOfWeek) = dayInfo.split(", ")
             binding.yearNumber.text = year
@@ -37,7 +37,7 @@ class AvailableDatesAdapter(private val dates: List<String>) :
     }
 
 
-    private fun parseDate(input: String): Triple<String, String, String> {
+    private fun parseDate(input: String?): Triple<String, String, String> {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val date = inputFormat.parse(input)
         val calendar = Calendar.getInstance().apply { time = date }

@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DoctorAvailability(
     @SerializedName("availableDates")
-    val availableDates: List<String>?
+    val availableDates: List<String?>?
 )

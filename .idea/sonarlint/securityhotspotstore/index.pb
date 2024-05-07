@@ -491,3 +491,11 @@ q
 Aapp/src/main/java/com/af/dentalla/ui/ai/SecondSplashAiFragment.kt,8\0\800656f879e43c64370539e81cadfd1f53148461
 k
 ;app/src/main/java/com/af/dentalla/ui/ai/SplashAiFragment.kt,a\8\a8c94c9c11ee9c72320e2f10e2deff7a403676f0
+q
+Aapp/src/main/java/com/af/dentalla/data/remote/requests/AddCard.kt,d\9\d925a23cc5df03c8cdd8ecdf6e8ed85d7bce3c41
+|
+Lapp/src/main/java/com/af/dentalla/data/remote/requests/DoctorAvailability.kt,b\b\bb182d2dfb48d8d19b05d7fc3209c7bc98431e68
+n
+>app/src/main/java/com/af/dentalla/data/remote/requests/Card.kt,3\9\392086c30875eef244f8c1e31dc05e9386047df9
+t
+Dapp/src/main/java/com/af/dentalla/data/mapper/AddCardEntityMapper.kt,b\2\b23fe0f0b7a0a20173081fdeb4e0bb214899f0a5

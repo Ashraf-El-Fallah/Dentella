@@ -7,6 +7,7 @@ import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.requests.Article
+import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -22,13 +23,13 @@ interface ApiService {
     suspend fun signUpUser(
         @Path("user_type") userType: String,
         @Body user: SignUpUser
-    ): Unit
+    )
 
     @POST("Account/{user_type}/login")
     suspend fun loginUser(
         @Path("user_type") userType: String,
         @Body user: LoginUser
-    ): Response<LoginResponse>//Response<LoginResponse>
+    ): Response<LoginResponse>
 
     @GET("Card/GetAllCards")
     suspend fun getAllDoctorsCards(): List<CardsDto>
@@ -62,5 +63,10 @@ interface ApiService {
     @POST("Post/AddPost")
     suspend fun addPost(
         @Body post: Post
+    )
+
+    @POST("Card/AddCard")
+    suspend fun addCard(
+        @Body card: Card
     )
 }

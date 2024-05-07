@@ -5,7 +5,6 @@ import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.domain.entity.DoctorAvailabilityEntity
 import com.af.dentalla.domain.entity.DoctorProfileEntity
 import com.af.dentalla.domain.mapper.BaseMapper
-import com.af.dentalla.domain.mapper.ListMapper
 import javax.inject.Inject
 
 class DoctorProfileEntityMapper @Inject constructor() :
