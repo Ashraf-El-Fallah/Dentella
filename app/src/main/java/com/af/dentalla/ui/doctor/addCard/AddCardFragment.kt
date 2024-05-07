@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentAddCardBinding
@@ -20,6 +21,7 @@ import java.util.Locale
 @AndroidEntryPoint
 class AddCardFragment : Fragment() {
     private lateinit var binding: FragmentAddCardBinding
+    private val addCardViewModel:AddCardViewModel by viewModels()
     private var selectedDate: Date? = null
     private var selectedTime: Date? = null
     override fun onCreateView(
