@@ -62,7 +62,7 @@ class AddCardFragment : Fragment() {
             val formattedTime =
                 SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(selectedTime)
             // Combine date and time
-            val formattedDateTime = "$formattedDate" + "T" + "$formattedTime" + "Z"
+            val formattedDateTime = formattedDate + "T" + formattedTime + "Z"
             Toast.makeText(requireContext(), formattedDateTime, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(
@@ -96,10 +96,10 @@ class AddCardFragment : Fragment() {
         val specialtiesList = listOf(
             Speciality(R.drawable.add_cleaning, 0, "Cleaning"),
             Speciality(R.drawable.add_dental_filling, 1, "Filling"),
-            Speciality(R.drawable.add_dental_crown, 2, "Crowns"),
+            Speciality(R.drawable.add_dental_crown, 4, "Extraction"),
 //            Speciality(R.drawable.dental_implant, 3, "Implants"),
-//            Speciality(R.drawable.add_tooth_extraction, 4, "Extraction"),
-//            Speciality(R.drawable.denture, 5, "Dentures"),
+//            Speciality(R.drawable.add_tooth_extraction, 2, "Crowns"),
+//            Speciality(R.drawable.denture, 5, "Orthodontic"),
         )
         val adapter = AddSpecialityAdapter(specialtiesList)
         binding.specialityRecyclerView.adapter = adapter
