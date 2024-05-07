@@ -7,7 +7,6 @@ import com.af.dentalla.data.mapper.LoginEntityMapper
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.domain.entity.DoctorProfileEntity
 import com.af.dentalla.domain.entity.LoginEntity
-import com.af.dentalla.domain.entity.SignUpEntity
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

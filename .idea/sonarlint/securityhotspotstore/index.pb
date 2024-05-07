@@ -499,3 +499,5 @@ n
 >app/src/main/java/com/af/dentalla/data/remote/requests/Card.kt,3\9\392086c30875eef244f8c1e31dc05e9386047df9
 t
 Dapp/src/main/java/com/af/dentalla/data/mapper/AddCardEntityMapper.kt,b\2\b23fe0f0b7a0a20173081fdeb4e0bb214899f0a5
+y
+Iapp/src/main/java/com/af/dentalla/domain/usecase/doctor/AddCardUseCase.kt,8\2\82e1a1a6a574d220e37ecdb9138b82bc3c6f14d2
