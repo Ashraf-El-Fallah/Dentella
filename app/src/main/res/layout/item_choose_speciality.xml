@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aandroid="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/recycler_view_speciality"
+    android:id="@+id/choose_speciality"
     android:layout_width="88dp"
-    android:layout_height="86dp"
-    android:background="@drawable/procedure_style"
-
+    android:layout_height="88dp"
     android:layout_marginVertical="4dp"
     android:layout_marginStart="2dp"
     android:layout_marginEnd="12dp"
-    aandroid:cardCornerRadius="4dp"
-    aandroid:cardElevation="6dp">
+    android:background="@drawable/choose_speciality_style"
+    aandroid:cardCornerRadius="6dp"
+    aandroid:cardElevation="4dp">
 
     <include
         android:id="@+id/item_speciality"
         layout="@layout/base_speciality_card" />
-
 
 </androidx.cardview.widget.CardView>

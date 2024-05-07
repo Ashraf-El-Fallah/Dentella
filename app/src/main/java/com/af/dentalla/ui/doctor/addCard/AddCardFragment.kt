@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
-import com.af.dentalla.ui.patient.homeScreen.SpecialtyAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -102,8 +101,7 @@ class AddCardFragment : Fragment() {
 //            Speciality(R.drawable.add_tooth_extraction, 4, "Extraction"),
 //            Speciality(R.drawable.denture, 5, "Dentures"),
         )
-        val adapter = SpecialtyAdapter(specialtiesList) { specialityId ->
-        }
+        val adapter = AddSpecialityAdapter(specialtiesList)
         binding.specialityRecyclerView.adapter = adapter
         binding.specialityRecyclerView.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
