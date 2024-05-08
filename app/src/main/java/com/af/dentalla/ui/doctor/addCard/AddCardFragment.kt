@@ -80,7 +80,7 @@ class AddCardFragment : Fragment() {
 
 
     private fun addCardObserver() {
-        addCardViewModel.addArticleState.observe(viewLifecycleOwner) { addCardState ->
+        addCardViewModel.addCardState.observe(viewLifecycleOwner) { addCardState ->
             when (addCardState) {
                 is ScreenState.Loading -> {
                     binding.progressBar.root.visible()
@@ -92,7 +92,6 @@ class AddCardFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progressBar.root.gone()
-                    
                 }
             }
         }

@@ -16,7 +16,7 @@ import javax.inject.Inject
 class AddCardViewModel @Inject constructor(private val addCardUseCase: AddCardUseCase) :
     ViewModel() {
     private val _addCardState = MutableLiveData<ScreenState<Unit>>()
-    val addArticleState: LiveData<ScreenState<Unit>> get() = _addCardState
+    val addCardState: LiveData<ScreenState<Unit>> get() = _addCardState
 
     fun addCard(card: Card) {
         viewModelScope.launch {
