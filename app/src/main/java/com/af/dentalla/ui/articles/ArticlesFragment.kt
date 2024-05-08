@@ -95,7 +95,7 @@ class ArticlesFragment : Fragment() {
                     Toast.makeText(
                         context,
                         it.message,
-                        Toast.LENGTH_LONG
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
             }
