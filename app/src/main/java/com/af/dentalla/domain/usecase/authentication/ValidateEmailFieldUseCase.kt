@@ -1,7 +1,7 @@
 package com.af.dentalla.domain.usecase.authentication
 
 import android.util.Patterns
-import com.af.dentalla.utilities.FormFieldState
+import com.af.dentalla.utils.FormFieldState
 import javax.inject.Inject
 
 class ValidateEmailFieldUseCase @Inject constructor() {

@@ -14,10 +14,10 @@ import com.af.dentalla.data.remote.dto.DoctorAvailability
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.getSpecialtyName
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.getSpecialtyName
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.visible
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -92,6 +92,7 @@ class AddCardFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progressBar.root.gone()
+                    
                 }
             }
         }

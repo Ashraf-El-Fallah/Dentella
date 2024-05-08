@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentEditProfileBinding
-import com.af.dentalla.utilities.safeNavigate
+import com.af.dentalla.utils.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
 

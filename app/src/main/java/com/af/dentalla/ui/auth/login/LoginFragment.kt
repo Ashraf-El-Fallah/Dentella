@@ -12,11 +12,11 @@ import com.af.dentalla.data.remote.requests.LoginPatient
 import com.af.dentalla.databinding.FragmentLoginBinding
 import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.base.BaseFragment
-import com.af.dentalla.utilities.AccountManager
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

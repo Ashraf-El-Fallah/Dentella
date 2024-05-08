@@ -12,11 +12,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentSearchBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.showToastShort
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

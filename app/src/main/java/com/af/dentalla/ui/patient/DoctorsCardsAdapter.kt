@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemDoctorBinding
 import com.af.dentalla.domain.entity.CardsEntity
-import com.af.dentalla.utilities.loadImage
+import com.af.dentalla.utils.loadImage
 
 class DoctorsCardsAdapter(
     private val onItemClick: (Int) -> Unit

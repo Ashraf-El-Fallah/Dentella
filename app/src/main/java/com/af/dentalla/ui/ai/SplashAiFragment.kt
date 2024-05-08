@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentSplashAiBinding
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.safeNavigate
 
 
 class SplashAiFragment : Fragment() {

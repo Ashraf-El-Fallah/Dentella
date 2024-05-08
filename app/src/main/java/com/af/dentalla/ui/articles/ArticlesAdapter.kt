@@ -5,11 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.af.dentalla.databinding.BaseItemBinding
 import com.af.dentalla.databinding.ItemArticleBinding
-import com.af.dentalla.databinding.ItemPostBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
-import com.af.dentalla.utilities.loadImage
+import com.af.dentalla.utils.loadImage
 import java.text.SimpleDateFormat
 import java.util.Locale
 

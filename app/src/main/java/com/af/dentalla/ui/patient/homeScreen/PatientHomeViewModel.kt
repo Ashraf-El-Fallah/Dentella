@@ -10,7 +10,7 @@ import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.usecase.patient.AddPostUseCase
 import com.af.dentalla.domain.usecase.patient.GetAllDoctorsCardsUseCase
 import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversity
-import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

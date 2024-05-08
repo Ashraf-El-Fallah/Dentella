@@ -10,11 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.getSpecialtyName
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.loadImage
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.getSpecialtyName
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.loadImage
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 

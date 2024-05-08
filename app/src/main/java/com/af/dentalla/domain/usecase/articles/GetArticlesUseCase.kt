@@ -5,7 +5,7 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.UserRepository
-import com.af.dentalla.utilities.mapResponse
+import com.af.dentalla.utils.mapResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

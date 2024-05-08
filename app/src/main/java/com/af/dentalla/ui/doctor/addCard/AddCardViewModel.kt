@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.domain.usecase.doctor.AddCardUseCase
-import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

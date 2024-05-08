@@ -1,4 +1,4 @@
-package com.af.dentalla.utilities
+package com.af.dentalla.utils
 
 fun getSpecialtyName(specialtyNumber: Int): String {
     return when (specialtyNumber) {

@@ -5,11 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.af.dentalla.databinding.BaseItemBinding
-import com.af.dentalla.databinding.BaseTextBinding
 import com.af.dentalla.databinding.ItemPostBinding
 import com.af.dentalla.domain.entity.PostEntity
-import com.af.dentalla.utilities.loadImage
+import com.af.dentalla.utils.loadImage
 
 class PostsAdapter : ListAdapter<PostEntity, PostsAdapter.PostViewHolder>(PostDiffCallBack()) {
 

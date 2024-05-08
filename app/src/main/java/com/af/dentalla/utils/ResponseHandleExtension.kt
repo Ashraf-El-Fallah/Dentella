@@ -1,4 +1,4 @@
-package com.af.dentalla.utilities
+package com.af.dentalla.utils
 
 import com.af.dentalla.data.NetWorkResponseState
 

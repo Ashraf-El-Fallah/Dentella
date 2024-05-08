@@ -1,6 +1,4 @@
-package com.af.dentalla.utilities
-
-import android.os.Message
+package com.af.dentalla.utils
 
 sealed class FormFieldState {
     object Valid : FormFieldState()

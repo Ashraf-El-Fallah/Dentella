@@ -12,10 +12,10 @@ import com.af.dentalla.databinding.ActivityHomeBinding
 import com.af.dentalla.ui.patient.homeScreen.AddPostDialog
 import com.af.dentalla.ui.patient.homeScreen.AddPostDialogListener
 import com.af.dentalla.ui.patient.homeScreen.PatientHomeViewModel
-import com.af.dentalla.utilities.AccountManager
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

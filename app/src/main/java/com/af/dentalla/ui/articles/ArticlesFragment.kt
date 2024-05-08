@@ -1,6 +1,5 @@
 package com.af.dentalla.ui.articles
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
-import com.af.dentalla.ui.HomeActivity
-import com.af.dentalla.utilities.AccountManager
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

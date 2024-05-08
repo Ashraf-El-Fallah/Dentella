@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentSelectUserTypeScreenBinding
-import com.af.dentalla.utilities.AccountManager
+import com.af.dentalla.utils.AccountManager
 import dagger.hilt.android.AndroidEntryPoint
 
 

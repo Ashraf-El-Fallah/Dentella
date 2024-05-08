@@ -1,6 +1,5 @@
 package com.af.dentalla.ui.articles
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,9 +9,8 @@ import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.usecase.articles.AddArticleUseCase
 import com.af.dentalla.domain.usecase.articles.GetArticlesUseCase
-import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject

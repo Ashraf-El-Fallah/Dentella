@@ -1,8 +1,8 @@
 package com.af.dentalla.ui.base
 
 import androidx.fragment.app.Fragment
-import com.af.dentalla.utilities.ValidationUtils
-import com.af.dentalla.utilities.showToastShort
+import com.af.dentalla.utils.ValidationUtils
+import com.af.dentalla.utils.showToastShort
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

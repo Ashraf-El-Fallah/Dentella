@@ -1,6 +1,6 @@
 package com.af.dentalla.domain.usecase.authentication
 
-import com.af.dentalla.utilities.FormFieldState
+import com.af.dentalla.utils.FormFieldState
 import javax.inject.Inject
 
 class ValidateUserNameFieldUseCase @Inject constructor() {

@@ -1,4 +1,4 @@
-package com.af.dentalla.utilities
+package com.af.dentalla.utils
 
 sealed class ScreenState<out T : Any> {
     object Loading : ScreenState<Nothing>()

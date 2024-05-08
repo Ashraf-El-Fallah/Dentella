@@ -11,13 +11,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorsSpecialityBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
-import com.af.dentalla.ui.patient.doctorProfile.DoctorProfileFragmentDirections
-import com.af.dentalla.ui.patient.homeScreen.PatientHomeFragmentDirections
-import com.af.dentalla.ui.patient.homeScreen.Speciality
-import com.af.dentalla.utilities.ScreenState
-import com.af.dentalla.utilities.gone
-import com.af.dentalla.utilities.safeNavigate
-import com.af.dentalla.utilities.visible
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

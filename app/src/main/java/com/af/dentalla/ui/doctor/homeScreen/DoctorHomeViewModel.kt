@@ -5,10 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.PostEntity
 import com.af.dentalla.domain.usecase.doctor.GetAllPostsUseCase
-import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
