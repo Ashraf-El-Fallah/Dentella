@@ -9,9 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.R
+import com.af.dentalla.data.remote.dto.DoctorAvailability
+import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
+import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utilities.gone
+import com.af.dentalla.utilities.visible
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -21,9 +27,11 @@ import java.util.Locale
 @AndroidEntryPoint
 class AddCardFragment : Fragment() {
     private lateinit var binding: FragmentAddCardBinding
-    private val addCardViewModel:AddCardViewModel by viewModels()
+    private val addCardViewModel: AddCardViewModel by viewModels()
     private var selectedDate: Date? = null
     private var selectedTime: Date? = null
+    private var specialityId = -1
+    private var doctorAvailability: DoctorAvailability? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,15 +42,47 @@ class AddCardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setDateFromTheCalender()
+        addCardObserver()
         binding.selectTime.setOnClickListener {
             showTimePickerDialog()
         }
+        setDateFromTheCalender()
+        setUpAddSpecialityRecyclerView()
         binding.confirmButton.setOnClickListener {
             createFormatForDateAndTime()
+            sendCardInformationToViewModel()
         }
-        setUpAddSpecialityRecyclerView()
+    }
+
+    private fun sendCardInformationToViewModel() {
+        if (specialityId == -1) {
+            Toast.makeText(
+                requireContext(),
+                "Please choose your speciality",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+            val card = Card(doctorAvailability, specialityId)
+            addCardViewModel.addCard(card)
+        }
+    }
+
+    private fun addCardObserver() {
+        addCardViewModel.addArticleState.observe(viewLifecycleOwner) { addCardState ->
+            when (addCardState) {
+                is ScreenState.Loading -> {
+                    binding.progressBar.root.visible()
+                }
+
+                is ScreenState.Error -> {
+                    binding.progressBar.root.gone()
+                }
+
+                is ScreenState.Success -> {
+                    binding.progressBar.root.gone()
+                }
+            }
+        }
     }
 
     private fun setDateFromTheCalender() {
@@ -65,6 +105,8 @@ class AddCardFragment : Fragment() {
                 SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(selectedTime)
             // Combine date and time
             val formattedDateTime = formattedDate + "T" + formattedTime + "Z"
+            val availableDates: List<String?> = listOf(formattedDateTime)
+            doctorAvailability = DoctorAvailability(availableDates)
             Toast.makeText(requireContext(), formattedDateTime, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(
@@ -103,10 +145,13 @@ class AddCardFragment : Fragment() {
 //            Speciality(R.drawable.add_tooth_extraction, 2, "Crowns"),
 //            Speciality(R.drawable.denture, 5, "Orthodontic"),
         )
-        val adapter = AddSpecialityAdapter(specialtiesList)
+        val adapter = AddSpecialityAdapter(specialtiesList) { specialtyIdChosen ->
+            specialityId = specialtyIdChosen
+        }
         binding.specialityRecyclerView.adapter = adapter
         binding.specialityRecyclerView.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        adapter.setSelectedItem(RecyclerView.NO_POSITION)
     }
 }
 
