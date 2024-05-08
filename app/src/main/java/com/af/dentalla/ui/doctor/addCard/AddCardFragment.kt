@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +17,7 @@ import com.af.dentalla.ui.patient.homeScreen.Speciality
 import com.af.dentalla.utilities.ScreenState
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.visible
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -55,15 +55,36 @@ class AddCardFragment : Fragment() {
     }
 
     private fun sendCardInformationToViewModel() {
-        if (specialityId == -1) {
-            Toast.makeText(
-                requireContext(),
-                "Please choose your speciality",
-                Toast.LENGTH_LONG
+        if ((doctorAvailability == null && specialityId == -1) || (doctorAvailability == null || specialityId == -1)) {
+            Snackbar.make(
+                requireView(),
+                "You should choose free time,free date and your speciality",
+                Snackbar.LENGTH_LONG
             ).show()
         } else {
+            val formattedDateForUser =
+                SimpleDateFormat("MMMM dd", Locale.getDefault()).format(selectedDate)
+            val formattedTimeForUser =
+                SimpleDateFormat("hh:mm a", Locale.getDefault()).format(selectedTime)
+            Snackbar.make(
+                requireView(),
+                "Your speciality is ${getSpecialtyName(specialityId)} and your selected date is $formattedDateForUser at $formattedTimeForUser",
+                Snackbar.LENGTH_LONG
+            ).show()
             val card = Card(doctorAvailability, specialityId)
             addCardViewModel.addCard(card)
+        }
+    }
+
+    private fun getSpecialtyName(specialtyNumber: Int): String {
+        return when (specialtyNumber) {
+            0 -> "Cleaning"
+            1 -> "Filling"
+            2 -> "Crowns"
+            3 -> "Implants"
+            4 -> "Extraction"
+            5 -> "Orthodontic"
+            else -> "Unknown"
         }
     }
 
@@ -95,25 +116,16 @@ class AddCardFragment : Fragment() {
     }
 
     private fun createFormatForDateAndTime() {
-        // Check if both date and time are selected
         if (selectedDate != null && selectedTime != null) {
-            // Format the selected date
             val formattedDate =
                 SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate)
             // Format the selected time
             val formattedTime =
                 SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(selectedTime)
-            // Combine date and time
+
             val formattedDateTime = formattedDate + "T" + formattedTime + "Z"
             val availableDates: List<String?> = listOf(formattedDateTime)
             doctorAvailability = DoctorAvailability(availableDates)
-            Toast.makeText(requireContext(), formattedDateTime, Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(
-                requireContext(),
-                "Please select both date and time",
-                Toast.LENGTH_SHORT
-            ).show()
         }
     }
 
