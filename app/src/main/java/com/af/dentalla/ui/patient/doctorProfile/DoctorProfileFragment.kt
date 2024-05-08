@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
 import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utilities.getSpecialtyName
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.loadImage
 import com.af.dentalla.utilities.visible
@@ -58,7 +59,7 @@ class DoctorProfileFragment : Fragment() {
                         doctorImg.loadImage(profile.doctorPhoto)
                         textViewDoctorName.text = profile.doctorName
                         textViewDoctorSpeciality.text =
-                            profile.specialty.toString() ///speciality is int
+                            getSpecialtyName(profile.specialty) ///speciality is int
                         textViewPhoneNumber.text = profile.phoneNumber
                         textViewAbout.text = profile.about
 

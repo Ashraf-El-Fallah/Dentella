@@ -15,6 +15,7 @@ import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
 import com.af.dentalla.utilities.ScreenState
+import com.af.dentalla.utilities.getSpecialtyName
 import com.af.dentalla.utilities.gone
 import com.af.dentalla.utilities.visible
 import com.google.android.material.snackbar.Snackbar
@@ -76,17 +77,7 @@ class AddCardFragment : Fragment() {
         }
     }
 
-    private fun getSpecialtyName(specialtyNumber: Int): String {
-        return when (specialtyNumber) {
-            0 -> "Cleaning"
-            1 -> "Filling"
-            2 -> "Crowns"
-            3 -> "Implants"
-            4 -> "Extraction"
-            5 -> "Orthodontic"
-            else -> "Unknown"
-        }
-    }
+
 
     private fun addCardObserver() {
         addCardViewModel.addArticleState.observe(viewLifecycleOwner) { addCardState ->

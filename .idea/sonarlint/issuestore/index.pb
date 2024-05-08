@@ -173,8 +173,6 @@ G.idea/sonarlint/issuestore/7/9/79a6b70731f473f270884496defb0a6fd49a7362,2\0\20
 Q.idea/sonarlint/securityhotspotstore/8/0/80bb2e85bd44f4b57ef6797a11af6c1d2fecdc4c,1\8\187c87c07fda4a4c3f6a898f2d59717ac20e3a3f
 w
 G.idea/sonarlint/issuestore/9/9/99698216e673f532838afd620ccbad8f9b8843c1,a\9\a9e1279f245538c83f0e7cb5830299d7a81ee0db
-
-Q.idea/sonarlint/securityhotspotstore/a/9/a9e00e80f0b026f7915779a6f8c17da74212f3e3,3\9\39d2ff956e0da763a907675b30b6e730c9bc2b33
 w
 G.idea/sonarlint/issuestore/0/2/0223ec16a13c418dd3aa87ed675faaa912161036,d\f\dfc7d208a91a461ff0b667343e03521147939f64
 w
@@ -493,3 +491,5 @@ n
 >app/src/main/java/com/af/dentalla/data/remote/requests/Card.kt,3\9\392086c30875eef244f8c1e31dc05e9386047df9
 y
 Iapp/src/main/java/com/af/dentalla/domain/usecase/doctor/AddCardUseCase.kt,8\2\82e1a1a6a574d220e37ecdb9138b82bc3c6f14d2
+p
+@app/src/main/java/com/af/dentalla/utilities/GetSpecialityName.kt,d\c\dcafd0df91ba16a3a7d69d0d13431bd9eb357afe
