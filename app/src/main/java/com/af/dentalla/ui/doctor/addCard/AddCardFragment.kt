@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -78,7 +79,6 @@ class AddCardFragment : Fragment() {
     }
 
 
-
     private fun addCardObserver() {
         addCardViewModel.addCardState.observe(viewLifecycleOwner) { addCardState ->
             when (addCardState) {
@@ -88,6 +88,11 @@ class AddCardFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.root.gone()
+                    Toast.makeText(
+                        requireContext(),
+                        addCardState.message,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 is ScreenState.Success -> {
@@ -110,7 +115,6 @@ class AddCardFragment : Fragment() {
         if (selectedDate != null && selectedTime != null) {
             val formattedDate =
                 SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate)
-            // Format the selected time
             val formattedTime =
                 SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(selectedTime)
 
