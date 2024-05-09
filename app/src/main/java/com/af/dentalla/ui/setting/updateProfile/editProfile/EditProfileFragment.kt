@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.setting.updateProfile
+package com.af.dentalla.ui.setting.updateProfile.editProfile
 
 import android.os.Bundle
 import android.text.Editable

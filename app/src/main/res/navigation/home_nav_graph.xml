@@ -123,7 +123,7 @@
 
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.af.dentalla.ui.setting.updateProfile.EditProfileFragment"
+        android:name="com.af.dentalla.ui.setting.updateProfile.editProfile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
         <action
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/updatePasswordFragment"
-        android:name="com.af.dentalla.ui.setting.updateProfile.UpdatePasswordFragment"
+        android:name="com.af.dentalla.ui.setting.updateProfile.updatePassword.UpdatePasswordFragment"
         android:label="fragment_update_password"
         tools:layout="@layout/fragment_update_password">
         <action
