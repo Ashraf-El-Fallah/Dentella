@@ -51,8 +51,8 @@ class EditProfileFragment : Fragment() {
                 is ScreenState.Loading -> binding.progressBar.progress.visible()
                 is ScreenState.Error -> {
                     binding.progressBar.progress.gone()
-//                    Toast.makeText(requireContext(), "Error when getting data", Toast.LENGTH_SHORT)
-//                        .show()
+                    Toast.makeText(requireContext(), "Error when getting data", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 is ScreenState.Success -> {
