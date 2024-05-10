@@ -116,6 +116,7 @@ class EditProfileFragment : Fragment() {
             toggleEditMode(binding.editTextCurrentUniversity, isEditMode)
             toggleEditMode(binding.editTextBio, isEditMode)
             isEditMode = !isEditMode
+            returnProfileInformationObserver()
         }
     }
 
