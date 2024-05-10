@@ -11,6 +11,7 @@ import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.dto.ProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
+import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -233,11 +234,23 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun returnProfileInformation(): Flow<NetWorkResponseState<ProfileInformationDto>> {
+    override fun returnDoctorProfileInformation(): Flow<NetWorkResponseState<ProfileInformationDto>> {
         return flow {
             emit(NetWorkResponseState.Loading)
             try {
                 val response = service.returnProfileInformation()
+                emit(NetWorkResponseState.Success(response))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
+    override fun updateDoctorProfileInformation(doctorProfileInformation: DoctorProfileInformation): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                val response = service.updateDoctorProfile(doctorProfileInformation)
                 emit(NetWorkResponseState.Success(response))
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))

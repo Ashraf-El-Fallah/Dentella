@@ -15,7 +15,7 @@ class GetDoctorProfileInformationUseCase @Inject constructor(
     private val profileInformationEntity: BaseMapper<ProfileInformationDto, ProfileInformationEntity>
 ) {
     operator fun invoke(): Flow<NetWorkResponseState<ProfileInformationEntity>> {
-        return repository.returnProfileInformation().map {
+        return repository.returnDoctorProfileInformation().map {
             it.mapResponse {
                 profileInformationEntity.map(this)
             }
