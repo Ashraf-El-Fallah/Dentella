@@ -224,8 +224,6 @@ G.idea/sonarlint/issuestore/c/4/c46a6aa8df1c1f30005058c75f706417e7d10763,4\2\42
 w
 G.idea/sonarlint/issuestore/a/d/ad26f785faf3f6bc14960e7f5c423804477f5c94,1\1\11b2717e7985bf4703117daee29c408f3dcf2392
 Å
-Q.idea/sonarlint/securityhotspotstore/a/6/a62b34613540b6fcfff4b2f51406e0a5e6a297ae,5\e\5e4e610fde8b9cde882f1df474d0b65186470191
-Å
 Q.idea/sonarlint/securityhotspotstore/2/8/283f7537b6d8e7b8ed7fdf11949b31cd2e41c831,b\1\b11dad8b0a2c650d627ad84de7e0067d7cb6d0ce
 w
 G.idea/sonarlint/issuestore/a/e/ae4d7e47bbdff73e61267ff808bcd649dc14800a,f\e\fefd80905c81eaac517cbefb9835165c85ab593d
@@ -465,7 +463,5 @@ Iapp/src/main/java/com/af/dentalla/data/mapper/ProfileInformationMapper.kt,c\f\
 _app/src/main/java/com/af/dentalla/domain/usecase/patient/GetCardsBySearchByUniversityUseCase.kt,c\5\c57b5b33ba088c41af1ece8835f0d8a2e414496d
 Ç
 Rapp/src/main/java/com/af/dentalla/data/remote/requests/DoctorProfileInformation.kt,a\b\abaa5f1ef838e8590850bfce4a848112facb67ac
-â
-Yapp/src/main/java/com/af/dentalla/domain/usecase/doctor/UpdateDoctorProfileInformation.kt,f\1\f1404c1369fa62010a9bfe13d3d16371d6102923
 ê
 `app/src/main/java/com/af/dentalla/domain/usecase/doctor/UpdateDoctorProfileInformationUseCase.kt,d\7\d70c05fd4b79371030deb75d1c8a3adba3aed2ec
