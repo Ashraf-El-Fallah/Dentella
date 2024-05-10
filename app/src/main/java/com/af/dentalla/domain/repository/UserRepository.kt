@@ -32,4 +32,6 @@ interface UserRepository {
     fun addPost(post: Post): Flow<NetWorkResponseState<Unit>>
 
     fun addCard(card: Card): Flow<NetWorkResponseState<Unit>>
+
+    fun returnProfileInformation(): Flow<NetWorkResponseState<Unit>>
 }

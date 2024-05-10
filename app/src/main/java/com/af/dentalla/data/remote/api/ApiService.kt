@@ -69,4 +69,7 @@ interface ApiService {
     suspend fun addCard(
         @Body card: Card
     )
+
+    @GET("Doctor/ReturnProfile")
+    suspend fun returnProfileInformation()
 }
