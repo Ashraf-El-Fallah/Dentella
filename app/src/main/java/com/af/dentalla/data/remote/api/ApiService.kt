@@ -9,6 +9,7 @@ import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.dto.ProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
+import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -16,6 +17,8 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Part
 import retrofit2.http.Path
 
 interface ApiService {
@@ -72,5 +75,10 @@ interface ApiService {
     )
 
     @GET("Doctor/ReturnProfile")
-    suspend fun returnProfileInformation():ProfileInformationDto
+    suspend fun returnProfileInformation(): ProfileInformationDto
+
+    @PUT("Doctor/UpdateProfile")
+    suspend fun updateDoctorProfile(
+        @Part doctorProfileInformation: DoctorProfileInformation
+    )
 }

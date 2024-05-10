@@ -463,3 +463,5 @@ Iapp/src/main/java/com/af/dentalla/data/mapper/ProfileInformationMapper.kt,c\f\
 ]app/src/main/java/com/af/dentalla/domain/usecase/doctor/GetDoctorProfileInformationUseCase.kt,8\6\86e48903b9037bf23038a87a075ef0667d67952e
 è
 _app/src/main/java/com/af/dentalla/domain/usecase/patient/GetCardsBySearchByUniversityUseCase.kt,c\5\c57b5b33ba088c41af1ece8835f0d8a2e414496d
+Ç
+Rapp/src/main/java/com/af/dentalla/data/remote/requests/DoctorProfileInformation.kt,a\b\abaa5f1ef838e8590850bfce4a848112facb67ac
