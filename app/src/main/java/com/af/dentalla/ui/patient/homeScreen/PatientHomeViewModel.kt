@@ -9,7 +9,7 @@ import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.usecase.patient.AddPostUseCase
 import com.af.dentalla.domain.usecase.patient.GetAllDoctorsCardsUseCase
-import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversity
+import com.af.dentalla.domain.usecase.patient.GetCardsBySearchByUniversityUseCase
 import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PatientHomeViewModel @Inject constructor(
     private val getAllDoctorsCardsUseCase: GetAllDoctorsCardsUseCase,
-    private val getCardsBySearchByUniversity: GetCardsBySearchByUniversity,
+    private val getCardsBySearchByUniversityUseCase: GetCardsBySearchByUniversityUseCase,
     private val addPostUseCase: AddPostUseCase
 ) : ViewModel() {
     private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()

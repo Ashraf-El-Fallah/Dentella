@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class GetCardsBySearchByUniversity @Inject constructor(
+class GetCardsBySearchByUniversityUseCase @Inject constructor(
     private val cardsEntity: ListMapper<CardsDto, CardsEntity>,
     private val repository: UserRepository
 ) {
