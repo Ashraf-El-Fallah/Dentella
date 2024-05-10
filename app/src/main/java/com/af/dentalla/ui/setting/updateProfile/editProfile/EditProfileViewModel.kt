@@ -20,7 +20,11 @@ class EditProfileViewModel @Inject constructor(
     private val _profileInformation = MutableLiveData<ScreenState<ProfileInformationEntity>>()
     val profileInformation: LiveData<ScreenState<ProfileInformationEntity>> get() = _profileInformation
 
-    fun getProfileInformation() {
+    init {
+        getProfileInformation()
+    }
+
+    private fun getProfileInformation() {
         viewModelScope.launch {
             getDoctorProfileInformationUseCase().collectLatest {
                 when (it) {

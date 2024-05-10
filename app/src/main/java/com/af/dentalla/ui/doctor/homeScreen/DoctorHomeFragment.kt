@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorHomeBinding
-import com.af.dentalla.databinding.ProgressBarBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
@@ -17,14 +16,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DoctorHomeFragment : Fragment() {
     private lateinit var binding: FragmentDoctorHomeBinding
-    private lateinit var progressBarBinding: ProgressBarBinding
     private val doctorHomeViewModel: DoctorHomeViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDoctorHomeBinding.inflate(inflater, container, false)
-        progressBarBinding = ProgressBarBinding.bind(binding.progressBar.root)
         return binding.root
     }
 
@@ -36,9 +33,9 @@ class DoctorHomeFragment : Fragment() {
     private fun postObserver() {
         doctorHomeViewModel.allPosts.observe(viewLifecycleOwner) {
             when (it) {
-                is ScreenState.Loading -> progressBarBinding.progress.visible()
+                is ScreenState.Loading -> binding.progressBar.progress.visible()
                 is ScreenState.Success -> {
-                    progressBarBinding.progress.gone()
+                    binding.progressBar.progress.gone()
                     binding.recyclerViewPosts.apply {
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -47,7 +44,7 @@ class DoctorHomeFragment : Fragment() {
                         }
                     }
                 }
-                is ScreenState.Error -> progressBarBinding.progress.gone()
+                is ScreenState.Error -> binding.progressBar.progress.gone()
             }
         }
     }

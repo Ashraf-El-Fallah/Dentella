@@ -8,15 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentEditProfileBinding
+import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.visible
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class EditProfileFragment : Fragment() {
     private lateinit var binding: FragmentEditProfileBinding
+    private val editProfileViewModel: EditProfileViewModel by viewModels()
     private var isEditMode = false
 
     override fun onCreateView(
@@ -29,11 +37,41 @@ class EditProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        returnProfileInformationObserver()
         setTheEditTextsNotEditable()
         saveAllHintsForAllEditTexts()
         changeBetweenSaveAndEdit()
         navigateToHomeScreen()
         navigateToUpdatePasswordScreen()
+    }
+
+    private fun returnProfileInformationObserver() {
+        editProfileViewModel.profileInformation.observe(viewLifecycleOwner) { profileInformationState ->
+            when (profileInformationState) {
+                is ScreenState.Loading -> binding.progressBar.progress.visible()
+                is ScreenState.Error -> {
+                    binding.progressBar.progress.gone()
+                    Toast.makeText(requireContext(), "Error when getting data", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                is ScreenState.Success -> {
+                    binding.progressBar.progress.gone()
+                    val doctorProfileInformation = profileInformationState.uiData
+                    binding.apply {
+                        editTextName.hint = doctorProfileInformation.userName
+                        editTextEmail.hint = doctorProfileInformation.email
+                        editTextMobileNumber.hint = doctorProfileInformation.phoneNumber
+                        editTextBio.hint = doctorProfileInformation.bio
+                        editTextCurrentUniversity.hint = doctorProfileInformation.currentUniversity
+                        Glide.with(requireContext())
+                            .load(doctorProfileInformation.photo.toString())
+                            .into(imgViewProfile)
+//                        imgViewProfile.loadImage(doctorProfileInformation.photo.toString())
+                    }
+                }
+            }
+        }
     }
 
     private fun navigateToUpdatePasswordScreen() {
