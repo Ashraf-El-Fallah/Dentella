@@ -5,6 +5,7 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
+import com.af.dentalla.data.remote.dto.ProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.data.remote.requests.LoginUser
@@ -33,5 +34,5 @@ interface UserRepository {
 
     fun addCard(card: Card): Flow<NetWorkResponseState<Unit>>
 
-    fun returnProfileInformation(): Flow<NetWorkResponseState<Unit>>
+    fun returnProfileInformation(): Flow<NetWorkResponseState<ProfileInformationDto>>
 }

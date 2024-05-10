@@ -465,3 +465,5 @@ Happ/src/main/java/com/af/dentalla/domain/entity/ProfileInformationDto.kt,4\6\4
 Kapp/src/main/java/com/af/dentalla/domain/entity/ProfileInformationEntity.kt,b\a\baa0137aa91948d4ea1a8521da41871874f2aff2
 y
 Iapp/src/main/java/com/af/dentalla/data/mapper/ProfileInformationMapper.kt,c\f\cf229930213302222307e9b254914db0ea8f52c3
+ç
+]app/src/main/java/com/af/dentalla/domain/usecase/doctor/GetDoctorProfileInformationUseCase.kt,8\6\86e48903b9037bf23038a87a075ef0667d67952e
