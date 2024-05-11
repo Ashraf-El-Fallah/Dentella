@@ -52,6 +52,7 @@ class EditProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         returnDoctorProfileInformationObserver()
+        updateDoctorProfileInformationObserver()
 
         setTheEditTextsNotEditable()
         saveAllHintsForAllEditTexts()
@@ -60,18 +61,34 @@ class EditProfileFragment : Fragment() {
         navigateToHomeScreen()
         navigateToUpdatePasswordScreen()
 
+        choosePictureFromGalleryListener()
+//        binding.textViewEditOrSave.setOnClickListener {
+//            if (binding.textViewEditOrSave.text == "Save") {
+//                handleUpdatedDoctorInformation()
+//                updateDoctorProfileInformationObserver()
+//            }
+//        }
+    }
+
+    private fun choosePictureFromGalleryListener() {
+        pickPicFromGallery()
         binding.imgViewProfile.setOnClickListener {
             openGalleryForImage()
         }
-        pickPicFromGallery()
+    }
 
-        binding.textViewEditOrSave.setOnClickListener {
-            if (binding.textViewEditOrSave.text == "Save") {
-                handleUpdatedDoctorInformation()
-                updateDoctorProfileInformationObserver()
+    private fun pickPicFromGallery() {
+        galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            uri?.let {
+                imageUri = it
             }
         }
     }
+
+    private fun openGalleryForImage() {
+        galleryLauncher.launch("image/*")
+    }
+
 
     private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
         updatedDoctorProfileInformation.let {
@@ -89,19 +106,27 @@ class EditProfileFragment : Fragment() {
                     binding.textViewEditOrSave.gone()
                 }
 
-                is ScreenState.Success -> binding.progressBar.progress.gone()
-                is ScreenState.Error -> binding.progressBar.progress.gone()
+                is ScreenState.Success -> {
+                    binding.progressBar.progress.gone()
+                    Toast.makeText(
+                        requireContext(),
+                        "Response return successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                is ScreenState.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Error when returning response",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.progressBar.progress.gone()
+                }
             }
         }
     }
 
-    private fun pickPicFromGallery() {
-        galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            uri?.let {
-                imageUri = it
-            }
-        }
-    }
 
     private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
         try {
@@ -122,20 +147,17 @@ class EditProfileFragment : Fragment() {
         }
     }
 
-    private fun openGalleryForImage() {
-        galleryLauncher.launch("image/*")
-    }
 
     private fun handleUpdatedDoctorInformation() {
         binding.imgViewProfile.setImageURI(imageUri)
         val photoPart = imageUri?.let { uriToMultipart(it) }
         val updatedDoctorProfileInformation = DoctorProfileInformation(
-            userName = binding.editTextName.text.toString(),
-            email = binding.editTextEmail.text.toString(),
-            phoneNumber = binding.editTextMobileNumber.text.toString(),
-            bio = binding.editTextBio.text.toString(),
+            userName = binding.editTextName.hint.toString(),
+            email = binding.editTextEmail.hint.toString(),
+            phoneNumber = binding.editTextMobileNumber.hint.toString(),
+            bio = binding.editTextBio.hint.toString(),
             currentLevel = "intermediate",
-            currentUniversity = binding.editTextCurrentUniversity.text.toString(),
+            currentUniversity = binding.editTextCurrentUniversity.hint.toString(),
             photo = photoPart
         )
         sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation)
@@ -144,15 +166,27 @@ class EditProfileFragment : Fragment() {
     private fun returnDoctorProfileInformationObserver() {
         editProfileViewModel.profileInformation.observe(viewLifecycleOwner) { profileInformationState ->
             when (profileInformationState) {
-                is ScreenState.Loading -> binding.progressBar.progress.visible()
+                is ScreenState.Loading -> {
+                    binding.apply {
+                        progressBar.progress.visible()
+                        textViewEditOrSave.gone()
+                    }
+                }
+
                 is ScreenState.Error -> {
-                    binding.progressBar.progress.gone()
+                    binding.apply {
+                        progressBar.progress.gone()
+                        textViewEditOrSave.visible()
+                    }
                     Toast.makeText(requireContext(), "Error when getting data", Toast.LENGTH_SHORT)
                         .show()
                 }
 
                 is ScreenState.Success -> {
-                    binding.progressBar.progress.gone()
+                    binding.apply {
+                        progressBar.progress.gone()
+                        textViewEditOrSave.visible()
+                    }
                     val doctorProfileInformation = profileInformationState.uiData
                     binding.apply {
                         editTextName.hint = doctorProfileInformation.userName
@@ -223,6 +257,7 @@ class EditProfileFragment : Fragment() {
             editText.isEnabled = false
             editText.hint = newText
             binding.textViewEditOrSave.text = "Edit"
+            handleUpdatedDoctorInformation()
         } else {
             editText.isEnabled = true
             editText.requestFocus()
