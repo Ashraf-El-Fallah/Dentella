@@ -56,19 +56,12 @@ class EditProfileFragment : Fragment() {
         updateDoctorProfileInformationObserver()
 
         setTheEditTextsNotEditable()
-//        saveAllHintsForAllEditTexts()
         changeBetweenSaveAndEdit()
 
         navigateToHomeScreen()
         navigateToUpdatePasswordScreen()
 
         choosePictureFromGalleryListener()
-//        binding.textViewEditOrSave.setOnClickListener {
-//            if (binding.textViewEditOrSave.text == "Save") {
-//                handleUpdatedDoctorInformation()
-//                updateDoctorProfileInformationObserver()
-//            }
-//        }
     }
 
     private fun choosePictureFromGalleryListener() {
@@ -226,24 +219,6 @@ class EditProfileFragment : Fragment() {
         binding.editTextCurrentUniversity.isEnabled = false
     }
 
-    private fun updateEditTextHint(editText: EditText) {
-        editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                editText.hint = s.toString()
-            }
-        })
-    }
-
-    private fun saveAllHintsForAllEditTexts() {
-        updateEditTextHint(binding.editTextName)
-        updateEditTextHint(binding.editTextEmail)
-        updateEditTextHint(binding.editTextMobileNumber)
-        updateEditTextHint(binding.editTextCurrentUniversity)
-        updateEditTextHint(binding.editTextBio)
-    }
-
     private fun changeBetweenSaveAndEdit() {
         binding.textViewEditOrSave.setOnClickListener {
             toggleEditMode(binding.editTextName, isEditMode)
@@ -251,8 +226,14 @@ class EditProfileFragment : Fragment() {
             toggleEditMode(binding.editTextMobileNumber, isEditMode)
             toggleEditMode(binding.editTextCurrentUniversity, isEditMode)
             toggleEditMode(binding.editTextBio, isEditMode)
+
+            if (isEditMode) {
+                handleUpdatedDoctorInformation()
+                returnDoctorProfileInformationObserver()
+            } else {
+                returnDoctorProfileInformationObserver()
+            }
             isEditMode = !isEditMode
-            returnDoctorProfileInformationObserver()
         }
     }
 
@@ -262,12 +243,10 @@ class EditProfileFragment : Fragment() {
             editText.isEnabled = false
             editText.hint = newText
             binding.textViewEditOrSave.text = "Edit"
-            handleUpdatedDoctorInformation()
         } else {
             editText.isEnabled = true
             editText.requestFocus()
             binding.textViewEditOrSave.text = "Save"
-//            returnDoctorProfileInformationObserver()
         }
     }
 
@@ -276,4 +255,22 @@ class EditProfileFragment : Fragment() {
             findNavController().safeNavigate(EditProfileFragmentDirections.actionEditProfileFragmentToPatientProfileFragment())
         }
     }
+
+//    private fun updateEditTextHint(editText: EditText) {
+//        editText.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+//            override fun afterTextChanged(s: Editable?) {
+//                editText.hint = s.toString()
+//            }
+//        })
+//    }
+
+//    private fun saveAllHintsForAllEditTexts() {
+//        updateEditTextHint(binding.editTextName)
+//        updateEditTextHint(binding.editTextEmail)
+//        updateEditTextHint(binding.editTextMobileNumber)
+//        updateEditTextHint(binding.editTextCurrentUniversity)
+//        updateEditTextHint(binding.editTextBio)
+//    }
 }
