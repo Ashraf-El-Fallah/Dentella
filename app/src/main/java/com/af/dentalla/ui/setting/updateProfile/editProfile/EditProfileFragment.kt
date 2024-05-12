@@ -37,8 +37,6 @@ class EditProfileFragment : Fragment() {
     private val editProfileViewModel: EditProfileViewModel by viewModels()
     private var isEditMode = false
     private lateinit var galleryLauncher: ActivityResultLauncher<String>
-
-    //    private var updatedDoctorProfileInformation: DoctorProfileInformation? = null
     private var imageUri: Uri? = null
 
     override fun onCreateView(
