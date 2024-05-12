@@ -25,6 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -55,7 +56,7 @@ class EditProfileFragment : Fragment() {
         updateDoctorProfileInformationObserver()
 
         setTheEditTextsNotEditable()
-        saveAllHintsForAllEditTexts()
+//        saveAllHintsForAllEditTexts()
         changeBetweenSaveAndEdit()
 
         navigateToHomeScreen()
@@ -139,7 +140,7 @@ class EditProfileFragment : Fragment() {
             FileOutputStream(file).use { outputStream ->
                 inputStream.copyTo(outputStream)
             }
-            val requestFile: RequestBody = RequestBody.create(mimeType.toMediaTypeOrNull(), file)
+            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
             return MultipartBody.Part.createFormData("file", file.name, requestFile)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -148,16 +149,21 @@ class EditProfileFragment : Fragment() {
     }
 
 
+    private fun getTextOrHint(editText: EditText): String {
+        val text = editText.text.toString()
+        return text.ifBlank { editText.hint.toString() }
+    }
+
     private fun handleUpdatedDoctorInformation() {
         binding.imgViewProfile.setImageURI(imageUri)
         val photoPart = imageUri?.let { uriToMultipart(it) }
         val updatedDoctorProfileInformation = DoctorProfileInformation(
-            userName = binding.editTextName.hint.toString(),
-            email = binding.editTextEmail.hint.toString(),
-            phoneNumber = binding.editTextMobileNumber.hint.toString(),
-            bio = binding.editTextBio.hint.toString(),
+            userName = getTextOrHint(binding.editTextName),
+            email = getTextOrHint(binding.editTextEmail),
+            phoneNumber = getTextOrHint(binding.editTextMobileNumber),
+            bio = getTextOrHint(binding.editTextBio),
             currentLevel = "intermediate",
-            currentUniversity = binding.editTextCurrentUniversity.hint.toString(),
+            currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
             photo = photoPart
         )
         sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation)
@@ -246,8 +252,7 @@ class EditProfileFragment : Fragment() {
             toggleEditMode(binding.editTextCurrentUniversity, isEditMode)
             toggleEditMode(binding.editTextBio, isEditMode)
             isEditMode = !isEditMode
-
-//            returnDoctorProfileInformationObserver()
+            returnDoctorProfileInformationObserver()
         }
     }
 
@@ -262,6 +267,7 @@ class EditProfileFragment : Fragment() {
             editText.isEnabled = true
             editText.requestFocus()
             binding.textViewEditOrSave.text = "Save"
+//            returnDoctorProfileInformationObserver()
         }
     }
 
