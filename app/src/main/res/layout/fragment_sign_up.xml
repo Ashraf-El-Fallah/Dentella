@@ -150,7 +150,7 @@
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_text_password"
+                    android:id="@+id/edit_text_old_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"

@@ -24,7 +24,7 @@ abstract class BaseFragment : Fragment() {
         return true
     }
 
-    protected open fun isPasswordValid(password: String): Boolean {
+    protected open fun isPasswordNotValid(password: String): Boolean {
         if (ValidationUtils.isPasswordNotValid(password)) {
             requireView().showToastShort("This password is not valid")
             return false
