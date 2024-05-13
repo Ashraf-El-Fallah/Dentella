@@ -40,7 +40,7 @@ class UpdatePasswordFragment : BaseFragment() {
         binding.buttonConfirm.setOnClickListener {
             val newPassword = binding.editTextNewPassword.text.toString()
             val oldPassword = binding.editTextOldPassword.text.toString()
-            if (isPasswordNotValid(newPassword) || (newPassword == oldPassword)) {
+            if (!isPasswordValid(newPassword) || (newPassword == oldPassword)) {
                 Snackbar.make(
                     requireView(),
                     "Error when changing password .. your new password is less than 8 digits or you add the same password in new password field",

@@ -52,7 +52,7 @@ class LoginFragment : BaseFragment() {
             val password = binding.editTextPasswordLogin.text.toString()
             if (accountType == AccountManager.AccountType.PATIENT) {
                 val userName = binding.editTextUserName.text.toString()
-                if (isUserNameValid(userName) && isPasswordNotValid(password)) {
+                if (isUserNameValid(userName) && isPasswordValid(password)) {
                     val loginPatient = LoginPatient(
                         userName = userName, passWord = password
                     )
@@ -60,7 +60,7 @@ class LoginFragment : BaseFragment() {
                 }
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val email = binding.editTextEmail.text.toString()
-                if (isEmailValid(email) && isPasswordNotValid(password)) {
+                if (isEmailValid(email) && isPasswordValid(password)) {
                     val loginDoctor = LoginDoctor(email = email, passWord = password)
                     viewModel.loginUserLogic(loginDoctor)
                 }
