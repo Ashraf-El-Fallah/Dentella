@@ -252,15 +252,6 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 Log.d("Doctor Profile", ".......")
-//                val profileInfo = DoctorProfileInformation(
-//                    userName = "JohnDoe",
-//                    email = "johndoe@example.com",
-//                    phoneNumber = "+1234567890",
-//                    bio = "Lorem ipsum dolor sit amet",
-//                    currentLevel = "Intermediate",
-//                    currentUniversity = "University of XYZ",
-//                    photo = null // Set photo to null if not including it
-//                )
                 service.updateDoctorProfile(
                     userName = doctorProfileInformation.userName,
                     email = doctorProfileInformation.email,
