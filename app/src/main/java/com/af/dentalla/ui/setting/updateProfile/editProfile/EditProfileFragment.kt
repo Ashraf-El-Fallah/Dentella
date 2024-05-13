@@ -21,6 +21,7 @@ import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -81,45 +82,6 @@ class EditProfileFragment : Fragment() {
         galleryLauncher.launch("image/*")
     }
 
-
-    private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
-        updatedDoctorProfileInformation.let {
-            editProfileViewModel.updateDoctorProfileInformation(
-                it
-            )
-        }
-    }
-
-    private fun updateDoctorProfileInformationObserver() {
-        editProfileViewModel.updateDoctorProfileInFormation.observe(viewLifecycleOwner) { updateProfileState ->
-            when (updateProfileState) {
-                is ScreenState.Loading -> {
-                    binding.progressBar.progress.visible()
-                    binding.textViewEditOrSave.gone()
-                }
-
-                is ScreenState.Success -> {
-                    binding.progressBar.progress.gone()
-                    Toast.makeText(
-                        requireContext(),
-                        "Response return successfully",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-
-                is ScreenState.Error -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Error when returning response",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    binding.progressBar.progress.gone()
-                }
-            }
-        }
-    }
-
-
     private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
         try {
             val contentResolver: ContentResolver = context?.contentResolver ?: return null
@@ -140,6 +102,48 @@ class EditProfileFragment : Fragment() {
     }
 
 
+    private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
+        updatedDoctorProfileInformation.let {
+            editProfileViewModel.updateDoctorProfileInformation(
+                it
+            )
+        }
+    }
+
+    private fun updateDoctorProfileInformationObserver() {
+        editProfileViewModel.updateDoctorProfileInFormation.observe(viewLifecycleOwner) { updateProfileState ->
+            when (updateProfileState) {
+                is ScreenState.Loading -> {
+                    binding.progressBar.progress.visible()
+                    binding.textViewEditOrSave.gone()
+                }
+
+                is ScreenState.Success -> {
+                    binding.progressBar.progress.gone()
+                    binding.textViewEditOrSave.visible()
+                    Toast.makeText(
+                        requireContext(),
+                        "Response return successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                is ScreenState.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Error when returning response",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.progressBar.progress.gone()
+                    binding.textViewEditOrSave.visible()
+                }
+            }
+        }
+    }
+
+
+
+
     private fun getTextOrHint(editText: EditText): String {
         val text = editText.text.toString()
         return text.ifBlank { editText.hint.toString() }
@@ -153,9 +157,14 @@ class EditProfileFragment : Fragment() {
             email = getTextOrHint(binding.editTextEmail),
             phoneNumber = getTextOrHint(binding.editTextMobileNumber),
             bio = getTextOrHint(binding.editTextBio),
-            currentLevel = "intermediate",
             currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
+            currentLevel = "intermediate",
             photo = photoPart
+//          userName = "Ashraf",
+//          email = "Ashraf@gmail.com",
+//          phoneNumber = "01224217645",
+//          bio = "i'm Ashraf",
+//          currentUniversity = "tanta",
         )
         sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation)
     }

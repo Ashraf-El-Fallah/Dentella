@@ -17,5 +17,5 @@ data class DoctorProfileInformation(
     @SerializedName("currentUniversity")
     val currentUniversity: String,
     @SerializedName("photo")
-    val photo: MultipartBody.Part?
+    val photo: MultipartBody.Part? = null
 )

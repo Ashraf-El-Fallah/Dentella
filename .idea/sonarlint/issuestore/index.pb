@@ -465,8 +465,6 @@ _app/src/main/java/com/af/dentalla/domain/usecase/patient/GetCardsBySearchByUniv
 Rapp/src/main/java/com/af/dentalla/data/remote/requests/DoctorProfileInformation.kt,a\b\abaa5f1ef838e8590850bfce4a848112facb67ac
 ê
 `app/src/main/java/com/af/dentalla/domain/usecase/doctor/UpdateDoctorProfileInformationUseCase.kt,d\7\d70c05fd4b79371030deb75d1c8a3adba3aed2ec
-y
-Iapp/src/main/java/com/af/dentalla/data/remote/requests/DoctorPasswords.kt,c\0\c089aefcf31d023d16db2d195ee962a67cf2e234
 x
 Happ/src/main/java/com/af/dentalla/data/remote/requests/DoctorPassword.kt,7\e\7e2b5ed8ba39c5f06534d6c9a6260bdc117267c8
 Ü

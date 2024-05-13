@@ -14,9 +14,12 @@ import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
@@ -78,9 +81,20 @@ interface ApiService {
     @GET("Doctor/ReturnProfile")
     suspend fun returnProfileInformation(): ProfileInformationDto
 
+//    @PUT("Doctor/UpdateProfile")
+//    suspend fun updateDoctorProfile(
+//        @Body doctorProfileInformation: DoctorProfileInformation
+//    )
+    @Multipart
     @PUT("Doctor/UpdateProfile")
     suspend fun updateDoctorProfile(
-        @Part doctorProfileInformation: DoctorProfileInformation
+        @Part("userName") userName: String,
+        @Part("email") email: String,
+        @Part("phoneNumber") phoneNumber: String,
+        @Part("bio") bio: String,
+        @Part("currentLevel") currentLevel: String,
+        @Part("currentUniversity") currentUniversity: String,
+        @Part photo: MultipartBody.Part?
     )
 
     @POST("Password/changepassword")
