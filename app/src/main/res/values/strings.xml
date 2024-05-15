@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name" translatable="false">Dentella</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
@@ -37,7 +37,8 @@
     <string name="skip">Skip</string>
     <string name="pedict_disease">Predict diseases before become infected</string>
     <string name="upload_image">Upload your teeth picture to  see the result.</string>
-    <string name="go_to_model">Click on the arrow to see our model ...</string>
+    <string name="go_to_model">Click on the arrow to see our model …</string>
+    <string name="model" translatable="false">Dentella Ai model</string>"
     <!-- strings.xml -->
     <string name="speciality">speciality</string>
     <string name="profile">Profile</string>
