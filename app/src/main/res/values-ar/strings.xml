@@ -27,8 +27,8 @@
     <string name="new_password">كلمة المرور الجديدة</string>
     <string name="confirm_password">تأكيد كلمة المرور</string>
     <string name="done">تم</string>
-    <string name="hello">مرحبا</string>
-    <string name="welcome_back">مرحبا بعودتك</string>
+    <string name="hello">مرحباً</string>
+    <string name="welcome_back">مرحباً بعودتك</string>
     <string name="search">بحث</string>
     <string name="choose_proc">اختر التخصص</string>
     <string name="see_all">أعرض الكل</string>
