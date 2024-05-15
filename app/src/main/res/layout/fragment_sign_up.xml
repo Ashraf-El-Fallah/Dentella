@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="12dp"
-                android:hint="ID"
+                android:hint="@string/id_number"
                 android:inputType="number"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
@@ -95,7 +95,6 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/gray"
                 app:boxBackgroundMode="none"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_id">
@@ -118,7 +117,6 @@
                 android:inputType="phone"
                 android:textColorHint="@color/gray"
                 app:boxBackgroundMode="none"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_email">
@@ -128,7 +126,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"
-
                     android:padding="1dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -279,15 +276,9 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@id/progress"
+        layout="@layout/base_progress_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

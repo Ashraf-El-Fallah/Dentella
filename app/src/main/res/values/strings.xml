@@ -56,5 +56,8 @@
     <string name="user_name_not_valid">"This user name is not valid"</string>
     <string name="email_not_valid">This email is not valid</string>
     <string name="password_not_valid">This password is not valid</string>
+    <string name="phone_not_valid">This phone number is not valid</string>
+    <string name="confirmation_password_not_valid">This password is not valid or not equal confirmation password</string>
+    <string name="id_not_valid">This id is not valid</string>
 
 </resources>

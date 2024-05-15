@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.SignUpDoctor
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.databinding.FragmentSignUpBinding
@@ -38,11 +40,18 @@ class SignUpFragment : BaseFragment() {
         signUpObserver()
         selectTheUserType()
         passUserDataToViewModel()
+        navigateToLoginScreen()
+    }
+
+    private fun navigateToLoginScreen() {
+        binding.textViewSignIn.setOnClickListener {
+            findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
+        }
     }
 
     private fun isPhoneNumberValid(phoneNumber: String): Boolean {
         if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
-            requireView().showToastShort("This phone number is not valid")
+            Toast.makeText(requireContext(), R.string.phone_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -53,7 +62,7 @@ class SignUpFragment : BaseFragment() {
         confirmPassword: String
     ): Boolean {
         if (ValidationUtils.isPasswordAndConfirmationNotEqual(password, confirmPassword)) {
-            requireView().showToastShort("This password is not valid or not equal confirmation password")
+            Toast.makeText(requireContext(), R.string.confirmation_password_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -61,7 +70,7 @@ class SignUpFragment : BaseFragment() {
 
     private fun isIdValid(id: String): Boolean {
         if (ValidationUtils.isIdNotValid(id)) {
-            requireView().showToastShort("This id is not valid")
+            Toast.makeText(requireContext(), R.string.id_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -126,20 +135,19 @@ class SignUpFragment : BaseFragment() {
         viewModel.signUpDoctorState.observe(viewLifecycleOwner) { signUpState ->
             when (signUpState) {
                 is ScreenState.Loading -> {
-                    binding.progress.visible()
+                    binding.progress.progress.visible()
                     binding.buttonSignUp.isEnabled = false
                 }
 
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
                     findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
                 }
 
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-//                    requireView().showToastShort("Can't connect to data base")
                 }
             }
         }
