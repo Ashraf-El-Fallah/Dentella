@@ -10,7 +10,7 @@ import com.af.dentalla.databinding.FragmentSplashAiBinding
 import com.af.dentalla.utils.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class SplashAiFragment : Fragment() {
     private lateinit var binding: FragmentSplashAiBinding
 
