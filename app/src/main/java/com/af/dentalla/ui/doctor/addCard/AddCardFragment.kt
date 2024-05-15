@@ -60,7 +60,7 @@ class AddCardFragment : Fragment() {
         if ((doctorAvailability == null && specialityId == -1) || (doctorAvailability == null || specialityId == -1)) {
             Snackbar.make(
                 requireView(),
-                "You should choose free time,free date and your speciality",
+                R.string.choose_free_time_and_speciality,
                 Snackbar.LENGTH_LONG
             ).show()
         } else {
@@ -70,7 +70,7 @@ class AddCardFragment : Fragment() {
                 SimpleDateFormat("hh:mm a", Locale.getDefault()).format(selectedTime)
             Snackbar.make(
                 requireView(),
-                "Your speciality is ${getSpecialtyName(specialityId)} and your selected date is $formattedDateForUser at $formattedTimeForUser",
+                "${R.string.your_speciality_is} ${getSpecialtyName(specialityId)} ${R.string.your_selected_date_is} $formattedDateForUser ${R.string.at} $formattedTimeForUser",
                 Snackbar.LENGTH_LONG
             ).show()
             val card = Card(doctorAvailability, specialityId)
@@ -145,9 +145,9 @@ class AddCardFragment : Fragment() {
 
     private fun setUpAddSpecialityRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.add_cleaning, 0, "Cleaning"),
-            Speciality(R.drawable.add_dental_filling, 1, "Filling"),
-            Speciality(R.drawable.add_dental_crown, 4, "Extraction"),
+            Speciality(R.drawable.add_cleaning, 0, "${R.string.cleaning}"),
+            Speciality(R.drawable.add_dental_filling, 1, "${R.string.filling}"),
+            Speciality(R.drawable.add_dental_crown, 4, "${R.string.extraction}"),
 //            Speciality(R.drawable.dental_implant, 3, "Implants"),
 //            Speciality(R.drawable.add_tooth_extraction, 2, "Crowns"),
 //            Speciality(R.drawable.denture, 5, "Orthodontic"),

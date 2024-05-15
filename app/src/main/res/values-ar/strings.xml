@@ -51,4 +51,17 @@
     <string name="phone_not_valid">رقم الهاتف هذا غير صحيح</string>
     <string name="confirmation_password_not_valid">كلمة السر ليست صحيحة أو لا تساوي كلمة المرور التأكيدية</string>
     <string name="id_not_valid">رقم الهوية غير صحيح</string>
+    <string name="add_card">إضافة بطاقة</string>
+    <string name="select_speciality">اختر تخصصك</string>
+    <string name="select_your_free_date">اختر التاريخ المناسب</string>
+    <string name="select_your_free_time">اختر الوقت المناسب</string>
+    <string name="time">الوقت</string>
+    <string name="confirm">تأكيد</string>
+    <string name="choose_free_time_and_speciality">يجب أن تختار تاريخ و وقت مناسبين بالإضافة لتخصصك </string>
+    <string name="your_speciality_is">لقد اخترت تخصص</string>
+    <string name="your_selected_date_is">واخترت يوم</string>
+    <string name="at">في الساعة</string>
+    <string name="cleaning">تنظيف</string>
+    <string name="filling">حشو</string>
+    <string name="extraction">خلع</string>
 </resources>

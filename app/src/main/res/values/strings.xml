@@ -59,5 +59,18 @@
     <string name="phone_not_valid">This phone number is not valid</string>
     <string name="confirmation_password_not_valid">This password is not valid or not equal confirmation password</string>
     <string name="id_not_valid">This id is not valid</string>
+    <string name="add_card">Add Card</string>
+    <string name="select_speciality">Select Your Speciality</string>
+    <string name="select_your_free_date">Select your free date</string>
+    <string name="time">Time</string>
+    <string name="select_your_free_time">Select your free time</string>
+    <string name="confirm">Confirm</string>
+    <string name="choose_free_time_and_speciality">You should choose free time,free date and your speciality</string>
+    <string name="your_speciality_is">Your speciality is</string>
+    <string name="your_selected_date_is">and your selected date is</string>
+    <string name="at">at</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="filling">Filling</string>
+    <string name="extraction">Extraction</string>
 
 </resources>
