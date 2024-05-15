@@ -1,10 +1,10 @@
 package com.af.dentalla.ui.setting
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.databinding.FragmentSettingBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,15 +28,8 @@ class SettingFragment : Fragment() {
         showBottomSheet()
     }
 
-//    private fun backToHome() {
-//        binding.back.setOnClickListener {
-//            findNavController().safeNavigate(SettingFragmentDirections.actionPatientProfileFragmentToHomeFragment())
-//        }
-//    }
-
     private fun goToEditProfile() {
         binding.cardViewEditProfile.setOnClickListener {
-//            findNavController().safeNavigate(PatientProfileFragmentDirections.actionPatientProfileFragmentToEditProfileFragment())
             val action =
                 SettingFragmentDirections.actionPatientProfileFragmentToEditProfileFragment()
             findNavController().navigate(action)
