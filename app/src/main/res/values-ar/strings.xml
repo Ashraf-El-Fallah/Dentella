@@ -41,4 +41,10 @@
     <string name="pedict_disease">تنبأ بالمرض قبل الإصابة به</string>
     <string name="upload_image">قم برفع صورة لأسنانك حتى ترى النتيجة</string>
     <string name="go_to_model">قم بالضغط على السهم حتى تذهب للموقع</string>
+    <string name="please_enter_article_to_post">من فضلك أدخل المقال للنشر</string>
+    <string name="doctor_name">اسم الطبيب</string>
+    <string name="article_date">15 min</string>
+    <string name="article">المقالات</string>
+
+
 </resources>

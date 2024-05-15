@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:text="15 min"
+        android:text="@string/article_date"
         android:textColor="@color/dark_gray"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/img_doctor_article"

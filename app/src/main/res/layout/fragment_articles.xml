@@ -23,18 +23,6 @@
         android:id="@+id/progress"
         layout="@layout/base_progress_bar" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/back"-->
-    <!--        android:layout_width="40dp"-->
-    <!--        android:layout_height="40dp"-->
-    <!--        android:layout_marginStart="20dp"-->
-    <!--        android:layout_marginTop="15dp"-->
-    <!--        android:background="@drawable/back_button_style"-->
-    <!--        android:paddingStart="10dp"-->
-    <!--        android:src="@drawable/ic_back"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <TextView
         android:id="@+id/article"
         android:layout_width="wrap_content"

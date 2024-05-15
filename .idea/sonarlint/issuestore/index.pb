@@ -9,8 +9,6 @@ i
 9app/src/main/java/com/af/dentalla/ui/Ai/AiChatFragment.kt,8\9\8941889f0434db7c72ee8de2a921e78f38039ab1
 q
 Aapp/src/main/java/com/af/dentalla/ui/Ai/SecondSplashAiFragment.kt,0\8\088eba37148be3c3b29221545cbc7d15f7a8ff4d
-p
-@app/src/main/java/com/af/dentalla/ui/Ai/ThirdSplashAiFragment.kt,3\4\346f822afe13a6ef62b45e62aecc897aff711bce
 ]
 -app/src/main/java/com/af/dentalla/di/MyApp.kt,1\3\13b8c0351b54894f51cec1280a92102d333c43a4
 n
@@ -413,8 +411,6 @@ Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.k
 Kapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddSpecialityAdapter.kt,9\6\9633a0ca4c775826fcc671e9d304ff39d79558f6
 i
 9app/src/main/java/com/af/dentalla/ui/ai/AiChatFragment.kt,9\8\98cc5573dd57a649f5daf4af8b0d5a6a1231631c
-p
-@app/src/main/java/com/af/dentalla/ui/ai/ThirdSplashAiFragment.kt,2\b\2bdee5f6bc5d0944f393b3af3bd0ad918f18b0cc
 q
 Aapp/src/main/java/com/af/dentalla/ui/ai/SecondSplashAiFragment.kt,8\0\800656f879e43c64370539e81cadfd1f53148461
 k

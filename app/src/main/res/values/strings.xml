@@ -39,7 +39,6 @@
     <string name="upload_image">Upload your teeth picture to  see the result.</string>
     <string name="go_to_model">Click on the arrow to see our model …</string>
     <string name="model" translatable="false">Dentella Ai model</string>"
-    <!-- strings.xml -->
     <string name="speciality">speciality</string>
     <string name="profile">Profile</string>
     <string name="doctor_name">doctor name</string>
@@ -48,11 +47,13 @@
     <string name="available_dates">Available Dates</string>
     <string name="month">month</string>
     <string name="update">Update your password</string>
-    <string name="article">Article</string>
+    <string name="article">Articles</string>
     <string name="please_add_user_name_or_password">Please add user name or password</string>
     <string name="welcome">Welcome</string>
     <string name="check_username_pass">Please check your username and password!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="please_enter_article_to_post">Please enter article to post</string>
+    <string name="article_date">15 min</string>
 
 </resources>
