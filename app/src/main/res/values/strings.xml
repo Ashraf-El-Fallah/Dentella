@@ -10,7 +10,7 @@
     <string name="forget_your_password">Forgot your password?</string>
     <string name="or">or</string>
     <string name="signin_with_google">Sign in with Google</string>
-    <string name="don_have_account">Do not have account?</string>
+    <string name="do_not_have_account">Do not have account?</string>
     <string name="create_account">Create account</string>
     <string name="user_name">User Name</string>
     <string name="phone">Phone</string>
@@ -51,9 +51,10 @@
     <string name="please_add_user_name_or_password">Please add user name or password</string>
     <string name="welcome">Welcome</string>
     <string name="check_username_pass">Please check your username and password!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="please_enter_article_to_post">Please enter article to post</string>
     <string name="article_date">15 min</string>
+    <string name="user_name_not_valid">"This user name is not valid"</string>
+    <string name="email_not_valid">This email is not valid</string>
+    <string name="password_not_valid">This password is not valid</string>
 
 </resources>

@@ -6,11 +6,11 @@
     <string name="patient">مريض</string>
     <string name="login_account">تسجيل حساب</string>
     <string name="id_number">رقم الهوية</string>
-    <string name="password">رمز الدخول</string>
+    <string name="password">رمز تسجيل الدخول</string>
     <string name="forget_your_password">نسيت كلمة المرور؟</string>
     <string name="or">أو</string>
     <string name="signin_with_google">تسجيل دخول باستخدام جوجل </string>
-    <string name="don_have_account">هل لديك حساب؟</string>
+    <string name="do_not_have_account">هل لديك حساب؟</string>
     <string name="create_account">إنشاء حساب</string>
     <string name="user_name">اسم المستخدم</string>
     <string name="phone">رقم الهاتف</string>
@@ -45,6 +45,9 @@
     <string name="doctor_name">اسم الطبيب</string>
     <string name="article_date">15 min</string>
     <string name="article">المقالات</string>
+    <string name="user_name_not_valid">اسم المستخدم غير صحيح</string>
+    <string name="email_not_valid">البريد الإلكتروني غير صحيح</string>
+    <string name="password_not_valid">رمز تسجيل الدخول غير صحيح</string>
 
 
 </resources>

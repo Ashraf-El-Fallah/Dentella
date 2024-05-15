@@ -1,8 +1,9 @@
 package com.af.dentalla.ui.base
 
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.af.dentalla.R
 import com.af.dentalla.utils.ValidationUtils
-import com.af.dentalla.utils.showToastShort
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -10,7 +11,7 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun isUserNameValid(userName: String): Boolean {
         if (ValidationUtils.isUserNameNotValid(userName)) {
-            requireView().showToastShort("This user name is not valid")
+            Toast.makeText(requireContext(), R.string.user_name_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -18,7 +19,7 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun isEmailValid(email: String): Boolean {
         if (ValidationUtils.isEmailNotValid(email)) {
-            requireView().showToastShort("This email is not valid")
+            Toast.makeText(requireContext(), R.string.email_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true
@@ -26,7 +27,7 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun isPasswordValid(password: String): Boolean {
         if (ValidationUtils.isPasswordNotValid(password)) {
-            requireView().showToastShort("This password is not valid")
+            Toast.makeText(requireContext(), R.string.password_not_valid, Toast.LENGTH_LONG).show()
             return false
         }
         return true

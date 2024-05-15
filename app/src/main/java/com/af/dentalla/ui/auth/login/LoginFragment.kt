@@ -72,12 +72,12 @@ class LoginFragment : BaseFragment() {
         viewModel.loginState.observe(viewLifecycleOwner) { loginState ->
             when (loginState) {
                 is ScreenState.Loading -> {
-                    binding.progressBar.visible()
+                    binding.progressBar.progress.visible()
                     binding.buttonSignIn.isEnabled = false
                 }
 
                 is ScreenState.Success -> {
-                    binding.progressBar.gone()
+                    binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
 //                    findNavController().safeNavigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
 //                    (activity as AuthenticationActivity).navigateToHomeActivity()
@@ -87,7 +87,7 @@ class LoginFragment : BaseFragment() {
                 }
 
                 is ScreenState.Error -> {
-                    binding.progressBar.gone()
+                    binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
 //                    requireView().showToastShort("Incorrect Personal information")
                 }
@@ -105,46 +105,6 @@ class LoginFragment : BaseFragment() {
         }
     }
 }
-
-
-////ui state/////////////////////////////////////////////////
-//collectLast(viewModel.loginEvent) {
-//            if (accountType == AccountManager.AccountType.PATIENT) {
-//                binding.editTextUserName.visible()
-//                binding.editTextEmail.gone()
-//                it.getContentIfNotHandled()?.let { onEvent(it) }
-//                binding.buttonSignIn.setOnClickListener {
-//                    viewModel.onClickLoginForPatient()
-//                }
-//            } else {
-//                binding.editTextUserName.gone()
-//                binding.editTextEmail.visible()
-//                it.getContentIfNotHandled()?.let { onEvent(it) }
-//                binding.buttonSignIn.setOnClickListener {
-//                    viewModel.onClickLoginForDoctor()
-//                }
-//            }
-//        }
-//        setUpClickListeners()
-
-
-//private fun setUpClickListeners() {
-//        binding.textViewSignUp.setOnClickListener {
-//            viewModel.onClickSignUp()
-//        }
-//    }
-//
-//    private fun onEvent(event: LoginUIEvent) {
-//        when (event) {
-//            is LoginUIEvent.LoginEvent -> {
-//                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
-//            }
-//
-//            is LoginUIEvent.SignUpEvent -> {
-//                findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToSignUpFragment())
-//            }
-//        }
-//    }
 
 
 //    private fun loginLogic() {

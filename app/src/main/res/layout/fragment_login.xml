@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.auth.login.LoginFragment">
 
+    <include
+        android:id="@+id/progress_bar"
+        layout="@layout/base_progress_bar" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -60,19 +64,13 @@
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--app:helperText="@{viewModel.loginUiState.userNameHelperText}"-->
-
-
-            <!--android:afterTextChanged="@{(text) -> viewModel.onUserNameInputChanged(text)}"-->
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
-                android:hint="email"
+                android:hint="@string/email"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
                 app:boxBackgroundMode="none"
@@ -89,10 +87,6 @@
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--app:helperText="@{viewModel.loginUiState.emailHelperText}"-->
-            <!--android:afterTextChanged="@{(text) -> viewModel.onEmailInputChanged(text)}"-->
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_password"
                 android:layout_width="0dp"
@@ -101,12 +95,12 @@
                 android:layout_marginTop="320dp"
                 android:hint="@string/password"
                 android:textColorHint="@color/gray"
+                app:boxBackgroundMode="none"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:boxBackgroundMode="none"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -115,25 +109,25 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"
                     android:inputType="textPassword"
-                    android:padding="1dp"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:padding="1dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--app:helperText="@{viewModel.loginUiState.passwordHelperText}"-->
             <!--android:afterTextChanged="@{(text)->viewModel.onPasswordInputChangedForPatient(text)}"-->
 
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_view_forget_password"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:clickable="true"-->
-<!--                android:focusable="true"-->
-<!--                android:text="@string/forget_your_password"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/text_input_password"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/text_input_password" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/text_view_forget_password"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                android:text="@string/forget_your_password"-->
+            <!--                android:textStyle="bold"-->
+            <!--                app:layout_constraintEnd_toEndOf="@id/text_input_password"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/text_input_password" />-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_sign_in"
@@ -183,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
-                android:text="@string/don_have_account"
+                android:text="@string/do_not_have_account"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_sign_in" />
@@ -200,9 +194,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/text_view_do_not_have_account"
                 app:layout_constraintStart_toEndOf="@+id/text_view_do_not_have_account"
                 app:layout_constraintTop_toTopOf="@+id/text_view_do_not_have_account" />
-
-
-            <!--            app:isVisible="@{viewModel.loginUiState.loading}"-->
 
 
             <!--    <View-->
@@ -232,26 +223,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--<layout>-->
-
-    <!--    <data>-->
-
-    <!--        <variable-->
-    <!--            name="viewModel"-->
-    <!--            type="com.af.dentalla.ui.auth.login.LoginViewModel" />-->
-    <!--    </data>-->
-
-    <!--</layout>-->
 
 
