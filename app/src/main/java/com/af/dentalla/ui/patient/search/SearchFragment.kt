@@ -62,10 +62,10 @@ class SearchFragment : Fragment() {
         searchViewModel.searchedCards.observe(viewLifecycleOwner) {
             when (it) {
                 is ScreenState.Loading ->
-                    binding.progress.visible()
+                    binding.progress.progress.visible()
 
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                     binding.recyclerViewSearchedCards.apply {
                         adapter =
                             DoctorsCardsAdapter { doctorCardId ->
@@ -77,7 +77,7 @@ class SearchFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                 }
             }
         }
