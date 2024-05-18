@@ -35,6 +35,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         loginObserver()
         selectTheUserType()
         passUserDataToViewModel()
@@ -46,6 +47,7 @@ class LoginFragment : BaseFragment() {
             )
         }
     }
+
 
     private fun passUserDataToViewModel() {
         binding.buttonSignIn.setOnClickListener {

@@ -27,13 +27,12 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         initBottomNavigation()
         navigateToHomeFragment()
         showDialogDependingOnUserType()
         addPostObserver()
     }
-
-
     private fun addPostObserver() {
         patientHomeViewModel.addPostState.observe(this) { addPostState ->
             when (addPostState) {
