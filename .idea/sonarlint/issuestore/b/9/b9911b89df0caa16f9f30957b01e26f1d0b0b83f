@@ -1,2 +1,4 @@
 
-~kotlin:S1144<"4Remove this unused private "isSignUpRequest" method.(‹€Û·ûÿÿÿÿ8È·¤µø1J$17f486bb-277d-47b1-b384-25fda2b5b17d
+~kotlin:S1144>"4Remove this unused private "isSignUpRequest" method.(‹€Û·ûÿÿÿÿ8ˆÆ»âø1J$98a0363b-cdec-4ddc-a18d-98658937cba3
+kotlin:S1763"JRefactor this piece of code to not have any dead code after this "return".(€¦Íâ8Æ»âø1J$b692d6a4-df23-42d8-aabd-60791c723813
+mkotlin:S1874'"#Deprecated code should not be used.(°¥Îúÿÿÿÿ8±“ˆãø1J$708fcbba-1ac8-4113-b5d7-d0bf50dbcb10
