@@ -71,24 +71,25 @@
             android:layout_marginTop="49dp"
             android:layout_marginEnd="13dp"
             android:background="@drawable/button_book_style"
-            android:text="@string/book_now"
+            android:text="@string/see_info"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_view_rating"
-            android:layout_width="33dp"
-            android:layout_height="16.5dp"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/rate_button_style"
-            android:drawableStart="@drawable/star"
-            android:paddingStart="4dp"
-            android:text=" 4.8"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="@id/button_book_now"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_rating"-->
+<!--            android:layout_width="33dp"-->
+<!--            android:layout_height="16.5dp"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:background="@drawable/rate_button_style"-->
+<!--            android:drawableStart="@drawable/star"-->
+<!--            android:paddingStart="4dp"-->
+<!--            android:text=" 4.8"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="10sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/button_book_now"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
