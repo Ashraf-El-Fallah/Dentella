@@ -4,12 +4,12 @@
     <item
         android:id="@+id/patientHomeFragment"
         android:icon="@drawable/home"
-        android:title="Home" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/articlesFragment"
         android:icon="@drawable/document"
-        android:title="Articles" />
+        android:title="@string/articles" />
 
     <item
         android:id="@+id/placeholder"
@@ -17,11 +17,11 @@
     <item
         android:id="@+id/firstSplashAiFragment"
         android:icon="@drawable/chat"
-        android:title="Chat Ai" />
+        android:title="@string/chat_ai" />
 
     <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/settings"
-        android:title="Settings" />
+        android:title="@string/setting" />
 
 </menu>

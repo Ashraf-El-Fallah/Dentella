@@ -97,5 +97,6 @@
     <string name="edit_profile">تعديل الملف الشخصي</string>
     <string name="change_language">تغيير اللغة</string>
     <string name="logout">الخروج</string>
-
+    <string name="home">الشاشة الرئيسية</string>
+    <string name="articles">المقالات</string>
 </resources>

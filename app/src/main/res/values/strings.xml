@@ -98,5 +98,7 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="change_language">Change Language</string>
     <string name="logout">Logout</string>
-
+    <string name="home">Home</string>
+    <string name="articles">Articles</string>
+    <string name="chat_ai" translatable="false">Chat Ai</string>
 </resources>
