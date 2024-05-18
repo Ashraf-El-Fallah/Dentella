@@ -2,7 +2,7 @@
 <resources>
     <string name="sign_in">تسجيل دخول</string>
     <string name="sign_up">تسجيل حساب</string>
-    <string name="doctor">دكتور</string>
+    <string name="doctor">طبيب</string>
     <string name="patient">مريض</string>
     <string name="login_account">تسجيل حساب</string>
     <string name="id_number">رقم الهوية</string>
