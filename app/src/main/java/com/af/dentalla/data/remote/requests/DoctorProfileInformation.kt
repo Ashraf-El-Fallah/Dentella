@@ -1,5 +1,6 @@
 package com.af.dentalla.data.remote.requests
 
+import android.net.Uri
 import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
 
@@ -17,5 +18,5 @@ data class DoctorProfileInformation(
     @SerializedName("currentUniversity")
     val currentUniversity: String,
     @SerializedName("photo")
-    val photo: MultipartBody.Part?
+    val photo: Uri?
 )

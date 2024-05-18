@@ -15,6 +15,7 @@ import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -88,12 +89,12 @@ interface ApiService {
     @Multipart
     @PUT("Doctor/UpdateProfile")
     suspend fun updateDoctorProfile(
-        @Part("userName") userName: String,
-        @Part("email") email: String,
-        @Part("phoneNumber") phoneNumber: String,
-        @Part("bio") bio: String,
-        @Part("currentLevel") currentLevel: String,
-        @Part("currentUniversity") currentUniversity: String,
+        @Part("userName") userName: RequestBody,
+        @Part("email") email: RequestBody,
+        @Part("phoneNumber") phoneNumber: RequestBody,
+        @Part("bio") bio: RequestBody,
+        @Part("currentLevel") currentLevel: RequestBody,
+        @Part("currentUniversity") currentUniversity: RequestBody,
         @Part photo: MultipartBody.Part?
     )
 

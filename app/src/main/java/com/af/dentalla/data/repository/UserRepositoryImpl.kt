@@ -1,6 +1,10 @@
 package com.af.dentalla.data.repository
 
+import android.content.ContentResolver
+import android.net.Uri
+import android.provider.OpenableColumns
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
@@ -20,6 +24,12 @@ import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utils.AccountManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -253,13 +263,13 @@ class UserRepositoryImpl @Inject constructor(
             try {
                 Log.d("Doctor Profile", ".......")
                 service.updateDoctorProfile(
-                    userName = doctorProfileInformation.userName,
-                    email = doctorProfileInformation.email,
-                    phoneNumber = doctorProfileInformation.phoneNumber,
-                    bio = doctorProfileInformation.bio,
-                    currentLevel = doctorProfileInformation.currentLevel,
-                    currentUniversity = doctorProfileInformation.currentUniversity,
-                    photo = doctorProfileInformation.photo
+                    userName = createPartFromString(doctorProfileInformation.userName),
+                    email = createPartFromString(doctorProfileInformation.email),
+                    phoneNumber = createPartFromString(doctorProfileInformation.phoneNumber),
+                    bio = createPartFromString(doctorProfileInformation.bio),
+                    currentLevel = createPartFromString(doctorProfileInformation.currentLevel),
+                    currentUniversity = createPartFromString(doctorProfileInformation.currentUniversity),
+                    photo = uriToMultipart(doctorProfileInformation.photo)
                 )
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
@@ -267,6 +277,63 @@ class UserRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    private fun uriToMultipart(uri: Uri?): MultipartBody.Part? {
+        return try {
+            // Convert Uri to File object
+            val file = File(uri?.path!!)
+            // Determine the MIME type from the file extension
+            val mimeType = getMimeType(file)
+            // Create RequestBody instance from file
+            val requestFile: RequestBody = RequestBody.create(mimeType.toMediaTypeOrNull(), file)
+            // Create MultipartBody.Part using file request-body, file name and part name
+            MultipartBody.Part.createFormData("file", file.name, requestFile)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    private fun getMimeType(file: File): String {
+        val extension = file.extension.toLowerCase()
+        return when (extension) {
+            "jpg", "jpeg" -> "image/jpeg"
+            "png" -> "image/png"
+            "gif" -> "image/gif"
+            "txt" -> "text/plain"
+            "pdf" -> "application/pdf"
+            "doc" -> "application/msword"
+            "docx" -> "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            "xls" -> "application/vnd.ms-excel"
+            "xlsx" -> "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            else -> "application/octet-stream" // default binary type
+        }
+    }
+
+    //    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
+//        try {
+////            val contentResolver: ContentResolver = context?.contentResolver ?: return null
+////            val mimeType = contentResolver.getType(uri) ?: return null
+////
+////            val inputStream = contentResolver.openInputStream(uri) ?: return null
+////            val file = File(requireContext().cacheDir, "temp_file")
+//
+////            FileOutputStream(file).use { outputStream ->
+////                inputStream.copyTo(outputStream)
+////            }
+//
+//            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
+//            return MultipartBody.Part.createFormData("file", file.name, requestFile)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            return null
+//        }
+//    }
+
+    private fun createPartFromString(descriptionString: String): RequestBody {
+        return RequestBody.create("text/plain".toMediaTypeOrNull(), descriptionString)
+    }
+
 
     override fun changeDoctorPassword(doctorPassword: DoctorPassword): Flow<NetWorkResponseState<Unit>> {
         return flow {

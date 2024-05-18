@@ -19,8 +19,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 h
 8app/src/main/java/com/af/dentalla/ui/BranchesFragment.kt,9\9\99698216e673f532838afd620ccbad8f9b8843c1
-g
-7app/src/main/java/com/af/dentalla/ui/ArticleFragment.kt,1\f\1f2948e099ed1a74b649977eadb65a78d815da6d
 m
 =app/src/main/java/com/af/dentalla/di/network/NetworkModule.kt,a\e\aec987e0560c8c6e2028b6962f6898ace5f1183a
 r
@@ -211,8 +209,6 @@ w
 G.idea/sonarlint/issuestore/7/9/79c1bf5a4543eff4ce79e3eb36b41f934b318124,e\2\e2a0c3dd7998674e9619a033ac8275ba2978cabc
 w
 G.idea/sonarlint/issuestore/f/9/f974561e48bf21c86f951a133a29821fba0317b7,c\b\cbee7a08a015e947e37c0ffc0d86f2d7dfe02c49
-w
-G.idea/sonarlint/issuestore/1/f/1f2948e099ed1a74b649977eadb65a78d815da6d,3\9\3904756addef6f4fcec59ad094a5aa73631b42cf
 Å
 Q.idea/sonarlint/securityhotspotstore/1/1/11729dac761b396bafa38b3df95ef1b4f2a3f967,2\1\214724d924dd555c1fef91caa8e93718b7121d02
 w
@@ -249,8 +245,6 @@ Q.idea/sonarlint/securityhotspotstore/a/c/acacb37b0c6315eccc03b6aa9579ad043748e6
 Q.idea/sonarlint/securityhotspotstore/c/1/c1cde89c30d3fb758646419a243f6f2f43d3205f,6\2\629485c6414d50dcffd313a34c8397c4ca799f0e
 Å
 Q.idea/sonarlint/securityhotspotstore/a/e/aec987e0560c8c6e2028b6962f6898ace5f1183a,b\8\b85ea69c1e3c445179af6d9f5306834b50f01635
-Å
-Q.idea/sonarlint/securityhotspotstore/1/f/1f2948e099ed1a74b649977eadb65a78d815da6d,4\0\4013d2f401d7ca5ac0ef0e13fcb037b833bdf40b
 Å
 Q.idea/sonarlint/securityhotspotstore/0/2/0223ec16a13c418dd3aa87ed675faaa912161036,b\6\b6c305e713feb4d5c838d87dd0620e5866afbcd6
 w

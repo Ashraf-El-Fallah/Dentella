@@ -79,24 +79,24 @@ class EditProfileFragment : Fragment() {
         galleryLauncher.launch("image/*")
     }
 
-    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
-        try {
-            val contentResolver: ContentResolver = context?.contentResolver ?: return null
-            val mimeType = contentResolver.getType(uri) ?: return null
-
-            val inputStream = contentResolver.openInputStream(uri) ?: return null
-            val file = File(requireContext().cacheDir, "temp_file")
-
-            FileOutputStream(file).use { outputStream ->
-                inputStream.copyTo(outputStream)
-            }
-            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
-            return MultipartBody.Part.createFormData("file", file.name, requestFile)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return null
-        }
-    }
+//    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
+//        try {
+//            val contentResolver: ContentResolver = context?.contentResolver ?: return null
+//            val mimeType = contentResolver.getType(uri) ?: return null
+//
+//            val inputStream = contentResolver.openInputStream(uri) ?: return null
+//            val file = File(requireContext().cacheDir, "temp_file")
+//
+//            FileOutputStream(file).use { outputStream ->
+//                inputStream.copyTo(outputStream)
+//            }
+//            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
+//            return MultipartBody.Part.createFormData("file", file.name, requestFile)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            return null
+//        }
+//    }
 
 
     private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
@@ -146,7 +146,7 @@ class EditProfileFragment : Fragment() {
 
     private fun handleUpdatedDoctorInformation() {
         binding.imgViewProfile.setImageURI(imageUri)
-        val photoPart = imageUri?.let { uriToMultipart(it) }
+//        val photoPart = imageUri?.let { uriToMultipart(it) }
         val updatedDoctorProfileInformation = DoctorProfileInformation(
             userName = getTextOrHint(binding.editTextName),
             email = getTextOrHint(binding.editTextEmail),
@@ -154,7 +154,7 @@ class EditProfileFragment : Fragment() {
             bio = getTextOrHint(binding.editTextBio),
             currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
             currentLevel = "intermediate",
-            photo = photoPart
+            photo = imageUri
 //          userName = "Ashraf",
 //          email = "Ashraf@gmail.com",
 //          phoneNumber = "01224217645",
