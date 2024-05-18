@@ -62,7 +62,11 @@ class SignUpFragment : BaseFragment() {
         confirmPassword: String
     ): Boolean {
         if (ValidationUtils.isPasswordAndConfirmationNotEqual(password, confirmPassword)) {
-            Toast.makeText(requireContext(), R.string.confirmation_password_not_valid, Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                requireContext(),
+                R.string.confirmation_password_not_valid,
+                Toast.LENGTH_LONG
+            ).show()
             return false
         }
         return true
@@ -148,6 +152,7 @@ class SignUpFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
+                    Toast.makeText(requireContext(), signUpState.message, Toast.LENGTH_LONG).show()
                 }
             }
         }
