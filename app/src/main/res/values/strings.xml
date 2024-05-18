@@ -92,5 +92,11 @@
     <string name="error_when_changing_old_password">Error when changing password .. please add your old password correctly </string>
     <string name="change_password_successfully">You have changed password successfully</string>
     <string name="old_password">Old Password</string>
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
+    <string name="setting">Setting</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
 
 </resources>

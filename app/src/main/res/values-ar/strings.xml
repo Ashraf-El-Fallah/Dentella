@@ -91,5 +91,11 @@
     <string name="error_when_changing_old_password">خطأ عند تغيير كلمة المرور .. تأكد من صحة كلمة المرور القديمة</string>
     <string name="change_password_successfully">تم تغيير كلمة المرور بنجاح</string>
     <string name="old_password">كلمة المرور القديمة</string>
+    <string name="arabic">اللغة العربية</string>
+    <string name="english">اللغة الإنجليزية</string>
+    <string name="setting">الإعدادات</string>
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="change_language">تغيير اللغة</string>
+    <string name="logout">الخروج</string>
 
 </resources>

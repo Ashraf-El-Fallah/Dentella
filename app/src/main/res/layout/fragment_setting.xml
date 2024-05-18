@@ -6,23 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.SettingFragment">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/back"-->
-    <!--        android:layout_width="40dp"-->
-    <!--        android:layout_height="40dp"-->
-    <!--        android:layout_marginStart="20dp"-->
-    <!--        android:layout_marginTop="15dp"-->
-    <!--        android:background="@drawable/back_button_style"-->
-    <!--        android:paddingStart="10dp"-->
-    <!--        android:src="@drawable/ic_back"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <TextView
         android:id="@+id/setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="settings"
+        android:text="@string/setting"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -71,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Edit Profile"
+                android:text="@string/edit_profile"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="@id/image"
@@ -111,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="change Language"
+                android:text="@string/change_language"
                 android:textColor="@color/shade_of_blue"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="@id/image2"
@@ -192,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Logout"
+                android:text="@string/logout"
                 android:textColor="@color/shade_of_red"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="@id/image4"
