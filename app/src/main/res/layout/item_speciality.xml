@@ -5,7 +5,6 @@
     android:layout_width="88dp"
     android:layout_height="86dp"
     android:background="@drawable/procedure_style"
-
     android:layout_marginVertical="4dp"
     android:layout_marginStart="2dp"
     android:layout_marginEnd="12dp"

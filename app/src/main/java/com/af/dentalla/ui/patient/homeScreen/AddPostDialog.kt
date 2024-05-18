@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.Post
-import com.af.dentalla.databinding.DialogAddArticleBinding
-import com.af.dentalla.databinding.DialogAddBinding
 import com.af.dentalla.databinding.DialogAddPostBinding
 
 class AddPostDialog(context: Context, private val addPostDialogListener: AddPostDialogListener) :
@@ -24,7 +23,7 @@ class AddPostDialog(context: Context, private val addPostDialogListener: AddPost
         binding.addDialog.buttonPost.setOnClickListener {
             val content = binding.addDialog.editTextToWrite.text.toString()
             if (content.isNullOrEmpty()) {
-                Toast.makeText(context, "Please add content for posting", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.please_add_content, Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
             val post = Post(content = content)

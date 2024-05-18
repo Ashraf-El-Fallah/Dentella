@@ -30,9 +30,9 @@
     <string name="hello">Hello!</string>
     <string name="welcome_back">welcome back!</string>
     <string name="search">Search</string>
-    <string name="choose_proc">choose procedures</string>
+    <string name="choose_speciality">choose speciality</string>
     <string name="see_all">see all</string>
-    <string name="available_doctor">Available doctor</string>
+    <string name="available_doctors">Available doctors</string>
     <string name="book_now">Book Now</string>
     <string name="skip">Skip</string>
     <string name="pedict_disease">Predict diseases before become infected</string>
@@ -40,6 +40,10 @@
     <string name="go_to_model">Click on the arrow to see our model …</string>
     <string name="model" translatable="false">Dentella Ai model</string>"
     <string name="speciality">speciality</string>
+    <string name="please_add_content">Please add content for posting</string>
+    <string name="crowns">Crowns</string>
+    <string name="implants">Implants</string>
+    <string name="dentures">Dentures</string>
     <string name="profile">Profile</string>
     <string name="doctor_name">doctor name</string>
     <string name="doctor_procedure">doctor speciality</string>

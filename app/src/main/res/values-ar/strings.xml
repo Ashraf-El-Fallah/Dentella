@@ -30,9 +30,9 @@
     <string name="hello">مرحباً</string>
     <string name="welcome_back">مرحباً بعودتك</string>
     <string name="search">بحث</string>
-    <string name="choose_proc">اختر التخصص</string>
+    <string name="choose_speciality">اختر التخصص</string>
     <string name="see_all">أعرض الكل</string>
-    <string name="available_doctor">الأطباء المتاحين</string>
+    <string name="available_doctors">الأطباء المتاحين</string>
     <string name="book_now">احجز الأن</string>
     <string name="skip">استمرار</string>
     <string name="please_add_user_name_or_password">قم بإدخال اسم المستخدم أو كلمة السر</string>
@@ -62,13 +62,17 @@
     <string name="your_selected_date_is">واخترت يوم</string>
     <string name="at">في الساعة</string>
     <string name="cleaning">تنظيف</string>
+    <string name="crowns">تيجان الأسنان</string>
     <string name="filling">حشو</string>
     <string name="extraction">خلع</string>
+    <string name="implants">زرع أسنان</string>
+    <string name="dentures">أطقم أسنان</string>
     <string name="profile">الملف الشخصي</string>
     <string name="doctor_procedure">تخصص الطبيب</string>
     <string name="chat_now">المحادثة الأن</string>
     <string name="available_dates">المواعيد المتاحة</string>
     <string name="about">معلومات حول الطبيب</string>
     <string name="speciality">التخصص</string>
+    <string name="please_add_content">من فضلك قم بإضافة محتوى للنشر</string>
 
 </resources>

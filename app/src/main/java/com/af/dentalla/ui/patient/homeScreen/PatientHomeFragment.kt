@@ -94,12 +94,12 @@ class PatientHomeFragment : Fragment() {
 
     private fun setUpSpecialitiesRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.cleaning, 0, "Cleaning"),
-            Speciality(R.drawable.dental_filling, 1, "Filling"),
-            Speciality(R.drawable.crown, 2, "Crowns"),
-            Speciality(R.drawable.dental_implant, 3, "Implants"),
-            Speciality(R.drawable.extraction, 4, "Extraction"),
-            Speciality(R.drawable.denture, 5, "Dentures"),
+            Speciality(R.drawable.cleaning, 0, R.string.cleaning.toString()),
+            Speciality(R.drawable.dental_filling, 1, R.string.filling.toString()),
+            Speciality(R.drawable.crown, 2, R.string.crowns.toString()),
+            Speciality(R.drawable.dental_implant, 3, R.string.implants.toString()),
+            Speciality(R.drawable.extraction, 4, R.string.extraction.toString()),
+            Speciality(R.drawable.denture, 5, R.string.dentures.toString()),
         )
 
         val adapter = SpecialtyAdapter(specialtiesList) { specialityId ->

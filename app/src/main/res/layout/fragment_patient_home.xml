@@ -26,13 +26,13 @@
         layout="@layout/base_progress_bar" />
 
     <TextView
-        android:id="@+id/choose_proc"
+        android:id="@+id/choose_speciality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
-        android:text="@string/choose_proc"
-        android:textAppearance="@style/choose_proc"
+        android:text="@string/choose_speciality"
+        android:textAppearance="@style/choose_speciality"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_background" />
 
@@ -43,7 +43,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose_proc" />
+        app:layout_constraintTop_toBottomOf="@id/choose_speciality" />
 
     <TextView
         android:id="@+id/text_doctors"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/available_doctor"
+        android:text="@string/available_doctors"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -19,7 +19,6 @@ import javax.inject.Inject
 @HiltViewModel
 class PatientHomeViewModel @Inject constructor(
     private val getAllDoctorsCardsUseCase: GetAllDoctorsCardsUseCase,
-    private val getCardsBySearchByUniversityUseCase: GetCardsBySearchByUniversityUseCase,
     private val addPostUseCase: AddPostUseCase
 ) : ViewModel() {
     private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()
