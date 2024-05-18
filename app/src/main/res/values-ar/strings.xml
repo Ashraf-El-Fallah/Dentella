@@ -64,4 +64,10 @@
     <string name="cleaning">تنظيف</string>
     <string name="filling">حشو</string>
     <string name="extraction">خلع</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="doctor_procedure">تخصص الطبيب</string>
+    <string name="chat_now">المحادثة الأن</string>
+    <string name="available_dates">المواعيد المتاحة</string>
+    <string name="about">معلومات حول الطبيب</string>
+
 </resources>
