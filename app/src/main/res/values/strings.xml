@@ -13,7 +13,7 @@
     <string name="do_not_have_account">Do not have account?</string>
     <string name="create_account">Create account</string>
     <string name="user_name">User Name</string>
-    <string name="phone">Phone</string>
+    <string name="phone">Phone Number</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="enter_email">Enter Your Email Address Below</string>
@@ -35,7 +35,7 @@
     <string name="available_doctors">Available doctors</string>
     <string name="see_info">See Info</string>
     <string name="skip">Skip</string>
-    <string name="pedict_disease">Predict diseases before become infected</string>
+    <string name="predict_disease">Predict diseases before become infected</string>
     <string name="upload_image">Upload your teeth picture to  see the result.</string>
     <string name="go_to_model">Click on the arrow to see our model …</string>
     <string name="model" translatable="false">Dentella Ai model</string>"
@@ -77,5 +77,17 @@
     <string name="cleaning">Cleaning</string>
     <string name="filling">Filling</string>
     <string name="extraction">Extraction</string>
+    <string name="response_return_successfully">Response return successfully</string>
+    <string name="error_when_returning_response">Error when returning response</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="my_account">My Account</string>
+    <string name="location">Location</string>
+    <string name="about_setting">About</string>
+    <string name="write_user_name">Write your user name</string>
+    <string name="write_about">Write something about you..</string>
+    <string name="write_university">Write your current university</string>
+    <string name="write_phone_number">Write your phone number</string>
+    <string name="write_email">Write your email</string>
 
 </resources>

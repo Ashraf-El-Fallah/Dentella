@@ -38,7 +38,7 @@
     <string name="please_add_user_name_or_password">قم بإدخال اسم المستخدم أو كلمة السر</string>
     <string name="welcome">مرحبا</string>
     <string name="check_username_pass">رقم المستخدم أو كلمة السر خطأ</string>
-    <string name="pedict_disease">تنبأ بالمرض قبل الإصابة به</string>
+    <string name="predict_disease">تنبأ بالمرض قبل الإصابة به</string>
     <string name="upload_image">قم برفع صورة لأسنانك حتى ترى النتيجة</string>
     <string name="go_to_model">قم بالضغط على السهم حتى تذهب للموقع</string>
     <string name="please_enter_article_to_post">من فضلك أدخل المقال للنشر</string>
@@ -74,5 +74,17 @@
     <string name="about">معلومات حول الطبيب</string>
     <string name="speciality">التخصص</string>
     <string name="please_add_content">من فضلك قم بإضافة محتوى للنشر</string>
+    <string name="response_return_successfully">تم استرجاع بياناتك بنجاح</string>
+    <string name="error_when_returning_response">حدث خطأ أثناء استرجاع البيانات</string>
+    <string name="edit">تعديل</string>
+    <string name="save">حفظ</string>
+    <string name="my_account">حسابي الشخصي</string>
+    <string name="write_user_name">اكتب اسم المستخدم</string>
+    <string name="write_phone_number">اكتب رقم الهاتف</string>
+    <string name="write_email">اكتب البريد الإلكتروني</string>
+    <string name="location">الموقع الجغرافي</string>
+    <string name="write_university">اكتب اسم الجامعة</string>
+    <string name="about_setting">معلومات عنك</string>
+    <string name="write_about">اكتب بعض المعلومات عنك</string>
 
 </resources>

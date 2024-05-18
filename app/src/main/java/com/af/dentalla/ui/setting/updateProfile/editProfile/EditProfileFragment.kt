@@ -3,8 +3,6 @@ package com.af.dentalla.ui.setting.updateProfile.editProfile
 import android.content.ContentResolver
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,13 +13,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
-import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -29,7 +27,6 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
 
 
 @AndroidEntryPoint
@@ -123,7 +120,7 @@ class EditProfileFragment : Fragment() {
                     binding.textViewEditOrSave.visible()
                     Toast.makeText(
                         requireContext(),
-                        "Response return successfully",
+                        R.string.response_return_successfully,
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -131,7 +128,7 @@ class EditProfileFragment : Fragment() {
                 is ScreenState.Error -> {
                     Toast.makeText(
                         requireContext(),
-                        "Error when returning response",
+                        R.string.error_when_returning_response,
                         Toast.LENGTH_LONG
                     ).show()
                     binding.progressBar.progress.gone()
@@ -140,8 +137,6 @@ class EditProfileFragment : Fragment() {
             }
         }
     }
-
-
 
 
     private fun getTextOrHint(editText: EditText): String {
@@ -184,7 +179,11 @@ class EditProfileFragment : Fragment() {
                         progressBar.progress.gone()
                         textViewEditOrSave.visible()
                     }
-                    Toast.makeText(requireContext(), "Error when getting data", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.error_when_returning_response,
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
 
@@ -249,11 +248,11 @@ class EditProfileFragment : Fragment() {
             val newText = editText.text.toString()
             editText.isEnabled = false
             editText.hint = newText
-            binding.textViewEditOrSave.text = "Edit"
+            binding.textViewEditOrSave.text = R.string.edit.toString()
         } else {
             editText.isEnabled = true
             editText.requestFocus()
-            binding.textViewEditOrSave.text = "Save"
+            binding.textViewEditOrSave.text = R.string.save.toString()
         }
     }
 
