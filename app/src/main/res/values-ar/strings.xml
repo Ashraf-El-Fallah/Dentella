@@ -69,5 +69,6 @@
     <string name="chat_now">المحادثة الأن</string>
     <string name="available_dates">المواعيد المتاحة</string>
     <string name="about">معلومات حول الطبيب</string>
+    <string name="speciality">التخصص</string>
 
 </resources>

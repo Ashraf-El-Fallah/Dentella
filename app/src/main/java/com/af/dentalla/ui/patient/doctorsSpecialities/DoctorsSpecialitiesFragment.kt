@@ -47,11 +47,11 @@ class DoctorsSpecialitiesFragment : Fragment() {
         doctorsSpecialityViewModel.specialityCards.observe(viewLifecycleOwner) {
             when (it) {
                 ScreenState.Loading -> {
-                    binding.progress.visible()
+                    binding.progress.progress.visible()
                 }
 
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
 //                    binding.speciality.text=Speciality.
                     binding.rvDoctorsSpecialities.apply {
                         adapter = DoctorsCardsAdapter { doctorCardId ->
@@ -63,7 +63,7 @@ class DoctorsSpecialitiesFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                 }
             }
         }

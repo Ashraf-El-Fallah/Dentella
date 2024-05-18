@@ -47,13 +47,13 @@ class DoctorProfileFragment : Fragment() {
     private fun setProfileDetail() {
         doctorProfileViewModel.doctorProfile.observe(viewLifecycleOwner) { profileState ->
             when (profileState) {
-                is ScreenState.Loading -> binding.progress.visible()
+                is ScreenState.Loading -> binding.progress.progress.visible()
                 is ScreenState.Error -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                 }
 
                 is ScreenState.Success -> {
-                    binding.progress.gone()
+                    binding.progress.progress.gone()
                     val profile = profileState.uiData
                     binding.apply {
                         doctorImg.loadImage(profile.doctorPhoto)
