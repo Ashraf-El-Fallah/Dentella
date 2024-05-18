@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.DoctorPassword
 import com.af.dentalla.databinding.FragmentUpdatePasswordBinding
 import com.af.dentalla.ui.base.BaseFragment
@@ -43,7 +44,7 @@ class UpdatePasswordFragment : BaseFragment() {
             if (!isPasswordValid(newPassword) || (newPassword == oldPassword)) {
                 Snackbar.make(
                     requireView(),
-                    "Error when changing password .. your new password is less than 8 digits or you add the same password in new password field",
+                    R.string.error_when_changing_password,
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
@@ -65,7 +66,7 @@ class UpdatePasswordFragment : BaseFragment() {
                     binding.progressBar.root.gone()
                     Toast.makeText(
                         requireContext(),
-                        "Error when changing password .. please add your old password correctly",
+                        R.string.error_when_changing_old_password,
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -74,7 +75,7 @@ class UpdatePasswordFragment : BaseFragment() {
                     binding.progressBar.root.gone()
                     Toast.makeText(
                         requireContext(),
-                        "You have changed password successfully",
+                        R.string.change_password_successfully,
                         Toast.LENGTH_LONG
                     ).show()
                 }

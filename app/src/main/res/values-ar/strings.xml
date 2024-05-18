@@ -25,6 +25,7 @@
     <string name="confirmation_code">تأكيد الكود</string>
     <string name="change_password">تغيير كلمة المرور</string>
     <string name="new_password">كلمة المرور الجديدة</string>
+    <string name="update_password">تحديث كلمة المرور</string>
     <string name="confirm_password">تأكيد كلمة المرور</string>
     <string name="done">تم</string>
     <string name="hello">مرحباً</string>
@@ -86,5 +87,9 @@
     <string name="write_university">اكتب اسم الجامعة</string>
     <string name="about_setting">معلومات عنك</string>
     <string name="write_about">اكتب بعض المعلومات عنك</string>
+    <string name="error_when_changing_password">خطأ عند تغيير كلمة المرور.. قد تكون كلمة المرور الجديدة أقل من 8 أرقام أو تساوي نفس كلمة المرور القديمة </string>
+    <string name="error_when_changing_old_password">خطأ عند تغيير كلمة المرور .. تأكد من صحة كلمة المرور القديمة</string>
+    <string name="change_password_successfully">تم تغيير كلمة المرور بنجاح</string>
+    <string name="old_password">كلمة المرور القديمة</string>
 
 </resources>

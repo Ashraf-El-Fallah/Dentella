@@ -50,8 +50,7 @@
     <string name="chat_now">chat now</string>
     <string name="available_dates">Available Dates</string>
     <string name="about">About</string>
-    <string name="month">month</string>
-    <string name="update">Update your password</string>
+    <string name="update_password">Update your password</string>
     <string name="article">Articles</string>
     <string name="please_add_user_name_or_password">Please add user name or password</string>
     <string name="welcome">Welcome</string>
@@ -89,5 +88,9 @@
     <string name="write_university">Write your current university</string>
     <string name="write_phone_number">Write your phone number</string>
     <string name="write_email">Write your email</string>
+    <string name="error_when_changing_password">Error when changing password .. your new password is less than 8 digits or you add the same password in new password field</string>
+    <string name="error_when_changing_old_password">Error when changing password .. please add your old password correctly </string>
+    <string name="change_password_successfully">You have changed password successfully</string>
+    <string name="old_password">Old Password</string>
 
 </resources>
