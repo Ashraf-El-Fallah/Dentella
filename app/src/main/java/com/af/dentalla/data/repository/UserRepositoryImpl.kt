@@ -352,7 +352,6 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 service.logoutFromAccount()
-                dataStorePreferencesService.saveToken(null)
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))

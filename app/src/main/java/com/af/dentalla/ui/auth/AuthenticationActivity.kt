@@ -10,6 +10,7 @@ import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.ActivityAuthenticationBinding
 import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.auth.login.LoginFragment
+import com.af.dentalla.ui.selectUserType.SelectUserTypeScreenFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,7 +27,7 @@ class AuthenticationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        checkLoginStatus()
+//        checkLoginStatus()
     }
 
     private fun checkLoginStatus() {
@@ -35,7 +36,7 @@ class AuthenticationActivity : AppCompatActivity() {
             if (token.isNullOrEmpty()) {
                 // No token found, user needs to log in
                 supportFragmentManager.commit {
-                    replace(R.id.nav_host_auth_fragment, LoginFragment())
+                    replace(R.id.nav_host_auth_fragment, SelectUserTypeScreenFragment())
                 }
             } else {
                 // Token found, navigate to HomeActivity

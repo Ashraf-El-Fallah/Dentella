@@ -59,13 +59,15 @@ class SettingFragment : Fragment() {
                 }
 
                 is ScreenState.Success -> {
-//                    val intent =
-//                        Intent(this@SettingFragment.requireContext(), AuthenticationActivity::class.java)
-//                    startActivity(intent)
                     lifecycleScope.launch {
-                        dataStorePreferencesService.saveToken(null)
+                        dataStorePreferencesService.saveToken(token = null)
                     }
-                    navigateToAuthenticationActivity()
+                    val intent =
+                        Intent(
+                            requireContext(),
+                            AuthenticationActivity::class.java
+                        )
+                    startActivity(intent)
                 }
 
                 is ScreenState.Error -> {
