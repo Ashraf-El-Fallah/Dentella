@@ -100,5 +100,9 @@
     <string name="logout">Logout</string>
     <string name="home">Home</string>
     <string name="articles">Articles</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="want_to_logout">Are you sure you want to logout?</string>
     <string name="chat_ai" translatable="false">Chat Ai</string>
+
 </resources>

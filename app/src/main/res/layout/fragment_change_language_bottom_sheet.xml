@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="181dp"
     android:background="@drawable/bottom_sheet_style"
-    tools:context=".ui.setting.ChangeLanguageBottomSheetFragment">
+    tools:context=".ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_change_language_arabic"

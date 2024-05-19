@@ -33,6 +33,12 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
         }.firstOrNull()
     }
 
+    override suspend fun clearToken() {
+        prefDataStore.edit { preferences ->
+            preferences.remove(stringPreferencesKey(TOKEN_KEY))
+        }
+    }
+
     companion object {
         private const val TOKEN_KEY = "token"
         private const val PREFERENCES_FILE_NAME = "app"

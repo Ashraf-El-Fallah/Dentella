@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.setting
+package com.af.dentalla.ui.setting.changeLanguage
 
 import android.os.Bundle
 import android.view.LayoutInflater

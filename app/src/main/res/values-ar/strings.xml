@@ -99,4 +99,7 @@
     <string name="logout">الخروج</string>
     <string name="home">الشاشة الرئيسية</string>
     <string name="articles">المقالات</string>
+    <string name="want_to_logout">هل تريد تسجيل خروج من حسابك الشخصي؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
 </resources>

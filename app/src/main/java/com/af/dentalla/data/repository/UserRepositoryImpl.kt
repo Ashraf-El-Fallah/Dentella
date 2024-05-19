@@ -1,10 +1,7 @@
 package com.af.dentalla.data.repository
 
-import android.content.ContentResolver
 import android.net.Uri
-import android.provider.OpenableColumns
 import android.util.Log
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
@@ -27,9 +24,7 @@ import kotlinx.coroutines.flow.flow
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
-import java.io.FileOutputStream
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -280,13 +275,9 @@ class UserRepositoryImpl @Inject constructor(
 
     private fun uriToMultipart(uri: Uri?): MultipartBody.Part? {
         return try {
-            // Convert Uri to File object
             val file = File(uri?.path!!)
-            // Determine the MIME type from the file extension
             val mimeType = getMimeType(file)
-            // Create RequestBody instance from file
             val requestFile: RequestBody = RequestBody.create(mimeType.toMediaTypeOrNull(), file)
-            // Create MultipartBody.Part using file request-body, file name and part name
             MultipartBody.Part.createFormData("file", file.name, requestFile)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -352,6 +343,7 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 service.logoutFromAccount()
+                dataStorePreferencesService.clearToken()
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
@@ -359,11 +351,8 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-
     private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
     }
-
-
 }
 

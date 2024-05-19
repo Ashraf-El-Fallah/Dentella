@@ -465,3 +465,9 @@ h
 Papp/src/main/java/com/af/dentalla/domain/usecase/authentication/LogoutUseCase.kt,5\d\5df95a3f62a4ea329613e689049784775cc8e670
 p
 @app/src/main/java/com/af/dentalla/ui/setting/SettingViewModel.kt,b\f\bff90434684a21c09807de91fb962b6f5108ee63
+Ç
+Rapp/src/main/java/com/af/dentalla/domain/usecase/authentication/GetTokenUseCase.kt,f\0\f02d37bfe554d751d4931834b39b9276d876d9ff
+t
+Dapp/src/main/java/com/af/dentalla/ui/auth/AuthenticationViewModel.kt,6\3\63c70d2ae326b9485f1cac218a757f1c0f66daa3
+ê
+`app/src/main/java/com/af/dentalla/ui/setting/changeLanguage/ChangeLanguageBottomSheetFragment.kt,2\e\2eb739ca56a17154701303c80ba80f8b9d940580

@@ -8,16 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.R
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSettingBinding
-import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.auth.AuthenticationActivity
-import com.af.dentalla.ui.setting.updateProfile.updatePassword.UpdatePasswordViewModel
+import com.af.dentalla.ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment
 import com.af.dentalla.utils.ScreenState
+import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -42,7 +42,6 @@ class SettingFragment : Fragment() {
         showBottomSheet()
         showLogoutDialog()
         logoutObserver()
-
     }
 
     private fun showLogoutDialog() {
@@ -55,13 +54,11 @@ class SettingFragment : Fragment() {
         settingViewModel.logoutState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ScreenState.Loading -> {
-                    // Show loading indicator
+                    binding.progress.progress.visible()
                 }
 
                 is ScreenState.Success -> {
-                    lifecycleScope.launch {
-                        dataStorePreferencesService.saveToken(token = null)
-                    }
+                    binding.progress.progress.gone()
                     val intent =
                         Intent(
                             requireContext(),
@@ -71,30 +68,21 @@ class SettingFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    // Handle logout error
+                    binding.progress.progress.gone()
                 }
             }
         }
     }
 
-    private fun navigateToAuthenticationActivity() {
-        val intent = Intent(requireContext(), AuthenticationActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
-        requireActivity().finish()
-    }
-
-
     private fun showLogoutConfirmationDialog() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
-        alertDialogBuilder.setMessage("Are you sure you want to logout?")
+        alertDialogBuilder.setMessage(R.string.want_to_logout)
             .setCancelable(false)
-            .setPositiveButton("Yes") { dialog, id ->
-                // Logout and clear token
+            .setPositiveButton(R.string.yes) { dialog, id ->
                 settingViewModel.logout()
                 dialog.dismiss()
             }
-            .setNegativeButton("No") { dialog, id ->
+            .setNegativeButton(R.string.no) { dialog, id ->
                 dialog.dismiss()
             }
         val alertDialog = alertDialogBuilder.create()

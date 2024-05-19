@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.SettingFragment">
 
+    <include
+        android:id="@+id/progress"
+        layout="@layout/base_progress_bar" />
+
     <TextView
         android:id="@+id/setting"
         android:layout_width="wrap_content"
