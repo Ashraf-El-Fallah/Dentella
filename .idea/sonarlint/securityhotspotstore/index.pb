@@ -361,8 +361,6 @@ p
 Lapp/src/main/java/com/af/dentalla/ui/doctor/homeScreen/DoctorHomeFragment.kt,e\2\e2259261e10eeaa1f1febe2bfbcf8a32ab48d899
 o
 ?app/src/main/java/com/af/dentalla/ui/setting/SettingFragment.kt,2\2\22959535f3562ac00f6fe91662058583af97c4de
-Å
-Qapp/src/main/java/com/af/dentalla/ui/setting/ChangeLanguageBottomSheetFragment.kt,3\1\31f7adf2f397522dded427370617fb4b7059a018
 q
 Aapp/src/main/java/com/af/dentalla/ui/articles/AddArticleDialog.kt,6\3\63183e5b02c688f37b4728a0d10eaf3da5b84c98
 x

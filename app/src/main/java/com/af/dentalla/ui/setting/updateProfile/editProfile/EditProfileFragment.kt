@@ -71,6 +71,7 @@ class EditProfileFragment : Fragment() {
         galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let {
                 imageUri = it
+                binding.imgViewProfile.setImageURI(it)
             }
         }
     }
@@ -79,24 +80,27 @@ class EditProfileFragment : Fragment() {
         galleryLauncher.launch("image/*")
     }
 
-//    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
-//        try {
-//            val contentResolver: ContentResolver = context?.contentResolver ?: return null
-//            val mimeType = contentResolver.getType(uri) ?: return null
-//
-//            val inputStream = contentResolver.openInputStream(uri) ?: return null
-//            val file = File(requireContext().cacheDir, "temp_file")
-//
-//            FileOutputStream(file).use { outputStream ->
-//                inputStream.copyTo(outputStream)
-//            }
-//            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
-//            return MultipartBody.Part.createFormData("file", file.name, requestFile)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            return null
-//        }
-//    }
+    private fun uriToFile(uri: Uri): File? {
+        return try {
+            val contentResolver: ContentResolver = requireContext().contentResolver
+            val inputStream = contentResolver.openInputStream(uri) ?: return null
+            val tempFile = File.createTempFile("image", ".jpg", requireContext().cacheDir)
+            FileOutputStream(tempFile).use { outputStream ->
+                inputStream.copyTo(outputStream)
+            }
+            tempFile
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    private fun fileToMultipartBody(file: File): MultipartBody.Part {
+        val requestFile: RequestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+        return MultipartBody.Part.createFormData("photo", file.name, requestFile)
+    }
+
+
 
 
     private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
@@ -145,8 +149,12 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun handleUpdatedDoctorInformation() {
-        binding.imgViewProfile.setImageURI(imageUri)
+//        binding.imgViewProfile.setImageURI(imageUri)
 //        val photoPart = imageUri?.let { uriToMultipart(it) }
+        val photoPart = imageUri?.let { uri ->
+            val file = uriToFile(uri)
+            file?.let { fileToMultipartBody(it) }
+        }
         val updatedDoctorProfileInformation = DoctorProfileInformation(
             userName = getTextOrHint(binding.editTextName),
             email = getTextOrHint(binding.editTextEmail),
@@ -154,7 +162,7 @@ class EditProfileFragment : Fragment() {
             bio = getTextOrHint(binding.editTextBio),
             currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
             currentLevel = "intermediate",
-            photo = imageUri
+            photo = photoPart
 //          userName = "Ashraf",
 //          email = "Ashraf@gmail.com",
 //          phoneNumber = "01224217645",
@@ -278,5 +286,24 @@ class EditProfileFragment : Fragment() {
 //        updateEditTextHint(binding.editTextMobileNumber)
 //        updateEditTextHint(binding.editTextCurrentUniversity)
 //        updateEditTextHint(binding.editTextBio)
+//    }
+
+    //    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
+//        try {
+//            val contentResolver: ContentResolver = context?.contentResolver ?: return null
+//            val mimeType = contentResolver.getType(uri) ?: return null
+//
+//            val inputStream = contentResolver.openInputStream(uri) ?: return null
+//            val file = File(requireContext().cacheDir, "temp_file")
+//
+//            FileOutputStream(file).use { outputStream ->
+//                inputStream.copyTo(outputStream)
+//            }
+//            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
+//            return MultipartBody.Part.createFormData("file", file.name, requestFile)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//            return null
+//        }
 //    }
 }

@@ -264,7 +264,7 @@ class UserRepositoryImpl @Inject constructor(
                     bio = createPartFromString(doctorProfileInformation.bio),
                     currentLevel = createPartFromString(doctorProfileInformation.currentLevel),
                     currentUniversity = createPartFromString(doctorProfileInformation.currentUniversity),
-                    photo = uriToMultipart(doctorProfileInformation.photo)
+                    photo = doctorProfileInformation.photo
                 )
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {
@@ -272,6 +272,7 @@ class UserRepositoryImpl @Inject constructor(
             }
         }
     }
+
 
     private fun uriToMultipart(uri: Uri?): MultipartBody.Part? {
         return try {
