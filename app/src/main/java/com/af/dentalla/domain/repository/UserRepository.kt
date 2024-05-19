@@ -41,4 +41,6 @@ interface UserRepository {
     fun updateDoctorProfileInformation(doctorProfileInformation: DoctorProfileInformation): Flow<NetWorkResponseState<Unit>>
 
     fun changeDoctorPassword(doctorPassword: DoctorPassword): Flow<NetWorkResponseState<Unit>>
+
+    fun logout(): Flow<NetWorkResponseState<Unit>>
 }

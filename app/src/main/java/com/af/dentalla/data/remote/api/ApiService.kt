@@ -82,7 +82,7 @@ interface ApiService {
     @GET("Doctor/ReturnProfile")
     suspend fun returnProfileInformation(): ProfileInformationDto
 
-//    @PUT("Doctor/UpdateProfile")
+    //    @PUT("Doctor/UpdateProfile")
 //    suspend fun updateDoctorProfile(
 //        @Body doctorProfileInformation: DoctorProfileInformation
 //    )
@@ -102,4 +102,7 @@ interface ApiService {
     suspend fun changeDoctorPassword(
         @Body doctorPassword: DoctorPassword
     )
+
+    @POST("Account/logout")
+    suspend fun logoutFromAccount()
 }

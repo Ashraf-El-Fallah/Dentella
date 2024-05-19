@@ -347,6 +347,19 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun logout(): Flow<NetWorkResponseState<Unit>> {
+        return flow {
+            emit(NetWorkResponseState.Loading)
+            try {
+                service.logoutFromAccount()
+                dataStorePreferencesService.saveToken(null)
+                emit(NetWorkResponseState.Success(Unit))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(e))
+            }
+        }
+    }
+
 
     private suspend fun saveToken(token: String?) {
         dataStorePreferencesService.saveToken(token)
