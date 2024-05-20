@@ -39,9 +39,24 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
         }
     }
 
+    override suspend fun saveLanguage(language: String) {
+        prefDataStore.edit { preferences ->
+            preferences[stringPreferencesKey(LANGUAGE_KEY)] = language
+        }
+    }
+
+    override suspend fun getLanguage(): String? {
+        return prefDataStore.data.map { preferences ->
+            preferences[stringPreferencesKey(LANGUAGE_KEY)]
+        }.firstOrNull()
+    }
+
+
     companion object {
         private const val TOKEN_KEY = "token"
         private const val PREFERENCES_FILE_NAME = "app"
+        private const val LANGUAGE_KEY = "language"
+
     }
 }
 

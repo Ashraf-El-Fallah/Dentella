@@ -3,18 +3,14 @@ package com.af.dentalla.ui.auth
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.ActivityAuthenticationBinding
+import com.af.dentalla.ui.BaseActivity
 import com.af.dentalla.ui.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class AuthenticationActivity : AppCompatActivity() {
-    @Inject
-    lateinit var dataStorePreferencesService: DataStorePreferencesService
+class AuthenticationActivity : BaseActivity() {
     private lateinit var binding: ActivityAuthenticationBinding
     private val authViewModel: AuthenticationViewModel by viewModels()
 

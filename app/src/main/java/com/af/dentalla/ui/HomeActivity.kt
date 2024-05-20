@@ -1,6 +1,5 @@
 package com.af.dentalla.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
@@ -19,7 +18,7 @@ import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
     private val accountType = AccountManager.accountType
