@@ -20,7 +20,6 @@
         <activity
             android:name=".ui.BaseActivity"
             android:exported="false" />
-        <!-- android:networkSecurityConfig="@xml/network_security_config" -->
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false" />

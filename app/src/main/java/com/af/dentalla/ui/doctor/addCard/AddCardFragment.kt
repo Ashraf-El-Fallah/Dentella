@@ -90,7 +90,7 @@ class AddCardFragment : Fragment() {
                     binding.progressBar.root.gone()
                     Toast.makeText(
                         requireContext(),
-                        addCardState.message,
+                        R.string.want_to_login_again,
                         Toast.LENGTH_LONG
                     ).show()
                 }

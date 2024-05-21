@@ -102,4 +102,6 @@
     <string name="want_to_logout">هل تريد تسجيل خروج من حسابك الشخصي؟</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
+    <string name="want_to_login_again">انتهت مدة تسجيل الدخول .. قم بتسجيل دخول مرةأخرى</string>
+
 </resources>

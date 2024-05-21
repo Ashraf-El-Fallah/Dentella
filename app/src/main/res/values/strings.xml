@@ -103,6 +103,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="want_to_logout">Are you sure you want to logout?</string>
+    <string name="want_to_login_again">Your session is expired , please login again</string>
     <string name="chat_ai" translatable="false">Chat Ai</string>
 
 </resources>
