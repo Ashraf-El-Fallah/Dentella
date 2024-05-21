@@ -76,9 +76,14 @@ class PatientHomeFragment : Fragment() {
                 is ScreenState.Success -> {
                     binding.progress.progress.gone()
                     binding.rvDoctors.apply {
-                        adapter = DoctorsCardsAdapter { doctorCardId ->
-                            navigateToDoctorProfile(doctorCardId)
-                        }.apply { submitList(it.uiData) }
+                        adapter = DoctorsCardsAdapter(
+                            onItemClick = { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            },
+                            onInfoClick = { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            }
+                        ).apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
@@ -94,12 +99,12 @@ class PatientHomeFragment : Fragment() {
 
     private fun setUpSpecialitiesRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.cleaning, 0, R.string.cleaning.toString()),
-            Speciality(R.drawable.dental_filling, 1, R.string.filling.toString()),
-            Speciality(R.drawable.crown, 2, R.string.crowns.toString()),
-            Speciality(R.drawable.dental_implant, 3, R.string.implants.toString()),
-            Speciality(R.drawable.extraction, 4, R.string.extraction.toString()),
-            Speciality(R.drawable.denture, 5, R.string.dentures.toString()),
+            Speciality(R.drawable.cleaning, 0, getString(R.string.cleaning)),
+            Speciality(R.drawable.dental_filling, 1, getString(R.string.filling)),
+            Speciality(R.drawable.crown, 2, getString(R.string.crowns)),
+            Speciality(R.drawable.dental_implant, 3, getString(R.string.implants)),
+            Speciality(R.drawable.extraction, 4, getString(R.string.extraction)),
+            Speciality(R.drawable.denture, 5, getString(R.string.dentures)),
         )
 
         val adapter = SpecialtyAdapter(specialtiesList) { specialityId ->

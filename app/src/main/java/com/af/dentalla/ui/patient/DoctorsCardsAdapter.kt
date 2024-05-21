@@ -10,7 +10,9 @@ import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.utils.loadImage
 
 class DoctorsCardsAdapter(
-    private val onItemClick: (Int) -> Unit
+    private val onItemClick: (Int) -> Unit,
+    private val onInfoClick: (Int) -> Unit
+
 ) : ListAdapter<CardsEntity, DoctorsCardsAdapter.AllDoctorsCardsViewHolder>(CardDiffCallback()) {
 
     inner class AllDoctorsCardsViewHolder(private val binding: ItemDoctorBinding) :
@@ -21,11 +23,14 @@ class DoctorsCardsAdapter(
                 textViewDoctorName.text = card.doctorName
                 textViewCity.text = card.currentUniversity
                 textViewPhoneNumber.text = card.phoneNumber
+                buttonSeeInfo.setOnClickListener {
+                    onInfoClick(card.cardId)
+                }
             }
-
             binding.root.setOnClickListener {
                 onItemClick(card.cardId)
             }
+
         }
     }
 

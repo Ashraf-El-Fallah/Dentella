@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_view_city" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_book_now"
+            android:id="@+id/button_see_info"
             android:layout_width="90dp"
             android:layout_height="33dp"
             android:layout_marginTop="49dp"
