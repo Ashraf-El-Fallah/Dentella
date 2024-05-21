@@ -8,6 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 
+
+// TODO: you can make UserRepositoryModule singleton if you use it through the whole app
 @Module
 @InstallIn(ViewModelComponent::class)
 abstract class UserRepositoryModule {

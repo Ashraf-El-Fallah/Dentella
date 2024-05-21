@@ -32,7 +32,12 @@ class AuthenticationActivity : BaseActivity() {
     }
 
     private fun navigateToHome() {
-        startActivity(Intent(this, HomeActivity::class.java))
-        finish()
+        // TODO: NOt a good practice you can use a flags instead.. search why to learn!
+        startActivity(Intent(this, HomeActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        })
+
+       /* startActivity(Intent(this, HomeActivity::class.java))
+        finish()*/
     }
 }

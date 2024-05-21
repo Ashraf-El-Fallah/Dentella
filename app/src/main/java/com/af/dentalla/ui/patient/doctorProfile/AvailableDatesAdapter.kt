@@ -37,6 +37,7 @@ class AvailableDatesAdapter(private val dates: List<String?>) :
     }
 
 
+    // TODO: you can make it helper method
     private fun parseDate(input: String?): Triple<String, String, String> {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val date = inputFormat.parse(input)

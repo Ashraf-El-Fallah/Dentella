@@ -17,6 +17,8 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //TODO: Do we need every time to change the local?
+        // try to find an alternative way and remove BaseActivity if not necessary
         lifecycleScope.launch {
             val language = dataStorePreferencesService.getLanguage() ?: "en"
             LocaleUtils.setLocale(this@BaseActivity, language)

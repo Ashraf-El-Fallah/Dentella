@@ -6,6 +6,7 @@ import com.af.dentalla.R
 import com.af.dentalla.utils.ValidationUtils
 import dagger.hilt.android.AndroidEntryPoint
 
+// TODO : Do we need really this class ? (Note use BaseXYZ is anti pattern)
 @AndroidEntryPoint
 abstract class BaseFragment : Fragment() {
 

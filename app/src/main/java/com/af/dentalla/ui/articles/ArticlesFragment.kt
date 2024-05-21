@@ -20,6 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: ArticlesViewModel by viewModels()
+
+    // TODO: make it lazy
     private val accountType = AccountManager.accountType
 
 
@@ -63,13 +65,19 @@ class ArticlesFragment : Fragment() {
                     binding.progress.root.visible()
                 }
 
-                is ScreenState.Success -> {
+                // TODO: you can combine those together
+                is ScreenState.Success ,
+                is ScreenState.Error -> {
+                    binding.progress.root.gone()
+                }
+
+                /*is ScreenState.Success -> {
                     binding.progress.root.gone()
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
-                }
+                }*/
             }
         }
     }

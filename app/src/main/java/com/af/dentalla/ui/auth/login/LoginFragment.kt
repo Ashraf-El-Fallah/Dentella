@@ -108,6 +108,7 @@ class LoginFragment : BaseFragment() {
     }
 }
 
+// TODO: remove unused code
 
 //    private fun loginLogic() {
 //        val userName = binding.etUserName.text.toString()

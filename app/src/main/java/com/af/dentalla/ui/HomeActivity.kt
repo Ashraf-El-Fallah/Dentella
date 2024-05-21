@@ -21,6 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity : BaseActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
+
+    // TODO: you can make this lazy
     private val accountType = AccountManager.accountType
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

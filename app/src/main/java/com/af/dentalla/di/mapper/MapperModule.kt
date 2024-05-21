@@ -26,6 +26,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 
+// TODO: you may not need this, just use Extensions fun to apply mapping
 @Module
 @InstallIn(ViewModelComponent::class)
 abstract class MapperModule {

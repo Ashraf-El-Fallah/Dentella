@@ -72,6 +72,7 @@ class DoctorProfileFragment : Fragment() {
                             ).apply {
                                 submitList(availableDates)
                             }
+                            // TODO: HINT -> you can add layoutManager through XML also (but some resources says that using code is better)
                             layoutManager =
                                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                         }

@@ -15,6 +15,7 @@ import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
 import kotlinx.coroutines.flow.Flow
 
+// TODO: this class break the S (single responsibility principle)
 interface UserRepository {
     fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>>
     fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>>
@@ -29,6 +30,9 @@ interface UserRepository {
 
     fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>>
 
+    //TODO: Hint -> You can create a Repo for Articles and add
+    // getAllPosts() and addPost() there
+    // same for other methods
     fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>>
 
     fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>>

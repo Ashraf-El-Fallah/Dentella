@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-
+// TODO: you can move BASE_URL to the gradle or a different kotlin file
 private const val BASE_URL = "https://dentella.somee.com/api/"
 
 //another base url ..
@@ -24,6 +24,7 @@ private const val BASE_URL = "https://dentella.somee.com/api/"
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -36,7 +37,6 @@ object NetworkModule {
         return httpLoggingInterceptor
     }
 
-
     @Provides
     @Singleton
     fun provideOkHttpClient(
@@ -44,6 +44,7 @@ object NetworkModule {
         authInterceptor: AuthInterceptor
     ): OkHttpClient {
 
+        // TODO: use provideLoggingInterceptor() instead of val logging = HttpLoggingInterceptor()
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -57,12 +58,18 @@ object NetworkModule {
             .build()
     }
 
+
+    /*
+TODO: use kotlinx.serialization or Moshi (I think it's better than gson)
+TODO: See (https://medium.com/@prakash.ayinala7/getting-started-with-room-database-in-kotlin-jetpack-compose-mvvm-dagger-hilt-3bdec10b70ed)
+ */
     @Singleton
     @Provides
     fun provideGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
+    // TODO: remove unused code
     @Singleton
     @Provides
     fun provideGson(): Gson {
@@ -89,6 +96,7 @@ object NetworkModule {
     }
 
 }
+// TODO: remove unused code
 
 //    @Singleton
 //    @Provides

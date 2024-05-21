@@ -27,6 +27,8 @@ import okhttp3.RequestBody
 import java.io.File
 import javax.inject.Inject
 
+//TODO: this class break the S (single responsibility principle)
+// fix it and move the unneeded method to different class
 class UserRepositoryImpl @Inject constructor(
     private val service: ApiService,
     private val dataStorePreferencesService: DataStorePreferencesService

@@ -23,6 +23,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingFragment : Fragment() {
+    // TODO: remove unused dataStorePreferencesService
     @Inject
     lateinit var dataStorePreferencesService: DataStorePreferencesService
     private lateinit var binding: FragmentSettingBinding

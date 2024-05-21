@@ -30,6 +30,10 @@ class AiChatFragment : Fragment() {
     }
 
     private fun backToSplashAi() {
+        //TODO: Do it for all project
+        // if you clicked on backToSplash multiple time it will navigate many time
+        // to prevent such an error try to add a delay
+        // see: https://stackoverflow.com/a/56462539/11260654
         binding.backToSplash.setOnClickListener {
            findNavController().navigate(AiChatFragmentDirections.actionAiChatFragmentToFirstSplashAiFragment())
         }
