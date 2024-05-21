@@ -120,7 +120,7 @@ class AddCardFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            R.string.cannot_send_data,
+                            "${addCardState.message} .. ${R.string.cannot_send_data}",
                             Toast.LENGTH_LONG
                         ).show()
                     }
