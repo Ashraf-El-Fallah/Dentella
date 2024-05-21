@@ -427,8 +427,6 @@ f
 6app/src/main/java/com/af/dentalla/utils/ScreenState.kt,e\4\e487a1df3ef97e3b6d2ce9027d12c7e3726e0e60
 i
 9app/src/main/java/com/af/dentalla/utils/GlideExtension.kt,8\d\8d1246d3f65a5d7f8aad3ece59d06b7a74bc0b9d
-l
-<app/src/main/java/com/af/dentalla/utils/GetSpecialityName.kt,5\4\54f166d5a1efee769116cfbf672e1c0b24519862
 
 ]app/src/main/java/com/af/dentalla/ui/setting/updateProfile/editProfile/EditProfileFragment.kt,4\3\43ac0a5d1a34faae9d8eea8e817258ec3a2ae5ce
 Ž
@@ -475,3 +473,5 @@ k
 ;app/src/main/java/com/af/dentalla/utils/SetLanguageLocal.kt,6\9\69a09445b8bd193eaeae0cf9efaea7095b352b6d
 a
 1app/src/main/java/com/af/dentalla/di/AppModule.kt,5\1\51d16c5c10d7289c962658c8070ebdb77e7bce32
+h
+8app/src/main/java/com/af/dentalla/utils/SpecialtyUtil.kt,e\6\e66af90ca0e737e5d6e0958bb19c4732339468f7

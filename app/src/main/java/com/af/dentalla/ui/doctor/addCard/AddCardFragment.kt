@@ -19,7 +19,7 @@ import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
 import com.af.dentalla.utils.ScreenState
-import com.af.dentalla.utils.getSpecialtyName
+import com.af.dentalla.utils.SpecialtyUtil.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
 import com.google.android.material.snackbar.Snackbar
@@ -91,9 +91,13 @@ class AddCardFragment : Fragment() {
                 SimpleDateFormat("MMMM dd", Locale.getDefault()).format(selectedDate)
             val formattedTimeForUser =
                 SimpleDateFormat("hh:mm a", Locale.getDefault()).format(selectedTime)
+            val toastMessage =
+                "${getString(R.string.your_speciality_is)} ${getSpecialtyName(specialityId)} ${
+                    getString(R.string.your_selected_date_is)
+                } $formattedDateForUser ${getString(R.string.at)} $formattedTimeForUser"
             Snackbar.make(
                 requireView(),
-                "${R.string.your_speciality_is} ${getSpecialtyName(specialityId)} ${R.string.your_selected_date_is} $formattedDateForUser ${R.string.at} $formattedTimeForUser",
+                toastMessage,
                 Snackbar.LENGTH_LONG
             ).show()
             val card = Card(doctorAvailability, specialityId)
@@ -120,7 +124,7 @@ class AddCardFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            "${addCardState.message} .. ${R.string.cannot_send_data}",
+                            R.string.cannot_send_data,
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -176,9 +180,9 @@ class AddCardFragment : Fragment() {
 
     private fun setUpAddSpecialityRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.add_cleaning, 0, "${R.string.cleaning}"),
-            Speciality(R.drawable.add_dental_filling, 1, "${R.string.filling}"),
-            Speciality(R.drawable.add_dental_crown, 4, "${R.string.extraction}"),
+            Speciality(R.drawable.add_cleaning, 0, getString(R.string.cleaning)),
+            Speciality(R.drawable.add_dental_filling, 1, getString(R.string.filling)),
+            Speciality(R.drawable.add_dental_crown, 4, getString(R.string.extraction)),
 //            Speciality(R.drawable.dental_implant, 3, "Implants"),
 //            Speciality(R.drawable.add_tooth_extraction, 2, "Crowns"),
 //            Speciality(R.drawable.denture, 5, "Orthodontic"),

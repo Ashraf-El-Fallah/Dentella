@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
 import com.af.dentalla.utils.ScreenState
-import com.af.dentalla.utils.getSpecialtyName
+import com.af.dentalla.utils.SpecialtyUtil.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.visible
