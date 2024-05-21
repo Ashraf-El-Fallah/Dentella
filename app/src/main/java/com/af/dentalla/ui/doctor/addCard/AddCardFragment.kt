@@ -111,12 +111,19 @@ class AddCardFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.root.gone()
-                    Toast.makeText(
-                        requireContext(),
-
-                        R.string.want_to_login_again,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    if (addCardState.statusCode == 401) {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            addCardState.message ?: "An error occurred",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
 
                 is ScreenState.Success -> {
