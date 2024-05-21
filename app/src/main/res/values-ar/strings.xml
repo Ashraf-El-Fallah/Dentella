@@ -103,5 +103,6 @@
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="want_to_login_again">انتهت مدة تسجيل الدخول .. قم بتسجيل دخول مرةأخرى</string>
+    <string name="cannot_send_data">حدث خطأ ما أثناء إرسال البيانات</string>
 
 </resources>
