@@ -470,8 +470,8 @@ Dapp/src/main/java/com/af/dentalla/ui/auth/AuthenticationViewModel.kt,6\3\63c70
 ê
 `app/src/main/java/com/af/dentalla/ui/setting/changeLanguage/ChangeLanguageBottomSheetFragment.kt,2\e\2eb739ca56a17154701303c80ba80f8b9d940580
 d
-4app/src/main/java/com/af/dentalla/ui/MainActivity.kt,5\9\59291171a95a6817fe9872afdfe35194a4c1f3af
-d
 4app/src/main/java/com/af/dentalla/ui/BaseActivity.kt,d\a\dadcaa6d50cf536ebb182adc678e28e9f5268588
 k
 ;app/src/main/java/com/af/dentalla/utils/SetLanguageLocal.kt,6\9\69a09445b8bd193eaeae0cf9efaea7095b352b6d
+a
+1app/src/main/java/com/af/dentalla/di/AppModule.kt,5\1\51d16c5c10d7289c962658c8070ebdb77e7bce32

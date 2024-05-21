@@ -1,17 +1,22 @@
 package com.af.dentalla.data.remote
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.ui.auth.AuthenticationActivity
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Protocol
-import okhttp3.Request
 import okhttp3.Response
 import okhttp3.ResponseBody
 import javax.inject.Inject
 
-class AuthInterceptor @Inject constructor(private val dataStorePreferencesService: DataStorePreferencesService) :
+class AuthInterceptor @Inject constructor(
+    private val dataStorePreferencesService: DataStorePreferencesService,
+    private val context: Context
+) :
     Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
@@ -24,48 +29,46 @@ class AuthInterceptor @Inject constructor(private val dataStorePreferencesServic
             }
         }
 
-        return if (token != null) {
-            val request = chain.request().newBuilder()
+
+        val request = if (token != null) {
+            chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $token")
                 .build()
-            chain.proceed(request)
         } else {
             Log.e("AuthInterceptor", "Token is null. Proceeding without Authorization header...")
-            chain.proceed(chain.request())
+            chain.request()
         }
 
-//      If token is null, handle the case here (e.g., redirect to login screen)
-        Log.e("AuthInterceptor", "Token is null. Handling the case...")
-        val responseBody = ResponseBody.create(
-            "application/json".toMediaTypeOrNull(),
-            "{\"error\":\"Unauthorized\"}"
-        )
-        return Response.Builder()
-            .request(chain.request())
-            .code(401)
-            .protocol(Protocol.HTTP_1_1)
-            .message("Unauthorized")
-            .body(responseBody)
-            .build()
+        val response = chain.proceed(request)
 
-//        Log.e("AuthInterceptor", "Token is null. Handling the case...")
-//        return Response.Builder()
-//            .code(401)
-//            .message("Unauthorized")
-//            .protocol(Protocol.HTTP_1_1)
-//            .build()
-//    }
+        if (response.code == 401) {
+            runBlocking {
+                dataStorePreferencesService.clearToken()
+            }
+            navigateToAuthenticationActivity()
 
-
+            val responseBody = ResponseBody.create(
+                "application/json".toMediaTypeOrNull(),
+                "{\"error\":\"Unauthorized\"}"
+            )
+            return response.newBuilder()
+                .code(401)
+                .protocol(Protocol.HTTP_1_1)
+                .message("Unauthorized")
+                .body(responseBody)
+                .build()
+        }
+        return response
     }
 
-    private fun isSignUpRequest(request: Request): Boolean {
-        val pathSegments = request.url.encodedPathSegments
-        return pathSegments.containsAll(
-            listOf(
-                "api",
-                "Account"
-            )
-        ) && pathSegments.any { it == "doctor" || it == "patient" } && pathSegments.contains("register")
+    private fun navigateToAuthenticationActivity() {
+        val intent = Intent(context, AuthenticationActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }
+        context.startActivity(intent)
     }
 }
+
+
+
+
