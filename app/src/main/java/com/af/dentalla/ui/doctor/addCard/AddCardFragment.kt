@@ -1,12 +1,15 @@
 package com.af.dentalla.ui.doctor.addCard
 
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +37,11 @@ class AddCardFragment : Fragment() {
     private var selectedTime: Date? = null
     private var specialityId = -1
     private var doctorAvailability: DoctorAvailability? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(updateLocale(context, Locale("en")))
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,6 +62,21 @@ class AddCardFragment : Fragment() {
             createFormatForDateAndTime()
             sendCardInformationToViewModel()
         }
+        setLocaleForCalendarView()
+    }
+
+    private fun updateLocale(context: Context, locale: Locale): ContextWrapper {
+        val config = context.resources.configuration
+        config.setLocale(locale)
+        return ContextWrapper(context.createConfigurationContext(config))
+    }
+
+    private fun setLocaleForCalendarView() {
+        val locale = Locale("en")
+        Locale.setDefault(locale)
+        val config = Configuration(resources.configuration)
+        config.setLocale(locale)
+        binding.calendarView.date = Calendar.getInstance(locale).timeInMillis
     }
 
     private fun sendCardInformationToViewModel() {
@@ -90,6 +113,7 @@ class AddCardFragment : Fragment() {
                     binding.progressBar.root.gone()
                     Toast.makeText(
                         requireContext(),
+
                         R.string.want_to_login_again,
                         Toast.LENGTH_LONG
                     ).show()
