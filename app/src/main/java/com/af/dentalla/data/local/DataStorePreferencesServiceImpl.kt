@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.af.dentalla.utils.AccountManager
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -51,12 +52,23 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
         }.firstOrNull()
     }
 
+    override suspend fun saveAccountType(accountType: AccountManager.AccountType) {
+        prefDataStore.edit { preferences ->
+            preferences[stringPreferencesKey(ACCOUNT_TYPE_KEY)] = accountType.name
+        }
+    }
 
+    override suspend fun getAccountType(): AccountManager.AccountType? {
+        val accountTypeString = prefDataStore.data.map { preferences ->
+            preferences[stringPreferencesKey(ACCOUNT_TYPE_KEY)]
+        }.firstOrNull()
+        return accountTypeString?.let { AccountManager.AccountType.valueOf(it) }
+    }
     companion object {
         private const val TOKEN_KEY = "token"
         private const val PREFERENCES_FILE_NAME = "app"
         private const val LANGUAGE_KEY = "language"
-
+        private const val ACCOUNT_TYPE_KEY = "account_type"
     }
 }
 

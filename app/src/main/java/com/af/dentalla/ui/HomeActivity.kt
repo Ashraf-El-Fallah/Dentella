@@ -2,6 +2,7 @@ package com.af.dentalla.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -16,22 +17,32 @@ import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
-    private val accountType = AccountManager.accountType
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        lifecycleScope.launch {
+            AccountManager.accountType = dataStorePreferencesService.getAccountType()
+            setupUI()
+        }
+
+    }
+
+    private fun setupUI() {
         initBottomNavigation()
         navigateToHomeFragment()
         showDialogDependingOnUserType()
         addPostObserver()
     }
+
     private fun addPostObserver() {
         patientHomeViewModel.addPostState.observe(this) { addPostState ->
             when (addPostState) {
@@ -52,7 +63,7 @@ class HomeActivity : BaseActivity() {
 
     private fun showDialogDependingOnUserType() {
         binding.centerButton.setOnClickListener {
-            if (accountType == AccountManager.AccountType.PATIENT) {
+            if (AccountManager.accountType == AccountManager.AccountType.PATIENT) {
                 AddPostDialog(this,
                     object : AddPostDialogListener {
                         override fun onPostAdded(post: Post) {
@@ -66,11 +77,12 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun navigateToHomeFragment() {
-        val startDestination = if (accountType == AccountManager.AccountType.DOCTOR) {
-            R.id.doctorHomeFragment
-        } else {
-            R.id.patientHomeFragment
-        }
+        val startDestination =
+            if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
+                R.id.doctorHomeFragment
+            } else {
+                R.id.patientHomeFragment
+            }
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
         val navController = navHostFragment.navController

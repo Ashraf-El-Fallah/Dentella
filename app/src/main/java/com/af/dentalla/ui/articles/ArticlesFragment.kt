@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utils.AccountManager
@@ -15,12 +17,16 @@ import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: ArticlesViewModel by viewModels()
-    private val accountType = AccountManager.accountType
+
+    @Inject
+    lateinit var dataStorePreferencesService: DataStorePreferencesService
 
 
     override fun onCreateView(
@@ -28,20 +34,26 @@ class ArticlesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentArticlesBinding.inflate(inflater, container, false)
-        showAddArticlesButtonForDoctors()
+//        showAddArticlesButtonForDoctors()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lifecycleScope.launch {
+            AccountManager.accountType = dataStorePreferencesService.getAccountType()
+            showAddArticlesButtonForDoctors()
+        }
         articlesObserver()
         showDialogToWriteArticle()
         addArticleObserver()
     }
 
     private fun showAddArticlesButtonForDoctors() {
-        if (accountType == AccountManager.AccountType.DOCTOR) {
+        if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
             binding.buttonAddArticle.visible()
+        } else {
+            binding.buttonAddArticle.gone()
         }
     }
 
