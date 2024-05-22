@@ -67,10 +67,14 @@ class SearchFragment : Fragment() {
                 is ScreenState.Success -> {
                     binding.progress.progress.gone()
                     binding.recyclerViewSearchedCards.apply {
-                        adapter =
-                            DoctorsCardsAdapter { doctorCardId ->
+                        adapter = DoctorsCardsAdapter(
+                            onItemClick = { doctorCardId ->
                                 navigateToDoctorProfile(doctorCardId)
-                            }.apply { submitList(it.uiData) }
+                            },
+                            onInfoClick = { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            }
+                        ).apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }

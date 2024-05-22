@@ -54,9 +54,14 @@ class DoctorsSpecialitiesFragment : Fragment() {
                     binding.progress.progress.gone()
 //                    binding.speciality.text=Speciality.
                     binding.rvDoctorsSpecialities.apply {
-                        adapter = DoctorsCardsAdapter { doctorCardId ->
-                            navigateToDoctorProfile(doctorCardId)
-                        }.apply { submitList(it.uiData) }
+                        adapter = DoctorsCardsAdapter(
+                            onItemClick = { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            },
+                            onInfoClick = { doctorCardId ->
+                                navigateToDoctorProfile(doctorCardId)
+                            }
+                        ).apply { submitList(it.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }

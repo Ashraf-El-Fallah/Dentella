@@ -12,7 +12,6 @@ import com.af.dentalla.utils.loadImage
 class DoctorsCardsAdapter(
     private val onItemClick: (Int) -> Unit,
     private val onInfoClick: (Int) -> Unit
-
 ) : ListAdapter<CardsEntity, DoctorsCardsAdapter.AllDoctorsCardsViewHolder>(CardDiffCallback()) {
 
     inner class AllDoctorsCardsViewHolder(private val binding: ItemDoctorBinding) :
