@@ -3,6 +3,7 @@ package com.af.dentalla.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -23,11 +24,15 @@ import kotlinx.coroutines.launch
 class HomeActivity : BaseActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
+    private lateinit var navController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initializeNavController()
 
         lifecycleScope.launch {
             AccountManager.accountType = dataStorePreferencesService.getAccountType()
@@ -45,10 +50,6 @@ class HomeActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-
         if (navController.currentDestination?.id == R.id.doctorHomeFragment ||
             navController.currentDestination?.id == R.id.patientHomeFragment ||
             navController.currentDestination?.id == R.id.articlesFragment ||
@@ -61,6 +62,12 @@ class HomeActivity : BaseActivity() {
         }
     }
 
+    private fun initializeNavController(){
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+    }
+
     private fun navigateToHomeFragment() {
         val startDestination =
             if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
@@ -68,9 +75,7 @@ class HomeActivity : BaseActivity() {
             } else {
                 R.id.patientHomeFragment
             }
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+
         navController.navigate(startDestination)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -120,9 +125,6 @@ class HomeActivity : BaseActivity() {
 
 
     private fun initBottomNavigation() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
