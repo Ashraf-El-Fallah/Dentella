@@ -107,6 +107,7 @@
     <string name="cannot_send_data">An error occurred .. cannot send data to server</string>
     <string name="chat_ai" translatable="false">Chat Ai</string>
     <string name="write_article">Write an article</string>
+    <string name="write_post">Write a post</string>
     <string name="write_here">Write here</string>
     <string name="post">Post</string>
 
