@@ -43,6 +43,48 @@ class HomeActivity : BaseActivity() {
         addPostObserver()
     }
 
+
+    override fun onBackPressed() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        if (navController.currentDestination?.id == R.id.doctorHomeFragment ||
+            navController.currentDestination?.id == R.id.patientHomeFragment ||
+            navController.currentDestination?.id == R.id.articlesFragment ||
+            navController.currentDestination?.id == R.id.settingFragment ||
+            navController.currentDestination?.id == R.id.firstSplashAiFragment
+        ) {
+            finish()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun navigateToHomeFragment() {
+        val startDestination =
+            if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
+                R.id.doctorHomeFragment
+            } else {
+                R.id.patientHomeFragment
+            }
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(startDestination)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.addCardFragment || destination.id == R.id.editProfileFragment || destination.id == R.id.aiChatFragment) {
+                binding.bottomNavigationView.gone()
+                binding.centerButton.gone()
+            } else {
+                binding.bottomNavigationView.visible()
+                binding.centerButton.visible()
+            }
+        }
+    }
+
+
     private fun addPostObserver() {
         patientHomeViewModel.addPostState.observe(this) { addPostState ->
             when (addPostState) {
@@ -76,18 +118,6 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun navigateToHomeFragment() {
-        val startDestination =
-            if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
-                R.id.doctorHomeFragment
-            } else {
-                R.id.patientHomeFragment
-            }
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        navController.navigate(startDestination)
-    }
 
     private fun initBottomNavigation() {
         val navHostFragment =
