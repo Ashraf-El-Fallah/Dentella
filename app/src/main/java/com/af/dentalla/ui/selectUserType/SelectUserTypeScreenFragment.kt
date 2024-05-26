@@ -54,7 +54,7 @@ class SelectUserTypeScreenFragment : Fragment() {
     }
 
     private fun navigateToLogin() {
-        findNavController().navigate(SelectUserTypeScreenFragmentDirections.actionSplashScreenToLoginAccountFragment())
+        findNavController().navigate(SelectUserTypeScreenFragmentDirections.actionSplashScreenToLoginOrSignupFragment())
     }
 
 

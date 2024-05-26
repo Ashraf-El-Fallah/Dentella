@@ -475,3 +475,5 @@ a
 1app/src/main/java/com/af/dentalla/di/AppModule.kt,5\1\51d16c5c10d7289c962658c8070ebdb77e7bce32
 h
 8app/src/main/java/com/af/dentalla/utils/SpecialtyUtil.kt,e\6\e66af90ca0e737e5d6e0958bb19c4732339468f7
+r
+Bapp/src/main/java/com/af/dentalla/ui/auth/LoginOrSignupFragment.kt,0\d\0df93e89ea513d82e2e450756bdbb47c33cc253e

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_splashScreen_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />
+        <action
+            android:id="@+id/action_splashScreen_to_loginOrSignupFragment"
+            app:destination="@id/loginOrSignupFragment" />
     </fragment>
 
     <fragment
@@ -67,6 +70,18 @@
         tools:layout="@layout/fragment_change_password">
         <action
             android:id="@+id/action_changePasswordFragment_to_loginAccountFragment"
+            app:destination="@id/loginAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginOrSignupFragment"
+        android:name="com.af.dentalla.ui.auth.LoginOrSignupFragment"
+        android:label="fragment_login_or_signup"
+        tools:layout="@layout/fragment_login_or_signup" >
+        <action
+            android:id="@+id/action_loginOrSignupFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginOrSignupFragment_to_loginAccountFragment"
             app:destination="@id/loginAccountFragment" />
     </fragment>
 </navigation>
