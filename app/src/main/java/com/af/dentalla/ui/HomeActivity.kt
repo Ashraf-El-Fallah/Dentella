@@ -62,7 +62,7 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun initializeNavController(){
+    private fun initializeNavController() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_home_fragment) as NavHostFragment
         navController = navHostFragment.navController
@@ -79,7 +79,9 @@ class HomeActivity : BaseActivity() {
         navController.navigate(startDestination)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.addCardFragment || destination.id == R.id.editProfileFragment || destination.id == R.id.aiChatFragment) {
+            if (destination.id == R.id.addCardFragment || destination.id == R.id.editProfileFragment ||
+                destination.id == R.id.aiChatFragment || destination.id == R.id.updatePasswordFragment
+            ) {
                 binding.bottomNavigationView.gone()
                 binding.centerButton.gone()
             } else {

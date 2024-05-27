@@ -101,8 +101,6 @@ class EditProfileFragment : Fragment() {
     }
 
 
-
-
     private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
         updatedDoctorProfileInformation.let {
             editProfileViewModel.updateDoctorProfileInformation(
@@ -256,11 +254,11 @@ class EditProfileFragment : Fragment() {
             val newText = editText.text.toString()
             editText.isEnabled = false
             editText.hint = newText
-            binding.textViewEditOrSave.text = R.string.edit.toString()
+            binding.textViewEditOrSave.text = getString(R.string.edit)
         } else {
             editText.isEnabled = true
             editText.requestFocus()
-            binding.textViewEditOrSave.text = R.string.save.toString()
+            binding.textViewEditOrSave.text = getString(R.string.save)
         }
     }
 
