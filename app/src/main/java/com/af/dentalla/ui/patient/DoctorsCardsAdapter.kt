@@ -18,7 +18,7 @@ class DoctorsCardsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(card: CardsEntity) {
             binding.apply {
-                imgDoctor.loadImage(card.doctorPhoto.toString())
+                imgDoctor.loadImage(card.doctorPhoto)
                 textViewDoctorName.text = card.doctorName
                 textViewCity.text = card.currentUniversity
                 textViewPhoneNumber.text = card.phoneNumber

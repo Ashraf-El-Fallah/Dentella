@@ -14,7 +14,7 @@ class CardsEntityMapper @Inject constructor() : ListMapper<CardsDto, CardsEntity
                 doctorName = it.doctorName ?: "",
                 doctorPhoto = it.doctorPhoto ?: "",
                 phoneNumber = it.phoneNumber ?: "",
-                speciality = it.specialty ?: 0
+                speciality = it.specialty ?: ""
             )
         }
     }

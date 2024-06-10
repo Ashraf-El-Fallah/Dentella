@@ -16,7 +16,8 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
-private const val BASE_URL = "https://dentella.somee.com/api/"
+//private const val BASE_URL = "https://dentella.somee.com/api/"
+private const val BASE_URL = "http://dentelle.runasp.net/api/"
 
 //another base url ..
 //private const val BASE_URL = "http://dentelle.somee.com/api/"

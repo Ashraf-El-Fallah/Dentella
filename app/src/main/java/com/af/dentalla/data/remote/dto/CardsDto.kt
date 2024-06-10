@@ -14,5 +14,7 @@ data class CardsDto(
     @SerializedName("phoneNumber")
     val phoneNumber: String?,
     @SerializedName("specialty")
-    val specialty: Int?
+    val specialty: String?
 )
+
+

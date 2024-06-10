@@ -6,5 +6,5 @@ data class CardsEntity(
     val doctorName: String,
     val doctorPhoto: String?,
     val phoneNumber: String,
-    val speciality: Int
+    val speciality: String?
 )

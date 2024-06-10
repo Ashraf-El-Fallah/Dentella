@@ -76,6 +76,8 @@ class PatientHomeFragment : Fragment() {
                 is ScreenState.Success -> {
                     binding.progress.progress.gone()
                     binding.rvDoctors.apply {
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                         adapter = DoctorsCardsAdapter(
                             onItemClick = { doctorCardId ->
                                 navigateToDoctorProfile(doctorCardId)
@@ -83,9 +85,9 @@ class PatientHomeFragment : Fragment() {
                             onInfoClick = { doctorCardId ->
                                 navigateToDoctorProfile(doctorCardId)
                             }
-                        ).apply { submitList(it.uiData) }
-                        layoutManager =
-                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                        ).apply {
+                            submitList(it.uiData)
+                        }
                     }
                 }
 
