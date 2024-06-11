@@ -19,6 +19,7 @@ class AddPostDialog(context: Context, private val addPostDialogListener: AddPost
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = DialogAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.addDialog.textViewDoctorNameArticle.text = context.getString(R.string.patient_name)
 
         binding.addDialog.buttonPost.setOnClickListener {
             val content = binding.addDialog.editTextToWrite.text.toString()

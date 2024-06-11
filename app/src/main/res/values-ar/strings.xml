@@ -6,6 +6,7 @@
     <string name="patient">مريض</string>
     <string name="login_account">تسجيل حساب</string>
     <string name="id_number">رقم الهوية</string>
+    <string name="patient_name">اسم المريض</string>
     <string name="password">كلمةالمرور</string>
     <string name="forget_your_password">نسيت كلمة المرور؟</string>
     <string name="or">أو</string>

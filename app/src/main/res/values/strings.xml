@@ -4,6 +4,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="doctor">Doctor</string>
     <string name="patient">Patient</string>
+    <string name="patient_name">Patient Name</string>
     <string name="login_account">Login account</string>
     <string name="id_number">ID number</string>
     <string name="password">Password</string>
