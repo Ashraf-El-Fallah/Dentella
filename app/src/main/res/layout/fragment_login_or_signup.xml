@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/sign_in_style"
+        android:background="@drawable/auth_buttons_style"
         android:padding="10dp"
         android:text="@string/sign_in"
         android:textColor="@color/white"
