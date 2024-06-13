@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemDoctorBinding
 import com.af.dentalla.domain.entity.CardsEntity
-import com.af.dentalla.utils.loadImage
+import com.bumptech.glide.Glide
 
 class DoctorsCardsAdapter(
     private val onItemClick: (Int) -> Unit,
@@ -18,7 +18,9 @@ class DoctorsCardsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(card: CardsEntity) {
             binding.apply {
-                imgDoctor.loadImage(card.doctorPhoto)
+                Glide.with(root.context)
+                    .load(card.doctorPhoto)
+                    .into(imgDoctor)
                 textViewDoctorName.text = card.doctorName
                 textViewCity.text = card.currentUniversity
                 textViewPhoneNumber.text = card.phoneNumber

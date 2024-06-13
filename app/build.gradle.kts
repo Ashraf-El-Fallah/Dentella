@@ -92,8 +92,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
     // Glide
-    implementation("com.github.bumptech.glide:glide:4.11.0")
-    ksp("com.github.bumptech.glide:compiler:4.11.0")
+//    implementation("com.github.bumptech.glide:glide:4.11.0")
+//    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 
     // Intuit
     implementation("com.intuit.sdp:sdp-android:1.0.6")
