@@ -11,7 +11,7 @@ data class ArticleDto(
     val createdAt: String?,
     @SerializedName("doctorName")
     val doctorName: String?,
-    @SerializedName("imageUrl")
+    @SerializedName("photo")
     val imageUrl: String?,
     @SerializedName("numberOfComments")
     val numberOfComments: Int?,

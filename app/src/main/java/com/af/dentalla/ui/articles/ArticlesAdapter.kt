@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemArticleBinding
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.utils.loadImage
+import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -22,13 +23,20 @@ class ArticlesAdapter :
 
         fun bind(article: ArticlesEntity) {
             binding.apply {
-                baseItem.imgDoctorArticle.loadImage(article.articleImage.toString())
+                baseItem.apply {
+                    textViewDoctorNameArticle.text = article.doctorName
+                    textViewTime.text = formatDateTime(article.postingTime)
+                    Glide.with(itemView.context)
+                        .load(article.articleImage)
+                        .into(imgDoctorArticle)
+                }
+//                baseItem.imgDoctorArticle.loadImage(article.articleImage)
 //                textViewArticleTitle.text = article.title
-                textViewArticleContent.text = article.content
-                baseItem.textViewDoctorNameArticle.text = article.doctorName
+//                baseItem.textViewDoctorNameArticle.text = article.doctorName
 
-                val formattedPostingTime = formatDateTime(article.postingTime)
-                baseItem.textViewTime.text = formattedPostingTime
+//                val formattedPostingTime = formatDateTime(article.postingTime)
+//                baseItem.textViewTime.text = formattedPostingTime
+                textViewArticleContent.text = article.content
             }
         }
     }
