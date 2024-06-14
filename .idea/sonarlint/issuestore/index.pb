@@ -471,3 +471,5 @@ h
 8app/src/main/java/com/af/dentalla/utils/SpecialtyUtil.kt,e\6\e66af90ca0e737e5d6e0958bb19c4732339468f7
 r
 Bapp/src/main/java/com/af/dentalla/ui/auth/LoginOrSignupFragment.kt,0\d\0df93e89ea513d82e2e450756bdbb47c33cc253e
+m
+=app/src/main/java/com/af/dentalla/data/remote/requests/dto.kt,d\6\d6fb9e0557c1bd7ac10614b15fcd1982e388a322

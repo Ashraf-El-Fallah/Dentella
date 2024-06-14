@@ -18,6 +18,7 @@ import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -208,7 +209,7 @@ class EditProfileFragment : Fragment() {
 //                        Glide.with(requireContext())
 //                            .load(doctorProfileInformation.photo.toString())
 //                            .into(imgViewProfile)
-//                        imgViewProfile.loadImage(doctorProfileInformation.photo.toString())
+                        imgViewProfile.loadImage(doctorProfileInformation.photo)
                     }
                 }
             }
