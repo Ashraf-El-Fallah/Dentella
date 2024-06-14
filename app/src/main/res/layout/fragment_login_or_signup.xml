@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/app_name"
+        android:id="@+id/text_view_app_name"
         style="@style/AppNameTextViewStyle"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/image_view_logo"
