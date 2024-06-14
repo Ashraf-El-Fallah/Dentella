@@ -32,6 +32,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="AppNameTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/cyan_blue</item>
+        <item name="android:textStyle">normal</item>
+    </style>
     <!-- Base style for all TextInputLayouts -->
     <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_width">0dp</item>
