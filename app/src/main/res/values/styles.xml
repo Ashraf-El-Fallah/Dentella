@@ -26,14 +26,22 @@
 
 
     <!-- Base style for all TextInputLayouts -->
-    <style name="BaseTextInputLayout">
+    <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal" tools:targetApi="o">20dp</item>
         <item name="android:layout_marginTop">12dp</item>
         <item name="android:textColorHint">@color/gray</item>
+        <item name="boxBackgroundMode">none</item>
+        <item name="hintEnabled">false</item>
     </style>
 
+    <style name="BasePasswordInputLayout" parent="BaseTextInputLayout">
+        <item name="counterEnabled">true</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="counterMaxLength">15</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
     <!-- Style for TextInputEditText -->
     <style name="BaseTextInputEditText">
         <item name="android:layout_width">match_parent</item>

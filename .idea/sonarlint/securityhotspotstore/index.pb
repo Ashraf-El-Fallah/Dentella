@@ -109,8 +109,6 @@ Fapp/src/main/java/com/af/dentalla/data/remote/requests/LoginPatient.kt,8\0\80b
 Q.idea/sonarlint/securityhotspotstore/4/7/470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8,0\b\0b769aa7ba0587088401976f7e507cb9e6c12494
 Å
 Q.idea/sonarlint/securityhotspotstore/4/7/471eafb607934b0ec420dedea24701c9354e4719,3\c\3cc5bc18474e20a243e819da8d2bf5a4b457de80
-w
-G.idea/sonarlint/issuestore/a/c/acacb37b0c6315eccc03b6aa9579ad043748e611,a\9\a9440510a09256fc95de9576d98773da4692c397
 Å
 Q.idea/sonarlint/securityhotspotstore/1/2/129d14ecd4989b98acb1b7c39ada9985067feb11,8\e\8e3b77a8984462090fc0a7e21efbfc254152820c
 Å
@@ -237,8 +235,6 @@ G.idea/sonarlint/issuestore/c/1/c1cde89c30d3fb758646419a243f6f2f43d3205f,f\a\fa
 Q.idea/sonarlint/securityhotspotstore/0/8/088eba37148be3c3b29221545cbc7d15f7a8ff4d,e\6\e62565520f7bd12b753221ef752c1b29b29e9742
 w
 G.idea/sonarlint/issuestore/0/b/0bb65912e86248dbd3996ceaf35fab35448dac7e,a\4\a47507bb177aa078c68c57223288d77dd25ae73d
-Å
-Q.idea/sonarlint/securityhotspotstore/a/c/acacb37b0c6315eccc03b6aa9579ad043748e611,a\5\a580639bb73afd36b319df5468165b87de3bff8d
 Å
 Q.idea/sonarlint/securityhotspotstore/c/1/c1cde89c30d3fb758646419a243f6f2f43d3205f,6\2\629485c6414d50dcffd313a34c8397c4ca799f0e
 Å

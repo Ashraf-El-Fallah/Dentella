@@ -41,8 +41,6 @@
                 android:id="@+id/text_input_user_name"
                 style="@style/BaseTextInputLayout"
                 android:inputType="text"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">
@@ -51,7 +49,6 @@
                     android:id="@+id/edit_text_user_name"
                     style="@style/BaseTextInputEditText"
                     android:hint="@string/user_name" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -59,8 +56,6 @@
                 style="@style/BaseTextInputLayout"
                 android:inputType="number"
                 android:visibility="gone"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_user_name">
@@ -76,8 +71,6 @@
                 android:id="@+id/text_input_email"
                 style="@style/BaseTextInputLayout"
                 android:inputType="textEmailAddress"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_id">
@@ -92,8 +85,6 @@
                 android:id="@+id/text_input_phone"
                 style="@style/BaseTextInputLayout"
                 android:inputType="phone"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_email">
@@ -106,16 +97,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_password"
-                style="@style/BaseTextInputLayout"
-                android:inputType="textPassword"
-                app:boxBackgroundMode="none"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:hintEnabled="false"
+                style="@style/BasePasswordInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_input_phone"
-                app:passwordToggleEnabled="true">
+                app:layout_constraintTop_toBottomOf="@id/text_input_phone">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_password"
@@ -126,23 +111,16 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_confirm_password"
-                style="@style/BaseTextInputLayout"
+                style="@style/BasePasswordInputLayout"
                 android:layout_marginTop="4dp"
-                android:inputType="textPassword"
-                app:boxBackgroundMode="none"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_input_password"
-                app:passwordToggleEnabled="true">
+                app:layout_constraintTop_toBottomOf="@id/text_input_password">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_confirm_password"
                     style="@style/BaseTextInputEditText"
                     android:hint="@string/confirm_password" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
