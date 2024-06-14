@@ -38,6 +38,7 @@
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/cyan_blue</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:text">@string/app_name</item>
     </style>
     <!-- Base style for all TextInputLayouts -->
     <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">

@@ -18,41 +18,23 @@
 
     <TextView
         android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/app_name"
-        android:textColor="@color/cyan_blue"
-        android:textSize="30sp"
-        android:textStyle="normal"
+        style="@style/AppNameTextViewStyle"
         app:layout_constraintEnd_toEndOf="@id/image_view_logo"
         app:layout_constraintStart_toStartOf="@id/image_view_logo"
         app:layout_constraintTop_toBottomOf="@id/image_view_logo" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_doctor"
-        android:layout_width="348dp"
-        android:layout_height="57dp"
-        android:layout_margin="50dp"
-        android:background="@drawable/button_splash_style"
-        android:padding="10dp"
+        style="@style/BaseAuthButton"
         android:text="@string/doctor"
-        android:textColor="@color/white"
-        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_name" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_patient"
-        android:layout_width="348dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_splash_style"
-        android:padding="10dp"
+        style="@style/BaseAuthButton"
         android:text="@string/patient"
-        android:textColor="@color/white"
-        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="@id/button_doctor"
         app:layout_constraintStart_toStartOf="@id/button_doctor"
         app:layout_constraintTop_toBottomOf="@id/button_doctor" />
