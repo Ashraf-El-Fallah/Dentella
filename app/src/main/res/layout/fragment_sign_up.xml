@@ -131,20 +131,14 @@
                 android:layout_marginEnd="70dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/already_have_account"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/button_sign_up"
                 app:layout_constraintEnd_toEndOf="@id/text_input_confirm_password"
                 app:layout_constraintTop_toBottomOf="@id/text_input_confirm_password" />
 
             <TextView
                 android:id="@+id/text_view_sign_in"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:clickable="true"
-                android:focusable="true"
+                style="@style/BaseAuthClickableView"
                 android:text="@string/sign_in"
-                android:textColor="@color/blue"
                 app:layout_constraintBottom_toBottomOf="@id/text_view_have_account"
                 app:layout_constraintStart_toEndOf="@id/text_view_have_account"
                 app:layout_constraintTop_toTopOf="@id/text_view_have_account" />

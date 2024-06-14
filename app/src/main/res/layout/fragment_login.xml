@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <TextView
                 android:id="@+id/text_view_login"
                 style="@style/BaseTextViewStyle"
@@ -103,15 +102,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_sign_in"
-                android:layout_width="348dp"
-                android:layout_height="57dp"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/auth_buttons_style"
-                android:padding="10dp"
+                style="@style/BaseAuthButton"
                 android:text="@string/sign_in"
-                android:textColor="@color/white"
-                android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_input_password" />
@@ -155,13 +147,8 @@
 
             <TextView
                 android:id="@+id/text_view_sign_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:clickable="true"
-                android:focusable="true"
+                style="@style/BaseAuthClickableView"
                 android:text="@string/sign_up"
-                android:textColor="@color/dark_blue"
                 app:layout_constraintBottom_toBottomOf="@+id/text_view_do_not_have_account"
                 app:layout_constraintStart_toEndOf="@+id/text_view_do_not_have_account"
                 app:layout_constraintTop_toTopOf="@+id/text_view_do_not_have_account" />
