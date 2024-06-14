@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_account"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +51,8 @@
                 android:layout_marginTop="20dp"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
-                app:hintEnabled="false"
                 app:boxBackgroundMode="none"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">
@@ -60,8 +61,8 @@
                     android:id="@+id/edit_text_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="@string/user_name"
                     android:background="@drawable/edit_text_auth2_style"
+                    android:hint="@string/user_name"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,8 +74,8 @@
                 android:layout_marginTop="20dp"
                 android:textColorHint="@color/gray"
                 android:visibility="gone"
-                app:hintEnabled="false"
                 app:boxBackgroundMode="none"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">
@@ -84,8 +85,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"
-                    android:inputType="textEmailAddress"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,8 +99,8 @@
                 android:textColorHint="@color/gray"
                 app:boxBackgroundMode="none"
                 app:counterEnabled="true"
-                app:hintEnabled="false"
                 app:counterMaxLength="15"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -110,8 +111,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_auth2_style"
-                    android:inputType="textPassword"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:padding="1dp" />
             </com.google.android.material.textfield.TextInputLayout>

@@ -23,8 +23,6 @@ m
 =app/src/main/java/com/af/dentalla/di/network/NetworkModule.kt,a\e\aec987e0560c8c6e2028b6962f6898ace5f1183a
 r
 Bapp/src/main/java/com/af/dentalla/data/mapper/LoginEntityMapper.kt,7\9\79c1bf5a4543eff4ce79e3eb36b41f934b318124
-d
-4app/src/main/res/layout/fragment_patient_sign_up.xml,a\c\acacb37b0c6315eccc03b6aa9579ad043748e611
 o
 ?app/src/main/java/com/af/dentalla/domain/entity/SignUpEntity.kt,c\4\c46a6aa8df1c1f30005058c75f706417e7d10763
 n
