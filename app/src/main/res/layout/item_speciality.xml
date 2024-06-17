@@ -9,7 +9,7 @@
     android:layout_marginStart="2dp"
     android:layout_marginEnd="12dp"
     aandroid:cardCornerRadius="4dp"
-    aandroid:cardElevation="6dp">
+    aandroid:cardElevation="12dp">
 
     <include
         android:id="@+id/item_speciality"
