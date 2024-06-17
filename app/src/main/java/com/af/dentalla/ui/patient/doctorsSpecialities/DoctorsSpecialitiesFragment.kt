@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorsSpecialityBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.ScreenState
@@ -44,15 +45,16 @@ class DoctorsSpecialitiesFragment : Fragment() {
     }
 
     private fun specialityCardsObserver() {
-        doctorsSpecialityViewModel.specialityCards.observe(viewLifecycleOwner) {
-            when (it) {
+        doctorsSpecialityViewModel.specialityCards.observe(viewLifecycleOwner) { screenState ->
+            when (screenState) {
                 ScreenState.Loading -> {
                     binding.progress.progress.visible()
                 }
 
                 is ScreenState.Success -> {
                     binding.progress.progress.gone()
-//                    binding.speciality.text=Speciality.
+                    binding.speciality.text =
+                        screenState.uiData.firstOrNull()?.speciality ?: getString(R.string.speciality)
                     binding.rvDoctorsSpecialities.apply {
                         adapter = DoctorsCardsAdapter(
                             onItemClick = { doctorCardId ->
@@ -61,7 +63,7 @@ class DoctorsSpecialitiesFragment : Fragment() {
                             onInfoClick = { doctorCardId ->
                                 navigateToDoctorProfile(doctorCardId)
                             }
-                        ).apply { submitList(it.uiData) }
+                        ).apply { submitList(screenState.uiData) }
                         layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }

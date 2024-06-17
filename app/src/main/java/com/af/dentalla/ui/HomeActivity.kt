@@ -79,14 +79,14 @@ class HomeActivity : BaseActivity() {
         navController.navigate(startDestination)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.addCardFragment || destination.id == R.id.editProfileFragment ||
-                destination.id == R.id.aiChatFragment || destination.id == R.id.updatePasswordFragment
+            if (destination.id == R.id.doctorHomeFragment || destination.id == R.id.patientHomeFragment ||
+                destination.id == R.id.firstSplashAiFragment || destination.id == R.id.settingFragment || destination.id == R.id.articlesFragment
             ) {
-                binding.bottomNavigationView.gone()
-                binding.centerButton.gone()
-            } else {
                 binding.bottomNavigationView.visible()
                 binding.centerButton.visible()
+            } else {
+                binding.bottomNavigationView.gone()
+                binding.centerButton.gone()
             }
         }
     }
