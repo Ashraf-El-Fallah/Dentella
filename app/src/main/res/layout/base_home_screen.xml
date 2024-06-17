@@ -51,17 +51,14 @@
 
     <EditText
         android:id="@+id/edit_text_search_home"
+        style="@style/SearchEditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/edit_text_search"
         android:clickable="true"
-        android:drawableStart="@drawable/ic_search"
         android:focusable="true"
         android:hint="@string/search"
-        android:paddingStart="20dp"
-        android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/img_view_profile"
         app:layout_constraintTop_toTopOf="parent" />
