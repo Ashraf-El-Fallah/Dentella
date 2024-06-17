@@ -38,9 +38,13 @@ class AvailableDatesAdapter(private val dates: List<String?>) :
 
 
     private fun parseDate(input: String?): Triple<String, String, String> {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
-        val date = inputFormat.parse(input)
-        val calendar = Calendar.getInstance().apply { time = date }
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
+        val date = input?.let { inputFormat.parse(it) }
+        val calendar = Calendar.getInstance().apply {
+            if (date != null) {
+                time = date
+            }
+        }
 
         val year = calendar.get(Calendar.YEAR).toString()
         val month = (calendar.get(Calendar.MONTH) + 1).toString()

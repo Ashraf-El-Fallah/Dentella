@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/doctor_background_style"
+    android:background="@color/sky_blue"
     tools:context=".ui.patient.doctorProfile.DoctorProfileFragment">
-
 
     <include
         android:id="@+id/progress"
@@ -17,14 +16,11 @@
         layout="@layout/base_back" />
 
     <TextView
-        android:id="@+id/profile"
+        android:id="@+id/text_view_profile"
+        style="@style/TextViewTopMainScreenStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="@string/profile"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,160 +33,161 @@
         android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_profile" />
 
-    <!--    android:src="@drawable/doctor"-->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/doctor_background2"
+        android:background="@drawable/doctor_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/doctor_img">
 
-        <TextView
-            android:id="@+id/text_view_doctor_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/doctor_name"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_view_doctor_speciality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/doctor_procedure"
-            android:textColor="@color/light_blue"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_name" />
-
-        <ImageView
-            android:id="@+id/phone_img"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/phone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
-
-        <TextView
-            android:id="@+id/text_view_phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="4dp"
-            android:text="24151515163"
-            android:textColor="@color/semi_dark_gray"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@id/phone_img"
-            app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/chat_now"
-            android:layout_width="104dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/chat_button_style"
-            android:text="@string/chat_now"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/available_dates"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phone_img" />
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/back_month"-->
-        <!--            android:layout_width="20dp"-->
-        <!--            android:layout_height="20dp"-->
-        <!--            android:src="@drawable/ic_back_month"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
-        <!--            app:layout_constraintEnd_toStartOf="@id/month"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/month"-->
-        <!--            android:layout_width="26dp"-->
-        <!--            android:layout_height="21dp"-->
-        <!--            android:layout_marginStart="258dp"-->
-        <!--            android:layout_marginEnd="35dp"-->
-        <!--            android:text="@string/month"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textSize="13sp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/schedule"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/schedule" />-->
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/next_month"-->
-        <!--            android:layout_width="33dp"-->
-        <!--            android:layout_height="33dp"-->
-        <!--            android:src="@drawable/ic_next_month"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/month"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_date"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="150dp"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/about"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_date" />
+            <TextView
+                android:id="@+id/text_view_doctor_name"
+                style="@style/TextViewTopMainScreenStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/doctor_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_view_about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Dr . omar ahmed is a fifth-year student at the Faculty of Medicine and Dentistry specializing in cleaning,
+            <TextView
+                android:id="@+id/text_view_doctor_speciality"
+                style="@style/TextDoctorCardStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/doctor_procedure"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_doctor_name" />
+
+            <ImageView
+                android:id="@+id/phone_img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
+
+            <TextView
+                android:id="@+id/text_view_phone_number"
+                style="@style/TextDoctorCardStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:text="24151515163"
+                app:layout_constraintStart_toEndOf="@id/phone_img"
+                app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
+
+            <!--        <androidx.appcompat.widget.AppCompatButton-->
+            <!--            android:id="@+id/chat_now"-->
+            <!--            android:layout_width="104dp"-->
+            <!--            android:layout_height="44dp"-->
+            <!--            android:layout_marginTop="26dp"-->
+            <!--            android:layout_marginEnd="20dp"-->
+            <!--            android:background="@drawable/chat_button_style"-->
+            <!--            android:text="@string/chat_now"-->
+            <!--            android:textColor="@color/white"-->
+            <!--            android:textSize="16sp"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <TextView
+                android:id="@+id/text_view_available_dates"
+                style="@style/TextViewHomeScreenStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/available_dates"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_img" />
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/back_month"-->
+            <!--            android:layout_width="20dp"-->
+            <!--            android:layout_height="20dp"-->
+            <!--            android:src="@drawable/ic_back_month"-->
+            <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/month"-->
+            <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/month"-->
+            <!--            android:layout_width="26dp"-->
+            <!--            android:layout_height="21dp"-->
+            <!--            android:layout_marginStart="258dp"-->
+            <!--            android:layout_marginEnd="35dp"-->
+            <!--            android:text="@string/month"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="13sp"-->
+            <!--            app:layout_constraintBottom_toBottomOf="@id/schedule"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="@id/schedule" />-->
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/next_month"-->
+            <!--            android:layout_width="33dp"-->
+            <!--            android:layout_height="33dp"-->
+            <!--            android:src="@drawable/ic_next_month"-->
+            <!--            app:layout_constraintBottom_toBottomOf="@id/month"-->
+            <!--            app:layout_constraintStart_toEndOf="@id/month"-->
+            <!--            app:layout_constraintTop_toTopOf="@id/month" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_date"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_about_title"
+                style="@style/TextViewHomeScreenStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/about"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_date" />
+
+            <TextView
+                android:id="@+id/text_view_about"
+                style="@style/TextViewHomeScreenStyle"
+                android:textColor="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="Dr . omar ahmed is a fifth-year student at the Faculty of Medicine and Dentistry specializing in cleaning,
             Dentures and all aspects related to the mouth."
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/about" />
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_about_title" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

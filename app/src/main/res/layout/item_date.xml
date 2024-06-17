@@ -12,12 +12,11 @@
 
         <TextView
             android:id="@+id/month_number"
+            style="@style/TextViewDatesStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11"
             android:layout_marginStart="4dp"
-            android:textColor="@color/black"
-            android:textSize="13sp"
+            android:text="11"
             app:layout_constraintBottom_toBottomOf="@id/year_number"
             app:layout_constraintStart_toEndOf="@id/year_number"
             app:layout_constraintTop_toTopOf="@id/year_number" />
@@ -33,13 +32,12 @@
 
         <TextView
             android:id="@+id/year_number"
+            style="@style/TextViewDatesStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="15dp"
             android:text="2024"
-            android:textColor="@color/black"
-            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,12 +52,11 @@
 
         <TextView
             android:id="@+id/day_number"
+            style="@style/TextViewDatesStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="11"
-            android:textColor="@color/black"
-            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@id/month_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/month_number"
@@ -67,16 +64,15 @@
 
         <TextView
             android:id="@+id/day_name"
+            style="@style/TextViewDatesStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:text="day"
-            android:textColor="@color/black"
-            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/day_number"
+            app:layout_constraintStart_toStartOf="@id/year_number"
+            app:layout_constraintTop_toBottomOf="@id/month_number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
