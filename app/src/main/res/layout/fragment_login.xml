@@ -22,7 +22,8 @@
             <TextView
                 android:id="@+id/text_view_login"
                 style="@style/TextViewTopMainScreenStyle"
-                android:text="@string/login_account" />
+                android:text="@string/login_account"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/image_view_logo"

@@ -39,7 +39,8 @@
         android:id="@+id/text_view_my_account"
         style="@style/TextViewTopMainScreenStyle"
         android:layout_marginTop="15dp"
-        android:text="@string/my_account" />
+        android:text="@string/my_account"
+        tools:ignore="MissingConstraints" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_view_profile"
@@ -149,6 +150,7 @@
                 android:background="@drawable/edit_text_profile_style"
                 android:clickable="true"
                 android:drawableEnd="@drawable/arrow_to_update_password"
+                android:focusable="true"
                 android:hint="@string/password"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"

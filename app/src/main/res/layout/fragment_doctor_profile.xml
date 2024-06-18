@@ -18,7 +18,8 @@
     <TextView
         android:id="@+id/text_view_profile"
         style="@style/TextViewTopMainScreenStyle"
-        android:text="@string/profile" />
+        android:text="@string/profile"
+        tools:ignore="MissingConstraints" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/doctor_img"

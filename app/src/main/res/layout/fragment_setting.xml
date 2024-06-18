@@ -13,7 +13,8 @@
     <TextView
         android:id="@+id/setting"
         style="@style/TextViewTopMainScreenStyle"
-        android:text="@string/setting" />
+        android:text="@string/setting"
+        tools:ignore="MissingConstraints" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile"
@@ -30,7 +31,8 @@
         android:id="@+id/card_view_edit_profile"
         style="@style/CardSettingStyle"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@id/img_profile">
+        app:layout_constraintTop_toBottomOf="@id/img_profile"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,7 +55,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_change_language"
         style="@style/CardSettingStyle"
-        app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile">
+        app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -80,7 +83,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_logout"
         style="@style/CardSettingStyle"
-        app:layout_constraintTop_toBottomOf="@id/card_view_change_language">
+        app:layout_constraintTop_toBottomOf="@id/card_view_change_language"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
