@@ -10,7 +10,7 @@ import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.databinding.DialogAddPostBinding
 
 class AddPostDialog(context: Context, private val addPostDialogListener: AddPostDialogListener) :
-    AppCompatDialog(context) {
+    AppCompatDialog(context,R.style.CustomDialogTheme) {
     private lateinit var binding: DialogAddPostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
