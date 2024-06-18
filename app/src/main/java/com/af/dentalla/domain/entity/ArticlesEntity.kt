@@ -6,7 +6,7 @@ data class ArticlesEntity(
     val content: String,
     val postingTime: String,
     val doctorName: String,
+    val doctorImage: String?,
     val articleImage: String?,
-    val numberOfComments: Int,
     val title: String
 )

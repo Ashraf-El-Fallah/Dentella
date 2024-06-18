@@ -13,8 +13,8 @@ class ArticlesEntityMapper @Inject constructor() : ListMapper<ArticleDto, Articl
                 content = it.content ?: "",
                 postingTime = it.createdAt ?: "",
                 doctorName = it.doctorName ?: "",
-                articleImage = it.imageUrl,
-                numberOfComments = it.numberOfComments ?: 0,
+                doctorImage = it.doctorImage ?: "",
+                articleImage = it.articleImage ?: "",
                 title = it.title ?: ""
             )
         }

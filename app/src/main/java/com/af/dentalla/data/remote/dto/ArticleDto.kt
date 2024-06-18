@@ -12,11 +12,9 @@ data class ArticleDto(
     @SerializedName("doctorName")
     val doctorName: String?,
     @SerializedName("photo")
-    val imageUrl: String?,
-    @SerializedName("numberOfComments")
-    val numberOfComments: Int?,
-    @SerializedName("numberOfLikes")
-    val numberOfLikes: Int?,
+    val doctorImage: String?,
+    @SerializedName("imageData")
+    val articleImage: String?,
     @SerializedName("title")
     val title: String?
 )

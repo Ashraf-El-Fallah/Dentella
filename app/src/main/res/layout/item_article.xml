@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/doctor_profile_style"
-    app:cardElevation="9dp"
+    android:background="@drawable/article_style"
+    app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,46 +17,44 @@
 
         <TextView
             android:id="@+id/text_view_article_content"
+            style="@style/TextViewDatesStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="Because Brushing helps remove plaque,a sticky film of bacteria"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_article_title" />
+
+
+        <TextView
+            android:id="@+id/text_view_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="65dp"
+            android:text="Brush Twice a Day:"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/text_view_article_title"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="18dp"-->
-        <!--            android:layout_marginTop="65dp"-->
-        <!--            android:text="Brush Twice a Day:"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textSize="18sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/image_teeth"-->
-        <!--            android:layout_width="371.92dp"-->
-        <!--            android:layout_height="123dp"-->
-        <!--            android:layout_marginHorizontal="18dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:src="@drawable/teeth"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />-->
-        <!--        android:background="@drawable/image_article_style"-->
-
+        <ImageView
+            android:id="@+id/image_teeth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/teeth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_article_content" />
 
         <!--        <TextView-->
         <!--            android:id="@+id/comments"-->

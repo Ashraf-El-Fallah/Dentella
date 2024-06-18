@@ -32,7 +32,7 @@ class AddArticleDialog(
             val article = Article(
                 content = input,
                 imageData = "",
-                title = "Adding New Information about teeth health"
+                title = "Information about teeth health"
             )
             addArticleDialogListener.onArticleAdded(article)
             dismiss()
