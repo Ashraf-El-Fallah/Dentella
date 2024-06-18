@@ -124,7 +124,6 @@
     </style>
 
     <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <!-- Customize your dialog theme here -->
         <item name="android:windowBackground">@drawable/dialog_style</item>
     </style>
 </resources>
