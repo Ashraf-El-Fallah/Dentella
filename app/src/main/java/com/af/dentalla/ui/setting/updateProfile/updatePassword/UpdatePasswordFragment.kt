@@ -84,7 +84,7 @@ class UpdatePasswordFragment : BaseFragment() {
     }
 
     private fun navigateToEditProfiledScreen() {
-        binding.back.setOnClickListener {
+        binding.back.root.setOnClickListener {
             val action =
                 UpdatePasswordFragmentDirections.actionUpdatePasswordFragmentToEditProfileFragment()
             findNavController().navigate(action)
