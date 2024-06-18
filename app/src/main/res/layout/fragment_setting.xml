@@ -40,11 +40,11 @@
 
             <ImageView
                 android:id="@+id/image_view_edit"
-                style="@style/ImageViewSettingCards"
+                style="@style/ImageViewSettingCardsStyle"
                 android:src="@drawable/profile_edit" />
 
             <TextView
-                style="@style/TextViewSettingCards"
+                style="@style/TextViewSettingCardsStyle"
                 android:text="@string/edit_profile"
                 app:layout_constraintBottom_toBottomOf="@id/image_view_edit"
                 app:layout_constraintStart_toEndOf="@id/image_view_edit"
@@ -64,11 +64,11 @@
 
             <ImageView
                 android:id="@+id/image_view_language"
-                style="@style/ImageViewSettingCards"
+                style="@style/ImageViewSettingCardsStyle"
                 android:src="@drawable/language" />
 
             <TextView
-                style="@style/TextViewSettingCards"
+                style="@style/TextViewSettingCardsStyle"
                 android:text="@string/change_language"
                 android:textColor="@color/shade_of_blue"
                 app:layout_constraintBottom_toBottomOf="@id/image_view_language"
@@ -92,11 +92,11 @@
 
             <ImageView
                 android:id="@+id/image_view_logout"
-                style="@style/ImageViewSettingCards"
+                style="@style/ImageViewSettingCardsStyle"
                 android:src="@drawable/logout" />
 
             <TextView
-                style="@style/TextViewSettingCards"
+                style="@style/TextViewSettingCardsStyle"
                 android:text="@string/logout"
                 android:textColor="@color/shade_of_red"
                 app:layout_constraintBottom_toBottomOf="@id/image_view_logout"

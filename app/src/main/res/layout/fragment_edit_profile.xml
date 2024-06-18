@@ -11,34 +11,26 @@
         android:id="@+id/progress_bar"
         layout="@layout/base_progress_bar" />
 
-    <ImageView
+    <include
         android:id="@+id/back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/back_button_style"
-        android:paddingStart="10dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/base_back" />
 
     <TextView
         android:id="@+id/text_view_edit_or_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="@string/edit"
         android:textColor="@color/cyan_blue"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_view_my_account"
         style="@style/TextViewTopMainScreenStyle"
-        android:layout_marginTop="15dp"
         android:text="@string/my_account"
         tools:ignore="MissingConstraints" />
 
@@ -68,12 +60,8 @@
 
             <TextView
                 android:id="@+id/text_view_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/TextViewUpdateProfileStyle"
                 android:text="@string/user_name"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_name"
                 app:layout_constraintStart_toStartOf="@id/edit_text_name" />
 
@@ -93,125 +81,61 @@
 
             <TextView
                 android:id="@+id/text_view_mobile_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/TextViewUpdateProfileStyle"
                 android:text="@string/phone"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_mobile_number"
                 app:layout_constraintStart_toStartOf="@id/edit_text_mobile_number" />
 
             <EditText
                 android:id="@+id/edit_text_mobile_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_text_profile_style"
+                style="@style/EditTextUpdateProfile"
                 android:hint="@string/write_phone_number"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_text_name" />
+                app:layout_constraintTop_toBottomOf="@id/edit_text_name"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/text_view_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/TextViewUpdateProfileStyle"
                 android:text="@string/email"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_email"
                 app:layout_constraintStart_toStartOf="@id/edit_text_email" />
 
             <EditText
                 android:id="@+id/edit_text_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_text_profile_style"
+                style="@style/EditTextUpdateProfile"
                 android:hint="@string/write_email"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_text_mobile_number" />
+                app:layout_constraintTop_toBottomOf="@id/edit_text_mobile_number"
+                tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/edit_text_update_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
+                style="@style/EditTextUpdateProfile"
                 android:layout_marginTop="18dp"
-                android:background="@drawable/edit_text_profile_style"
                 android:clickable="true"
                 android:drawableEnd="@drawable/arrow_to_update_password"
                 android:focusable="true"
                 android:hint="@string/password"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_text_email" />
-
-            <!--            <com.google.android.material.textfield.TextInputLayout-->
-            <!--                android:id="@+id/text_input_update_password"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginHorizontal="20dp"-->
-            <!--                android:layout_marginTop="18dp"-->
-
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="@id/edit_text_email">-->
-
-            <!--                <com.google.android.material.textfield.TextInputEditText-->
-            <!--                    android:id="@+id/edit_text_update_password"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:drawableEnd="@drawable/arrow"-->
-            <!--                    android:background="@drawable/edit_text_profile_style"-->
-            <!--                    android:paddingStart="10dp" />-->
-            <!--            </com.google.android.material.textfield.TextInputLayout>-->
-
+                app:layout_constraintTop_toBottomOf="@id/edit_text_email"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/text_view_current_university"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/TextViewUpdateProfileStyle"
                 android:text="@string/location"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_current_university"
                 app:layout_constraintStart_toStartOf="@id/edit_text_current_university" />
 
             <EditText
                 android:id="@+id/edit_text_current_university"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_text_profile_style"
+                style="@style/EditTextUpdateProfile"
                 android:hint="@string/write_university"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_text_update_password" />
+                app:layout_constraintTop_toBottomOf="@id/edit_text_update_password"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/text_view_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/TextViewUpdateProfileStyle"
                 android:text="@string/about_setting"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/edit_text_bio"
                 app:layout_constraintStart_toStartOf="@id/edit_text_bio" />
 
@@ -223,8 +147,9 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/edit_text_profile_style"
                 android:hint="@string/about_setting"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp"
+                android:gravity="top|start"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edit_text_current_university" />

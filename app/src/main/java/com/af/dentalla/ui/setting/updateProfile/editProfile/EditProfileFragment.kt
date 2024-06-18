@@ -264,7 +264,7 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun navigateToHomeScreen() {
-        binding.back.setOnClickListener {
+        binding.back.root.setOnClickListener {
             findNavController().safeNavigate(EditProfileFragmentDirections.actionEditProfileFragmentToPatientProfileFragment())
         }
     }

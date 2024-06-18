@@ -132,7 +132,7 @@
         <item name="android:windowBackground">@drawable/dialog_style</item>
     </style>
 
-    <style name="TextViewSettingCards">
+    <style name="TextViewSettingCardsStyle">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginStart">5dp</item>
@@ -140,7 +140,15 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
 
-    <style name="ImageViewSettingCards">
+    <style name="TextViewUpdateProfileStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="ImageViewSettingCardsStyle">
         <item name="android:layout_height">38dp</item>
         <item name="android:layout_width">38dp</item>
         <item name="android:layout_margin">10dp</item>
@@ -149,11 +157,24 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
     </style>
 
+    <style name="EditTextUpdateProfile">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginHorizontal" tools:targetApi="o">20dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:background">@drawable/edit_text_profile_style</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">8dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">2dp</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+
+    </style>
+
     <style name="CardSettingStyle" parent="Widget.MaterialComponents.CardView">
-        <item name="android:layout_marginHorizontal">30dp</item>
+        <item name="android:layout_marginHorizontal" tools:targetApi="o">30dp</item>
         <item name="android:background">@drawable/card_setting_style</item>
         <item name="android:clickable">true</item>
-        <item name="android:clipToOutline">true</item>
+        <item name="android:clipToOutline" tools:targetApi="s">true</item>
         <item name="android:elevation">36dp</item>
         <item name="cardCornerRadius">10dp</item>
         <item name="android:layout_marginTop">24dp</item>
