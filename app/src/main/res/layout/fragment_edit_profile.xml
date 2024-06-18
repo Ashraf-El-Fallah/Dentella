@@ -37,16 +37,9 @@
 
     <TextView
         android:id="@+id/text_view_my_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextViewTopMainScreenStyle"
         android:layout_marginTop="15dp"
-        android:text="@string/my_account"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/text_view_edit_or_save"
-        app:layout_constraintStart_toEndOf="@id/back"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/my_account" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_view_profile"

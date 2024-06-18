@@ -18,12 +18,7 @@
     <TextView
         android:id="@+id/text_view_profile"
         style="@style/TextViewTopMainScreenStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/profile" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/doctor_img"
@@ -173,7 +168,6 @@
             <TextView
                 android:id="@+id/text_view_about"
                 style="@style/TextViewHomeScreenStyle"
-                android:textColor="@color/gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -181,6 +175,7 @@
                 android:gravity="center"
                 android:text="Dr . omar ahmed is a fifth-year student at the Faculty of Medicine and Dentistry specializing in cleaning,
             Dentures and all aspects related to the mouth."
+                android:textColor="@color/gray"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

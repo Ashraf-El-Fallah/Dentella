@@ -19,7 +19,7 @@ import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
 import com.af.dentalla.ui.patient.homeScreen.Speciality
 import com.af.dentalla.utils.ScreenState
-import com.af.dentalla.utils.SpecialtyUtil.getSpecialtyName
+import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
 import com.google.android.material.snackbar.Snackbar
@@ -88,11 +88,16 @@ class AddCardFragment : Fragment() {
             ).show()
         } else {
             val formattedDateForUser =
-                SimpleDateFormat("MMMM dd", Locale.getDefault()).format(selectedDate)
+                selectedDate?.let { SimpleDateFormat("MMMM dd", Locale.getDefault()).format(it) }
             val formattedTimeForUser =
-                SimpleDateFormat("hh:mm a", Locale.getDefault()).format(selectedTime)
+                selectedTime?.let { SimpleDateFormat("hh:mm a", Locale.getDefault()).format(it) }
             val toastMessage =
-                "${getString(R.string.your_speciality_is)} ${getSpecialtyName(specialityId)} ${
+                "${getString(R.string.your_speciality_is)} ${
+                    getSpecialtyName(
+                        context,
+                        specialityId
+                    )
+                } ${
                     getString(R.string.your_selected_date_is)
                 } $formattedDateForUser ${getString(R.string.at)} $formattedTimeForUser"
             Snackbar.make(
@@ -149,9 +154,9 @@ class AddCardFragment : Fragment() {
     private fun createFormatForDateAndTime() {
         if (selectedDate != null && selectedTime != null) {
             val formattedDate =
-                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate)
+                selectedDate?.let { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it) }
             val formattedTime =
-                SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(selectedTime)
+                selectedTime?.let { SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(it) }
 
             val formattedDateTime = formattedDate + "T" + formattedTime + "Z"
             val availableDates: List<String?> = listOf(formattedDateTime)

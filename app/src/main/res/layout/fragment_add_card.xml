@@ -26,16 +26,8 @@
 
             <TextView
                 android:id="@+id/add_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/add_card"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/TextViewTopMainScreenStyle"
+                android:text="@string/add_card" />
 
             <TextView
                 android:id="@+id/select_speciality_text_view"
