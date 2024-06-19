@@ -26,7 +26,8 @@
     <TextView
         android:id="@+id/article"
         style="@style/TextViewTopMainScreenStyle"
-        android:text="@string/article" />
+        android:text="@string/article"
+        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_articles"

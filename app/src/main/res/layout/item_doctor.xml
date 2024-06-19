@@ -29,8 +29,6 @@
         <TextView
             android:id="@+id/text_view_doctor_name"
             style="@style/TextViewHomeScreenStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="Dr . Aisha ahmed"
@@ -40,9 +38,7 @@
 
         <TextView
             android:id="@+id/text_view_city"
-            style="@style/TextDoctorCardStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextViewDoctorCardStyle"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:text="Mansoura"
@@ -51,9 +47,7 @@
 
         <TextView
             android:id="@+id/text_view_phone_number"
-            style="@style/TextDoctorCardStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextViewDoctorCardStyle"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:text="013123124"

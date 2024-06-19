@@ -59,9 +59,7 @@
 
             <TextView
                 android:id="@+id/text_view_doctor_speciality"
-                style="@style/TextDoctorCardStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDoctorCardStyle"
                 android:layout_marginStart="20dp"
                 android:text="@string/doctor_procedure"
                 android:textColor="@color/light_blue"
@@ -81,9 +79,7 @@
 
             <TextView
                 android:id="@+id/text_view_phone_number"
-                style="@style/TextDoctorCardStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDoctorCardStyle"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="4dp"
                 android:text="24151515163"
@@ -106,8 +102,6 @@
             <TextView
                 android:id="@+id/text_view_available_dates"
                 style="@style/TextViewHomeScreenStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/available_dates"
@@ -158,8 +152,6 @@
             <TextView
                 android:id="@+id/text_view_about_title"
                 style="@style/TextViewHomeScreenStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/about"
@@ -170,7 +162,6 @@
                 android:id="@+id/text_view_about"
                 style="@style/TextViewHomeScreenStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center"

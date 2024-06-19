@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/text_view_app_name"
-        style="@style/AppNameTextViewStyle"
+        style="@style/TextViewAppNameStyle"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/image_view_logo"
         app:layout_constraintStart_toStartOf="@id/image_view_logo"

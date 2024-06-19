@@ -22,8 +22,6 @@
     <TextView
         android:id="@+id/hello"
         style="@style/TextViewHomeScreenStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="@string/hello"
         app:layout_constraintStart_toEndOf="@id/img_view_profile"
@@ -31,9 +29,7 @@
 
     <TextView
         android:id="@+id/welcome"
-        style="@style/WelcomeBackTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextViewWelcomeBack"
         android:layout_marginStart="10dp"
         android:text="@string/welcome_back"
         app:layout_constraintStart_toEndOf="@id/img_view_profile"
