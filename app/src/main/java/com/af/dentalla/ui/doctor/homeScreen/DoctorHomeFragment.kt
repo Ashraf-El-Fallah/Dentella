@@ -22,6 +22,7 @@ class DoctorHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDoctorHomeBinding.inflate(inflater, container, false)
+//        binding.topScreen.editTextSearchHome.gone()
         return binding.root
     }
 

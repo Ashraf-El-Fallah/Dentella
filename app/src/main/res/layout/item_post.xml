@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/doctor_profile_style"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="10dp"
+    android:background="@drawable/post_style"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="6dp"
     app:cardUseCompatPadding="true">
 
     <include

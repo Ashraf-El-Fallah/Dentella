@@ -27,18 +27,15 @@
             <TextView
                 android:id="@+id/add_text_view"
                 style="@style/TextViewTopMainScreenStyle"
-                android:text="@string/add_card" />
+                android:text="@string/add_card"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/select_speciality_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextViewHomeScreenStyle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="60dp"
                 android:text="@string/select_speciality"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,14 +51,10 @@
 
             <TextView
                 android:id="@+id/schedule_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextViewHomeScreenStyle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/select_your_free_date"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/speciality_recycler_view" />
 
@@ -78,13 +71,9 @@
 
             <TextView
                 android:id="@+id/time_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextViewHomeScreenStyle"
                 android:layout_marginStart="16dp"
                 android:text="@string/time"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
