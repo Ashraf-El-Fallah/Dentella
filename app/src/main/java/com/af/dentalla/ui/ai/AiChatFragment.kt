@@ -30,7 +30,7 @@ class AiChatFragment : Fragment() {
     }
 
     private fun backToSplashAi() {
-        binding.backToSplash.setOnClickListener {
+        binding.backToSplash.root.setOnClickListener {
            findNavController().navigate(AiChatFragmentDirections.actionAiChatFragmentToFirstSplashAiFragment())
         }
     }

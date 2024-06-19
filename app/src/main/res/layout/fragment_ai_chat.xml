@@ -7,17 +7,9 @@
     tools:context=".ui.ai.AiChatFragment">
 
 
-    <ImageView
+    <include
         android:id="@+id/back_to_splash"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="26dp"
-        android:background="@drawable/back_button_style"
-        android:paddingStart="10dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/base_back" />
 
     <ImageView
         android:id="@+id/robot_img"
@@ -42,20 +34,16 @@
         app:layout_constraintTop_toBottomOf="@id/robot_img">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextViewStyle"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/predict_disease"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/example"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/BaseTextViewConstraint"
         android:layout_marginTop="40dp"
         android:text="@string/upload_image"
         android:textSize="16sp"
@@ -63,45 +51,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card1" />
 
-    <TextView
-        android:id="@+id/text_view_send_to_website"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/go_to_model"
-        android:textColor="@color/black"
-        android:layout_marginBottom="20dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/send_btn"
-        app:layout_constraintStart_toStartOf="@id/send_btn"
-        app:layout_constraintBottom_toTopOf="@id/send_btn" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_view_send_to_website"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:text="@string/go_to_model"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/send_btn"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/send_btn"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/send_btn" />-->
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/ai_search"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="60dp"-->
-    <!--        android:layout_marginStart="25dp"-->
-    <!--        android:layout_marginEnd="18dp"-->
-    <!--        android:layout_marginBottom="120dp"-->
-    <!--        android:background="@drawable/edit_text_ai_style"-->
-    <!--        android:drawableEnd="@drawable/scan"-->
-    <!--        android:hint="@string/ask_me"-->
-    <!--        android:paddingEnd="15dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toStartOf="@id/send_btn"-->
-    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <EditText
+        android:id="@+id/ai_search"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/edit_text_ai_style"
+        android:drawableEnd="@drawable/scan"
+        android:elevation="4dp"
+        android:hint="@string/upload_image"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/send_btn"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/send_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/send_button_style"
         android:drawableStart="@drawable/send"
         android:gravity="center"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
