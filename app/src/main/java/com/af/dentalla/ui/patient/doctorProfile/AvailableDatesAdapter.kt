@@ -49,10 +49,12 @@ class AvailableDatesAdapter(private val dates: List<String?>) :
         val year = calendar.get(Calendar.YEAR).toString()
         val month = (calendar.get(Calendar.MONTH) + 1).toString()
         val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH).toString()
-        val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
+        val dayOfWeek =
+            calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
 
         return Triple(year, month, "$dayOfMonth, $dayOfWeek")
     }
+
     private class DiffCallback : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
             return oldItem == newItem

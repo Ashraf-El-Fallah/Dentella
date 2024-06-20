@@ -8,8 +8,8 @@
     android:layout_marginVertical="4dp"
     android:layout_marginStart="2dp"
     android:layout_marginEnd="12dp"
-    aandroid:cardCornerRadius="4dp"
-    aandroid:cardElevation="12dp">
+    aandroid:cardCornerRadius="8dp"
+    aandroid:cardElevation="4dp">
 
     <include
         android:id="@+id/item_speciality"

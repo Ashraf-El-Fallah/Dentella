@@ -18,12 +18,13 @@
             <TextView
                 android:id="@+id/text_view_login"
                 style="@style/TextViewTopMainScreenStyle"
-                android:text="@string/create_account" />
+                android:text="@string/create_account"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/image_view_logo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="4dp"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="@id/text_view_login"
