@@ -14,7 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.DoctorProfileInformation
+import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
@@ -49,8 +49,8 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        returnDoctorProfileInformationObserver()
-        updateDoctorProfileInformationObserver()
+        returnUserProfileInformationObserver()
+        updateUserProfileInformationObserver()
 
         setTheEditTextsNotEditable()
         changeBetweenSaveAndEdit()
@@ -102,16 +102,16 @@ class EditProfileFragment : Fragment() {
     }
 
 
-    private fun sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation: DoctorProfileInformation) {
-        updatedDoctorProfileInformation.let {
-            editProfileViewModel.updateDoctorProfileInformation(
+    private fun sendUpdatedUserDataToViewModel(updatedUserProfileInformation: UserProfileInformation) {
+        updatedUserProfileInformation.let {
+            editProfileViewModel.updateUserProfileInformation(
                 it
             )
         }
     }
 
-    private fun updateDoctorProfileInformationObserver() {
-        editProfileViewModel.updateDoctorProfileInFormation.observe(viewLifecycleOwner) { updateProfileState ->
+    private fun updateUserProfileInformationObserver() {
+        editProfileViewModel.updateUserProfileInFormation.observe(viewLifecycleOwner) { updateProfileState ->
             when (updateProfileState) {
                 is ScreenState.Loading -> {
                     binding.progressBar.progress.visible()
@@ -147,14 +147,14 @@ class EditProfileFragment : Fragment() {
         return text.ifBlank { editText.hint.toString() }
     }
 
-    private fun handleUpdatedDoctorInformation() {
+    private fun handleUpdatedUserInformation() {
 //        binding.imgViewProfile.setImageURI(imageUri)
 //        val photoPart = imageUri?.let { uriToMultipart(it) }
         val photoPart = imageUri?.let { uri ->
             val file = uriToFile(uri)
             file?.let { fileToMultipartBody(it) }
         }
-        val updatedDoctorProfileInformation = DoctorProfileInformation(
+        val updatedUserProfileInformation = UserProfileInformation(
             userName = getTextOrHint(binding.editTextName),
             email = getTextOrHint(binding.editTextEmail),
             phoneNumber = getTextOrHint(binding.editTextMobileNumber),
@@ -162,16 +162,11 @@ class EditProfileFragment : Fragment() {
             currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
             currentLevel = "intermediate",
             photo = photoPart
-//          userName = "Ashraf",
-//          email = "Ashraf@gmail.com",
-//          phoneNumber = "01224217645",
-//          bio = "i'm Ashraf",
-//          currentUniversity = "tanta",
         )
-        sendUpdatedDoctorDateToViewModel(updatedDoctorProfileInformation)
+        sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
     }
 
-    private fun returnDoctorProfileInformationObserver() {
+    private fun returnUserProfileInformationObserver() {
         editProfileViewModel.profileInformation.observe(viewLifecycleOwner) { profileInformationState ->
             when (profileInformationState) {
                 is ScreenState.Loading -> {
@@ -241,10 +236,10 @@ class EditProfileFragment : Fragment() {
             toggleEditMode(binding.editTextBio, isEditMode)
 
             if (isEditMode) {
-                handleUpdatedDoctorInformation()
-                returnDoctorProfileInformationObserver()
+                handleUpdatedUserInformation()
+                returnUserProfileInformationObserver()
             } else {
-                returnDoctorProfileInformationObserver()
+                returnUserProfileInformationObserver()
             }
             isEditMode = !isEditMode
         }

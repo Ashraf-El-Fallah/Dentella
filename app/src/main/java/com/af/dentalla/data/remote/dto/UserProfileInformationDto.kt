@@ -3,7 +3,7 @@ package com.af.dentalla.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ProfileInformationDto(
+data class UserProfileInformationDto(
     @SerializedName("bio")
     val bio: String?,
     @SerializedName("currentUniversity")

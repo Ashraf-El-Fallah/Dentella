@@ -9,11 +9,11 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
-import com.af.dentalla.data.remote.dto.ProfileInformationDto
+import com.af.dentalla.data.remote.dto.UserProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.data.remote.requests.DoctorPassword
-import com.af.dentalla.data.remote.requests.DoctorProfileInformation
+import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -31,7 +31,7 @@ class UserRepositoryImpl @Inject constructor(
     private val service: ApiService,
     private val dataStorePreferencesService: DataStorePreferencesService
 ) : UserRepository {
-    private val accountType = AccountManager.accountType
+    private val accountType = AccountManager.accountType.toString().lowercase()
 
     override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> {
         return flow {
@@ -39,7 +39,7 @@ class UserRepositoryImpl @Inject constructor(
             try {
                 emit(NetWorkResponseState.Loading)
                 val authenticateLoginResponse =
-                    service.loginUser(accountType.toString().lowercase(), loginUser)
+                    service.loginUser(accountType, loginUser)
                 if (authenticateLoginResponse.isSuccessful) {
                     if (authenticateLoginResponse != null) {
                         Log.d("LoginUser", "Login  Successfully $loginUser")
@@ -65,7 +65,7 @@ class UserRepositoryImpl @Inject constructor(
             emit(NetWorkResponseState.Loading)
             try {
                 val authenticateSignUpResponse =
-                    service.signUpUser(accountType.toString().lowercase(), signUpUser)
+                    service.signUpUser(accountType, signUpUser)
                 emit(NetWorkResponseState.Success(Unit))
                 Log.d("SignUpUser", "............ $signUpUser")
             } catch (e: Exception) {
@@ -240,11 +240,13 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun returnDoctorProfileInformation(): Flow<NetWorkResponseState<ProfileInformationDto>> {
+    override fun returnUserProfileInformation(): Flow<NetWorkResponseState<UserProfileInformationDto>> {
         return flow {
             emit(NetWorkResponseState.Loading)
             try {
-                val response = service.returnProfileInformation()
+                val response = service.returnUserProfileInformation(
+                    userType = accountType
+                )
                 emit(NetWorkResponseState.Success(response))
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(e))
@@ -252,19 +254,20 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun updateDoctorProfileInformation(doctorProfileInformation: DoctorProfileInformation): Flow<NetWorkResponseState<Unit>> {
+    override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
         return flow {
             emit(NetWorkResponseState.Loading)
             try {
                 Log.d("Doctor Profile", ".......")
-                service.updateDoctorProfile(
-                    userName = createPartFromString(doctorProfileInformation.userName),
-                    email = createPartFromString(doctorProfileInformation.email),
-                    phoneNumber = createPartFromString(doctorProfileInformation.phoneNumber),
-                    bio = createPartFromString(doctorProfileInformation.bio),
-                    currentLevel = createPartFromString(doctorProfileInformation.currentLevel),
-                    currentUniversity = createPartFromString(doctorProfileInformation.currentUniversity),
-                    photo = doctorProfileInformation.photo
+                service.updateUserProfileInformation(
+                    userType = accountType,
+                    userName = createPartFromString(userProfileInformation.userName),
+                    email = createPartFromString(userProfileInformation.email),
+                    phoneNumber = createPartFromString(userProfileInformation.phoneNumber),
+                    bio = createPartFromString(userProfileInformation.bio),
+                    currentLevel = createPartFromString(userProfileInformation.currentLevel),
+                    currentUniversity = createPartFromString(userProfileInformation.currentUniversity),
+                    photo = userProfileInformation.photo
                 )
                 emit(NetWorkResponseState.Success(Unit))
             } catch (e: Exception) {

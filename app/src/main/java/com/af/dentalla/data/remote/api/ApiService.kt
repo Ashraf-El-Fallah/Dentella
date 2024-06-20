@@ -6,11 +6,10 @@ import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.LoginResponse
 import com.af.dentalla.data.remote.dto.PostDtoItem
-import com.af.dentalla.data.remote.dto.ProfileInformationDto
+import com.af.dentalla.data.remote.dto.UserProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.data.remote.requests.DoctorPassword
-import com.af.dentalla.data.remote.requests.DoctorProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -19,7 +18,6 @@ import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -79,16 +77,17 @@ interface ApiService {
         @Body card: Card
     )
 
-    @GET("Doctor/ReturnProfile")
-    suspend fun returnProfileInformation(): ProfileInformationDto
+    @GET("{user_type}/ReturnProfile")
+    suspend fun returnUserProfileInformation(@Path("user_type") userType: String): UserProfileInformationDto
 
     //    @PUT("Doctor/UpdateProfile")
 //    suspend fun updateDoctorProfile(
 //        @Body doctorProfileInformation: DoctorProfileInformation
 //    )
     @Multipart
-    @PUT("Doctor/UpdateProfile")
-    suspend fun updateDoctorProfile(
+    @PUT("{user_type}/UpdateProfile")
+    suspend fun updateUserProfileInformation(
+        @Path("user_type") userType: String,
         @Part("userName") userName: RequestBody,
         @Part("email") email: RequestBody,
         @Part("phoneNumber") phoneNumber: RequestBody,
@@ -97,6 +96,22 @@ interface ApiService {
         @Part("currentUniversity") currentUniversity: RequestBody,
         @Part photo: MultipartBody.Part?
     )
+
+//    data class UserProfileUpdateRequest(
+//        val userName: String,
+//        val email: String,
+//        val phoneNumber: String,
+//        val bio: String,
+//        val currentLevel: String,
+//        val currentUniversity: String,
+//        val photo: MultipartBody.Part?
+//    )
+//
+//    @PUT("{user_type}/UpdateProfile")
+//    suspend fun updateUserProfileInformation(
+//        @Path("user_type") userType: String,
+//        @Body userProfileUpdateRequest: UserProfileUpdateRequest
+//    )
 
     @POST("Password/changepassword")
     suspend fun changeDoctorPassword(

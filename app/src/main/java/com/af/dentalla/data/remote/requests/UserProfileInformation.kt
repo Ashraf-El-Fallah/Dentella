@@ -3,7 +3,7 @@ package com.af.dentalla.data.remote.requests
 import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
 
-data class DoctorProfileInformation(
+data class UserProfileInformation(
     @SerializedName("userName")
     val userName: String,
     @SerializedName("email")

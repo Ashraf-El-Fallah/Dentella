@@ -12,7 +12,7 @@ import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
-import com.af.dentalla.data.remote.dto.ProfileInformationDto
+import com.af.dentalla.data.remote.dto.UserProfileInformationDto
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.DoctorProfileEntity
@@ -57,5 +57,5 @@ abstract class MapperModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindProfileInformationMapper(profileInformationMapper: ProfileInformationMapper): BaseMapper<ProfileInformationDto, ProfileInformationEntity>
+    abstract fun bindProfileInformationMapper(profileInformationMapper: ProfileInformationMapper): BaseMapper<UserProfileInformationDto, ProfileInformationEntity>
 }
