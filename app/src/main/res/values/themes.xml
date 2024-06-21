@@ -3,6 +3,12 @@
     <style name="Base.Theme.Dentalla" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:timePickerStyle">@style/MyTimePickerLight</item>
+
+        <!-- System UI Configurations-->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- For making status bar content color dark -->
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
 
