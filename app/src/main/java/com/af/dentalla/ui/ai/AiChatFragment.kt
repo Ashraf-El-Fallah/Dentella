@@ -26,20 +26,27 @@ class AiChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         backToSplashAi()
-        sendUserToAiModel()
+        setOnClicks()
     }
 
     private fun backToSplashAi() {
         binding.backToSplash.root.setOnClickListener {
-           findNavController().navigate(AiChatFragmentDirections.actionAiChatFragmentToFirstSplashAiFragment())
+            findNavController().navigate(AiChatFragmentDirections.actionAiChatFragmentToFirstSplashAiFragment())
         }
     }
 
-    private fun sendUserToAiModel() {
+    private fun sendToWebsiteModel() {
+        val url = "https://huggingface.co/spaces/OmarEllethy/DENTELLA"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
+
+    private fun setOnClicks() {
         binding.sendBtn.setOnClickListener {
-            val url = "https://huggingface.co/spaces/OmarEllethy/DENTELLA"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
+            sendToWebsiteModel()
+        }
+        binding.aiSearch.setOnClickListener {
+            sendToWebsiteModel()
         }
     }
 
