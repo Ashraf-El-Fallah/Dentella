@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,6 +22,7 @@ import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -208,18 +210,23 @@ class EditProfileFragment : Fragment() {
                     binding.apply {
                         progressBar.progress.gone()
                         textViewEditOrSave.visible()
-                    }
-                    val doctorProfileInformation = profileInformationState.uiData
-                    binding.apply {
-                        editTextName.hint = doctorProfileInformation.userName
-                        editTextEmail.hint = doctorProfileInformation.email
-                        editTextMobileNumber.hint = doctorProfileInformation.phoneNumber
-                        editTextBio.hint = doctorProfileInformation.bio
-                        editTextCurrentUniversity.hint = doctorProfileInformation.currentUniversity
-//                        Glide.with(requireContext())
-//                            .load(doctorProfileInformation.photo.toString())
-//                            .into(imgViewProfile)
-                        imgViewProfile.loadImage(doctorProfileInformation.photo)
+
+                        val profileInformation = profileInformationState.uiData
+
+                        editTextName.hint = profileInformation.userName
+                        editTextEmail.hint = profileInformation.email
+                        editTextMobileNumber.hint = profileInformation.phoneNumber
+                        editTextBio.hint = profileInformation.bio
+                        editTextCurrentUniversity.hint = profileInformation.currentUniversity
+                        val imgViewProfile = binding.imgViewProfile
+                        val photoUrl = profileInformation.photo
+                        if (!photoUrl.isNullOrEmpty()) {
+                            Glide.with(requireContext())
+                                .load(photoUrl)
+                                .into(imgViewProfile)
+                        } else {
+                            imgViewProfile.setImageResource(R.drawable.img)
+                        }
                     }
                 }
             }
@@ -235,11 +242,13 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun setTheEditTextsNotEditable() {
-        binding.editTextName.isEnabled = false
-        binding.editTextBio.isEnabled = false
-        binding.editTextEmail.isEnabled = false
-        binding.editTextMobileNumber.isEnabled = false
-        binding.editTextCurrentUniversity.isEnabled = false
+        binding.apply {
+            editTextName.isEnabled = false
+            editTextBio.isEnabled = false
+            editTextEmail.isEnabled = false
+            editTextMobileNumber.isEnabled = false
+            editTextCurrentUniversity.isEnabled = false
+        }
     }
 
     private fun changeBetweenSaveAndEdit() {
