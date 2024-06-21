@@ -17,7 +17,6 @@ import com.af.dentalla.R
 import com.af.dentalla.data.remote.dto.DoctorAvailability
 import com.af.dentalla.data.remote.requests.Card
 import com.af.dentalla.databinding.FragmentAddCardBinding
-import com.af.dentalla.ui.patient.homeScreen.Speciality
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
@@ -190,12 +189,12 @@ class AddCardFragment : Fragment() {
 
     private fun setUpAddSpecialityRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.cleaning_black, 0, getString(R.string.cleaning)),
-            Speciality(R.drawable.filling_black, 1, getString(R.string.filling)),
-            Speciality(R.drawable.extraction_black, 4, getString(R.string.extraction)),
-            Speciality(R.drawable.implants_black, 3, getString(R.string.implants)),
-            Speciality(R.drawable.crowns_black, 2, getString(R.string.crowns)),
-            Speciality(R.drawable.denture_black, 5, getString(R.string.dentures)),
+            SpecialityAddCard(R.drawable.cleaning_black, R.drawable.cleaning_white, 0, getString(R.string.cleaning)),
+            SpecialityAddCard(R.drawable.filling_black, R.drawable.filling_white, 1, getString(R.string.filling)),
+            SpecialityAddCard(R.drawable.extraction_black, R.drawable.extraction_white, 4, getString(R.string.extraction)),
+            SpecialityAddCard(R.drawable.implants_black, R.drawable.implants_white, 3, getString(R.string.implants)),
+            SpecialityAddCard(R.drawable.crowns_black, R.drawable.crowns_white, 2, getString(R.string.crowns)),
+            SpecialityAddCard(R.drawable.denture_black, R.drawable.denture_white, 5, getString(R.string.dentures))
         )
         val adapter = AddSpecialityAdapter(specialtiesList) { specialtyIdChosen ->
             specialityId = specialtyIdChosen

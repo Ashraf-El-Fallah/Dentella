@@ -471,3 +471,5 @@ Papp/src/main/java/com/af/dentalla/data/remote/requests/UserProfileInformation.k
 ^app/src/main/java/com/af/dentalla/domain/usecase/doctor/UpdateUserProfileInformationUseCase.kt,3\1\313d65aec08c92c75e20cd9eb7d6402b7198c0a7
 ~
 Napp/src/main/java/com/af/dentalla/data/remote/dto/UserProfileInformationDto.kt,c\7\c7ad3f50bfb3c5c60cfb8c056019b3f4378c1d53
+x
+Happ/src/main/java/com/af/dentalla/ui/doctor/addCard/SpecialityAddCard.kt,3\e\3ee60610c186c121536a906c93cd2baef748b884

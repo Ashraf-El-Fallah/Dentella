@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemChooseSpecialityBinding
-import com.af.dentalla.ui.patient.homeScreen.Speciality
 
 class AddSpecialityAdapter(
-    private val specialities: List<Speciality>,
+    private val specialities: List<SpecialityAddCard>,
     private val onItemClick: (Int) -> Unit
 ) :
     RecyclerView.Adapter<AddSpecialityAdapter.AddSpecialityViewHolder>() {
@@ -18,15 +17,22 @@ class AddSpecialityAdapter(
         selectedItemPosition = position
         notifyDataSetChanged()
     }
+
     inner class AddSpecialityViewHolder(private val binding: ItemChooseSpecialityBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(speciality: Speciality) {
+        fun bind(speciality: SpecialityAddCard) {
             binding.itemSpeciality.apply {
-                imgSpeciality.setImageResource(speciality.imageDrawable)
+                imgSpeciality.setImageResource(
+                    if (adapterPosition == selectedItemPosition) {
+                        speciality.imageDrawableWhite
+                    } else {
+                        speciality.imageDrawableBlack
+                    }
+                )
                 textViewSpeciality.text = speciality.name
 
                 if (adapterPosition == selectedItemPosition) {
-                    root.setBackgroundColor(Color.parseColor("#1480ec"))
+                    root.setBackgroundColor(Color.parseColor("#1480EC"))
                 } else {
                     root.setBackgroundColor(Color.TRANSPARENT)
                 }
@@ -37,7 +43,6 @@ class AddSpecialityAdapter(
             }
         }
     }
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddSpecialityViewHolder {
