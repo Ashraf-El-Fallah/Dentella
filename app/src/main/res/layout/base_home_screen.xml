@@ -56,6 +56,8 @@
         android:drawableStart="@drawable/ic_search"
         android:focusable="true"
         android:hint="@string/search"
+        android:focusableInTouchMode="false"
+        android:inputType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/img_view_profile"
         app:layout_constraintTop_toTopOf="parent" />

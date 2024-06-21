@@ -29,11 +29,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/articleFragment"
-        android:name="com.af.dentalla.ui.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
-    <fragment
         android:id="@+id/aiChatFragment"
         android:name="com.af.dentalla.ui.ai.AiChatFragment"
         android:label="fragment_ai_chat"
@@ -94,6 +89,9 @@
         <action
             android:id="@+id/action_searchFragment_to_doctorProfileFragment"
             app:destination="@id/doctorProfileFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/firstSplashAiFragment"
@@ -149,16 +147,19 @@
         android:id="@+id/doctorHomeFragment"
         android:name="com.af.dentalla.ui.doctor.homeScreen.DoctorHomeFragment"
         android:label="fragment_doctor_home"
-        tools:layout="@layout/fragment_doctor_home" >
+        tools:layout="@layout/fragment_doctor_home">
         <action
             android:id="@+id/action_doctorHomeFragment_to_addCardFragment"
             app:destination="@id/addCardFragment" />
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCardFragment"
         android:name="com.af.dentalla.ui.doctor.addCard.AddCardFragment"
         android:label="fragment_add_card"
-        tools:layout="@layout/fragment_add_card" >
+        tools:layout="@layout/fragment_add_card">
         <action
             android:id="@+id/action_addCardFragment_to_doctorHomeFragment"
             app:destination="@id/doctorHomeFragment" />

@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSearchBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
+import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
@@ -20,11 +22,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private val searchViewModel: SearchViewModel by viewModels()
+
+    @Inject
+    lateinit var dataStorePreferencesService: DataStorePreferencesService
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,13 +44,20 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         searchAboutCards()
         searchedCardsObserver()
+        lifecycleScope.launch {
+            AccountManager.accountType = dataStorePreferencesService.getAccountType()
+        }
         navigateToHomeScreen()
     }
 
     private fun navigateToHomeScreen() {
         binding.back.root.setOnClickListener {
-            val action = SearchFragmentDirections.actionSearchFragmentToHomeFragment()
-            findNavController().navigate(action)
+            val action = if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
+                SearchFragmentDirections.actionSearchFragmentToDoctorHomeFragment()
+            } else {
+                SearchFragmentDirections.actionSearchFragmentToHomeFragment()
+            }
+            findNavController().safeNavigate(action)
         }
     }
 

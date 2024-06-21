@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorHomeBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,14 +24,25 @@ class DoctorHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDoctorHomeBinding.inflate(inflater, container, false)
-//        binding.topScreen.editTextSearchHome.gone()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         postObserver()
+        navigateToSearchFragment()
     }
+
+    private fun navigateToSearchScreen() {
+        findNavController().safeNavigate(DoctorHomeFragmentDirections.actionDoctorHomeFragmentToSearchFragment())
+    }
+
+    private fun navigateToSearchFragment() {
+        binding.topScreen.editTextSearchHome.setOnClickListener {
+            navigateToSearchScreen()
+        }
+    }
+
 
     private fun postObserver() {
         doctorHomeViewModel.allPosts.observe(viewLifecycleOwner) {
