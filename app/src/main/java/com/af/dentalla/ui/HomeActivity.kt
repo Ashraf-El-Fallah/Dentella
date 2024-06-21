@@ -1,6 +1,7 @@
 package com.af.dentalla.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
@@ -105,6 +106,19 @@ class HomeActivity : BaseActivity() {
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
+                    if (addPostState.message == "HTTP 401 Unauthorized") {
+                        Toast.makeText(
+                            this,
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            this,
+                            R.string.cannot_send_data,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }

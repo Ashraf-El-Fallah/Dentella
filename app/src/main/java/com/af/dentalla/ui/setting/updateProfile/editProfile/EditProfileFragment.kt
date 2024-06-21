@@ -129,11 +129,19 @@ class EditProfileFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.error_when_returning_response,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    if (updateProfileState.message == "HTTP 401 Unauthorized") {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.cannot_send_data,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                     binding.progressBar.progress.gone()
                     binding.textViewEditOrSave.visible()
                 }
@@ -181,12 +189,19 @@ class EditProfileFragment : Fragment() {
                         progressBar.progress.gone()
                         textViewEditOrSave.visible()
                     }
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.error_when_returning_response,
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    if (profileInformationState.message == "HTTP 401 Unauthorized") {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.error_when_returning_response,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
 
                 is ScreenState.Success -> {

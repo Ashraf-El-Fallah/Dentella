@@ -119,7 +119,7 @@ class AddCardFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.root.gone()
-                    if (addCardState.statusCode == 401) {
+                    if (addCardState.message == "HTTP 401 Unauthorized") {
                         Toast.makeText(
                             requireContext(),
                             R.string.want_to_login_again,

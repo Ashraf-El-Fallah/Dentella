@@ -28,9 +28,6 @@ class AuthInterceptor @Inject constructor(
             }
         }
 
-//        val token =
-//            "yJ9.eyJW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGRkIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJkMzQ0YzNlMy03YzAxLTQ0NDQtYTZkYi1hZjc3NGZmMWZlNzEiLCJqdGkiOiJhMmJlMzZlYy0zY2JkLTRkMDAtOGFjZC1mMGMyOGI0NGVlZDUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJEb2N0b3IiLCJleHAiOjE3MTYyOTQ2OTYsImlzcyI6Imh0dHA6Ly9kZW50ZWxsYS5zb21lZS5jb20vIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDIwMC8ifQ.qsNfy_85M8F4TBqI7EiYOFJBZU7lidD_2JIdOAmRSY8"
-
         val request = if (token != null) {
             chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $token")

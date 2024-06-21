@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.R
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
@@ -81,6 +82,19 @@ class ArticlesFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
+                    if (addArticleState.message == "HTTP 401 Unauthorized") {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.cannot_send_data,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }

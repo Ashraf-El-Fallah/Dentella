@@ -64,11 +64,20 @@ class UpdatePasswordFragment : BaseFragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.root.gone()
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.error_when_changing_old_password,
-                        Toast.LENGTH_LONG
-                    ).show()
+
+                    if (changePasswordState.message == "HTTP 401 Unauthorized") {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.want_to_login_again,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.error_when_changing_old_password,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
 
                 is ScreenState.Success -> {
