@@ -156,7 +156,12 @@ class AddCardFragment : Fragment() {
             val formattedDate =
                 selectedDate?.let { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it) }
             val formattedTime =
-                selectedTime?.let { SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault()).format(it) }
+                selectedTime?.let {
+                    SimpleDateFormat(
+                        "HH:mm:ss.SSS",
+                        Locale.getDefault()
+                    ).format(it)
+                }
 
             val formattedDateTime = formattedDate + "T" + formattedTime + "Z"
             val availableDates: List<String?> = listOf(formattedDateTime)
@@ -185,12 +190,12 @@ class AddCardFragment : Fragment() {
 
     private fun setUpAddSpecialityRecyclerView() {
         val specialtiesList = listOf(
-            Speciality(R.drawable.add_cleaning, 0, getString(R.string.cleaning)),
-            Speciality(R.drawable.add_dental_filling, 1, getString(R.string.filling)),
-            Speciality(R.drawable.add_dental_crown, 4, getString(R.string.extraction)),
-//            Speciality(R.drawable.dental_implant, 3, "Implants"),
-//            Speciality(R.drawable.add_tooth_extraction, 2, "Crowns"),
-//            Speciality(R.drawable.denture, 5, "Orthodontic"),
+            Speciality(R.drawable.cleaning_black, 0, getString(R.string.cleaning)),
+            Speciality(R.drawable.filling_black, 1, getString(R.string.filling)),
+            Speciality(R.drawable.extraction_black, 4, getString(R.string.extraction)),
+            Speciality(R.drawable.implants_black, 3, getString(R.string.implants)),
+            Speciality(R.drawable.crowns_black, 2, getString(R.string.crowns)),
+            Speciality(R.drawable.denture_black, 5, getString(R.string.dentures)),
         )
         val adapter = AddSpecialityAdapter(specialtiesList) { specialtyIdChosen ->
             specialityId = specialtyIdChosen
