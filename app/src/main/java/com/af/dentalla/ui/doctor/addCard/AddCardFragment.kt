@@ -152,6 +152,11 @@ class AddCardFragment : Fragment() {
 
     private fun createFormatForDateAndTime() {
         if (selectedDate != null && selectedTime != null) {
+            val currentDate = Calendar.getInstance().time
+            if (selectedDate!!.before(currentDate)) {
+                return
+            }
+
             val formattedDate =
                 selectedDate?.let { SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it) }
             val formattedTime =
@@ -184,17 +189,46 @@ class AddCardFragment : Fragment() {
             minute,
             false
         ).show()
-
     }
 
     private fun setUpAddSpecialityRecyclerView() {
         val specialtiesList = listOf(
-            SpecialityAddCard(R.drawable.cleaning_black, R.drawable.cleaning_white, 0, getString(R.string.cleaning)),
-            SpecialityAddCard(R.drawable.filling_black, R.drawable.filling_white, 1, getString(R.string.filling)),
-            SpecialityAddCard(R.drawable.extraction_black, R.drawable.extraction_white, 4, getString(R.string.extraction)),
-            SpecialityAddCard(R.drawable.implants_black, R.drawable.implants_white, 3, getString(R.string.implants)),
-            SpecialityAddCard(R.drawable.crowns_black, R.drawable.crowns_white, 2, getString(R.string.crowns)),
-            SpecialityAddCard(R.drawable.denture_black, R.drawable.denture_white, 5, getString(R.string.dentures))
+            SpecialityAddCard(
+                R.drawable.cleaning_black,
+                R.drawable.cleaning_white,
+                0,
+                getString(R.string.cleaning)
+            ),
+            SpecialityAddCard(
+                R.drawable.filling_black,
+                R.drawable.filling_white,
+                1,
+                getString(R.string.filling)
+            ),
+            SpecialityAddCard(
+                R.drawable.extraction_black,
+                R.drawable.extraction_white,
+                4,
+                getString(R.string.extraction)
+            ),
+            SpecialityAddCard(
+                R.drawable.implants_black,
+                R.drawable.implants_white,
+                3,
+                getString(R.string.implants)
+            ),
+            SpecialityAddCard(
+                R.drawable.crowns_black,
+                R.drawable.crowns_white,
+                2,
+                getString(R.string.crowns)
+            ),
+            SpecialityAddCard(
+                R.drawable.denture_black,
+                R.drawable.denture_white,
+                5,
+                getString(R.string.dentures)
+            )
         )
         val adapter = AddSpecialityAdapter(specialtiesList) { specialtyIdChosen ->
             specialityId = specialtyIdChosen

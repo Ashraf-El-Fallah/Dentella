@@ -40,6 +40,8 @@
             android:textColor="@color/gray"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:gravity="start"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

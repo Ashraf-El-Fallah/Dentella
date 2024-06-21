@@ -70,7 +70,7 @@
     <string name="time">Time</string>
     <string name="select_your_free_time">Select your free time</string>
     <string name="confirm">Confirm</string>
-    <string name="choose_free_time_and_speciality">You should choose free time,free date and your speciality</string>
+    <string name="choose_free_time_and_speciality">You should choose future free time , free date and your speciality</string>
     <string name="your_speciality_is">Your speciality is</string>
     <string name="your_selected_date_is">and your selected date is</string>
     <string name="at">at</string>

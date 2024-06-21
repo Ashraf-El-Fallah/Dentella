@@ -19,7 +19,7 @@
         android:id="@+id/text_view_edit_or_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="20dp"
         android:text="@string/edit"
         android:textColor="@color/cyan_blue"

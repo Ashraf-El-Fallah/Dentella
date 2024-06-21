@@ -59,7 +59,7 @@
     <string name="select_your_free_time">اختر الوقت المناسب</string>
     <string name="time">الوقت</string>
     <string name="confirm">تأكيد</string>
-    <string name="choose_free_time_and_speciality">يجب أن تختار تاريخ و وقت مناسبين بالإضافة لتخصصك </string>
+    <string name="choose_free_time_and_speciality">يجب أن تختار تاريخ قادم و موعد مناسب بالإضافة لتخصصك</string>
     <string name="your_speciality_is">لقد اخترت تخصص</string>
     <string name="your_selected_date_is">واخترت يوم</string>
     <string name="at">في الساعة</string>
