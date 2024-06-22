@@ -1,5 +1,6 @@
 package com.af.dentalla.ui.setting.changeLanguage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,8 +43,17 @@ class ChangeLanguageBottomSheetFragment : BottomSheetDialogFragment() {
         lifecycleScope.launch {
             dataStorePreferencesService.saveLanguage(language = language)
             LocaleUtils.setLocale(requireContext(), language)
-            requireActivity().recreate() // Refresh the activity to apply the new language
+            restartApp()// Refresh the activity to apply the new language
         }
     }
 
+
+    private fun restartApp() {
+        val intent = requireActivity().baseContext.packageManager
+            .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
+        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        requireActivity().startActivity(intent)
+        requireActivity().finish()
+
+    }
 }
