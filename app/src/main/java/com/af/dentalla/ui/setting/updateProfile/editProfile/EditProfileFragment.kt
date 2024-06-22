@@ -66,7 +66,9 @@ class EditProfileFragment : Fragment() {
         pickPicFromGallery()
         binding.imgViewProfile.setOnClickListener {
             openGalleryForImage()
-            handleEditOrSaveButtonClickListener()
+            if (!isEditMode) {
+                handleEditOrSaveButtonClickListener()
+            }
         }
     }
 
