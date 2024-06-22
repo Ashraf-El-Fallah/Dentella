@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSelectUserTypeScreenBinding
 import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,6 +27,11 @@ class SelectUserTypeScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // add in base fragment
+        lifecycleScope.launch {
+            val language = dataStorePreferencesService.getLanguage() ?: "en"
+            LocaleUtils.setLocale(requireContext(), language)
+        }
         binding = FragmentSelectUserTypeScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
