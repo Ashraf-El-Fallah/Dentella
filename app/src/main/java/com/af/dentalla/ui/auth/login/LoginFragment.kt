@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.data.remote.requests.LoginDoctor
@@ -91,7 +92,7 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
-//                    requireView().showToastShort("Incorrect Personal information")
+                    Toast.makeText(requireContext(), loginState.message, Toast.LENGTH_LONG).show()
                 }
             }
         }
