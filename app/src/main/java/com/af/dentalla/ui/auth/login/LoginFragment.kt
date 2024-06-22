@@ -82,8 +82,6 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Success -> {
                     binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
-//                    findNavController().safeNavigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
-//                    (activity as AuthenticationActivity).navigateToHomeActivity()
                     val intent =
                         Intent(this@LoginFragment.requireContext(), HomeActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

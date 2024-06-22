@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -67,6 +66,7 @@ class EditProfileFragment : Fragment() {
         pickPicFromGallery()
         binding.imgViewProfile.setOnClickListener {
             openGalleryForImage()
+            handleEditOrSaveButtonClickListener()
         }
     }
 
@@ -158,8 +158,6 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun handleUpdatedUserInformation() {
-//        binding.imgViewProfile.setImageURI(imageUri)
-//        val photoPart = imageUri?.let { uriToMultipart(it) }
         val photoPart = imageUri?.let { uri ->
             val file = uriToFile(uri)
             file?.let { fileToMultipartBody(it) }
@@ -253,20 +251,22 @@ class EditProfileFragment : Fragment() {
 
     private fun changeBetweenSaveAndEdit() {
         binding.textViewEditOrSave.setOnClickListener {
-            toggleEditMode(binding.editTextName, isEditMode)
-            toggleEditMode(binding.editTextEmail, isEditMode)
-            toggleEditMode(binding.editTextMobileNumber, isEditMode)
-            toggleEditMode(binding.editTextCurrentUniversity, isEditMode)
-            toggleEditMode(binding.editTextBio, isEditMode)
-
-            if (isEditMode) {
-                handleUpdatedUserInformation()
-                returnUserProfileInformationObserver()
-            } else {
-                returnUserProfileInformationObserver()
-            }
-            isEditMode = !isEditMode
+            handleEditOrSaveButtonClickListener()
         }
+    }
+
+    private fun handleEditOrSaveButtonClickListener() {
+        toggleEditMode(binding.editTextName, isEditMode)
+        toggleEditMode(binding.editTextEmail, isEditMode)
+        toggleEditMode(binding.editTextMobileNumber, isEditMode)
+        toggleEditMode(binding.editTextCurrentUniversity, isEditMode)
+        toggleEditMode(binding.editTextBio, isEditMode)
+
+        if (isEditMode) {
+            handleUpdatedUserInformation()
+        }
+        returnUserProfileInformationObserver()
+        isEditMode = !isEditMode
     }
 
     private fun toggleEditMode(editText: EditText, isEditeMode: Boolean) {

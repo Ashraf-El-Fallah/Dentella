@@ -42,11 +42,13 @@ class AiChatFragment : Fragment() {
     }
 
     private fun setOnClicks() {
-        binding.sendBtn.setOnClickListener {
+        val onClickListener = View.OnClickListener {
             sendToWebsiteModel()
         }
-        binding.aiSearch.setOnClickListener {
-            sendToWebsiteModel()
+
+        binding.apply {
+            sendBtn.setOnClickListener(onClickListener)
+            aiSearch.setOnClickListener(onClickListener)
         }
     }
 

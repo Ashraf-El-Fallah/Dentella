@@ -47,7 +47,6 @@ class ChangeLanguageBottomSheetFragment : BottomSheetDialogFragment() {
         }
     }
 
-
     private fun restartApp() {
         val intent = requireActivity().baseContext.packageManager
             .getLaunchIntentForPackage(requireActivity().baseContext.packageName)

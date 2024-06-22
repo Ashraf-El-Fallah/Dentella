@@ -41,13 +41,9 @@ class UserRepositoryImpl @Inject constructor(
                 val authenticateLoginResponse =
                     service.loginUser(accountType, loginUser)
                 if (authenticateLoginResponse.isSuccessful) {
-                    if (authenticateLoginResponse != null) {
-                        Log.d("LoginUser", "Login  Successfully $loginUser")
-                        saveToken(authenticateLoginResponse.body()?.token)
-                        emit(NetWorkResponseState.Success(Unit))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
+                    Log.d("LoginUser", "Login  Successfully $loginUser")
+                    saveToken(authenticateLoginResponse.body()?.token)
+                    emit(NetWorkResponseState.Success(Unit))
                 } else {
                     emit(NetWorkResponseState.Error(Exception("HTTP error ${authenticateLoginResponse.code()}")))
                 }

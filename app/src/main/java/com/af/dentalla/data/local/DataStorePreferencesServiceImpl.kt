@@ -27,7 +27,6 @@ class DataStorePreferencesServiceImpl @Inject constructor(context: Application) 
             }
         }
     }
-
     override suspend fun getToken(): String? {
         return prefDataStore.data.map { preferences ->
             preferences[stringPreferencesKey(TOKEN_KEY)]
