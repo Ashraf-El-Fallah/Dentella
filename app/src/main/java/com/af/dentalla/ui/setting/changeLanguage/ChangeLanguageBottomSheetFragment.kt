@@ -43,7 +43,7 @@ class ChangeLanguageBottomSheetFragment : BottomSheetDialogFragment() {
         lifecycleScope.launch {
             dataStorePreferencesService.saveLanguage(language = language)
             LocaleUtils.setLocale(requireContext(), language)
-            restartApp()// Refresh the activity to apply the new language
+            restartApp()
         }
     }
 
