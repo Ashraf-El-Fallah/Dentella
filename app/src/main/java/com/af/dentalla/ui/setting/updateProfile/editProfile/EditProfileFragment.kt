@@ -18,7 +18,6 @@ import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
-import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
 import com.bumptech.glide.Glide
@@ -280,6 +279,11 @@ class EditProfileFragment : Fragment() {
         } else {
             editText.isEnabled = true
             editText.requestFocus()
+
+            if (editText.text.isEmpty()) {
+                editText.setText(editText.hint)
+                editText.setSelection(editText.text.length)
+            }
             binding.textViewEditOrSave.text = getString(R.string.save)
         }
     }
