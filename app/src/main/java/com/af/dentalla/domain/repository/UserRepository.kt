@@ -8,7 +8,7 @@ import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.dto.UserProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
-import com.af.dentalla.data.remote.requests.DoctorPassword
+import com.af.dentalla.data.remote.requests.UserPasswords
 import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
@@ -40,7 +40,7 @@ interface UserRepository {
 
     fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>>
 
-    fun changeDoctorPassword(doctorPassword: DoctorPassword): Flow<NetWorkResponseState<Unit>>
+    fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>>
 
     fun logout(): Flow<NetWorkResponseState<Unit>>
 }

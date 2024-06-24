@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.DoctorPassword
+import com.af.dentalla.data.remote.requests.UserPasswords
 import com.af.dentalla.databinding.FragmentUpdatePasswordBinding
 import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.ScreenState
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class UpdatePasswordFragment : BaseFragment() {
     private lateinit var binding: FragmentUpdatePasswordBinding
-    private val changePasswordViewModel: UpdatePasswordViewModel by viewModels()
+    private val changeUserPasswordViewModel: ChangeUserPasswordViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,15 +48,15 @@ class UpdatePasswordFragment : BaseFragment() {
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
-                val doctorPassword =
-                    DoctorPassword(newPassword = newPassword, oldPassword = oldPassword)
-                changePasswordViewModel.changeDoctorPassword(doctorPassword)
+                val userPasswords =
+                    UserPasswords(newPassword = newPassword, oldPassword = oldPassword)
+                changeUserPasswordViewModel.changeDoctorPassword(userPasswords)
             }
         }
     }
 
     private fun changeDoctorPasswordObserver() {
-        changePasswordViewModel.changeDoctorPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
+        changeUserPasswordViewModel.changeUserPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
             when (changePasswordState) {
                 is ScreenState.Loading -> {
                     binding.progressBar.root.visible()

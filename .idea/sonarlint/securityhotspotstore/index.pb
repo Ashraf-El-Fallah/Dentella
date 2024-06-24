@@ -473,3 +473,9 @@ m
 =app/src/main/java/com/af/dentalla/ui/search/SearchFragment.kt,c\b\cb604ff02598c6335f0b822b175ff879ac4980a0
 n
 >app/src/main/java/com/af/dentalla/ui/search/SearchViewModel.kt,6\4\64c681e50aa33ddbab3c9ad8657bed952b14a9ae
+w
+Gapp/src/main/java/com/af/dentalla/data/remote/requests/UserPasswords.kt,e\a\eabfd601b13f4ce11fd0546216dabaf3793a4e56
+„
+Tapp/src/main/java/com/af/dentalla/domain/usecase/doctor/ChangeUserPasswordUseCase.kt,a\8\a8af555fce6a82a15cd8f7656e374e8eed0b6ead
+˜
+happ/src/main/java/com/af/dentalla/ui/setting/updateProfile/updatePassword/ChangeUserPasswordViewModel.kt,7\1\71d4088720fb9f881a7806d4835ff1339531ca5d

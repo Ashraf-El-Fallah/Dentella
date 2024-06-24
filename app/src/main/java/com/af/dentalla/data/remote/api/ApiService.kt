@@ -9,7 +9,7 @@ import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.dto.UserProfileInformationDto
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.data.remote.requests.Card
-import com.af.dentalla.data.remote.requests.DoctorPassword
+import com.af.dentalla.data.remote.requests.UserPasswords
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
@@ -25,7 +25,6 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 
 interface ApiService {
-
     @POST("Account/{user_type}/register")
     suspend fun signUpUser(
         @Path("user_type") userType: String,
@@ -80,10 +79,6 @@ interface ApiService {
     @GET("{user_type}/ReturnProfile")
     suspend fun returnUserProfileInformation(@Path("user_type") userType: String): UserProfileInformationDto
 
-    //    @PUT("Doctor/UpdateProfile")
-//    suspend fun updateDoctorProfile(
-//        @Body doctorProfileInformation: DoctorProfileInformation
-//    )
     @Multipart
     @PUT("{user_type}/UpdateProfile")
     suspend fun updateUserProfileInformation(
@@ -97,25 +92,9 @@ interface ApiService {
         @Part photo: MultipartBody.Part?
     )
 
-//    data class UserProfileUpdateRequest(
-//        val userName: String,
-//        val email: String,
-//        val phoneNumber: String,
-//        val bio: String,
-//        val currentLevel: String,
-//        val currentUniversity: String,
-//        val photo: MultipartBody.Part?
-//    )
-//
-//    @PUT("{user_type}/UpdateProfile")
-//    suspend fun updateUserProfileInformation(
-//        @Path("user_type") userType: String,
-//        @Body userProfileUpdateRequest: UserProfileUpdateRequest
-//    )
-
     @POST("Password/changepassword")
-    suspend fun changeDoctorPassword(
-        @Body doctorPassword: DoctorPassword
+    suspend fun changeUserPassword(
+        @Body userPasswords: UserPasswords
     )
 
     @POST("Account/logout")

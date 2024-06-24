@@ -89,7 +89,8 @@
     <string name="write_university">Write your current university</string>
     <string name="write_phone_number">Write your phone number</string>
     <string name="write_email">Write your email</string>
-    <string name="error_when_changing_password">Error when changing password .. your new password is less than 8 digits or you add the same password in new password field</string>
+    <string name="error_when_changing_password">Error..your new password is less than 8 digits or
+        you add the same password in new password field</string>
     <string name="error_when_changing_old_password">Error when changing password .. please add your old password correctly </string>
     <string name="change_password_successfully">You have changed password successfully</string>
     <string name="old_password">Old Password</string>
