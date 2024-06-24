@@ -164,7 +164,6 @@
         <item name="android:paddingVertical" tools:targetApi="o">2dp</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
-
     </style>
 
     <style name="CardSettingStyle" parent="Widget.MaterialComponents.CardView">

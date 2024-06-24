@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="181dp"
+    android:paddingBottom="4dp"
     android:background="@drawable/bottom_sheet_style"
     tools:context=".ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment">
 
