@@ -47,6 +47,7 @@
         <item name="android:background">@drawable/edit_text_auth2_style</item>
         <item name="android:padding">1dp</item>
         <item name="android:maxLines">1</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="BasePasswordInputEditText" parent="BaseTextInputEditText">
