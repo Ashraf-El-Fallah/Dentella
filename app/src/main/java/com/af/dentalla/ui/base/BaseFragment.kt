@@ -33,6 +33,15 @@ abstract class BaseFragment : Fragment() {
         return true
     }
 
+    protected fun isPhoneNumberValid(phoneNumber: String): Boolean {
+        if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
+            Toast.makeText(requireContext(), R.string.phone_not_valid, Toast.LENGTH_LONG).show()
+            return false
+        }
+        return true
+    }
+
+
 //    abstract val layoutIdFragment: Int
 //    abstract val viewModel: ViewModel
 

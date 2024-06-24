@@ -337,10 +337,6 @@ Uapp/src/main/java/com/af/dentalla/domain/usecase/patient/GetSpecialityCardsUseC
 `app/src/main/java/com/af/dentalla/ui/patient/doctorsSpecialities/DoctorsSpecialitiesViewModel.kt,4\c\4c00727033f9ba82cdadfa4ae62f514838b3deec
 s
 Capp/src/main/java/com/af/dentalla/ui/patient/DoctorsCardsAdapter.kt,f\4\f4ca50f0f3a1545db5da067c94fe3a312186ef16
-v
-Fapp/src/main/java/com/af/dentalla/ui/patient/search/SearchViewModel.kt,a\5\a53c5e881bffdbe53b3ac68ee255cb3815b35e58
-u
-Eapp/src/main/java/com/af/dentalla/ui/patient/search/SearchFragment.kt,7\c\7ca9aa229abb080e4b54817ab357c975ed283f4e
 ƒ
 Sapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableDatesAdapter.kt,1\e\1ee14e99bcb31306c5f2fb9d723550f41d2c174a
 ƒ

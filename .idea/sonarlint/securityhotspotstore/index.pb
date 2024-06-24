@@ -337,10 +337,6 @@ Bapp/src/main/java/com/af/dentalla/data/mapper/CardsEntityMapper.kt,f\a\fa3fb13
 _app/src/main/java/com/af/dentalla/ui/patient/doctorsSpecialities/DoctorsSpecialitiesFragment.kt,1\2\124a4661221810849aab1bb79d0735c140b1e863
 s
 Capp/src/main/java/com/af/dentalla/ui/patient/DoctorsCardsAdapter.kt,f\4\f4ca50f0f3a1545db5da067c94fe3a312186ef16
-u
-Eapp/src/main/java/com/af/dentalla/ui/patient/search/SearchFragment.kt,7\c\7ca9aa229abb080e4b54817ab357c975ed283f4e
-v
-Fapp/src/main/java/com/af/dentalla/ui/patient/search/SearchViewModel.kt,a\5\a53c5e881bffdbe53b3ac68ee255cb3815b35e58
 ƒ
 Sapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableDatesAdapter.kt,1\e\1ee14e99bcb31306c5f2fb9d723550f41d2c174a
 ƒ

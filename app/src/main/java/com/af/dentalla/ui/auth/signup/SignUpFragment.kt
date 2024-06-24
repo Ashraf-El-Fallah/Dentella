@@ -48,15 +48,6 @@ class SignUpFragment : BaseFragment() {
             findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
         }
     }
-
-    private fun isPhoneNumberValid(phoneNumber: String): Boolean {
-        if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
-            Toast.makeText(requireContext(), R.string.phone_not_valid, Toast.LENGTH_LONG).show()
-            return false
-        }
-        return true
-    }
-
     private fun isPasswordAndConformationPasswordValid(
         password: String,
         confirmPassword: String

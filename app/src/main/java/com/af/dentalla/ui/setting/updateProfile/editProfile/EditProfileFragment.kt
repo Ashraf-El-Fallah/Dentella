@@ -3,7 +3,6 @@ package com.af.dentalla.ui.setting.updateProfile.editProfile
 import android.content.ContentResolver
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +13,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
+import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
+import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
@@ -31,7 +32,7 @@ import java.io.FileOutputStream
 
 
 @AndroidEntryPoint
-class EditProfileFragment : Fragment() {
+class EditProfileFragment : BaseFragment() {
     private lateinit var binding: FragmentEditProfileBinding
     private val editProfileViewModel: EditProfileViewModel by viewModels()
     private var isEditMode = false
@@ -163,16 +164,25 @@ class EditProfileFragment : Fragment() {
             val file = uriToFile(uri)
             file?.let { fileToMultipartBody(it) }
         }
-        val updatedUserProfileInformation = UserProfileInformation(
-            userName = getTextOrHint(binding.editTextName),
-            email = getTextOrHint(binding.editTextEmail),
-            phoneNumber = getTextOrHint(binding.editTextMobileNumber),
-            bio = getTextOrHint(binding.editTextBio),
-            currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
-            currentLevel = "intermediate",
-            photo = photoPart
-        )
-        sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
+        val userName = binding.editTextName
+        val email = binding.editTextEmail
+        val phoneNumber =
+            binding.editTextMobileNumber
+        if (isUserNameValid(userName.text.toString()) && isEmailValid(
+                email.text.toString()
+            ) && isPhoneNumberValid(phoneNumber.text.toString())
+        ) {
+            val updatedUserProfileInformation = UserProfileInformation(
+                userName = getTextOrHint(userName),
+                email = getTextOrHint(email),
+                phoneNumber = getTextOrHint(phoneNumber),
+                bio = getTextOrHint(binding.editTextBio),
+                currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
+                currentLevel = "intermediate",
+                photo = photoPart
+            )
+            sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
+        }
     }
 
     private fun returnUserProfileInformationObserver() {
