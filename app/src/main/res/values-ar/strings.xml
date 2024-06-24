@@ -109,5 +109,6 @@
     <string name="write_post">كتابة منشور</string>
     <string name="write_here">اكتب هنا</string>
     <string name="post">نشر</string>
+    <string name="cancel">إلغاء</string>
 
 </resources>

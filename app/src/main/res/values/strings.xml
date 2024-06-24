@@ -111,5 +111,6 @@
     <string name="write_post">Write a post</string>
     <string name="write_here">Write here</string>
     <string name="post">Post</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

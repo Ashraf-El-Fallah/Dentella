@@ -79,20 +79,32 @@ class SettingFragment : Fragment() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.setMessage(R.string.want_to_logout)
             .setCancelable(false)
-            .setPositiveButton(R.string.yes) { dialog, id ->
+            .setPositiveButton(R.string.logout) { dialog, id ->
                 settingViewModel.logout()
                 dialog.dismiss()
             }
-            .setNegativeButton(R.string.no) { dialog, id ->
+            .setNegativeButton(R.string.cancel) { dialog, id ->
                 dialog.dismiss()
             }
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
 
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-            ?.setTextColor(ContextCompat.getColor(requireContext(), R.color.shade_of_red))
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-            ?.setTextColor(ContextCompat.getColor(requireContext(), R.color.cyan_blue))
+        // Customize the buttons
+        val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+
+        // Ensure buttons text maintain the correct capitalization
+        positiveButton?.let {
+            it.setText(R.string.logout)
+            it.isAllCaps = false
+            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.shade_of_red))
+        }
+
+        negativeButton?.let {
+            it.setText(R.string.cancel)
+            it.isAllCaps = false
+            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.cyan_blue))
+        }
     }
 
     private fun goToEditProfile() {
