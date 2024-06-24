@@ -473,3 +473,5 @@ Papp/src/main/java/com/af/dentalla/data/remote/requests/UserProfileInformation.k
 Napp/src/main/java/com/af/dentalla/data/remote/dto/UserProfileInformationDto.kt,c\7\c7ad3f50bfb3c5c60cfb8c056019b3f4378c1d53
 x
 Happ/src/main/java/com/af/dentalla/ui/doctor/addCard/SpecialityAddCard.kt,3\e\3ee60610c186c121536a906c93cd2baef748b884
+m
+=app/src/main/java/com/af/dentalla/ui/search/SearchFragment.kt,c\b\cb604ff02598c6335f0b822b175ff879ac4980a0

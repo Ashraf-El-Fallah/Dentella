@@ -78,7 +78,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_password_login"
-                    style="@style/BaseTextInputEditText"
+                    style="@style/BasePasswordInputEditText"
                     android:hint="@string/password" />
             </com.google.android.material.textfield.TextInputLayout>
 

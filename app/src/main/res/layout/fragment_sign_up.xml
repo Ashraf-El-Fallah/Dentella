@@ -98,7 +98,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_password"
-                    style="@style/BaseTextInputEditText"
+                    style="@style/BasePasswordInputEditText"
                     android:hint="@string/password" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +113,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_text_confirm_password"
-                    style="@style/BaseTextInputEditText"
+                    style="@style/BasePasswordInputEditText"
                     android:hint="@string/confirm_password" />
             </com.google.android.material.textfield.TextInputLayout>
 
