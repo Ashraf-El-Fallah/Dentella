@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.search
+package com.af.dentalla.ui.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

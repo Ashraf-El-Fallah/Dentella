@@ -475,3 +475,5 @@ x
 Happ/src/main/java/com/af/dentalla/ui/doctor/addCard/SpecialityAddCard.kt,3\e\3ee60610c186c121536a906c93cd2baef748b884
 m
 =app/src/main/java/com/af/dentalla/ui/search/SearchFragment.kt,c\b\cb604ff02598c6335f0b822b175ff879ac4980a0
+n
+>app/src/main/java/com/af/dentalla/ui/search/SearchViewModel.kt,6\4\64c681e50aa33ddbab3c9ad8657bed952b14a9ae

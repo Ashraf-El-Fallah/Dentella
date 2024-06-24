@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.patient.search
+package com.af.dentalla.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
