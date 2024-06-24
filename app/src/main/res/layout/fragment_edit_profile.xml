@@ -103,6 +103,7 @@
                 style="@style/EditTextUpdateProfile"
                 android:hint="@string/write_email"
                 android:inputType="textEmailAddress"
+                android:textDirection="ltr"
                 android:maxLines="1"
                 app:layout_constraintTop_toBottomOf="@id/edit_text_mobile_number"
                 tools:ignore="MissingConstraints" />

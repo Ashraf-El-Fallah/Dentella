@@ -159,6 +159,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginHorizontal" tools:targetApi="o">20dp</item>
         <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textDirection">locale</item>
         <item name="android:background">@drawable/edit_text_profile_style</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">8dp</item>
         <item name="android:paddingVertical" tools:targetApi="o">2dp</item>
