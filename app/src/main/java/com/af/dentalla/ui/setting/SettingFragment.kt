@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSettingBinding
+import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.auth.AuthenticationActivity
 import com.af.dentalla.ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment
 import com.af.dentalla.utils.ScreenState
@@ -62,9 +63,10 @@ class SettingFragment : Fragment() {
                     binding.progress.progress.gone()
                     val intent =
                         Intent(
-                            requireContext(),
+                            this@SettingFragment.requireContext(),
                             AuthenticationActivity::class.java
                         )
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
 
