@@ -288,8 +288,6 @@ class EditProfileFragment : BaseFragment() {
             binding.textViewEditOrSave.text = getString(R.string.edit)
         } else {
             editText.isEnabled = true
-            editText.requestFocus()
-
             if (editText.text.isEmpty()) {
                 editText.setText(editText.hint)
                 editText.setSelection(editText.text.length)
