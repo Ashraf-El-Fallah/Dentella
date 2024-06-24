@@ -110,5 +110,7 @@
     <string name="write_here">اكتب هنا</string>
     <string name="post">نشر</string>
     <string name="cancel">إلغاء</string>
+    <string name="unknown_specialty">تخصص غير معروف</string>
+    <string name="orthodontic">تقويم الأسنان</string>
 
 </resources>

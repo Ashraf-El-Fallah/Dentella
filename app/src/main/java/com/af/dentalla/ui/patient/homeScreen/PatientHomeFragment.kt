@@ -95,7 +95,7 @@ class PatientHomeFragment : Fragment() {
             Speciality(R.drawable.crown, 2, getString(R.string.crowns)),
             Speciality(R.drawable.dental_implant, 3, getString(R.string.implants)),
             Speciality(R.drawable.extraction, 4, getString(R.string.extraction)),
-            Speciality(R.drawable.denture, 5, getString(R.string.dentures)),
+            Speciality(R.drawable.denture, 5, getString(R.string.orthodontic)),
         )
 
         val adapter = SpecialtyAdapter(specialtiesList) { specialityId ->

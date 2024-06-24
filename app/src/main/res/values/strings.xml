@@ -112,5 +112,7 @@
     <string name="write_here">Write here</string>
     <string name="post">Post</string>
     <string name="cancel">Cancel</string>
+    <string name="unknown_specialty">Unknown Speciality</string>
+    <string name="orthodontic">Orthodontic</string>
 
 </resources>

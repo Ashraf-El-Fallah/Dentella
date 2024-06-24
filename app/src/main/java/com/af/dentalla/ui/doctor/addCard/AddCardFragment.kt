@@ -227,7 +227,7 @@ class AddCardFragment : Fragment() {
                 R.drawable.denture_black,
                 R.drawable.denture_white,
                 5,
-                getString(R.string.dentures)
+                getString(R.string.orthodontic)
             )
         )
         val adapter = AddSpecialityAdapter(specialtiesList) { specialtyIdChosen ->
