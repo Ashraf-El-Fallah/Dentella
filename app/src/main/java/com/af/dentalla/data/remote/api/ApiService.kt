@@ -29,7 +29,7 @@ interface ApiService {
     suspend fun signUpUser(
         @Path("user_type") userType: String,
         @Body user: SignUpUser
-    )
+    ): Response<Unit>
 
     @POST("Account/{user_type}/login")
     suspend fun loginUser(
@@ -38,10 +38,10 @@ interface ApiService {
     ): Response<LoginResponse>
 
     @GET("Card/GetAllCards")
-    suspend fun getAllDoctorsCards(): List<CardsDto>
+    suspend fun getAllDoctorsCards(): Response<List<CardsDto>>
 
     @GET("Article/GetAllArticles")
-    suspend fun getAllArticles(): List<ArticleDto>
+    suspend fun getAllArticles(): Response<List<ArticleDto>>
 
     @GET("Card/SearchCardsByUniversity/{university}")
     suspend fun searchAboutDoctorsByUniversity(
@@ -51,20 +51,20 @@ interface ApiService {
     @GET("Card/GetCardDetails/{cardId}")
     suspend fun getDoctorProfile(
         @Path("cardId") cardId: Int
-    ): DoctorProfileDto
+    ): Response<DoctorProfileDto>
 
     @GET("Card/GetSpecsificCards/{specialty}")
     suspend fun getSpecialityCards(
         @Path("specialty") specialty: Int
-    ): List<CardsDto>
+    ): Response<List<CardsDto>>
 
     @GET("Post/GetAllPosts")
-    suspend fun getAllPosts(): List<PostDtoItem>
+    suspend fun getAllPosts(): Response<List<PostDtoItem>>
 
     @POST("Article/AddArticles")
     suspend fun addArticle(
         @Body article: Article
-    )
+    ): Response<Unit>
 
     @POST("Post/AddPost")
     suspend fun addPost(
