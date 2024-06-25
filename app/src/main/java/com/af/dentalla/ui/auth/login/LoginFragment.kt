@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.data.remote.requests.LoginDoctor
-import com.af.dentalla.data.remote.requests.LoginPatient
+import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentLoginBinding
 import com.af.dentalla.ui.HomeActivity
 import com.af.dentalla.ui.base.BaseFragment
@@ -49,24 +48,28 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-
     private fun passUserDataToViewModel() {
         binding.buttonSignIn.setOnClickListener {
+            val errorMessage = getString(R.string.invalid_data)
             val password = binding.editTextPasswordLogin.text.toString()
             if (accountType == AccountManager.AccountType.PATIENT) {
                 val userName = binding.editTextUserName.text.toString()
-                if (isUserNameValid(userName) && isPasswordValid(password)) {
-                    val loginPatient = LoginPatient(
-                        userName = userName, passWord = password
-                    )
-                    viewModel.loginUserLogic(loginPatient)
-                }
+                viewModel.loginUserLogic(
+                    accountType.toString(),
+                    userName,
+                    null,
+                    password,
+                    errorMessage
+                )
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val email = binding.editTextEmail.text.toString()
-                if (isEmailValid(email) && isPasswordValid(password)) {
-                    val loginDoctor = LoginDoctor(email = email, passWord = password)
-                    viewModel.loginUserLogic(loginDoctor)
-                }
+                viewModel.loginUserLogic(
+                    accountType.toString(),
+                    null,
+                    email,
+                    password,
+                    errorMessage
+                )
             }
         }
     }
@@ -107,68 +110,3 @@ class LoginFragment : BaseFragment() {
         }
     }
 }
-
-
-//    private fun loginLogic() {
-//        val userName = binding.etUserName.text.toString()
-//        val password = binding.etPassword.text.toString()
-//
-//        if (userName.isEmpty() || password.isEmpty()) {
-//            requireView().showToastShort(getString(R.string.please_add_user_name_or_password))
-//            return
-//        }
-//
-//
-//        val loginUser = LoginUser(userName, password)
-//        viewModel.login(loginUser)
-//
-//        viewModel.loginState.observe(viewLifecycleOwner) { loginState ->
-//            when (loginState) {
-//                is NetWorkResponseState.Loading -> {
-//                    binding.progressBar.visible()
-//                    binding.signIn.isEnabled = false
-//                }
-//
-//                is NetWorkResponseState.Success -> {
-//                    binding.progressBar.gone()
-//                    binding.signIn.isEnabled = true
-//                    findNavController().navigate(LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5())
-//                    requireView().showToastShort("${R.string.welcome} ${loginState.result.userName}")
-////                    val editor = sharedPref.edit()
-////                    editor.putString(SHARED_PREF_USERNAME_KEY, userName)
-////                    editor.putString(SHARED_PREF_USERPASSWORD, password)
-////                    editor.putString(SHARED_PREF_USERID_KEY, loginState.result.id)
-////                    editor.apply()
-//                }
-//
-//                is NetWorkResponseState.Error -> {
-//                    binding.progressBar.gone()
-//                    binding.signIn.isEnabled = true
-//                    requireView().showToastShort(R.string.check_username_pass.toString())
-//                }
-//            }
-//        }
-//    }
-
-//    private fun setOnClicks() {
-//        val navigateToCreateAccount =
-//            LoginFragmentDirections.actionLoginAccountFragmentToCreateAccountFragment()
-//        binding.signUp.setOnClickListener {
-//            view?.findNavController()
-//                ?.navigate(navigateToCreateAccount)
-//        }
-//
-//        val navigateToResetPassword =
-//            LoginFragmentDirections.actionLoginAccountFragmentToForgetPasswordFragment()
-//        binding.forgetPassword.setOnClickListener {
-//            view?.findNavController()
-//                ?.navigate(navigateToResetPassword)
-//        }
-//
-//        val navigateToHomeScreen =
-//            LoginFragmentDirections.actionLoginAccountFragmentToHomeFragment5()
-//        binding.signIn.setOnClickListener {
-//
-//        }
-//
-//    }

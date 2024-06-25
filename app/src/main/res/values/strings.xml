@@ -117,5 +117,6 @@
     <string name="orthodontic">Orthodontic</string>
     <string name="send_article_successfully">Send Article Successfully</string>
     <string name="sign_up_successfully">Sign Up Successfully</string>
+    <string name="invalid_data">Invalid data .. review your entered data again</string>
 
 </resources>

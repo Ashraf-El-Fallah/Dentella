@@ -35,9 +35,6 @@
         android:label="fragment_login_account"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginAccountFragment_to_forgetPasswordFragment"
-            app:destination="@id/forgetPasswordFragment" />
-        <action
             android:id="@+id/action_loginAccountFragment_to_homeFragment5"
             app:destination="@id/patientHomeFragment" />
         <action
@@ -46,37 +43,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/forgetPasswordFragment"
-        android:name="com.af.dentalla.ui.auth.ForgetPasswordFragment"
-        android:label="fragment_forget_password"
-        tools:layout="@layout/fragment_forget_password">
-        <action
-            android:id="@+id/action_forgetPasswordFragment_to_confirmationCodeFragment"
-            app:destination="@id/confirmationCodeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/confirmationCodeFragment"
-        android:name="com.af.dentalla.ui.auth.ConfirmationCodeFragment"
-        android:label="fragment_confirmation_code"
-        tools:layout="@layout/fragment_confirmation_code">
-        <action
-            android:id="@+id/action_confirmationCodeFragment_to_changePasswordFragment"
-            app:destination="@id/changePasswordFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/changePasswordFragment"
-        android:name="com.af.dentalla.ui.auth.ChangePasswordFragment"
-        android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password">
-        <action
-            android:id="@+id/action_changePasswordFragment_to_loginAccountFragment"
-            app:destination="@id/loginAccountFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginOrSignupFragment"
         android:name="com.af.dentalla.ui.auth.LoginOrSignupFragment"
         android:label="fragment_login_or_signup"
-        tools:layout="@layout/fragment_login_or_signup" >
+        tools:layout="@layout/fragment_login_or_signup">
         <action
             android:id="@+id/action_loginOrSignupFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />

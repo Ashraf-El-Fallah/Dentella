@@ -7,8 +7,6 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 i
 9app/src/main/java/com/af/dentalla/ui/Ai/AiChatFragment.kt,8\9\8941889f0434db7c72ee8de2a921e78f38039ab1
-q
-Aapp/src/main/java/com/af/dentalla/ui/Ai/SecondSplashAiFragment.kt,0\8\088eba37148be3c3b29221545cbc7d15f7a8ff4d
 ]
 -app/src/main/java/com/af/dentalla/di/MyApp.kt,1\3\13b8c0351b54894f51cec1280a92102d333c43a4
 n
@@ -17,14 +15,10 @@ n
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-h
-8app/src/main/java/com/af/dentalla/ui/BranchesFragment.kt,9\9\99698216e673f532838afd620ccbad8f9b8843c1
 m
 =app/src/main/java/com/af/dentalla/di/network/NetworkModule.kt,a\e\aec987e0560c8c6e2028b6962f6898ace5f1183a
 r
 Bapp/src/main/java/com/af/dentalla/data/mapper/LoginEntityMapper.kt,7\9\79c1bf5a4543eff4ce79e3eb36b41f934b318124
-o
-?app/src/main/java/com/af/dentalla/domain/entity/SignUpEntity.kt,c\4\c46a6aa8df1c1f30005058c75f706417e7d10763
 n
 >app/src/main/java/com/af/dentalla/domain/entity/LoginEntity.kt,4\7\471eafb607934b0ec420dedea24701c9354e4719
 k
@@ -109,14 +103,10 @@ Q.idea/sonarlint/securityhotspotstore/4/7/471eafb607934b0ec420dedea24701c9354e47
 Q.idea/sonarlint/securityhotspotstore/1/2/129d14ecd4989b98acb1b7c39ada9985067feb11,8\e\8e3b77a8984462090fc0a7e21efbfc254152820c
 Å
 Q.idea/sonarlint/securityhotspotstore/6/2/6253ae2f037427e6eb5c44e7a64b180df5c8d2f7,f\e\fe915c136f24cc5072ea5571a663b73684058a85
-w
-G.idea/sonarlint/issuestore/5/9/59dd7390297c6ffeff521f0f53cef6f98df34e6a,1\d\1d5728c73a2c837b1c9facf0f1b1518d25fddbdc
 Å
 Q.idea/sonarlint/securityhotspotstore/f/0/f0bd7421405a891350e1522a67410b85370e06c6,f\f\ff81ba87fa00b3e456f6da70ec097578e2b89e60
 Å
 Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,b\b\bbf202272a96de5cd6b6828ffdc55fb3ce45289c
-Å
-Q.idea/sonarlint/securityhotspotstore/c/4/c46a6aa8df1c1f30005058c75f706417e7d10763,7\3\7354a643bfe5546f409148ccf8d5e4c971d33885
 Å
 Q.idea/sonarlint/securityhotspotstore/1/3/13b8c0351b54894f51cec1280a92102d333c43a4,9\a\9a5de95dcac34ca4f119d07f5c87248cb32563c2
 Å
@@ -131,8 +121,6 @@ w
 G.idea/sonarlint/issuestore/7/9/79a6b70731f473f270884496defb0a6fd49a7362,2\0\20b9fcef588a629aedc595d1c1698e2d9a7bdd31
 Å
 Q.idea/sonarlint/securityhotspotstore/8/0/80bb2e85bd44f4b57ef6797a11af6c1d2fecdc4c,1\8\187c87c07fda4a4c3f6a898f2d59717ac20e3a3f
-w
-G.idea/sonarlint/issuestore/9/9/99698216e673f532838afd620ccbad8f9b8843c1,a\9\a9e1279f245538c83f0e7cb5830299d7a81ee0db
 w
 G.idea/sonarlint/issuestore/0/2/0223ec16a13c418dd3aa87ed675faaa912161036,d\f\dfc7d208a91a461ff0b667343e03521147939f64
 w
@@ -150,8 +138,6 @@ Q.idea/sonarlint/securityhotspotstore/4/1/411a9c18262993f8a3d7984b14cbc22703d5f7
 Å
 Q.idea/sonarlint/securityhotspotstore/0/5/05420efecc369fb2a34871fbf87c54cbb92cd39d,1\0\109b3c7081d6e0ed96a71d9c16c5a0d49f0cc773
 w
-G.idea/sonarlint/issuestore/4/5/4577f52a5192f66761e33cb8b455beb0101a4693,8\7\870147c251066d284a0bc272ef74cdd7e7d48453
-w
 G.idea/sonarlint/issuestore/e/4/e412a8fbc84ecf35517753c873ff5f0649856402,0\0\008575f825bc4db75eccdfb058d2c6168f7eb965
 Å
 Q.idea/sonarlint/securityhotspotstore/b/9/b98df8dcacd69f8d1611aa35c818b87f57f3ba2a,8\6\86bd8c4f4ef21a07b38971584c70157aab4d476d
@@ -165,8 +151,6 @@ w
 G.idea/sonarlint/issuestore/4/7/470625a5cf9cdfdcc394e4a40edeb42b77ccdfa8,b\0\b0d6e1ead00e07d70a0815f61dbeae049af095d7
 w
 G.idea/sonarlint/issuestore/4/7/471eafb607934b0ec420dedea24701c9354e4719,c\0\c0aee1a7ab93748c926f8cf076bf85ed8d6d1fe1
-Å
-Q.idea/sonarlint/securityhotspotstore/5/9/59dd7390297c6ffeff521f0f53cef6f98df34e6a,d\9\d90d78dabf42a8c14ea5801f02333776105510df
 Å
 Q.idea/sonarlint/securityhotspotstore/0/e/0e669ed318d9cff7a1da18c37a13544259f8edba,5\4\54695bc792bb3facc1ab9eabf5c79ed853e1676b
 Å
@@ -203,8 +187,6 @@ w
 G.idea/sonarlint/issuestore/f/9/f974561e48bf21c86f951a133a29821fba0317b7,c\b\cbee7a08a015e947e37c0ffc0d86f2d7dfe02c49
 Å
 Q.idea/sonarlint/securityhotspotstore/1/1/11729dac761b396bafa38b3df95ef1b4f2a3f967,2\1\214724d924dd555c1fef91caa8e93718b7121d02
-w
-G.idea/sonarlint/issuestore/c/4/c46a6aa8df1c1f30005058c75f706417e7d10763,4\2\426d3d6435c9ec45706b8a6f6d00576344173d2e
 w
 G.idea/sonarlint/issuestore/a/d/ad26f785faf3f6bc14960e7f5c423804477f5c94,1\1\11b2717e7985bf4703117daee29c408f3dcf2392
 Å
@@ -251,8 +233,6 @@ w
 G.idea/sonarlint/issuestore/0/e/0e669ed318d9cff7a1da18c37a13544259f8edba,9\4\94470e54fb0bc1f77c6934cee41d8b21a13b2f00
 Å
 Q.idea/sonarlint/securityhotspotstore/7/9/79c1bf5a4543eff4ce79e3eb36b41f934b318124,b\2\b257f7220d80686e171443f9b0e9c67a26b8ea44
-Å
-Q.idea/sonarlint/securityhotspotstore/4/5/4577f52a5192f66761e33cb8b455beb0101a4693,c\6\c6bdc442fdba05df3b507f6f98825bade47b459c
 Å
 Q.idea/sonarlint/securityhotspotstore/7/a/7ae9cadfaa319781ef76874559cf76b1063190a0,e\a\ea8880ce738e0c1440f02f557c1b66877155dfda
 w
@@ -315,12 +295,6 @@ s
 Capp/src/main/java/com/af/dentalla/ui/auth/AuthenticationActivity.kt,3\e\3e9908e4b870a8bf5d20b181a8c7fd1495b596f8
 w
 G.idea/sonarlint/issuestore/1/2/129d14ecd4989b98acb1b7c39ada9985067feb11,7\a\7a0f8166a75f05ab1bd6ccb1540427bf8a4f0a17
-s
-Capp/src/main/java/com/af/dentalla/ui/auth/ChangePasswordFragment.kt,1\d\1daf6744f7d307577fceb076bccad8d66c7f0294
-u
-Eapp/src/main/java/com/af/dentalla/ui/auth/ConfirmationCodeFragment.kt,1\b\1bf047bac2823fe408e1d07546f529bfc56d848d
-s
-Capp/src/main/java/com/af/dentalla/ui/auth/ForgetPasswordFragment.kt,7\e\7ede811845400dd3c8035e2c167b9652a29862dd
 w
 G.idea/sonarlint/issuestore/0/c/0ceee4e088bb8dddc31d2f4b516ae81aa8620485,1\4\143f351f6d027573b28e1262586c7c0337a20291
 Ö
@@ -385,8 +359,6 @@ Papp/src/main/java/com/af/dentalla/ui/patient/homeScreen/AddPostDialogListener.k
 Kapp/src/main/java/com/af/dentalla/ui/doctor/addCard/AddSpecialityAdapter.kt,9\6\9633a0ca4c775826fcc671e9d304ff39d79558f6
 i
 9app/src/main/java/com/af/dentalla/ui/ai/AiChatFragment.kt,9\8\98cc5573dd57a649f5daf4af8b0d5a6a1231631c
-q
-Aapp/src/main/java/com/af/dentalla/ui/ai/SecondSplashAiFragment.kt,8\0\800656f879e43c64370539e81cadfd1f53148461
 k
 ;app/src/main/java/com/af/dentalla/ui/ai/SplashAiFragment.kt,a\8\a8c94c9c11ee9c72320e2f10e2deff7a403676f0
 n

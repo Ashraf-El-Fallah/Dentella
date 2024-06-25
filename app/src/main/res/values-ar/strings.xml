@@ -114,5 +114,6 @@
     <string name="orthodontic">تقويم الأسنان</string>
     <string name="send_article_successfully">تم كاتبة المقال بنجاح</string>
     <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
+    <string name="invalid_data">خطأ في البيانات المدخلة .. قم بمراجعة بياناتك وقم بإدخالها بطريقة صحيصة</string>
 
 </resources>
