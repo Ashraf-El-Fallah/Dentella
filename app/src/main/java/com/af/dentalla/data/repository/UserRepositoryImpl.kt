@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+import retrofit2.Response
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -49,15 +50,68 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.signUpUser(accountType, signUpUser) }
+        )
+    }
+
+    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return performRequest(
+            request = { service.getAllDoctorsCards() }
+        )
+    }
+
+    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
+        return performRequest(
+            request = { service.getAllArticles() }
+        )
+    }
+
+    override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return performRequest(
+            request = { service.searchAboutDoctorsByUniversity(university) }
+        )
+    }
+
+    override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>> {
+        return performRequest(
+            request = { service.getDoctorProfile(cardId) }
+        )
+    }
+
+    override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>> {
+        return performRequest(
+            request = { service.getSpecialityCards(specialityId) }
+        )
+    }
+
+    override fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>> {
+        return performRequest(
+            request = { service.getAllPosts() }
+        )
+    }
+
+    override fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.addArticle(article) }
+        )
+    }
+
+    private fun <T : Any> performRequest(
+        request: suspend () -> Response<T>,
+        onSuccess: (Response<T>) -> Unit = {}
+    ): Flow<NetWorkResponseState<T>> {
         return flow {
             emit(NetWorkResponseState.Loading)
             try {
-                val authenticateSignUpResponse =
-                    service.signUpUser(accountType, signUpUser)
-                if (authenticateSignUpResponse.isSuccessful) {
-                    emit(NetWorkResponseState.Success(Unit))
+                val response = request()
+                if (response.isSuccessful) {
+                    onSuccess(response)
+                    response.body()?.let {
+                        emit(NetWorkResponseState.Success(it))
+                    } ?: emit(NetWorkResponseState.Error(Exception("Response body is null")))
                 } else {
-                    emit(NetWorkResponseState.Error(Exception("Http error ${authenticateSignUpResponse.code()}")))
+                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
                 }
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
@@ -65,147 +119,6 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = service.getAllDoctorsCards()
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
-        return flow {
-            try {
-                emit(NetWorkResponseState.Loading)
-                val response = service.getAllArticles()
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("Http error ${response.body()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = service.searchAboutDoctorsByUniversity(university)
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>> {
-        return flow {
-            try {
-                emit(NetWorkResponseState.Loading)
-                val response = service.getDoctorProfile(cardId)
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return flow {
-            try {
-                emit(NetWorkResponseState.Loading)
-                val response = service.getSpecialityCards(specialityId)
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>> {
-        return flow {
-            try {
-                emit(NetWorkResponseState.Loading)
-                val response = service.getAllPosts()
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        emit(NetWorkResponseState.Success(data))
-                    } else {
-                        emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                    }
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTp error ${response.body()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = service.addArticle(article)
-                if (response.isSuccessful) {
-                    emit(NetWorkResponseState.Success(Unit))
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("Http error ${response.code()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
 
     override fun addPost(post: Post): Flow<NetWorkResponseState<Unit>> {
         return flow {
