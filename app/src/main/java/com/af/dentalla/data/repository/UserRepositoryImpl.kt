@@ -1,8 +1,6 @@
 package com.af.dentalla.data.repository
 
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.data.local.DataStorePreferencesService
-import com.af.dentalla.data.remote.api.ApiService
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
@@ -15,169 +13,114 @@ import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
+import com.af.dentalla.data.source.remote.RemoteDataSource
+import com.af.dentalla.domain.entity.ArticlesEntity
+import com.af.dentalla.domain.entity.CardsEntity
+import com.af.dentalla.domain.entity.DoctorProfileEntity
+import com.af.dentalla.domain.entity.PostEntity
+import com.af.dentalla.domain.entity.ProfileInformationEntity
+import com.af.dentalla.domain.mapper.BaseMapper
+import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.UserRepository
-import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.mapResponse
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.runBlocking
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
-import retrofit2.Response
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val service: ApiService,
-    private val dataStorePreferencesService: DataStorePreferencesService
+    private val remoteDataSource: RemoteDataSource,
+    private val cardsEntityMapper: ListMapper<CardsDto, CardsEntity>,
+    private val allArticlesEntityMapper: ListMapper<ArticleDto, ArticlesEntity>,
+    private val cardsEntity: ListMapper<CardsDto, CardsEntity>,
+    private val doctorProfileEntity: BaseMapper<DoctorProfileDto, DoctorProfileEntity>,
+    private val allPostsEntityMapper: ListMapper<PostDtoItem, PostEntity>,
+    private val profileInformationEntity: BaseMapper<UserProfileInformationDto, ProfileInformationEntity>
 ) : UserRepository {
-    private val accountType = AccountManager.accountType.toString().lowercase()
 
     override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            try {
-                emit(NetWorkResponseState.Loading)
-                val authenticateLoginResponse =
-                    service.loginUser(accountType, loginUser)
-                if (authenticateLoginResponse.isSuccessful) {
-                    saveToken(authenticateLoginResponse.body()?.token)
-                    emit(NetWorkResponseState.Success(Unit))
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${authenticateLoginResponse.code()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
+        return remoteDataSource.loginUser(loginUser)
+    }
+
+    override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
+        return remoteDataSource.signUpUser(signUpUser)
+    }
+
+    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsEntity>>> {
+        return remoteDataSource.getAllDoctorsCards().map {
+            it.mapResponse {
+                cardsEntityMapper.map(this)
             }
         }
     }
 
-    override fun signUpUser(signUpUser: SignUpUser): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.signUpUser(accountType, signUpUser) }
-        )
+    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticlesEntity>>> {
+        return remoteDataSource.getAllArticles().map {
+            it.mapResponse {
+                allArticlesEntityMapper.map(this)
+            }
+        }
     }
 
-    override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return performRequest(
-            request = { service.getAllDoctorsCards() }
-        )
+    override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsEntity>>> {
+        return remoteDataSource.getCardsBySearchByUniversity(university).map {
+            it.mapResponse { cardsEntity.map(this) }
+        }
     }
 
-    override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticleDto>>> {
-        return performRequest(
-            request = { service.getAllArticles() }
-        )
+    override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileEntity>> {
+        return remoteDataSource.getDoctorProfileDetails(cardId).map {
+            it.mapResponse {
+                doctorProfileEntity.map(this)
+            }
+        }
     }
 
-    override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return performRequest(
-            request = { service.searchAboutDoctorsByUniversity(university) }
-        )
+    override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsEntity>>> {
+        return remoteDataSource.getSpecialityDoctorsCards(specialityId).map {
+            it.mapResponse { cardsEntityMapper.map(this) }
+        }
     }
 
-    override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileDto>> {
-        return performRequest(
-            request = { service.getDoctorProfile(cardId) }
-        )
-    }
-
-    override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsDto>>> {
-        return performRequest(
-            request = { service.getSpecialityCards(specialityId) }
-        )
-    }
-
-    override fun getAllPosts(): Flow<NetWorkResponseState<List<PostDtoItem>>> {
-        return performRequest(
-            request = { service.getAllPosts() }
-        )
+    override fun getAllPosts(): Flow<NetWorkResponseState<List<PostEntity>>> {
+        return remoteDataSource.getAllPosts().map {
+            it.mapResponse {
+                allPostsEntityMapper.map(this)
+            }
+        }
     }
 
     override fun addArticle(article: Article): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.addArticle(article) }
-        )
+        return remoteDataSource.addArticle(article)
     }
 
 
     override fun addPost(post: Post): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.addPost(post) }
-        )
+        return remoteDataSource.addPost(post)
     }
 
     override fun addCard(card: Card): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.addCard(card) }
-        )
+        return remoteDataSource.addCard(card)
     }
 
-    override fun returnUserProfileInformation(): Flow<NetWorkResponseState<UserProfileInformationDto>> {
-        return performRequest(
-            request = { service.returnUserProfileInformation(userType = accountType) }
-        )
-    }
-
-    override fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.changeUserPassword(userPasswords) }
-        )
-    }
-
-    override fun logout(): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = { service.logoutFromAccount() },
-            onSuccess = {
-                runBlocking {
-                    dataStorePreferencesService.clearToken()
-                }
-            }
-        )
-    }
-
-    override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
-        return performRequest(
-            request = {
-                service.updateUserProfileInformation(
-                    userType = accountType,
-                    userName = createPartFromString(userProfileInformation.userName),
-                    email = createPartFromString(userProfileInformation.email),
-                    phoneNumber = createPartFromString(userProfileInformation.phoneNumber),
-                    bio = createPartFromString(userProfileInformation.bio),
-                    currentLevel = createPartFromString(userProfileInformation.currentLevel),
-                    currentUniversity = createPartFromString(userProfileInformation.currentUniversity),
-                    photo = userProfileInformation.photo
-                )
-            }
-        )
-    }
-
-    private fun createPartFromString(descriptionString: String): RequestBody {
-        return RequestBody.create("text/plain".toMediaTypeOrNull(), descriptionString)
-    }
-
-    private fun <T : Any> performRequest(
-        request: suspend () -> Response<T>,
-        onSuccess: (Response<T>) -> Unit = {}
-    ): Flow<NetWorkResponseState<T>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = request()
-                if (response.isSuccessful) {
-                    onSuccess(response)
-                    response.body()?.let {
-                        emit(NetWorkResponseState.Success(it))
-                    } ?: emit(NetWorkResponseState.Error(Exception("Response body is null")))
-                } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
-                }
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
+    override fun returnUserProfileInformation(): Flow<NetWorkResponseState<ProfileInformationEntity>> {
+        return remoteDataSource.returnUserProfileInformation().map {
+            it.mapResponse {
+                profileInformationEntity.map(this)
             }
         }
     }
 
-    private suspend fun saveToken(token: String?) {
-        dataStorePreferencesService.saveToken(token)
+
+    override fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>> {
+        return remoteDataSource.changeUserPassword(userPasswords)
+    }
+
+    override fun logout(): Flow<NetWorkResponseState<Unit>> {
+        return remoteDataSource.logout()
+    }
+
+    override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
+        return remoteDataSource.updateUserProfileInformation(userProfileInformation)
     }
 }
 
