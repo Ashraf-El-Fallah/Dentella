@@ -78,6 +78,11 @@ class ArticlesFragment : Fragment() {
 
                 is ScreenState.Success -> {
                     binding.progress.root.gone()
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.send_article_successfully,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 is ScreenState.Error -> {

@@ -69,15 +69,15 @@ interface ApiService {
     @POST("Post/AddPost")
     suspend fun addPost(
         @Body post: Post
-    )
+    ): Response<Unit>
 
     @POST("Card/AddCard")
     suspend fun addCard(
         @Body card: Card
-    )
+    ): Response<Unit>
 
     @GET("{user_type}/ReturnProfile")
-    suspend fun returnUserProfileInformation(@Path("user_type") userType: String): UserProfileInformationDto
+    suspend fun returnUserProfileInformation(@Path("user_type") userType: String): Response<UserProfileInformationDto>
 
     @Multipart
     @PUT("{user_type}/UpdateProfile")
@@ -90,13 +90,13 @@ interface ApiService {
         @Part("currentLevel") currentLevel: RequestBody,
         @Part("currentUniversity") currentUniversity: RequestBody,
         @Part photo: MultipartBody.Part?
-    )
+    ): Response<Unit>
 
     @POST("Password/changepassword")
     suspend fun changeUserPassword(
         @Body userPasswords: UserPasswords
-    )
+    ): Response<Unit>
 
     @POST("Account/logout")
-    suspend fun logoutFromAccount()
+    suspend fun logoutFromAccount(): Response<Unit>
 }

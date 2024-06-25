@@ -115,5 +115,7 @@
     <string name="cancel">Cancel</string>
     <string name="unknown_specialty">Unknown Speciality</string>
     <string name="orthodontic">Orthodontic</string>
+    <string name="send_article_successfully">Send Article Successfully</string>
+    <string name="sign_up_successfully">Sign Up Successfully</string>
 
 </resources>

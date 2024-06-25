@@ -112,5 +112,7 @@
     <string name="cancel">إلغاء</string>
     <string name="unknown_specialty">تخصص غير معروف</string>
     <string name="orthodontic">تقويم الأسنان</string>
+    <string name="send_article_successfully">تم كاتبة المقال بنجاح</string>
+    <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
 
 </resources>

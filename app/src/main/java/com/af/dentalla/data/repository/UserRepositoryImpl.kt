@@ -1,6 +1,5 @@
 package com.af.dentalla.data.repository
 
-import android.util.Log
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.data.remote.api.ApiService
@@ -20,6 +19,7 @@ import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utils.AccountManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -97,6 +97,63 @@ class UserRepositoryImpl @Inject constructor(
         )
     }
 
+
+    override fun addPost(post: Post): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.addPost(post) }
+        )
+    }
+
+    override fun addCard(card: Card): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.addCard(card) }
+        )
+    }
+
+    override fun returnUserProfileInformation(): Flow<NetWorkResponseState<UserProfileInformationDto>> {
+        return performRequest(
+            request = { service.returnUserProfileInformation(userType = accountType) }
+        )
+    }
+
+    override fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.changeUserPassword(userPasswords) }
+        )
+    }
+
+    override fun logout(): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.logoutFromAccount() },
+            onSuccess = {
+                runBlocking {
+                    dataStorePreferencesService.clearToken()
+                }
+            }
+        )
+    }
+
+    override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = {
+                service.updateUserProfileInformation(
+                    userType = accountType,
+                    userName = createPartFromString(userProfileInformation.userName),
+                    email = createPartFromString(userProfileInformation.email),
+                    phoneNumber = createPartFromString(userProfileInformation.phoneNumber),
+                    bio = createPartFromString(userProfileInformation.bio),
+                    currentLevel = createPartFromString(userProfileInformation.currentLevel),
+                    currentUniversity = createPartFromString(userProfileInformation.currentUniversity),
+                    photo = userProfileInformation.photo
+                )
+            }
+        )
+    }
+
+    private fun createPartFromString(descriptionString: String): RequestBody {
+        return RequestBody.create("text/plain".toMediaTypeOrNull(), descriptionString)
+    }
+
     private fun <T : Any> performRequest(
         request: suspend () -> Response<T>,
         onSuccess: (Response<T>) -> Unit = {}
@@ -115,96 +172,6 @@ class UserRepositoryImpl @Inject constructor(
                 }
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
-            }
-        }
-    }
-
-
-    override fun addPost(post: Post): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                service.addPost(post)
-                emit(NetWorkResponseState.Success(Unit))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun addCard(card: Card): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                service.addCard(card)
-                emit(NetWorkResponseState.Success(Unit))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun returnUserProfileInformation(): Flow<NetWorkResponseState<UserProfileInformationDto>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                val response = service.returnUserProfileInformation(
-                    userType = accountType
-                )
-                emit(NetWorkResponseState.Success(response))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                Log.d("Doctor Profile", ".......")
-                service.updateUserProfileInformation(
-                    userType = accountType,
-                    userName = createPartFromString(userProfileInformation.userName),
-                    email = createPartFromString(userProfileInformation.email),
-                    phoneNumber = createPartFromString(userProfileInformation.phoneNumber),
-                    bio = createPartFromString(userProfileInformation.bio),
-                    currentLevel = createPartFromString(userProfileInformation.currentLevel),
-                    currentUniversity = createPartFromString(userProfileInformation.currentUniversity),
-                    photo = userProfileInformation.photo
-                )
-                emit(NetWorkResponseState.Success(Unit))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    private fun createPartFromString(descriptionString: String): RequestBody {
-        return RequestBody.create("text/plain".toMediaTypeOrNull(), descriptionString)
-    }
-
-    override fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                service.changeUserPassword(userPasswords)
-                emit(NetWorkResponseState.Success(Unit))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
-            }
-        }
-    }
-
-    override fun logout(): Flow<NetWorkResponseState<Unit>> {
-        return flow {
-            emit(NetWorkResponseState.Loading)
-            try {
-                service.logoutFromAccount()
-                dataStorePreferencesService.clearToken()
-                emit(NetWorkResponseState.Success(Unit))
-            } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(e))
             }
         }
     }

@@ -138,6 +138,7 @@ class SignUpFragment : BaseFragment() {
                     binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
                     findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
+                    Toast.makeText(requireContext(), R.string.sign_up_successfully, Toast.LENGTH_LONG).show()
                 }
 
                 is ScreenState.Error -> {
