@@ -48,28 +48,6 @@ class SignUpFragment : BaseFragment() {
             findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
         }
     }
-    private fun isPasswordAndConformationPasswordValid(
-        password: String,
-        confirmPassword: String
-    ): Boolean {
-        if (ValidationUtils.isPasswordAndConfirmationNotEqual(password, confirmPassword)) {
-            Toast.makeText(
-                requireContext(),
-                R.string.confirmation_password_not_valid,
-                Toast.LENGTH_LONG
-            ).show()
-            return false
-        }
-        return true
-    }
-
-    private fun isIdValid(id: String): Boolean {
-        if (ValidationUtils.isIdNotValid(id)) {
-            Toast.makeText(requireContext(), R.string.id_not_valid, Toast.LENGTH_LONG).show()
-            return false
-        }
-        return true
-    }
 
     private fun passUserDataToViewModel() {
         binding.buttonSignUp.setOnClickListener {
@@ -78,40 +56,18 @@ class SignUpFragment : BaseFragment() {
             val phone = binding.editTextPhone.text.toString()
             val password = binding.editTextPassword.text.toString()
             val confirmPassword = binding.editTextConfirmPassword.text.toString()
+            val id = binding.editTextId.text.toString()
+                .takeIf { accountType == AccountManager.AccountType.DOCTOR }
 
-            if (accountType == AccountManager.AccountType.PATIENT) {
-                if (isUserNameValid(userName) && isEmailValid(email) && isPhoneNumberValid(phone) && isPasswordAndConformationPasswordValid(
-                        password,
-                        confirmPassword
-                    )
-                ) {
-                    val signUpPatient = SignUpPatient(
-                        username = userName,
-                        email = email,
-                        password = password,
-                        phoneNumber = phone
-                    )
-                    viewModel.signUpUserLogic(signUpPatient)
-                }
-            } else if (accountType == AccountManager.AccountType.DOCTOR) {
-                val id = binding.editTextId.text.toString()
-                if (isIdValid(id) && isUserNameValid(userName) && isEmailValid(email) && isPhoneNumberValid(
-                        phone
-                    ) && isPasswordAndConformationPasswordValid(
-                        password,
-                        confirmPassword
-                    )
-                ) {
-                    val signUpDoctor = SignUpDoctor(
-                        username = userName,
-                        id = id,
-                        email = email,
-                        password = password,
-                        phoneNumber = phone
-                    )
-                    viewModel.signUpUserLogic(signUpDoctor)
-                }
-            }
+            viewModel.signUpUserLogic(
+                accountType.toString(),
+                userName,
+                email,
+                phone,
+                password,
+                confirmPassword,
+                id
+            )
         }
     }
 
@@ -125,7 +81,6 @@ class SignUpFragment : BaseFragment() {
         }
     }
 
-
     private fun signUpObserver() {
         viewModel.signUpDoctorState.observe(viewLifecycleOwner) { signUpState ->
             when (signUpState) {
@@ -138,7 +93,12 @@ class SignUpFragment : BaseFragment() {
                     binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
                     findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
-                    Toast.makeText(requireContext(), R.string.sign_up_successfully, Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.sign_up_successfully,
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
                 }
 
                 is ScreenState.Error -> {

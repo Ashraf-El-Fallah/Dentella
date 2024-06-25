@@ -19,34 +19,35 @@ class SignUpViewModel @Inject constructor(
     private val _signUpState = MutableLiveData<ScreenState<Unit>>()
     val signUpDoctorState: LiveData<ScreenState<Unit>> get() = _signUpState
 
-    fun signUpUserLogic(signUpUser: SignUpUser) {
+    fun signUpUserLogic(
+        accountType: String,
+        userName: String?,
+        email: String?,
+        phone: String?,
+        password: String?,
+        confirmPassword: String?,
+        id: String? = null
+    ) {
         viewModelScope.launch {
-            signUpUserUseCase(signUpUser).collect {
+            signUpUserUseCase.execute(
+                accountType,
+                userName,
+                email,
+                phone,
+                password,
+                confirmPassword,
+                id
+            ).collect {
                 when (it) {
                     is NetWorkResponseState.Error -> _signUpState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _signUpState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _signUpState.postValue(
-                        ScreenState.Success(Unit)
+                        ScreenState.Success(
+                            Unit
+                        )
                     )
                 }
             }
         }
     }
-
-
-//    fun signUpPatientLogic(signUpPatient: SignUpUser) {
-//        viewModelScope.launch {
-//            signUpPatientUseCase(signUpPatient).collect {
-//                when (it) {
-//                    is NetWorkResponseState.Error -> _signUpState.postValue(ScreenState.Error(it.exception.message.toString()))
-//                    is NetWorkResponseState.Loading -> _signUpState.postValue(ScreenState.Loading)
-//                    is NetWorkResponseState.Success -> _signUpState.postValue(
-//                        ScreenState.Success(
-//                            Unit
-//                        )
-//                    )
-//                }
-//            }
-//        }
-//    }
 }

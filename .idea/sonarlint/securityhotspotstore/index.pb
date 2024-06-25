@@ -443,3 +443,7 @@ u
 Eapp/src/main/java/com/af/dentalla/di/source/RemoteDateSourceModule.kt,7\c\7c6d675a8cfe9217a08e9997f70a1b6f2f66a74b
 Š
 Zapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableSpecialitiesAdapter.kt,5\5\55f2616d7439707f968a3e1d98384e4ae13abb9f
+h
+8app/src/main/java/com/af/dentalla/utils/getStringUtil.kt,9\3\93c13be9914cb89d5ef673a6a732e778f986b701
+h
+8app/src/main/java/com/af/dentalla/utils/GetStringUtil.kt,6\9\69bb361d995fb4ac7594a92ece1e9a056d9a0673
