@@ -18,7 +18,7 @@ object ValidationUtils {
     fun isPasswordAndConfirmationNotEqual(password: String, confirmPassword: String) =
         (password.length < 8 || password.length > 15 || password != confirmPassword)
 
-    /////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////new////
     fun isUserNameValid(userName: String): Boolean = !(userName.isBlank() || userName.isEmpty())
     fun isEmailValid(email: String): Boolean =
         !(email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches())

@@ -209,8 +209,6 @@ Q.idea/sonarlint/securityhotspotstore/c/9/c97da913f2a43a6d43d91bbb0984b54ab7de86
 Q.idea/sonarlint/securityhotspotstore/a/e/ae4d7e47bbdff73e61267ff808bcd649dc14800a,6\b\6b1ca34738535afcbb43a3c48c26159228f32659
 w
 G.idea/sonarlint/issuestore/c/1/c1cde89c30d3fb758646419a243f6f2f43d3205f,f\a\fa9da0b73f3b2e2576557a0dcfdc0ae21a71656c
-Å
-Q.idea/sonarlint/securityhotspotstore/0/8/088eba37148be3c3b29221545cbc7d15f7a8ff4d,e\6\e62565520f7bd12b753221ef752c1b29b29e9742
 w
 G.idea/sonarlint/issuestore/0/b/0bb65912e86248dbd3996ceaf35fab35448dac7e,a\4\a47507bb177aa078c68c57223288d77dd25ae73d
 Å
@@ -237,8 +235,6 @@ Q.idea/sonarlint/securityhotspotstore/7/9/79c1bf5a4543eff4ce79e3eb36b41f934b3181
 Q.idea/sonarlint/securityhotspotstore/7/a/7ae9cadfaa319781ef76874559cf76b1063190a0,e\a\ea8880ce738e0c1440f02f557c1b66877155dfda
 w
 G.idea/sonarlint/issuestore/f/f/fff806b230d6e27698dbdd4c9518fd76a61141ee,9\8\9847bc4a49ad2a655ad799581ae62999c7b94db2
-Å
-Q.idea/sonarlint/securityhotspotstore/9/9/99698216e673f532838afd620ccbad8f9b8843c1,6\d\6d51776d9301d94a31c366d1aa39c7e36012c165
 w
 G.idea/sonarlint/issuestore/3/0/305beeaed045abed8e7012bf6c12ec7a8db646b2,1\4\14eecb1b042d93675d81d5bb7892960b68a78838
 Å
@@ -445,3 +441,5 @@ Happ/src/main/java/com/af/dentalla/data/source/remote/RemoteDataSource.kt,a\9\a
 Lapp/src/main/java/com/af/dentalla/data/source/remote/RemoteDateSourceImpl.kt,3\3\33859fe0cd97002de4530c70ce8c02e48d4a2eb2
 u
 Eapp/src/main/java/com/af/dentalla/di/source/RemoteDateSourceModule.kt,7\c\7c6d675a8cfe9217a08e9997f70a1b6f2f66a74b
+ä
+Zapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableSpecialitiesAdapter.kt,5\5\55f2616d7439707f968a3e1d98384e4ae13abb9f

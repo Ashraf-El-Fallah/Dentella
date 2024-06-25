@@ -12,7 +12,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.databinding.FragmentDoctorProfileBinding
 import com.af.dentalla.utils.ScreenState
-import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.visible
@@ -37,6 +36,21 @@ class DoctorProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setProfileDetail()
         setUpBackButton()
+        setUpAvailableSpecialities()
+    }
+
+    private fun setUpAvailableSpecialities() {
+        val staticSpecialities = listOf(
+            "Cardiology",
+            "Neurology",
+            "Orthopedics",
+            "Pediatrics",
+            "Radiology"
+        )
+        val adapter = AvailableSpecialitiesAdapter(staticSpecialities)
+        binding.recyclerViewDoctorSpecialities.adapter = adapter
+        binding.recyclerViewDoctorSpecialities.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setUpBackButton() {
@@ -54,13 +68,14 @@ class DoctorProfileFragment : Fragment() {
                     Toast.makeText(requireContext(), profileState.message, Toast.LENGTH_LONG).show()
                 }
 
+
                 is ScreenState.Success -> {
                     binding.progress.progress.gone()
                     val profile = profileState.uiData
                     binding.apply {
                         doctorImg.loadImage(profile.doctorPhoto)
                         textViewDoctorName.text = profile.doctorName
-                        textViewDoctorSpeciality.text = getSpecialtyName(context, profile.specialty)
+//                        textViewDoctorSpeciality.text = getSpecialtyName(context, profile.specialty)
 
                         textViewPhoneNumber.text = profile.phoneNumber
                         textViewAbout.text = profile.about
