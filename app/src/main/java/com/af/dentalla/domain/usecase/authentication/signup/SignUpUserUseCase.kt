@@ -17,8 +17,19 @@ class SignUpUserUseCase @Inject constructor(
     private val repository: UserRepository,
     private val application: Application
 ) {
-//    private fun validateUserName(userName: String?) =
-//        userName == null || !ValidationUtils.isUserNameValid(userName)
+    private fun validateUserName(userName: String?) =
+        userName == null || !ValidationUtils.isUserNameValid(userName)
+
+    private fun validateEmail(email: String?) = !ValidationUtils.isEmailValid(email.toString())
+    private fun validatePhone(phone: String?) =
+        !ValidationUtils.isPhoneNumberValid(phone.toString())
+
+    private fun validatePasswordAndConfirmationPassword(
+        password: String,
+        confirmPassword: String
+    ) = !ValidationUtils.isPasswordAndConfirmationEqual(password, confirmPassword)
+
+    private fun validateId(id: String?) = id == null || !ValidationUtils.isIdValid(id)
 
     fun execute(
         accountType: String,
@@ -33,7 +44,7 @@ class SignUpUserUseCase @Inject constructor(
             when (accountType) {
                 AccountManager.AccountType.PATIENT.toString() -> {
                     when {
-                        userName == null || !ValidationUtils.isUserNameValid(userName) -> {
+                        validateUserName(userName) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -47,7 +58,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isEmailValid(email.toString()) -> {
+                        validateEmail(email) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -61,7 +72,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isPhoneNumberValid(phone.toString()) -> {
+                        validatePhone(phone) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -75,7 +86,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isPasswordAndConfirmationEqual(
+                        validatePasswordAndConfirmationPassword(
                             password.toString(),
                             confirmPassword.toString()
                         ) -> {
@@ -94,7 +105,7 @@ class SignUpUserUseCase @Inject constructor(
 
                         else -> {
                             val signUpPatient = SignUpPatient(
-                                username = userName,
+                                username = userName.toString(),
                                 email = email.toString(),
                                 password = password.toString(),
                                 phoneNumber = phone.toString()
@@ -106,7 +117,7 @@ class SignUpUserUseCase @Inject constructor(
 
                 AccountManager.AccountType.DOCTOR.toString() -> {
                     when {
-                        id == null || !ValidationUtils.isIdValid(id) -> {
+                        validateId(id) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -120,7 +131,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        userName == null || !ValidationUtils.isUserNameValid(userName.toString()) -> {
+                        validateUserName(userName) -> {
                             NetWorkResponseState.Error(
                                 Throwable(
                                     getString(
@@ -132,7 +143,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isEmailValid(email.toString()) -> {
+                        validateEmail(email) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -146,7 +157,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isPhoneNumberValid(phone.toString()) -> {
+                        validatePhone(phone) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -160,7 +171,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        !ValidationUtils.isPasswordAndConfirmationEqual(
+                        validatePasswordAndConfirmationPassword(
                             password.toString(),
                             confirmPassword.toString()
                         ) -> {
@@ -180,7 +191,7 @@ class SignUpUserUseCase @Inject constructor(
                         else -> {
                             val signUpDoctor = SignUpDoctor(
                                 username = userName.toString(),
-                                id = id,
+                                id = id.toString(),
                                 email = email.toString(),
                                 password = password.toString(),
                                 phoneNumber = phone.toString()
