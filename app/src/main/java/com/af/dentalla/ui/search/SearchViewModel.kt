@@ -23,7 +23,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             getCardsBySearchByUniversityUseCase(university).collectLatest {
                 when (it) {
-                    is NetWorkResponseState.Error -> _searchedCards.postValue(ScreenState.Error(it.exception.message!!))
+                    is NetWorkResponseState.Error -> _searchedCards.postValue(ScreenState.Error(message = it.exception.message.toString()))
                     is NetWorkResponseState.Success -> _searchedCards.postValue(
                         ScreenState.Success(
                             it.result

@@ -22,7 +22,13 @@ class AddCardViewModel @Inject constructor(private val addCardUseCase: AddCardUs
         viewModelScope.launch {
             addCardUseCase(card).collect {
                 when (it) {
-                    is NetWorkResponseState.Error -> _addCardState.postValue(ScreenState.Error(it.exception.message.toString(),it.statusCode))
+                    is NetWorkResponseState.Error -> _addCardState.postValue(
+                        ScreenState.Error(
+                            message = it.exception.message.toString(),
+                            statusCode = it.statusCode
+                        )
+                    )
+
                     is NetWorkResponseState.Loading -> _addCardState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _addCardState.postValue(
                         ScreenState.Success(

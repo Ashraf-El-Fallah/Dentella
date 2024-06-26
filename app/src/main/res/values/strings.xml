@@ -64,6 +64,7 @@
     <string name="phone_not_valid">This phone number is not valid</string>
     <string name="confirmation_password_not_valid">This password is not valid or not equal confirmation password</string>
     <string name="id_not_valid">This id is not valid</string>
+    <string name="network_error">NetWork Error</string>
     <string name="add_card">Add Card</string>
     <string name="select_speciality">Select Your Speciality</string>
     <string name="select_your_free_date">Select your free date</string>

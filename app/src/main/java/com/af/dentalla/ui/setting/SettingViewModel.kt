@@ -29,7 +29,7 @@ class SettingViewModel @Inject constructor(private val logoutUseCase: LogoutUseC
 
                     is NetWorkResponseState.Error -> _logoutState.postValue(
                         ScreenState.Error(
-                            logoutResponse.exception.message.toString()
+                            message = logoutResponse.exception.message.toString()
                         )
                     )
                 }

@@ -27,7 +27,7 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             loginUserUseCase.execute(accountType, userName, email, password).collect {
                 when (it) {
-                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.errorMessageResId))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success<*> -> _loginState.postValue(
                         ScreenState.Success(

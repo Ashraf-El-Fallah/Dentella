@@ -44,7 +44,7 @@ class EditProfileViewModel @Inject constructor(
 
                     is NetWorkResponseState.Error -> _profileInformation.postValue(
                         ScreenState.Error(
-                            it.exception.message.toString()
+                            message = it.exception.message.toString()
                         )
                     )
                 }
@@ -68,7 +68,7 @@ class EditProfileViewModel @Inject constructor(
 
                     is NetWorkResponseState.Error -> _updateUserProfileInFormation.postValue(
                         ScreenState.Error(
-                            it.exception.message.toString()
+                            message = it.exception.message.toString()
                         )
                     )
                 }

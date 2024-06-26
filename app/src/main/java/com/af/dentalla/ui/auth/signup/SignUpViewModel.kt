@@ -38,7 +38,12 @@ class SignUpViewModel @Inject constructor(
                 id
             ).collect {
                 when (it) {
-                    is NetWorkResponseState.Error -> _signUpState.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Error -> _signUpState.postValue(
+                        ScreenState.Error(
+                            message = it.exception.message.toString()
+                        )
+                    )
+
                     is NetWorkResponseState.Loading -> _signUpState.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _signUpState.postValue(
                         ScreenState.Success(

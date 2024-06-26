@@ -24,7 +24,7 @@ class DoctorsSpecialitiesViewModel @Inject constructor(
         viewModelScope.launch {
             getSpecialityCardsUseCase(specialityId).collectLatest {
                 when (it) {
-                    is NetWorkResponseState.Error -> _specialityCards.postValue(ScreenState.Error(it.exception.message.toString()))
+                    is NetWorkResponseState.Error -> _specialityCards.postValue(ScreenState.Error(message = it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _specialityCards.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _specialityCards.postValue(
                         ScreenState.Success(

@@ -25,8 +25,17 @@ class DoctorProfileViewModel @Inject constructor(
             getDoctorProfileUseCase(cardId).collectLatest {
                 when (it) {
                     is NetWorkResponseState.Loading -> _doctorProfile.postValue(ScreenState.Loading)
-                    is NetWorkResponseState.Error -> _doctorProfile.postValue(ScreenState.Error(it.exception.message!!))
-                    is NetWorkResponseState.Success -> _doctorProfile.postValue(ScreenState.Success(it.result))
+                    is NetWorkResponseState.Error -> _doctorProfile.postValue(
+                        ScreenState.Error(
+                            message = it.exception.message.toString()
+                        )
+                    )
+
+                    is NetWorkResponseState.Success -> _doctorProfile.postValue(
+                        ScreenState.Success(
+                            it.result
+                        )
+                    )
                 }
             }
         }

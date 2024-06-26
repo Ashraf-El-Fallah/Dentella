@@ -91,7 +91,13 @@ class LoginFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
-                    Toast.makeText(requireContext(), loginState.message, Toast.LENGTH_LONG).show()
+                    val errorMessage = loginState.errorMessageCode?.let { getString(it) }
+                        ?: loginState.message ?: getString(R.string.network_error)
+                    Toast.makeText(
+                        requireContext(),
+                        errorMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
