@@ -114,7 +114,7 @@ class EditProfileFragment : BaseFragment() {
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            R.string.cannot_send_data,
+                            updateProfileState.message,
                             Toast.LENGTH_LONG
                         ).show()
                     }

@@ -393,3 +393,5 @@ kapp/src/main/java/com/af/dentalla/domain/usecase/authentication/validations/Val
 dapp/src/main/java/com/af/dentalla/ui/setting/updateProfile/updatePassword/UpdatePasswordViewModel.kt,e\b\eb920fa06b550422faf59bfb26d2e2a9f15d945b
 d
 4app/src/main/java/com/af/dentalla/utils/FileUtils.kt,9\1\913410302a5bde1fb678ea7ae2fd345d67cebbbc
+è
+_app/src/main/java/com/af/dentalla/domain/usecase/setting/UpdateUserProfileInformationUseCase.kt,d\6\d68901690ce477df0221f5a488e67a7d54331144

@@ -66,7 +66,7 @@ class UpdatePasswordFragment : BaseFragment() {
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            R.string.error_when_changing_old_password,
+                            changePasswordState.message,
                             Toast.LENGTH_LONG
                         ).show()
                     }

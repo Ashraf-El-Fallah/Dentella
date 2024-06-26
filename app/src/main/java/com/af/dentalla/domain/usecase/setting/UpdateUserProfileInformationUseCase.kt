@@ -1,4 +1,4 @@
-package com.af.dentalla.domain.usecase.doctor
+package com.af.dentalla.domain.usecase.setting
 
 import android.app.Application
 import com.af.dentalla.R
@@ -11,6 +11,7 @@ import com.af.dentalla.domain.usecase.authentication.validations.ValidateUserNam
 import com.af.dentalla.utils.GetStringUtil.getString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.Locale
 import javax.inject.Inject
 
 class UpdateUserProfileInformationUseCase @Inject constructor(
@@ -24,13 +25,15 @@ class UpdateUserProfileInformationUseCase @Inject constructor(
         userProfileInformation: UserProfileInformation
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
+            val language = Locale.getDefault().language
             if (validateUserNameFieldUseCase(userProfileInformation.userName)) {
                 emit(
                     NetWorkResponseState.Error(
                         Throwable(
                             getString(
                                 application,
-                                R.string.user_name_not_valid
+                                R.string.user_name_not_valid,
+                                language
                             )
                         )
                     )
@@ -42,7 +45,8 @@ class UpdateUserProfileInformationUseCase @Inject constructor(
                         Throwable(
                             getString(
                                 application,
-                                R.string.phone_not_valid
+                                R.string.phone_not_valid,
+                                language
                             )
                         )
                     )
@@ -54,7 +58,8 @@ class UpdateUserProfileInformationUseCase @Inject constructor(
                         Throwable(
                             getString(
                                 application,
-                                R.string.email_not_valid
+                                R.string.email_not_valid,
+                                language
                             )
                         )
                     )

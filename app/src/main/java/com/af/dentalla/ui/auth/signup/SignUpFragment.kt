@@ -8,16 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.SignUpDoctor
-import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.databinding.FragmentSignUpBinding
 import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
-import com.af.dentalla.utils.ValidationUtils
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
-import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 

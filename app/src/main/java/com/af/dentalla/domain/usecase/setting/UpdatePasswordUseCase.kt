@@ -9,6 +9,7 @@ import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswor
 import com.af.dentalla.utils.GetStringUtil.getString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.Locale
 import javax.inject.Inject
 
 class UpdatePasswordUseCase @Inject constructor(
@@ -21,6 +22,7 @@ class UpdatePasswordUseCase @Inject constructor(
         newPassword: String
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
+            val language = Locale.getDefault().language
             if (validatePasswordFieldUseCase(newPassword) || newPassword == oldPassword || validatePasswordFieldUseCase(
                     oldPassword
                 )
@@ -30,7 +32,8 @@ class UpdatePasswordUseCase @Inject constructor(
                         Throwable(
                             getString(
                                 application,
-                                R.string.error_when_changing_password
+                                R.string.error_when_changing_password,
+                                language
                             )
                         )
                     )

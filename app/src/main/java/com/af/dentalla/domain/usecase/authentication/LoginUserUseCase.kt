@@ -1,6 +1,7 @@
 package com.af.dentalla.domain.usecase.authentication
 
 import android.app.Application
+import com.af.dentalla.R
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.LoginDoctor
 import com.af.dentalla.data.remote.requests.LoginPatient
@@ -9,8 +10,10 @@ import com.af.dentalla.domain.usecase.authentication.validations.ValidateEmailFi
 import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswordFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.validations.ValidateUserNameFieldUseCase
 import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.GetStringUtil
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.Locale
 import javax.inject.Inject
 
 class LoginUserUseCase @Inject constructor(
@@ -24,16 +27,26 @@ class LoginUserUseCase @Inject constructor(
         accountType: String,
         userName: String?,
         email: String?,
-        password: String?,
-        errorMessage: String
+        password: String?
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
+            val language = Locale.getDefault().language
             if (accountType == AccountManager.AccountType.PATIENT.toString()) {
                 if (validateUserNameFieldUseCase(userName.toString()) || validatePasswordFieldUseCase(
                         password.toString()
                     )
                 ) {
-                    emit(NetWorkResponseState.Error(Throwable(errorMessage)))
+                    emit(
+                        NetWorkResponseState.Error(
+                            Throwable(
+                                GetStringUtil.getString(
+                                    application,
+                                    R.string.invalid_data,
+                                    language
+                                )
+                            )
+                        )
+                    )
                     return@flow
                 }
                 val loginPatient =
@@ -44,7 +57,17 @@ class LoginUserUseCase @Inject constructor(
                         password.toString()
                     )
                 ) {
-                    emit(NetWorkResponseState.Error(Throwable(errorMessage)))
+                    emit(
+                        NetWorkResponseState.Error(
+                            Throwable(
+                                GetStringUtil.getString(
+                                    application,
+                                    R.string.invalid_data,
+                                    language
+                                )
+                            )
+                        )
+                    )
                     return@flow
                 }
                 val loginDoctor = LoginDoctor(email = email.toString(), passWord = password)

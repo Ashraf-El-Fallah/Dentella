@@ -8,7 +8,7 @@ import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.domain.entity.ProfileInformationEntity
 import com.af.dentalla.domain.usecase.doctor.GetUserProfileInformationUseCase
-import com.af.dentalla.domain.usecase.doctor.UpdateUserProfileInformationUseCase
+import com.af.dentalla.domain.usecase.setting.UpdateUserProfileInformationUseCase
 import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest

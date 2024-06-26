@@ -50,7 +50,6 @@ class LoginFragment : BaseFragment() {
 
     private fun passUserDataToViewModel() {
         binding.buttonSignIn.setOnClickListener {
-            val errorMessage = getString(R.string.invalid_data)
             val password = binding.editTextPasswordLogin.text.toString()
             if (accountType == AccountManager.AccountType.PATIENT) {
                 val userName = binding.editTextUserName.text.toString()
@@ -58,8 +57,7 @@ class LoginFragment : BaseFragment() {
                     accountType.toString(),
                     userName,
                     null,
-                    password,
-                    errorMessage
+                    password
                 )
             } else if (accountType == AccountManager.AccountType.DOCTOR) {
                 val email = binding.editTextEmail.text.toString()
@@ -67,8 +65,7 @@ class LoginFragment : BaseFragment() {
                     accountType.toString(),
                     null,
                     email,
-                    password,
-                    errorMessage
+                    password
                 )
             }
         }

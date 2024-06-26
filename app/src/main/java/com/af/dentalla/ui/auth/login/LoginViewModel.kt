@@ -22,11 +22,10 @@ class LoginViewModel @Inject constructor(
         accountType: String,
         userName: String?,
         email: String?,
-        password: String?,
-        errorMessage: String
+        password: String?
     ) {
         viewModelScope.launch {
-            loginUserUseCase.execute(accountType, userName, email, password, errorMessage).collect {
+            loginUserUseCase.execute(accountType, userName, email, password).collect {
                 when (it) {
                     is NetWorkResponseState.Error -> _loginState.postValue(ScreenState.Error(it.exception.message.toString()))
                     is NetWorkResponseState.Loading -> _loginState.postValue(ScreenState.Loading)
