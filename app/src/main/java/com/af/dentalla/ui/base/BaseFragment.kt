@@ -25,14 +25,6 @@ abstract class BaseFragment : Fragment() {
         return true
     }
 
-    protected open fun isPasswordValid(password: String): Boolean {
-        if (ValidationUtils.isPasswordNotValid(password)) {
-            Toast.makeText(requireContext(), R.string.password_not_valid, Toast.LENGTH_LONG).show()
-            return false
-        }
-        return true
-    }
-
     protected fun isPhoneNumberValid(phoneNumber: String): Boolean {
         if (ValidationUtils.isPhoneNumberNotValid(phoneNumber)) {
             Toast.makeText(requireContext(), R.string.phone_not_valid, Toast.LENGTH_LONG).show()
@@ -40,38 +32,5 @@ abstract class BaseFragment : Fragment() {
         }
         return true
     }
-
-
-//    abstract val layoutIdFragment: Int
-//    abstract val viewModel: ViewModel
-
-//    private lateinit var _binding: VDB
-//    protected val binding: VDB
-//        get() = _binding
-
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-////        _binding = DataBindingUtil.inflate(inflater, layoutIdFragment, container, false)
-////        _binding.apply {
-////            lifecycleOwner = viewLifecycleOwner
-////            setVariable(BR.viewModel, viewModel)
-////            return root
-////        }
-//    }
-
-
-//    protected fun setTitle(visibility: Boolean, title: String? = null) {
-//        if (visibility) {
-//            (activity as AppCompatActivity).supportActionBar?.show()
-//            title?.let {
-//                (activity as AppCompatActivity).supportActionBar?.title = it
-//            }
-//        } else {
-//            (activity as AppCompatActivity).supportActionBar?.hide()
-//        }
-//    }
 
 }

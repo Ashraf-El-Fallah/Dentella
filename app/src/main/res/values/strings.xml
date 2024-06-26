@@ -106,7 +106,7 @@
     <string name="no">No</string>
     <string name="want_to_logout">Are you sure you want to logout?</string>
     <string name="want_to_login_again">Your session is expired , please login again</string>
-    <string name="cannot_send_data">An error occurred .. cannot send data to server</string>
+    <string name="cannot_send_data">An error occurred .. cannot send data to server .. you add invalid data</string>
     <string name="chat_ai" translatable="false">Chat Ai</string>
     <string name="write_article">Write an article</string>
     <string name="write_post">Write a post</string>

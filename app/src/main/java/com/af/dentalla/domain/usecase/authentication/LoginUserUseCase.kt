@@ -1,5 +1,6 @@
 package com.af.dentalla.domain.usecase.authentication
 
+import android.app.Application
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.LoginDoctor
 import com.af.dentalla.data.remote.requests.LoginPatient
@@ -16,7 +17,8 @@ class LoginUserUseCase @Inject constructor(
     private val repository: UserRepository,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
-    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase
+    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
+    private val application: Application
 ) {
     fun execute(
         accountType: String,

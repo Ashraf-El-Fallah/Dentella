@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ChangeUserPasswordViewModel @Inject constructor(private val updatePasswordUseCase: UpdatePasswordUseCase) :
+class UpdatePasswordViewModel @Inject constructor(private val updatePasswordUseCase: UpdatePasswordUseCase) :
     ViewModel() {
     private val _updateUserPasswordState = MutableLiveData<ScreenState<Unit>>()
     val updateUserPasswordState: LiveData<ScreenState<Unit>> get() = _updateUserPasswordState

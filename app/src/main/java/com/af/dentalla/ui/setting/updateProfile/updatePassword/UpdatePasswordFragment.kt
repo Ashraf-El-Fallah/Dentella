@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class UpdatePasswordFragment : BaseFragment() {
     private lateinit var binding: FragmentUpdatePasswordBinding
-    private val changeUserPasswordViewModel: ChangeUserPasswordViewModel by viewModels()
+    private val updatePasswordViewModel: UpdatePasswordViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +39,7 @@ class UpdatePasswordFragment : BaseFragment() {
         binding.buttonConfirm.setOnClickListener {
             val newPassword = binding.editTextNewPassword.text.toString()
             val oldPassword = binding.editTextOldPassword.text.toString()
-            changeUserPasswordViewModel.changeDoctorPassword(
+            updatePasswordViewModel.changeDoctorPassword(
                 oldPassword = oldPassword,
                 newPassword = newPassword
             )
@@ -48,7 +48,7 @@ class UpdatePasswordFragment : BaseFragment() {
 
 
     private fun changeDoctorPasswordObserver() {
-        changeUserPasswordViewModel.updateUserPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
+        updatePasswordViewModel.updateUserPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
             when (changePasswordState) {
                 is ScreenState.Loading -> {
                     binding.progressBar.root.visible()

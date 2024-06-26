@@ -1,6 +1,5 @@
 package com.af.dentalla.ui.setting.updateProfile.editProfile
 
-import android.content.ContentResolver
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,23 +12,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
 import com.af.dentalla.ui.base.BaseFragment
+import com.af.dentalla.utils.FileUtils.fileToMultipartBody
+import com.af.dentalla.utils.FileUtils.uriToFile
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
 import com.af.dentalla.utils.visible
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import java.io.File
-import java.io.FileOutputStream
-
 
 @AndroidEntryPoint
 class EditProfileFragment : BaseFragment() {
@@ -84,27 +77,6 @@ class EditProfileFragment : BaseFragment() {
     private fun openGalleryForImage() {
         galleryLauncher.launch("image/*")
     }
-
-    private fun uriToFile(uri: Uri): File? {
-        return try {
-            val contentResolver: ContentResolver = requireContext().contentResolver
-            val inputStream = contentResolver.openInputStream(uri) ?: return null
-            val tempFile = File.createTempFile("image", ".jpg", requireContext().cacheDir)
-            FileOutputStream(tempFile).use { outputStream ->
-                inputStream.copyTo(outputStream)
-            }
-            tempFile
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    private fun fileToMultipartBody(file: File): MultipartBody.Part {
-        val requestFile: RequestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
-        return MultipartBody.Part.createFormData("photo", file.name, requestFile)
-    }
-
 
     private fun sendUpdatedUserDataToViewModel(updatedUserProfileInformation: UserProfileInformation) {
         updatedUserProfileInformation.let {
@@ -161,28 +133,28 @@ class EditProfileFragment : BaseFragment() {
 
     private fun handleUpdatedUserInformation() {
         val photoPart = imageUri?.let { uri ->
-            val file = uriToFile(uri)
+            val file = uriToFile(requireContext(), uri)
             file?.let { fileToMultipartBody(it) }
         }
-        val userName = binding.editTextName
-        val email = binding.editTextEmail
-        val phoneNumber =
-            binding.editTextMobileNumber
-        if (isUserNameValid(userName.text.toString()) && isEmailValid(
-                email.text.toString()
-            ) && isPhoneNumberValid(phoneNumber.text.toString())
-        ) {
-            val updatedUserProfileInformation = UserProfileInformation(
-                userName = getTextOrHint(userName),
-                email = getTextOrHint(email),
-                phoneNumber = getTextOrHint(phoneNumber),
-                bio = getTextOrHint(binding.editTextBio),
-                currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
-                currentLevel = "intermediate",
-                photo = photoPart
-            )
-            sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
-        }
+//        val userName = binding.editTextName
+//        val email = binding.editTextEmail
+//        val phoneNumber =
+//            binding.editTextMobileNumber
+//        if (isUserNameValid(userName.text.toString()) && isEmailValid(
+//                email.text.toString()
+//            ) && isPhoneNumberValid(phoneNumber.text.toString())
+//        ) {
+        val updatedUserProfileInformation = UserProfileInformation(
+            userName = getTextOrHint(binding.editTextName),
+            email = getTextOrHint(binding.editTextEmail),
+            phoneNumber = getTextOrHint(binding.editTextMobileNumber),
+            bio = getTextOrHint(binding.editTextBio),
+            currentUniversity = getTextOrHint(binding.editTextCurrentUniversity),
+            currentLevel = "intermediate",
+            photo = photoPart
+        )
+        sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
+//        }
     }
 
     private fun returnUserProfileInformationObserver() {
@@ -301,41 +273,4 @@ class EditProfileFragment : BaseFragment() {
             findNavController().safeNavigate(EditProfileFragmentDirections.actionEditProfileFragmentToPatientProfileFragment())
         }
     }
-
-//    private fun updateEditTextHint(editText: EditText) {
-//        editText.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-//            override fun afterTextChanged(s: Editable?) {
-//                editText.hint = s.toString()
-//            }
-//        })
-//    }
-
-//    private fun saveAllHintsForAllEditTexts() {
-//        updateEditTextHint(binding.editTextName)
-//        updateEditTextHint(binding.editTextEmail)
-//        updateEditTextHint(binding.editTextMobileNumber)
-//        updateEditTextHint(binding.editTextCurrentUniversity)
-//        updateEditTextHint(binding.editTextBio)
-//    }
-
-    //    private fun uriToMultipart(uri: Uri): MultipartBody.Part? {
-//        try {
-//            val contentResolver: ContentResolver = context?.contentResolver ?: return null
-//            val mimeType = contentResolver.getType(uri) ?: return null
-//
-//            val inputStream = contentResolver.openInputStream(uri) ?: return null
-//            val file = File(requireContext().cacheDir, "temp_file")
-//
-//            FileOutputStream(file).use { outputStream ->
-//                inputStream.copyTo(outputStream)
-//            }
-//            val requestFile: RequestBody = file.asRequestBody(mimeType.toMediaTypeOrNull())
-//            return MultipartBody.Part.createFormData("file", file.name, requestFile)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            return null
-//        }
-//    }
 }
