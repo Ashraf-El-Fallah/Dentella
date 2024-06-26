@@ -91,11 +91,9 @@ class SettingFragment : Fragment() {
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
 
-        // Customize the buttons
         val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
         val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
 
-        // Ensure buttons text maintain the correct capitalization
         positiveButton?.let {
             it.setText(R.string.logout)
             it.isAllCaps = false

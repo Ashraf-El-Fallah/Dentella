@@ -1,4 +1,4 @@
-package com.af.dentalla.domain.usecase.authentication.signup
+package com.af.dentalla.domain.usecase.authentication
 
 import android.app.Application
 import com.af.dentalla.R
@@ -6,31 +6,26 @@ import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.SignUpDoctor
 import com.af.dentalla.data.remote.requests.SignUpPatient
 import com.af.dentalla.domain.repository.UserRepository
+import com.af.dentalla.domain.usecase.authentication.validations.ValidateEmailFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.validations.ValidateIdUseCase
+import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswordAndConfirmationUseCase
+import com.af.dentalla.domain.usecase.authentication.validations.ValidatePhoneNumberFieldUseCase
+import com.af.dentalla.domain.usecase.authentication.validations.ValidateUserNameFieldUseCase
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.GetStringUtil.getString
-import com.af.dentalla.utils.ValidationUtils
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class SignUpUserUseCase @Inject constructor(
     private val repository: UserRepository,
-    private val application: Application
+    private val application: Application,
+    private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
+    private val validatePhoneNumberFieldUseCase: ValidatePhoneNumberFieldUseCase,
+    private val validatePasswordAndConfirmationUseCase: ValidatePasswordAndConfirmationUseCase,
+    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
+    private val validateIdUseCase: ValidateIdUseCase
 ) {
-    private fun validateUserName(userName: String?) =
-        userName == null || !ValidationUtils.isUserNameValid(userName)
-
-    private fun validateEmail(email: String?) = !ValidationUtils.isEmailValid(email.toString())
-    private fun validatePhone(phone: String?) =
-        !ValidationUtils.isPhoneNumberValid(phone.toString())
-
-    private fun validatePasswordAndConfirmationPassword(
-        password: String,
-        confirmPassword: String
-    ) = !ValidationUtils.isPasswordAndConfirmationEqual(password, confirmPassword)
-
-    private fun validateId(id: String?) = id == null || !ValidationUtils.isIdValid(id)
-
     fun execute(
         accountType: String,
         userName: String?,
@@ -44,7 +39,7 @@ class SignUpUserUseCase @Inject constructor(
             when (accountType) {
                 AccountManager.AccountType.PATIENT.toString() -> {
                     when {
-                        validateUserName(userName) -> {
+                        validateUserNameFieldUseCase(userName.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -58,7 +53,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validateEmail(email) -> {
+                        validateEmailFieldUseCase(email.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -72,7 +67,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validatePhone(phone) -> {
+                        validatePhoneNumberFieldUseCase(phone.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -86,7 +81,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validatePasswordAndConfirmationPassword(
+                        validatePasswordAndConfirmationUseCase(
                             password.toString(),
                             confirmPassword.toString()
                         ) -> {
@@ -117,7 +112,7 @@ class SignUpUserUseCase @Inject constructor(
 
                 AccountManager.AccountType.DOCTOR.toString() -> {
                     when {
-                        validateId(id) -> {
+                        validateIdUseCase(id.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -131,7 +126,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validateUserName(userName) -> {
+                        validateUserNameFieldUseCase(userName.toString()) -> {
                             NetWorkResponseState.Error(
                                 Throwable(
                                     getString(
@@ -143,7 +138,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validateEmail(email) -> {
+                        validateEmailFieldUseCase(email.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -157,7 +152,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validatePhone(phone) -> {
+                        validatePhoneNumberFieldUseCase(phone.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
                                     Throwable(
@@ -171,7 +166,7 @@ class SignUpUserUseCase @Inject constructor(
                             return@flow
                         }
 
-                        validatePasswordAndConfirmationPassword(
+                        validatePasswordAndConfirmationUseCase(
                             password.toString(),
                             confirmPassword.toString()
                         ) -> {

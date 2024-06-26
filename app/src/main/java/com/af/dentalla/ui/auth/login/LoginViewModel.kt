@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
-import com.af.dentalla.domain.usecase.authentication.login.LoginUserUseCase
+import com.af.dentalla.domain.usecase.authentication.LoginUserUseCase
 import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
