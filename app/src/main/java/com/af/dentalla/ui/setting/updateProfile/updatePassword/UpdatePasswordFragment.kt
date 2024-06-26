@@ -8,13 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.remote.requests.UserPasswords
 import com.af.dentalla.databinding.FragmentUpdatePasswordBinding
 import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,22 +39,16 @@ class UpdatePasswordFragment : BaseFragment() {
         binding.buttonConfirm.setOnClickListener {
             val newPassword = binding.editTextNewPassword.text.toString()
             val oldPassword = binding.editTextOldPassword.text.toString()
-            if (!isPasswordValid(newPassword) || (newPassword == oldPassword)) {
-                Snackbar.make(
-                    requireView(),
-                    R.string.error_when_changing_password,
-                    Snackbar.LENGTH_LONG
-                ).show()
-            } else {
-                val userPasswords =
-                    UserPasswords(newPassword = newPassword, oldPassword = oldPassword)
-                changeUserPasswordViewModel.changeDoctorPassword(userPasswords)
-            }
+            changeUserPasswordViewModel.changeDoctorPassword(
+                oldPassword = oldPassword,
+                newPassword = newPassword
+            )
         }
     }
 
+
     private fun changeDoctorPasswordObserver() {
-        changeUserPasswordViewModel.changeUserPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
+        changeUserPasswordViewModel.updateUserPasswordState.observe(viewLifecycleOwner) { changePasswordState ->
             when (changePasswordState) {
                 is ScreenState.Loading -> {
                     binding.progressBar.root.visible()

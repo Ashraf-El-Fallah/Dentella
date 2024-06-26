@@ -19,6 +19,7 @@ class AuthenticationViewModel @Inject constructor(
     init {
         checkIfUserLoggedIn()
     }
+
     private fun checkIfUserLoggedIn() {
         viewModelScope.launch {
             getTokenUseCase().collect { token ->

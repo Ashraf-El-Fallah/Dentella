@@ -1,4 +1,4 @@
-package com.af.dentalla.domain.usecase.authentication
+package com.af.dentalla.domain.usecase.authentication.unused
 
 import com.af.dentalla.utils.FormFieldState
 import javax.inject.Inject

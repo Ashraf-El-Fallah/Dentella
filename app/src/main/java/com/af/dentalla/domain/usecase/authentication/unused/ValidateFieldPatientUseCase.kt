@@ -1,6 +1,5 @@
-package com.af.dentalla.domain.usecase.authentication.login
+package com.af.dentalla.domain.usecase.authentication.unused
 
-import com.af.dentalla.domain.usecase.authentication.ValidateUserNameFieldUseCase
 import javax.inject.Inject
 
 class ValidateFieldPatientUseCase @Inject constructor(
