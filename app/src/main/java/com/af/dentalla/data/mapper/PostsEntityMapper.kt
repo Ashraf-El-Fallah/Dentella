@@ -12,7 +12,8 @@ class PostsEntityMapper @Inject constructor() : ListMapper<PostDtoItem, PostEnti
                 content = it.content ?: "",
                 patientName = it.patientName ?: "",
                 patientPhoto = it.patientPhoto,
-                postId = it.postId ?: 0
+                postId = it.postId ?: 0,
+                phoneNumber = it.phoneNumber,
             )
         }
     }

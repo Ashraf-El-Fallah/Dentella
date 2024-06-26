@@ -11,5 +11,7 @@ data class PostDtoItem(
     @SerializedName("patientPhoto")
     val patientPhoto: Any?,
     @SerializedName("postId")
-    val postId: Int?
+    val postId: Int?,
+    @SerializedName("phoneNumber")
+    val phoneNumber: String?
 )
