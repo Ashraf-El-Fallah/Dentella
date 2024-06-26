@@ -1,6 +1,5 @@
 package com.af.dentalla.domain.usecase.authentication
 
-import android.app.Application
 import com.af.dentalla.R
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.SignUpDoctor
@@ -12,15 +11,12 @@ import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswor
 import com.af.dentalla.domain.usecase.authentication.validations.ValidatePhoneNumberFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.validations.ValidateUserNameFieldUseCase
 import com.af.dentalla.utils.AccountManager
-import com.af.dentalla.utils.GetStringUtil.getString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.util.Locale
 import javax.inject.Inject
 
 class SignUpUserUseCase @Inject constructor(
     private val repository: UserRepository,
-    private val application: Application,
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
     private val validatePhoneNumberFieldUseCase: ValidatePhoneNumberFieldUseCase,
     private val validatePasswordAndConfirmationUseCase: ValidatePasswordAndConfirmationUseCase,
@@ -37,21 +33,14 @@ class SignUpUserUseCase @Inject constructor(
         id: String? = null
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
-            val language = Locale.getDefault().language
-
             when (accountType) {
                 AccountManager.AccountType.PATIENT.toString() -> {
                     when {
                         validateUserNameFieldUseCase(userName.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.user_name_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.user_name_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -60,13 +49,8 @@ class SignUpUserUseCase @Inject constructor(
                         validateEmailFieldUseCase(email.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.email_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.email_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -75,14 +59,10 @@ class SignUpUserUseCase @Inject constructor(
                         validatePhoneNumberFieldUseCase(phone.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.phone_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.phone_not_valid,
+                                    Throwable("Invalid data")
                                 )
+
                             )
                             return@flow
                         }
@@ -93,14 +73,10 @@ class SignUpUserUseCase @Inject constructor(
                         ) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.confirmation_password_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.confirmation_password_not_valid,
+                                    Throwable("Invalid data")
                                 )
+
                             )
                             return@flow
                         }
@@ -121,13 +97,8 @@ class SignUpUserUseCase @Inject constructor(
                     when {
                         validateUserNameFieldUseCase(userName.toString()) -> {
                             NetWorkResponseState.Error(
-                                Throwable(
-                                    getString(
-                                        application,
-                                        R.string.user_name_not_valid,
-                                        language
-                                    )
-                                )
+                                R.string.user_name_not_valid,
+                                Throwable("Invalid data")
                             )
                             return@flow
                         }
@@ -135,13 +106,8 @@ class SignUpUserUseCase @Inject constructor(
                         validateIdUseCase(id.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.id_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.id_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -150,13 +116,8 @@ class SignUpUserUseCase @Inject constructor(
                         validateEmailFieldUseCase(email.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.email_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.email_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -165,13 +126,8 @@ class SignUpUserUseCase @Inject constructor(
                         validatePhoneNumberFieldUseCase(phone.toString()) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.phone_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.phone_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -183,13 +139,8 @@ class SignUpUserUseCase @Inject constructor(
                         ) -> {
                             emit(
                                 NetWorkResponseState.Error(
-                                    Throwable(
-                                        getString(
-                                            application,
-                                            R.string.confirmation_password_not_valid,
-                                            language
-                                        )
-                                    )
+                                    R.string.confirmation_password_not_valid,
+                                    Throwable("Invalid data")
                                 )
                             )
                             return@flow
@@ -210,15 +161,7 @@ class SignUpUserUseCase @Inject constructor(
 
                 else -> {
                     emit(
-                        NetWorkResponseState.Error(
-                            Throwable(
-                                getString(
-                                    application,
-                                    R.string.invalid_data,
-                                    language
-                                )
-                            )
-                        )
+                        NetWorkResponseState.Error(R.string.invalid_data, Throwable("Invalid data"))
                     )
                 }
             }

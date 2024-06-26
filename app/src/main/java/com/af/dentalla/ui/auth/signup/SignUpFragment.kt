@@ -100,7 +100,13 @@ class SignUpFragment : BaseFragment() {
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
                     binding.buttonSignUp.isEnabled = true
-                    Toast.makeText(requireContext(), signUpState.message, Toast.LENGTH_LONG).show()
+                    val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
+                        ?: signUpState.message ?: getString(R.string.network_error)
+                    Toast.makeText(
+                        requireContext(),
+                        errorMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
