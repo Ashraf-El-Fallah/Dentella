@@ -1,6 +1,5 @@
 package com.af.dentalla.domain.usecase.authentication
 
-import android.app.Application
 import com.af.dentalla.R
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.LoginDoctor
@@ -10,18 +9,15 @@ import com.af.dentalla.domain.usecase.authentication.validations.ValidateEmailFi
 import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswordFieldUseCase
 import com.af.dentalla.domain.usecase.authentication.validations.ValidateUserNameFieldUseCase
 import com.af.dentalla.utils.AccountManager
-import com.af.dentalla.utils.GetStringUtil
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.util.Locale
 import javax.inject.Inject
 
 class LoginUserUseCase @Inject constructor(
     private val repository: UserRepository,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase,
     private val validateUserNameFieldUseCase: ValidateUserNameFieldUseCase,
-    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase,
-    private val application: Application
+    private val validateEmailFieldUseCase: ValidateEmailFieldUseCase
 ) {
     fun execute(
         accountType: String,
@@ -30,7 +26,6 @@ class LoginUserUseCase @Inject constructor(
         password: String?
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
-            val language = Locale.getDefault().language
             if (accountType == AccountManager.AccountType.PATIENT.toString()) {
                 if (validateUserNameFieldUseCase(userName.toString()) || validatePasswordFieldUseCase(
                         password.toString()
@@ -38,13 +33,8 @@ class LoginUserUseCase @Inject constructor(
                 ) {
                     emit(
                         NetWorkResponseState.Error(
-                            Throwable(
-                                GetStringUtil.getString(
-                                    application,
-                                    R.string.invalid_data,
-                                    language
-                                )
-                            )
+                            errorMessageResId = R.string.invalid_data,
+                            exception = Throwable("HTTP Error")
                         )
                     )
                     return@flow
@@ -59,13 +49,8 @@ class LoginUserUseCase @Inject constructor(
                 ) {
                     emit(
                         NetWorkResponseState.Error(
-                            Throwable(
-                                GetStringUtil.getString(
-                                    application,
-                                    R.string.invalid_data,
-                                    language
-                                )
-                            )
+                            errorMessageResId = R.string.invalid_data,
+                            exception = Throwable("HTTP Error")
                         )
                     )
                     return@flow

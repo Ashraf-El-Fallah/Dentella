@@ -40,10 +40,18 @@ class RemoteDateSourceImpl @Inject constructor(
                     saveToken(authenticateLoginResponse.body()?.token)
                     emit(NetWorkResponseState.Success(Unit))
                 } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${authenticateLoginResponse.code()}")))
+                    emit(
+                        NetWorkResponseState.Error(
+                            exception = Throwable("HTTP error ${authenticateLoginResponse.code()}")
+                        )
+                    )
                 }
             } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(Exception("Exception :${e.message}")))
+                emit(
+                    NetWorkResponseState.Error(
+                        exception = Throwable("Exception :${e.message}")
+                    )
+                )
             }
         }
     }
@@ -165,12 +173,24 @@ class RemoteDateSourceImpl @Inject constructor(
                     onSuccess(response)
                     response.body()?.let {
                         emit(NetWorkResponseState.Success(it))
-                    } ?: emit(NetWorkResponseState.Error(Exception("Response body is null")))
+                    } ?: emit(
+                        NetWorkResponseState.Error(
+                            exception = Throwable("Response body is null")
+                        )
+                    )
                 } else {
-                    emit(NetWorkResponseState.Error(Exception("HTTP error ${response.code()}")))
+                    emit(
+                        NetWorkResponseState.Error(
+                            exception = Throwable("HTTP error ${response.code()}")
+                        )
+                    )
                 }
             } catch (e: Exception) {
-                emit(NetWorkResponseState.Error(Exception("Exception: ${e.message}")))
+                emit(
+                    NetWorkResponseState.Error(
+                        exception = Throwable("Exception: ${e.message}")
+                    )
+                )
             }
         }
     }
