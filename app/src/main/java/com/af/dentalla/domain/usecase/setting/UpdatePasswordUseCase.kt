@@ -1,20 +1,16 @@
 package com.af.dentalla.domain.usecase.setting
 
-import android.app.Application
 import com.af.dentalla.R
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.data.remote.requests.UserPasswords
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.domain.usecase.authentication.validations.ValidatePasswordFieldUseCase
-import com.af.dentalla.utils.GetStringUtil.getString
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.util.Locale
 import javax.inject.Inject
 
 class UpdatePasswordUseCase @Inject constructor(
     private val repository: UserRepository,
-    private val application: Application,
     private val validatePasswordFieldUseCase: ValidatePasswordFieldUseCase
 ) {
     fun execute(
@@ -22,21 +18,16 @@ class UpdatePasswordUseCase @Inject constructor(
         newPassword: String
     ): Flow<NetWorkResponseState<Unit>> {
         return flow {
-            val language = Locale.getDefault().language
             if (validatePasswordFieldUseCase(newPassword) || newPassword == oldPassword || validatePasswordFieldUseCase(
                     oldPassword
                 )
             ) {
                 emit(
                     NetWorkResponseState.Error(
-                        Throwable(
-                            getString(
-                                application,
-                                R.string.error_when_changing_password,
-                                language
-                            )
-                        )
+                        errorMessageResId = R.string.error_when_changing_password,
+                        exception = Throwable("Invalid data")
                     )
+
                 )
                 return@flow
             }

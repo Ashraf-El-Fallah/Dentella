@@ -64,10 +64,13 @@ class UpdatePasswordFragment : BaseFragment() {
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
+                        val errorMessage =
+                            changePasswordState.errorMessageCode?.let { getString(it) }
+                                ?: changePasswordState.message ?: getString(R.string.network_error)
                         Toast.makeText(
                             requireContext(),
-                            changePasswordState.message,
-                            Toast.LENGTH_LONG
+                            errorMessage,
+                            Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
