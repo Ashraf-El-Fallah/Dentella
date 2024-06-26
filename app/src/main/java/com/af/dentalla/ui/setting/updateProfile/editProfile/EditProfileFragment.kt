@@ -112,10 +112,13 @@ class EditProfileFragment : BaseFragment() {
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
+                        val errorMessage =
+                            updateProfileState.errorMessageCode?.let { getString(it) }
+                                ?: updateProfileState.message ?: getString(R.string.network_error)
                         Toast.makeText(
                             requireContext(),
-                            updateProfileState.message,
-                            Toast.LENGTH_LONG
+                            errorMessage,
+                            Toast.LENGTH_SHORT
                         ).show()
                     }
                     binding.progressBar.progress.gone()

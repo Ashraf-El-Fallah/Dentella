@@ -68,7 +68,7 @@ class EditProfileViewModel @Inject constructor(
 
                     is NetWorkResponseState.Error -> _updateUserProfileInFormation.postValue(
                         ScreenState.Error(
-                            message = it.exception.message.toString()
+                            errorMessageCode = it.errorMessageResId
                         )
                     )
                 }
