@@ -49,190 +49,137 @@ class SettingFragment : Fragment() {
                 binding.textViewDelete.text = getString(R.string.delete_cards)
             }
         }
-        goToEditProfile()
-        showBottomSheet()
-        showLogoutDialog()
-        logoutObserver()
-        showDeleteInfoDialog()
-        deleteInfoObserver()
+        setupUI()
+        setupObservers()
     }
 
-    private fun showLogoutDialog() {
+    private fun setupUI() {
         binding.cardViewLogout.setOnClickListener {
-            showLogoutConfirmationDialog()
+            showConfirmationDialog(
+                R.string.want_to_logout,
+                R.string.logout,
+                R.string.cancel,
+                { settingViewModel.logout() },
+                R.color.shade_of_red,
+                R.color.cyan_blue
+            )
         }
-    }
 
-    private fun showDeleteInfoDialog() {
         binding.cardViewDeleteInfo.setOnClickListener {
-            showDeleteDialog()
-        }
-    }
-
-    private fun logoutObserver() {
-        settingViewModel.logoutState.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is ScreenState.Loading -> {
-                    binding.progress.progress.visible()
-                }
-
-                is ScreenState.Success -> {
-                    binding.progress.progress.gone()
-                    val intent =
-                        Intent(
-                            this@SettingFragment.requireContext(),
-                            AuthenticationActivity::class.java
-                        )
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                }
-
-                is ScreenState.Error -> {
-                    binding.progress.progress.gone()
-                    if (state.message == "HTTP 401 Unauthorized") {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.want_to_login_again,
-                            Toast.LENGTH_LONG
-                        ).show()
-                    } else {
-                        val errorMessage = state.message ?: getString(R.string.network_error)
-                        Toast.makeText(
-                            requireContext(),
-                            errorMessage,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-        }
-    }
-
-    private fun showLogoutConfirmationDialog() {
-        val alertDialogBuilder = AlertDialog.Builder(requireContext())
-        alertDialogBuilder.setMessage(R.string.want_to_logout)
-            .setCancelable(false)
-            .setPositiveButton(R.string.logout) { dialog, id ->
-                settingViewModel.logout()
-                dialog.dismiss()
-            }
-            .setNegativeButton(R.string.cancel) { dialog, id ->
-                dialog.dismiss()
-            }
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
-
-        val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-        val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-
-        positiveButton?.let {
-            it.setText(R.string.logout)
-            it.isAllCaps = false
-            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.shade_of_red))
+            showConfirmationDialog(
+                if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) R.string.want_to_delete_cards else R.string.want_to_delete_Posts,
+                R.string.delete,
+                R.string.cancel,
+                { settingViewModel.deleteUserInfo() },
+                R.color.shade_of_red,
+                R.color.cyan_blue
+            )
         }
 
-        negativeButton?.let {
-            it.setText(R.string.cancel)
-            it.isAllCaps = false
-            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.cyan_blue))
-        }
-    }
-
-
-    private fun showDeleteDialog() {
-        var message = getString(R.string.want_to_delete_Posts)
-        if (AccountManager.accountType == AccountManager.AccountType.DOCTOR) {
-            message = getString(R.string.want_to_delete_cards)
-        }
-        val alertDialogBuilder = AlertDialog.Builder(requireContext())
-        alertDialogBuilder.setMessage(message)
-            .setCancelable(false)
-            .setPositiveButton(R.string.delete) { dialog, id ->
-                settingViewModel.deleteUserInfo()
-                dialog.dismiss()
-            }
-            .setNegativeButton(R.string.cancel) { dialog, id ->
-                dialog.dismiss()
-            }
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
-
-        val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-        val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-
-        positiveButton?.let {
-            it.setText(R.string.delete)
-            it.isAllCaps = false
-            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.shade_of_red))
-        }
-
-        negativeButton?.let {
-            it.setText(R.string.cancel)
-            it.isAllCaps = false
-            it.setTextColor(ContextCompat.getColor(requireContext(), R.color.cyan_blue))
-        }
-    }
-
-    private fun deleteInfoObserver() {
-        settingViewModel.deleteInfoState.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is ScreenState.Loading -> {
-                    binding.progress.progress.visible()
-                }
-
-                is ScreenState.Success -> {
-                    binding.progress.progress.gone()
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.delete_info_successfully,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-
-                is ScreenState.Error -> {
-                    binding.progress.progress.gone()
-                    when (state.message) {
-                        "HTTP 401 Unauthorized" -> {
-                            Toast.makeText(
-                                requireContext(),
-                                R.string.want_to_login_again,
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-
-                        "HTTP error 404" -> {
-                            Toast.makeText(
-                                requireContext(),
-                                R.string.cannot_delete_info,
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-
-                        else -> {
-                            Toast.makeText(
-                                requireContext(),
-                                R.string.network_error,
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun goToEditProfile() {
         binding.cardViewEditProfile.setOnClickListener {
             val action =
                 SettingFragmentDirections.actionPatientProfileFragmentToEditProfileFragment()
             findNavController().navigate(action)
         }
-    }
 
-    private fun showBottomSheet() {
         binding.cardViewChangeLanguage.setOnClickListener {
             val bottomSheetFragment = ChangeLanguageBottomSheetFragment()
             bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
+        }
+    }
+
+    private fun setupObservers() {
+        settingViewModel.logoutState.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { state ->
+                handleScreenState(
+                    state = state,
+                    unauthorizedMessage = R.string.want_to_login_again,
+                    defaultErrorMessage = R.string.network_error
+                ) {
+                    val intent = Intent(
+                        this@SettingFragment.requireContext(),
+                        AuthenticationActivity::class.java
+                    )
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
+            }
+        }
+
+        settingViewModel.deleteInfoState.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { state ->
+                handleScreenState(
+                    state = state,
+                    unauthorizedMessage = R.string.want_to_login_again,
+                    defaultErrorMessage = R.string.network_error,
+                    notFoundMessage = R.string.cannot_delete_info,
+                    successfulMessage = R.string.delete_info_successfully
+                )
+            }
+        }
+    }
+
+    private fun showConfirmationDialog(
+        message: Int,
+        positiveText: Int,
+        negativeText: Int,
+        positiveAction: () -> Unit,
+        positiveColor: Int,
+        negativeColor: Int
+    ) {
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        alertDialogBuilder.setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton(positiveText) { dialog, _ ->
+                positiveAction()
+                dialog.dismiss()
+            }
+            .setNegativeButton(negativeText) { dialog, _ -> dialog.dismiss() }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.apply {
+            setText(positiveText)
+            isAllCaps = false
+            setTextColor(ContextCompat.getColor(requireContext(), positiveColor))
+        }
+        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.apply {
+            setText(negativeText)
+            isAllCaps = false
+            setTextColor(ContextCompat.getColor(requireContext(), negativeColor))
+        }
+    }
+
+    private fun handleScreenState(
+        state: ScreenState<*>,
+        successfulMessage: Int? = null,
+        unauthorizedMessage: Int,
+        defaultErrorMessage: Int,
+        notFoundMessage: Int? = null,
+        successAction: (() -> Unit)? = null
+    ) {
+        when (state) {
+            is ScreenState.Loading -> binding.progress.progress.visible()
+            is ScreenState.Success -> {
+                binding.progress.progress.gone()
+                successAction?.invoke()
+                successfulMessage?.let {
+                    Toast.makeText(
+                        requireContext(),
+                        it, Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            is ScreenState.Error -> {
+                binding.progress.progress.gone()
+                val errorMessage = when (state.message) {
+                    "HTTP 401 Unauthorized" -> unauthorizedMessage
+                    "HTTP error 404" -> notFoundMessage ?: defaultErrorMessage
+                    else -> defaultErrorMessage
+                }
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

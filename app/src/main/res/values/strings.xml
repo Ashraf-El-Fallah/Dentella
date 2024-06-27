@@ -125,7 +125,7 @@
     <string name="want_to_delete_Posts">Do you want to delete your posts?</string>
     <string name="want_to_delete_cards">Do you want to delete all cards?</string>
     <string name="delete">Delete</string>
-    <string name="delete_info_successfully">You deleted your data successfully</string>
+    <string name="delete_info_successfully">You have deleted your data successfully</string>
     <string name="cannot_delete_info">You have no data to delete</string>
 
 </resources>

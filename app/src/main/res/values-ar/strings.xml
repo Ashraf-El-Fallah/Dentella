@@ -122,7 +122,7 @@
     <string name="want_to_delete_Posts">هل تريد حذف منشوراتك؟</string>
     <string name="want_to_delete_cards">هل تريد حذف المعلومات المعروضة عنك؟</string>
     <string name="delete">حذف</string>
-    <string name="delete_info_successfully">تم قمت بحذف بياناتك بنجاح</string>
+    <string name="delete_info_successfully">تم حذف بياناتك بنجاح</string>
     <string name="cannot_delete_info">ليس لديك بيانات لحذفها</string>
 
 </resources>
