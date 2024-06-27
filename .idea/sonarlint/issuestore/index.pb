@@ -393,3 +393,5 @@ d
 4app/src/main/java/com/af/dentalla/utils/FileUtils.kt,9\1\913410302a5bde1fb678ea7ae2fd345d67cebbbc
 è
 _app/src/main/java/com/af/dentalla/domain/usecase/setting/UpdateUserProfileInformationUseCase.kt,d\6\d68901690ce477df0221f5a488e67a7d54331144
+e
+5app/src/main/java/com/af/dentalla/utils/InitSplash.kt,a\9\a997e879e3444ecfc0d4238052417ec879806671
