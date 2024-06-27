@@ -4,33 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="181dp"
-    android:paddingBottom="4dp"
     android:background="@drawable/bottom_sheet_style"
+    android:paddingBottom="4dp"
     tools:context=".ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_change_language_arabic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/change_language_button_style"
+        style="@style/ChangeLanguageButton"
         android:text="@string/arabic"
-        android:textColor="@color/blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_change_language_english"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/change_language_button_style"
+        style="@style/ChangeLanguageButton"
         android:text="@string/english"
-        android:textColor="@color/blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_change_language_arabic" />
+        app:layout_constraintTop_toBottomOf="@id/button_change_language_arabic"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
