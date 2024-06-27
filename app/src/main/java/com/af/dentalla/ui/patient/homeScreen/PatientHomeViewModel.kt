@@ -23,7 +23,7 @@ class PatientHomeViewModel @Inject constructor(
     private val _allCards = MutableLiveData<ScreenState<List<CardsEntity>>>()
     private val _addPostState = MutableLiveData<ScreenState<Unit>>()
     val allCards: LiveData<ScreenState<List<CardsEntity>>> get() = _allCards
-    val addPostState : LiveData<ScreenState<Unit>> get() = _addPostState
+    val addPostState: LiveData<ScreenState<Unit>> get() = _addPostState
 
     init {
         getAllCards()
@@ -45,8 +45,18 @@ class PatientHomeViewModel @Inject constructor(
         viewModelScope.launch {
             addPostUseCase(post).collect {
                 when (it) {
-                    is NetWorkResponseState.Error -> _addPostState.postValue(ScreenState.Error(message = it.exception.message.toString()))
-                    is NetWorkResponseState.Success -> _addPostState.postValue(ScreenState.Success(it.result))
+                    is NetWorkResponseState.Error -> _addPostState.postValue(
+                        ScreenState.Error(
+                            message = it.exception.message.toString()
+                        )
+                    )
+
+                    is NetWorkResponseState.Success -> _addPostState.postValue(
+                        ScreenState.Success(
+                            it.result
+                        )
+                    )
+
                     is NetWorkResponseState.Loading -> _addPostState.postValue(ScreenState.Loading)
                 }
             }
