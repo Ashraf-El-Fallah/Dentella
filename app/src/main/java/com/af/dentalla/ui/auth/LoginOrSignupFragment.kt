@@ -6,15 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.data.local.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentLoginOrSignupBinding
-import javax.inject.Inject
 
 class LoginOrSignupFragment : Fragment() {
     private lateinit var binding: FragmentLoginOrSignupBinding
-
-    @Inject
-    lateinit var dataStorePreferencesService: DataStorePreferencesService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -9,12 +9,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.databinding.FragmentEditProfileBinding
-import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.FileUtils.fileToMultipartBody
 import com.af.dentalla.utils.FileUtils.uriToFile
 import com.af.dentalla.utils.ScreenState
@@ -25,7 +25,7 @@ import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EditProfileFragment : BaseFragment() {
+class EditProfileFragment : Fragment() {
     private lateinit var binding: FragmentEditProfileBinding
     private val editProfileViewModel: EditProfileViewModel by viewModels()
     private var isEditMode = false

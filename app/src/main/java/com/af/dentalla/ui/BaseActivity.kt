@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 open class BaseActivity : AppCompatActivity() {
-
     @Inject
     lateinit var dataStorePreferencesService: DataStorePreferencesService
     override fun onCreate(savedInstanceState: Bundle?) {

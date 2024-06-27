@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentSignUpBinding
-import com.af.dentalla.ui.base.BaseFragment
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
@@ -18,7 +18,7 @@ import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : BaseFragment() {
+class SignUpFragment : Fragment() {
     private val viewModel: SignUpViewModel by viewModels()
     private lateinit var binding: FragmentSignUpBinding
     private val accountType = AccountManager.accountType
