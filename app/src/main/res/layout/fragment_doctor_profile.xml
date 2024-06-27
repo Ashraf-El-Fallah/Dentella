@@ -156,6 +156,8 @@
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="150dp"
+                android:clipToPadding="true"
+                android:overScrollMode="never"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

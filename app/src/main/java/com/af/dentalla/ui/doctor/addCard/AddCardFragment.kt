@@ -36,6 +36,7 @@ class AddCardFragment : Fragment() {
     private var selectedTime: Date? = null
     private var specialityId = -1
     private var doctorAvailability: DoctorAvailability? = null
+    private var toastMessage: String? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(updateLocale(context, Locale("en")))
@@ -90,7 +91,7 @@ class AddCardFragment : Fragment() {
                 selectedDate?.let { SimpleDateFormat("MMMM dd", Locale.getDefault()).format(it) }
             val formattedTimeForUser =
                 selectedTime?.let { SimpleDateFormat("hh:mm a", Locale.getDefault()).format(it) }
-            val toastMessage =
+            toastMessage =
                 "${getString(R.string.your_speciality_is)} ${
                     getSpecialtyName(
                         context,
@@ -99,11 +100,7 @@ class AddCardFragment : Fragment() {
                 } ${
                     getString(R.string.your_selected_date_is)
                 } $formattedDateForUser ${getString(R.string.at)} $formattedTimeForUser"
-            Snackbar.make(
-                requireView(),
-                toastMessage,
-                Snackbar.LENGTH_LONG
-            ).show()
+
             val card = Card(doctorAvailability, specialityId)
             addCardViewModel.addCard(card)
         }
@@ -126,16 +123,24 @@ class AddCardFragment : Fragment() {
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
+                        val errorMessage = addCardState.message ?: getString(R.string.network_error)
                         Toast.makeText(
                             requireContext(),
-                            R.string.cannot_send_data,
-                            Toast.LENGTH_LONG
+                            errorMessage,
+                            Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
 
                 is ScreenState.Success -> {
                     binding.progressBar.root.gone()
+                    toastMessage?.let {
+                        Snackbar.make(
+                            requireView(),
+                            it,
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }
