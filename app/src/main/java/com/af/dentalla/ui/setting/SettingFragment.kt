@@ -93,8 +93,7 @@ class SettingFragment : Fragment() {
             event.getContentIfNotHandled()?.let { state ->
                 handleScreenState(
                     state = state,
-                    unauthorizedMessage = R.string.want_to_login_again,
-                    defaultErrorMessage = R.string.network_error
+                    notFoundMessage = R.string.network_error,
                 ) {
                     val intent = Intent(
                         this@SettingFragment.requireContext(),
@@ -110,8 +109,6 @@ class SettingFragment : Fragment() {
             event.getContentIfNotHandled()?.let { state ->
                 handleScreenState(
                     state = state,
-                    unauthorizedMessage = R.string.want_to_login_again,
-                    defaultErrorMessage = R.string.network_error,
                     notFoundMessage = R.string.cannot_delete_info,
                     successfulMessage = R.string.delete_info_successfully
                 )
@@ -153,9 +150,7 @@ class SettingFragment : Fragment() {
     private fun handleScreenState(
         state: ScreenState<*>,
         successfulMessage: Int? = null,
-        unauthorizedMessage: Int,
-        defaultErrorMessage: Int,
-        notFoundMessage: Int? = null,
+        notFoundMessage: Int?,
         successAction: (() -> Unit)? = null
     ) {
         when (state) {
@@ -174,11 +169,16 @@ class SettingFragment : Fragment() {
             is ScreenState.Error -> {
                 binding.progress.progress.gone()
                 val errorMessage = when (state.message) {
-                    "HTTP 401 Unauthorized" -> unauthorizedMessage
-                    "HTTP error 404" -> notFoundMessage ?: defaultErrorMessage
-                    else -> defaultErrorMessage
+                    "HTTP 401 Unauthorized" -> R.string.want_to_login_again
+                    "HTTP error 404" -> notFoundMessage
+                    else -> R.string.network_error
                 }
-                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+                errorMessage?.let {
+                    Toast.makeText(
+                        requireContext(),
+                        it, Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
