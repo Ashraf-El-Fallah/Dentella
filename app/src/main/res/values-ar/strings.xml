@@ -48,11 +48,11 @@
     <string name="article_date">15 min</string>
     <string name="article">المقالات</string>
     <string name="user_name_not_valid">اسم المستخدم غير صحيح</string>
-    <string name="email_not_valid">البريد الإلكتروني غير صحيح</string>
-    <string name="password_not_valid">كلمة المرور غير صحيحة</string>
-    <string name="phone_not_valid">رقم الهاتف هذا غير صحيح</string>
-    <string name="confirmation_password_not_valid">كلمة السر ليست صحيحة أو لا تساوي كلمة المرور التأكيدية</string>
-    <string name="id_not_valid">رقم الهوية غير صحيح</string>
+    <string name="email_not_valid">البريد الإلكتروني غير صحيح .. يجب أن يكون بريد كامل</string>
+    <string name="password_not_valid">كلمة المرور غير صحيحة .. يجب أن تكون من 8 ل 15 حرف أو رقم أو علامة</string>
+    <string name="phone_not_valid">رقم الهاتف هذا غير صحيح .. يجب أن يكون مكون من 11 رقم</string>
+    <string name="confirmation_password_not_valid">كلمة السر ليست صحيحة(يجب أن تكون من 8 ل 15 حرف أو رقم أو علامة) أو لا تساوي كلمة المرور التأكيدية</string>
+    <string name="id_not_valid">رقم الهوية غير صحيح.. يجب أن يكون مكون من5 إلى 11 رقم</string>
     <string name="add_card">إضافة بطاقة</string>
     <string name="select_speciality">اختر تخصصك</string>
     <string name="select_your_free_date">اختر التاريخ المناسب</string>

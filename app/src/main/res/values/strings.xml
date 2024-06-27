@@ -59,11 +59,11 @@
     <string name="please_enter_article_to_post">Please enter article to post</string>
     <string name="article_date">15 min</string>
     <string name="user_name_not_valid">"This user name is not valid"</string>
-    <string name="email_not_valid">This email is not valid</string>
-    <string name="password_not_valid">This password is not valid</string>
-    <string name="phone_not_valid">This phone number is not valid</string>
-    <string name="confirmation_password_not_valid">This password is not valid or not equal confirmation password</string>
-    <string name="id_not_valid">This id is not valid</string>
+    <string name="email_not_valid">This email is not valid (must be valid email)</string>
+    <string name="password_not_valid">This password is not valid (must be between 8 to 15)</string>
+    <string name="phone_not_valid">This phone number is not valid (must be 11 digits)</string>
+    <string name="confirmation_password_not_valid">This password is not valid (must be between 8 to 15) .. or not equal confirmation password</string>
+    <string name="id_not_valid">This id is not valid .. ID  should be between 5 and 10 digits</string>
     <string name="network_error">Server Error</string>
     <string name="add_card">Add Card</string>
     <string name="select_speciality">Select Your Speciality</string>
