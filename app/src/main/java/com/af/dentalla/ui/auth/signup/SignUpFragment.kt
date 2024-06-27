@@ -78,36 +78,41 @@ class SignUpFragment : Fragment() {
     }
 
     private fun signUpObserver() {
-        viewModel.signUpDoctorState.observe(viewLifecycleOwner) { signUpState ->
-            when (signUpState) {
-                is ScreenState.Loading -> {
-                    binding.progress.progress.visible()
-                    binding.buttonSignUp.isEnabled = false
-                }
+        viewModel.signUpDoctorState.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { signUpState ->
+                handleSignUpState(signUpState)
+            }
+        }
+    }
 
-                is ScreenState.Success -> {
-                    binding.progress.progress.gone()
-                    binding.buttonSignUp.isEnabled = true
-                    findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.sign_up_successfully,
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
-                }
+    private fun handleSignUpState(signUpState: ScreenState<Unit>) {
+        when (signUpState) {
+            is ScreenState.Loading -> {
+                binding.progress.progress.visible()
+                binding.buttonSignUp.isEnabled = false
+            }
 
-                is ScreenState.Error -> {
-                    binding.progress.progress.gone()
-                    binding.buttonSignUp.isEnabled = true
-                    val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
-                        ?: signUpState.message ?: getString(R.string.network_error)
-                    Toast.makeText(
-                        requireContext(),
-                        errorMessage,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            is ScreenState.Success -> {
+                binding.progress.progress.gone()
+                binding.buttonSignUp.isEnabled = true
+                findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
+                Toast.makeText(
+                    requireContext(),
+                    R.string.sign_up_successfully,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            is ScreenState.Error -> {
+                binding.progress.progress.gone()
+                binding.buttonSignUp.isEnabled = true
+                val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
+                    ?: signUpState.message ?: getString(R.string.network_error)
+                Toast.makeText(
+                    requireContext(),
+                    errorMessage,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
