@@ -116,5 +116,8 @@
     <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
     <string name="invalid_data">خطأ في البيانات المدخلة .. قم بمراجعة بياناتك وقم بإدخالها بطريقة صحيصة</string>
     <string name="network_error">يوجد مشكلة في اتصالك بالإنترنت</string>
+    <string name="delete_posts">حذف منشوراتي</string>
+    <string name="delete_cards">حذف البيانات المعروضة</string>
+    <string name="saved_articles">المقالات المحفوظة</string>
 
 </resources>

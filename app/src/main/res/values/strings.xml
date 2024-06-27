@@ -119,5 +119,8 @@
     <string name="send_article_successfully">Send Article Successfully</string>
     <string name="sign_up_successfully">Sign Up Successfully</string>
     <string name="invalid_data">Invalid data .. review your entered data again</string>
+    <string name="delete_posts">Delete Posts</string>
+    <string name="delete_cards">Delete Cards</string>
+    <string name="saved_articles">Saved Articles</string>
 
 </resources>

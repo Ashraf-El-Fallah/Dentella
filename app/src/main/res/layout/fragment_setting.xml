@@ -27,83 +27,153 @@
         app:layout_constraintTop_toBottomOf="@id/setting" />
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_edit_profile"
-        style="@style/CardSettingStyle"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@id/img_profile"
-        tools:ignore="MissingConstraints">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/cards"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_profile">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/image_view_edit"
-                style="@style/ImageViewSettingCardsStyle"
-                android:src="@drawable/profile_edit" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_edit_profile"
+                style="@style/CardSettingStyle"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-            <TextView
-                style="@style/TextViewSettingCardsStyle"
-                android:text="@string/edit_profile"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_edit"
-                app:layout_constraintStart_toEndOf="@id/image_view_edit"
-                app:layout_constraintTop_toTopOf="@id/image_view_edit" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_view_edit"
+                        style="@style/ImageViewSettingCardsStyle"
+                        android:src="@drawable/edit_profile_image" />
+
+                    <TextView
+                        style="@style/TextViewSettingCardsStyle"
+                        android:text="@string/edit_profile"
+                        app:layout_constraintBottom_toBottomOf="@id/image_view_edit"
+                        app:layout_constraintStart_toEndOf="@id/image_view_edit"
+                        app:layout_constraintTop_toTopOf="@id/image_view_edit" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_saved_articles"
+                style="@style/CardSettingStyle"
+                app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_view_saved_articles"
+                        style="@style/ImageViewSettingCardsStyle"
+                        android:src="@drawable/saved_articles_image" />
+
+                    <TextView
+                        style="@style/TextViewSettingCardsStyle"
+                        android:text="@string/saved_articles"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/image_view_saved_articles"
+                        app:layout_constraintStart_toEndOf="@id/image_view_saved_articles"
+                        app:layout_constraintTop_toTopOf="@id/image_view_saved_articles" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_change_language"
+                style="@style/CardSettingStyle"
+                app:layout_constraintTop_toBottomOf="@id/card_saved_articles"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_view_language"
+                        style="@style/ImageViewSettingCardsStyle"
+                        android:src="@drawable/change_language_image" />
+
+                    <TextView
+                        style="@style/TextViewSettingCardsStyle"
+                        android:text="@string/change_language"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/image_view_language"
+                        app:layout_constraintStart_toEndOf="@id/image_view_language"
+                        app:layout_constraintTop_toTopOf="@id/image_view_language" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_delete_info"
+                style="@style/CardSettingStyle"
+                app:layout_constraintTop_toBottomOf="@id/card_view_change_language"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_view_delete"
+                        style="@style/ImageViewSettingCardsStyle"
+                        android:src="@drawable/delete_info_image" />
+
+                    <TextView
+                        style="@style/TextViewSettingCardsStyle"
+                        android:text="@string/delete_posts"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@id/image_view_delete"
+                        app:layout_constraintStart_toEndOf="@id/image_view_delete"
+                        app:layout_constraintTop_toTopOf="@id/image_view_delete" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_logout"
+                style="@style/CardSettingStyle"
+                app:layout_constraintTop_toBottomOf="@id/card_view_delete_info"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_view_logout"
+                        style="@style/ImageViewSettingCardsStyle"
+                        android:src="@drawable/logout_image" />
+
+                    <TextView
+                        style="@style/TextViewSettingCardsStyle"
+                        android:text="@string/logout"
+                        android:textColor="@color/shade_of_red"
+                        app:layout_constraintBottom_toBottomOf="@id/image_view_logout"
+                        app:layout_constraintStart_toEndOf="@id/image_view_logout"
+                        app:layout_constraintTop_toTopOf="@id/image_view_logout" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_change_language"
-        style="@style/CardSettingStyle"
-        app:layout_constraintTop_toBottomOf="@id/card_view_edit_profile"
-        tools:ignore="MissingConstraints">
+    </androidx.core.widget.NestedScrollView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/image_view_language"
-                style="@style/ImageViewSettingCardsStyle"
-                android:src="@drawable/language" />
-
-            <TextView
-                style="@style/TextViewSettingCardsStyle"
-                android:text="@string/change_language"
-                android:textColor="@color/shade_of_blue"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_language"
-                app:layout_constraintStart_toEndOf="@id/image_view_language"
-                app:layout_constraintTop_toTopOf="@id/image_view_language" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_logout"
-        style="@style/CardSettingStyle"
-        app:layout_constraintTop_toBottomOf="@id/card_view_change_language"
-        tools:ignore="MissingConstraints">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/image_view_logout"
-                style="@style/ImageViewSettingCardsStyle"
-                android:src="@drawable/logout" />
-
-            <TextView
-                style="@style/TextViewSettingCardsStyle"
-                android:text="@string/logout"
-                android:textColor="@color/shade_of_red"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_logout"
-                app:layout_constraintStart_toEndOf="@id/image_view_logout"
-                app:layout_constraintTop_toTopOf="@id/image_view_logout" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
     <!--    <androidx.cardview.widget.CardView-->
     <!--        android:id="@+id/branches"-->
