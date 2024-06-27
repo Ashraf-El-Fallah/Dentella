@@ -140,6 +140,12 @@ class RemoteDateSourceImpl @Inject constructor(
         )
     }
 
+    override fun deleteUserInfo(): Flow<NetWorkResponseState<Unit>> {
+        return performRequest(
+            request = { service.deleteUserInfo(accountType) }
+        )
+    }
+
     override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
         return performRequest(
             request = {

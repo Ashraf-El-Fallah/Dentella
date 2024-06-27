@@ -128,6 +128,7 @@
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/delete_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -137,6 +138,7 @@
                         android:src="@drawable/delete_info_image" />
 
                     <TextView
+                        android:id="@+id/text_view_delete"
                         style="@style/TextViewSettingCardsStyle"
                         android:text="@string/delete_posts"
                         android:textColor="@color/black"

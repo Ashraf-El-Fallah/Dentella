@@ -119,6 +119,10 @@ class UserRepositoryImpl @Inject constructor(
         return remoteDataSource.logout()
     }
 
+    override fun deleteUserInfo(): Flow<NetWorkResponseState<Unit>> {
+        return remoteDataSource.deleteUserInfo()
+    }
+
     override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {
         return remoteDataSource.updateUserProfileInformation(userProfileInformation)
     }

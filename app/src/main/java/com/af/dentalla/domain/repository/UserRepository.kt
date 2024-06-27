@@ -43,4 +43,5 @@ interface UserRepository {
     fun changeUserPassword(userPasswords: UserPasswords): Flow<NetWorkResponseState<Unit>>
 
     fun logout(): Flow<NetWorkResponseState<Unit>>
+    fun deleteUserInfo(): Flow<NetWorkResponseState<Unit>>
 }

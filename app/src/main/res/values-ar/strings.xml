@@ -115,9 +115,14 @@
     <string name="send_article_successfully">تم كاتبة المقال بنجاح</string>
     <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
     <string name="invalid_data">خطأ في البيانات المدخلة .. قم بمراجعة بياناتك وقم بإدخالها بطريقة صحيصة</string>
-    <string name="network_error">يوجد مشكلة في اتصالك بالإنترنت</string>
+    <string name="network_error">يوجد مشكلة في الاتصال بالخادم</string>
     <string name="delete_posts">حذف منشوراتي</string>
     <string name="delete_cards">حذف البيانات المعروضة</string>
     <string name="saved_articles">المقالات المحفوظة</string>
+    <string name="want_to_delete_Posts">هل تريد حذف منشوراتك؟</string>
+    <string name="want_to_delete_cards">هل تريد حذف المعلومات المعروضة عنك؟</string>
+    <string name="delete">حذف</string>
+    <string name="delete_info_successfully">تم قمت بحذف بياناتك بنجاح</string>
+    <string name="cannot_delete_info">ليس لديك بيانات لحذفها</string>
 
 </resources>

@@ -16,12 +16,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
-//private const val BASE_URL = "https://dentella.somee.com/api/"
 private const val BASE_URL = "http://dentelle.runasp.net/api/"
-
-//another base url ..
-//private const val BASE_URL = "http://dentelle.somee.com/api/"
-
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
@@ -90,43 +85,3 @@ object NetworkModule {
     }
 
 }
-
-//    @Singleton
-//    @Provides
-//    fun provideApiService(retrofit: Retrofit): ApiService {
-//        return retrofit.create(ApiService::class.java)
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideRetrofit(
-//        client: OkHttpClient,
-//        gsonConverterFactory: GsonConverterFactory
-//    ): Retrofit {
-//        return Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .client(client)
-//            .addConverterFactory(gsonConverterFactory)
-//            .build()
-//
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
-//        return OkHttpClient.Builder()
-//            .addInterceptor(authInterceptor)
-//            .build()
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideGsonConverterFactory(): GsonConverterFactory {
-//        return GsonConverterFactory.create()
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideGson(): Gson {
-//        return Gson()
-//    }

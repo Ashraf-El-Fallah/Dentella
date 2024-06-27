@@ -25,7 +25,6 @@ import javax.inject.Inject
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: ArticlesViewModel by viewModels()
-
     @Inject
     lateinit var dataStorePreferencesService: DataStorePreferencesService
 
