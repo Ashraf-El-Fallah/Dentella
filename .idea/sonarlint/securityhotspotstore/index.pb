@@ -39,8 +39,6 @@ Capp/src/main/java/com/af/dentalla/data/remote/requests/LoginUser.kt,0\6\0619b4
 Kapp/src/main/java/com/af/dentalla/data/local/DataStorePreferencesService.kt,a\0\a0d6f1b8b32fff981a4eab2dba3195b85532b4dc
 
 Oapp/src/main/java/com/af/dentalla/data/local/DataStorePreferencesServiceImpl.kt,4\1\411a9c18262993f8a3d7984b14cbc22703d5f70e
-i
-9app/src/main/java/com/af/dentalla/ui/base/BaseFragment.kt,c\2\c24fbad1cfa809a449addba439b1ef60dedb20d3
 p
 @app/src/main/java/com/af/dentalla/data/remote/AuthInterceptor.kt,b\9\b9911b89df0caa16f9f30957b01e26f1d0b0b83f
 m
@@ -186,8 +184,6 @@ G.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,a\e\ae
 w
 G.idea/sonarlint/issuestore/8/9/8941889f0434db7c72ee8de2a921e78f38039ab1,4\6\46ce91ced1646cbca03228570098670c9d2cf52f
 Å
-Q.idea/sonarlint/securityhotspotstore/c/2/c24fbad1cfa809a449addba439b1ef60dedb20d3,8\c\8cbc385dfe6fa0853da2223912618b9359bfe8bd
-Å
 Q.idea/sonarlint/securityhotspotstore/3/0/305beeaed045abed8e7012bf6c12ec7a8db646b2,9\8\98bff1b73522743d63ad1873afba1d49f2519c51
 w
 Gapp/src/main/java/com/af/dentalla/data/repository/UserRepositoryImpl.kt,4\b\4b80c35eac8c12e37557429e36cf9bba6a4c3e1d
@@ -303,8 +299,6 @@ r
 Bapp/src/main/java/com/af/dentalla/utils/SafeNavigationExtension.kt,6\b\6b9554560c4e989d901417fbd45c5e9f367626ff
 h
 8app/src/main/java/com/af/dentalla/utils/ViewExtension.kt,3\5\357e33b897a48a52ab7b4b1fd7c28bbbbf349958
-j
-:app/src/main/java/com/af/dentalla/utils/ValidationUtils.kt,a\6\a61f690fd23db823ea156aa6a862ff8489ea8db0
 i
 9app/src/main/java/com/af/dentalla/utils/AccountManager.kt,a\a\aa8dddd81ee7ff0f4ddc8ed73a83633f9ee687c3
 f
@@ -365,10 +359,6 @@ u
 Eapp/src/main/java/com/af/dentalla/di/source/RemoteDateSourceModule.kt,7\c\7c6d675a8cfe9217a08e9997f70a1b6f2f66a74b
 ä
 Zapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableSpecialitiesAdapter.kt,5\5\55f2616d7439707f968a3e1d98384e4ae13abb9f
-h
-8app/src/main/java/com/af/dentalla/utils/getStringUtil.kt,9\3\93c13be9914cb89d5ef673a6a732e778f986b701
-h
-8app/src/main/java/com/af/dentalla/utils/GetStringUtil.kt,6\9\69bb361d995fb4ac7594a92ece1e9a056d9a0673
 Å
 Qapp/src/main/java/com/af/dentalla/domain/usecase/setting/UpdatePasswordUseCase.kt,2\f\2f3eef1df868deb809ebd3c3878d8a883da8362e
 Ñ
@@ -393,5 +383,3 @@ d
 4app/src/main/java/com/af/dentalla/utils/FileUtils.kt,9\1\913410302a5bde1fb678ea7ae2fd345d67cebbbc
 è
 _app/src/main/java/com/af/dentalla/domain/usecase/setting/UpdateUserProfileInformationUseCase.kt,d\6\d68901690ce477df0221f5a488e67a7d54331144
-e
-5app/src/main/java/com/af/dentalla/utils/InitSplash.kt,a\9\a997e879e3444ecfc0d4238052417ec879806671

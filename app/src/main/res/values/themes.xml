@@ -24,7 +24,5 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
-    <style name="Theme.AuthenticationActivity" parent="Theme.HomeActivity">
-
-    </style>
+    <style name="Theme.AuthenticationActivity" parent="Theme.HomeActivity" />
 </resources>

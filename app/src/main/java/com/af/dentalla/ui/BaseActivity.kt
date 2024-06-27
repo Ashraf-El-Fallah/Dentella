@@ -41,8 +41,6 @@ open class BaseActivity : AppCompatActivity() {
                 slideUp.duration = 1000L
 
                 slideUp.doOnEnd { splashScreenView.remove() }
-
-                // Run your animation.
                 slideUp.start()
             }
         } else {
