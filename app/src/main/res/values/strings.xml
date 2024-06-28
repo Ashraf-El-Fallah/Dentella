@@ -127,7 +127,7 @@
     <string name="delete">Delete</string>
     <string name="delete_info_successfully">You have deleted your data successfully</string>
     <string name="cannot_delete_info">You have no data to delete</string>
-    <string name="save_article">Article saved in your device</string>
+    <string name="save_article_successfully">Article saved in your device</string>
     <string name="delete_article">Successfully deleted article</string>
     <string name="have_no_articles">You have no saved articles</string>
 </resources>

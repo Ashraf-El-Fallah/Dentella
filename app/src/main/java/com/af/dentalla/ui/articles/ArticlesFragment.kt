@@ -14,7 +14,6 @@ import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utils.AccountManager
-import com.af.dentalla.utils.Event
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
@@ -57,8 +56,8 @@ class ArticlesFragment : Fragment() {
             event.getContentIfNotHandled()?.let {
                 Toast.makeText(
                     context,
-                    "Article saved to local database",
-                    Toast.LENGTH_SHORT
+                   R.string.save_article_successfully,
+                Toast.LENGTH_SHORT
                 ).show()
             }
         }

@@ -91,9 +91,9 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/send_button_style"
-        android:drawableStart="@drawable/send"
+        android:drawableStart="@drawable/arrow_for_ai"
         android:gravity="center"
-        android:padding="10dp"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
