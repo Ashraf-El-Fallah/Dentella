@@ -1,4 +1,3 @@
-![Screenshot_2024-06-28-21-27-25-69_4a42af64679dd71f63a94525130a7ec0](https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/747a6b16-e1f4-4049-9711-7c58d8a112bc)![Screenshot_2024-06-28-21-27-25-69_4a42af64679dd71f63a94525130a7ec0](https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/747a6b16-e1f4-4049-9711-7c58d8a112bc)# Dentella
 Dentella is an innovative Android application designed to bridge the gap between dentistry students and patients in need. It serves as a platform where dental students can find patients to practice their skills, and patients who cannot afford professional dental care can connect with these students for free or at a minimal cost.
 
 # Project Overview
