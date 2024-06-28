@@ -70,7 +70,7 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/795af658-76f6-477f-97b7-3672376da52b" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/fc2de031-b0da-44d4-8587-6e4636d14e31" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/3b47b04a-1f4d-4b72-a66b-efefd1a38e82" alt="Screenshot 3" width="200"/>
-  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/d7c38a70-ec32-4f29-9953-d70efce6c41a" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/41df6a92-093c-4558-87c3-ee1b1b8b0158" alt="Screenshot 3" width="200"/>
 </p>
 
 # Architecture
