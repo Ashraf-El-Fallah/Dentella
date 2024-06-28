@@ -24,10 +24,10 @@ class ArticlesViewModel @Inject constructor(
     private val saveArticleToDataBaseUseCase: SaveArticleToDataBaseUseCase
 ) : ViewModel() {
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
-    private val _addArticleState = MutableLiveData<ScreenState<Unit>>()
+    private val _addArticleState = MutableLiveData<Event<ScreenState<Unit>>>()
 
     val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
-    val addArticleState: LiveData<ScreenState<Unit>> get() = _addArticleState
+    val addArticleState: LiveData<Event<ScreenState<Unit>>> get() = _addArticleState
 
     private val _saveArticleToast = MutableLiveData<Event<Unit>>()
     val saveArticleToast: LiveData<Event<Unit>> get() = _saveArticleToast
@@ -47,9 +47,18 @@ class ArticlesViewModel @Inject constructor(
         viewModelScope.launch {
             getArticlesUseCase().collectLatest {
                 when (it) {
-                    is NetWorkResponseState.Error -> _articles.postValue(ScreenState.Error(message = it.exception.message.toString()))
+                    is NetWorkResponseState.Error -> _articles.postValue(
+                        ScreenState.Error(
+                            message = it.exception.message.toString()
+                        )
+                    )
+
                     is NetWorkResponseState.Loading -> _articles.postValue(ScreenState.Loading)
-                    is NetWorkResponseState.Success -> _articles.postValue(ScreenState.Success(it.result))
+                    is NetWorkResponseState.Success -> _articles.postValue(
+                        ScreenState.Success(
+                            it.result
+                        )
+                    )
                 }
             }
         }
@@ -60,15 +69,19 @@ class ArticlesViewModel @Inject constructor(
             addArticleUseCase(article).collect {
                 when (it) {
                     is NetWorkResponseState.Error -> _addArticleState.postValue(
-                        ScreenState.Error(
-                            message = it.exception.message.toString()
+                        Event(
+                            ScreenState.Error(
+                                message = it.exception.message.toString()
+                            )
                         )
                     )
 
-                    is NetWorkResponseState.Loading -> _addArticleState.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Loading -> _addArticleState.postValue(Event(ScreenState.Loading))
                     is NetWorkResponseState.Success -> _addArticleState.postValue(
-                        ScreenState.Success(
-                            it.result
+                        Event(
+                            ScreenState.Success(
+                                it.result
+                            )
                         )
                     )
                 }

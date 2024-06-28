@@ -37,22 +37,7 @@ class DoctorProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setProfileDetail()
         setUpBackButton()
-//        setUpAvailableSpecialities()
     }
-
-//    private fun setUpAvailableSpecialities() {
-//        val staticSpecialities = listOf(
-//            "Cardiology",
-//            "Neurology",
-//            "Orthopedics",
-//            "Pediatrics",
-//            "Radiology"
-//        )
-//        val adapter = AvailableSpecialitiesAdapter(staticSpecialities)
-//        binding.recyclerViewDoctorSpecialities.adapter = adapter
-//        binding.recyclerViewDoctorSpecialities.layoutManager =
-//            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-//    }
 
     private fun setUpBackButton() {
         binding.back.root.setOnClickListener {

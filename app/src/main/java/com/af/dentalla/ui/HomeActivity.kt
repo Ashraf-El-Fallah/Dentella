@@ -68,6 +68,7 @@ class HomeActivity : BaseActivity() {
             setTheme(R.style.Theme_Dentalla)
         }
     }
+
     private fun setupUI() {
         initBottomNavigation()
         navigateToHomeFragment()
@@ -128,6 +129,8 @@ class HomeActivity : BaseActivity() {
 
                 is ScreenState.Success -> {
                     binding.progress.root.gone()
+                    Toast.makeText(this, R.string.send_post_successfully, Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 is ScreenState.Error -> {

@@ -106,13 +106,24 @@ class SignUpFragment : Fragment() {
             is ScreenState.Error -> {
                 binding.progress.progress.gone()
                 binding.buttonSignUp.isEnabled = true
+
                 val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
-                    ?: signUpState.message ?: getString(R.string.network_error)
-                Toast.makeText(
-                    requireContext(),
-                    errorMessage,
-                    Toast.LENGTH_SHORT
-                ).show()
+                    ?: signUpState.message
+
+                if (errorMessage != null && errorMessage.contains("HTTP error 400")) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.repeated_user_name),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val defaultMessage = errorMessage ?: getString(R.string.network_error)
+                    Toast.makeText(
+                        requireContext(),
+                        defaultMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

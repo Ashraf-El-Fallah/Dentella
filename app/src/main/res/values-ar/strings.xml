@@ -115,7 +115,7 @@
     <string name="send_article_successfully">تم كاتبة المقال بنجاح</string>
     <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
     <string name="invalid_data">خطأ في البيانات المدخلة .. قم بمراجعة بياناتك وقم بإدخالها بطريقة صحيصة</string>
-    <string name="network_error">يوجد مشكلة في الاتصال بالخادم</string>
+    <string name="network_error">يوجد مشكلة في الاتصال بالخادم.. قد تكون بياناتك غير صحيحة</string>
     <string name="delete_posts">حذف منشوراتي</string>
     <string name="delete_cards">حذف البيانات المعروضة</string>
     <string name="saved_articles">المقالات المحفوظة</string>
@@ -127,4 +127,7 @@
     <string name="save_article_successfully">تم حفظ المقال على جهازك</string>
     <string name="delete_article">تم حذف المقال من جهازك</string>
     <string name="have_no_articles">ليس لديك مقالات محفوظة</string>
+    <string name="send_post_successfully">تم إرسال المنشور بنجاح</string>
+    <string name="repeated_user_name">اسم المستخدم موجود بالفعل .. قم بتغيير اسم المستخدم</string>
+
 </resources>

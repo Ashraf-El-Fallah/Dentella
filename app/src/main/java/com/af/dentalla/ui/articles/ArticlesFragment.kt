@@ -56,8 +56,8 @@ class ArticlesFragment : Fragment() {
             event.getContentIfNotHandled()?.let {
                 Toast.makeText(
                     context,
-                   R.string.save_article_successfully,
-                Toast.LENGTH_SHORT
+                    R.string.save_article_successfully,
+                    Toast.LENGTH_SHORT
                 ).show()
             }
         }
@@ -83,35 +83,37 @@ class ArticlesFragment : Fragment() {
     }
 
     private fun addArticleObserver() {
-        articlesViewModel.addArticleState.observe(viewLifecycleOwner) { addArticleState ->
-            when (addArticleState) {
-                is ScreenState.Loading -> {
-                    binding.progress.root.visible()
-                }
+        articlesViewModel.addArticleState.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { addArticleState ->
+                when (addArticleState) {
+                    is ScreenState.Loading -> {
+                        binding.progress.root.visible()
+                    }
 
-                is ScreenState.Success -> {
-                    binding.progress.root.gone()
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.send_article_successfully,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-
-                is ScreenState.Error -> {
-                    binding.progress.root.gone()
-                    if (addArticleState.message == "HTTP 401 Unauthorized") {
+                    is ScreenState.Success -> {
+                        binding.progress.root.gone()
                         Toast.makeText(
                             requireContext(),
-                            R.string.want_to_login_again,
+                            R.string.send_article_successfully,
                             Toast.LENGTH_LONG
                         ).show()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.cannot_send_data,
-                            Toast.LENGTH_LONG
-                        ).show()
+                    }
+
+                    is ScreenState.Error -> {
+                        binding.progress.root.gone()
+                        if (addArticleState.message == "HTTP 401 Unauthorized") {
+                            Toast.makeText(
+                                requireContext(),
+                                R.string.want_to_login_again,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                R.string.cannot_send_data,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
             }

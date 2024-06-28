@@ -18,8 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SavedArticlesViewModel @Inject constructor(
     private val getAllSavedArticlesUseCase: GetAllSavedArticlesUseCase,
-    private val deleteArticleFromDataBaseUseCase: DeleteArticleFromDataBaseUseCase,
-    private val saveArticleToDataBaseUseCase: SaveArticleToDataBaseUseCase
+    private val deleteArticleFromDataBaseUseCase: DeleteArticleFromDataBaseUseCase
 ) : ViewModel() {
 
     private val _savedArticles = MutableLiveData<ScreenState<List<ArticleSavedEntity>>>()
