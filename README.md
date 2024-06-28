@@ -73,6 +73,7 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/3b47b04a-1f4d-4b72-a66b-efefd1a38e82" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/d7c38a70-ec32-4f29-9953-d70efce6c41a" alt="Screenshot 3" width="200"/>
 </p>
+
 # Architecture
 
 Dentella follows a clean architecture with the Model-View-ViewModel (MVVM) pattern to ensure a robust and scalable codebase.
