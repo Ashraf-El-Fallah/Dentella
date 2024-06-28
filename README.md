@@ -42,6 +42,7 @@ Dentella aims to:
 
 # Demo
 
+# Patient FLow
 <p align="center">
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/3757ba79-33af-41aa-9de0-a48d339d3999" alt="Screenshot 1" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/bc121486-7caa-4f3f-858c-cfecbf3b14c1" alt="Screenshot 2" width="200"/>
@@ -55,10 +56,20 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/a0207750-fb0b-4053-931c-e9532b90c403" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/901bb6b2-0085-4319-9d55-f02a8ae11d17" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/caee3dd0-4e41-49e0-88c9-cfcc342e1d51" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/b41f1d6e-0493-43d6-9a1d-db46da46c973" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f1c2bca-4801-49bc-a667-fbc64a063a68" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/1f6ab7b4-3624-463e-986b-b77cf7d700fc" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f81021f-b8e6-4669-8bb5-171187545a5c" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/de212e74-cb7b-4f6c-9929-6c78d25980f3" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/7b1dc403-6489-40b6-85f9-c65962f99016" alt="Screenshot 3" width="200"/>
+</p>
 
-![Screenshot_2024-06-28-21-02-34-12_4a42af64679dd71f63a94525130a7ec0](https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/901bb6b2-0085-4319-9d55-f02a8ae11d17)
-![Screenshot_2024-06-28-21-02-17-76_4a42af64679dd71f63a94525130a7ec0](https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/caee3dd0-4e41-49e0-88c9-cfcc342e1d51)
-
+# AI Screens
+<p align="center">
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/e803bdfe-b063-4e87-9c81-4d24a9aae831" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/fc2de031-b0da-44d4-8587-6e4636d14e31" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/3b47b04a-1f4d-4b72-a66b-efefd1a38e82" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/d7c38a70-ec32-4f29-9953-d70efce6c41a" alt="Screenshot 3" width="200"/>
 </p>
 # Architecture
 
