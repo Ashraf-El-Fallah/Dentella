@@ -42,6 +42,8 @@ Dentella aims to:
 
 # Demo
 
+![Screenshot_2024-06-25-01-11-50-01_4a42af64679dd71f63a94525130a7ec0](https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/4dc327ec-e27e-484b-b895-90947cf3c96d)
+
 
 # Architecture
 
