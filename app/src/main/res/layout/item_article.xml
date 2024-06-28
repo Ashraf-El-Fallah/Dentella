@@ -15,6 +15,17 @@
             android:id="@+id/base_item"
             layout="@layout/base_item" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add_to_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_add_to_favorite_foreground"
+            app:backgroundTint="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
         <TextView
             android:id="@+id/text_view_article_content"
             style="@style/TextViewDatesStyle"
@@ -36,12 +47,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="65dp"
+            android:gravity="start"
             android:text="Brush Twice a Day:"
+            android:textAlignment="viewStart"
             android:textColor="@color/gray"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textAlignment="viewStart"
-            android:gravity="start"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

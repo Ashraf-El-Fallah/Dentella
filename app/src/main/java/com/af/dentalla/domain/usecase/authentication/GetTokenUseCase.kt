@@ -1,6 +1,6 @@
 package com.af.dentalla.domain.usecase.authentication
 
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

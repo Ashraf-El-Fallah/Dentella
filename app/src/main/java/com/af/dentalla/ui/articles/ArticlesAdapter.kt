@@ -11,7 +11,10 @@ import com.af.dentalla.utils.loadImage
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class ArticlesAdapter :
+class ArticlesAdapter(
+    private val onSaveClick: (ArticlesEntity) -> Unit
+
+) :
     ListAdapter<ArticlesEntity, ArticlesAdapter.PatientArticlesViewHolder>(
         ArticleDiffCallBack()
     ) {
@@ -29,6 +32,9 @@ class ArticlesAdapter :
                     textViewArticleContent.text = article.content
                     imageTeeth.loadImage(article.articleImage)
                     imgDoctorArticle.loadImage(article.doctorImage)
+                }
+                btnAddToFavorites.setOnClickListener {
+                    onSaveClick(article)
                 }
             }
         }

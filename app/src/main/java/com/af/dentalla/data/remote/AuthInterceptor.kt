@@ -3,7 +3,7 @@ package com.af.dentalla.data.remote
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.ui.auth.AuthenticationActivity
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor

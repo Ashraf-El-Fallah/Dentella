@@ -8,6 +8,7 @@ import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
+import com.af.dentalla.domain.entity.ArticleSavedEntity
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.DoctorProfileEntity
@@ -44,4 +45,10 @@ interface UserRepository {
 
     fun logout(): Flow<NetWorkResponseState<Unit>>
     fun deleteUserInfo(): Flow<NetWorkResponseState<Unit>>
+
+    fun getSavedArticlesFromDataBase(): Flow<NetWorkResponseState<List<ArticleSavedEntity>>>
+
+    suspend fun insertArticleToDataBase(articleSavedEntity: ArticlesEntity)
+
+    suspend fun deleteSavedArticle(articleSavedEntity: ArticleSavedEntity)
 }

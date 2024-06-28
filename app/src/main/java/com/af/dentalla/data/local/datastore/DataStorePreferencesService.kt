@@ -1,4 +1,4 @@
-package com.af.dentalla.data.local
+package com.af.dentalla.data.local.datastore
 
 import com.af.dentalla.utils.AccountManager
 

@@ -1,4 +1,4 @@
-package com.af.dentalla.data.local
+package com.af.dentalla.data.local.datastore
 
 import android.app.Application
 import android.content.Context

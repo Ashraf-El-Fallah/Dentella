@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSelectUserTypeScreenBinding
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.LocaleUtils

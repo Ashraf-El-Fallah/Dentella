@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSearchBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.AccountManager

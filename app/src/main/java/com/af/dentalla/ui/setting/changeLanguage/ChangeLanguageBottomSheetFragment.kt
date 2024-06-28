@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentChangeLanguageBottomSheetBinding
 import com.af.dentalla.utils.LocaleUtils
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

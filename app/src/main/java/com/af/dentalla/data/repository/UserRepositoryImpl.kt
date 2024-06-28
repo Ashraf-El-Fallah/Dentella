@@ -1,6 +1,7 @@
 package com.af.dentalla.data.repository
 
 import com.af.dentalla.data.NetWorkResponseState
+import com.af.dentalla.data.mapper.ArticlesEntitySavedMapper
 import com.af.dentalla.data.remote.dto.ArticleDto
 import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
@@ -13,7 +14,9 @@ import com.af.dentalla.data.remote.requests.UserProfileInformation
 import com.af.dentalla.data.remote.requests.LoginUser
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.data.remote.requests.SignUpUser
+import com.af.dentalla.data.source.local.LocalDataSource
 import com.af.dentalla.data.source.remote.RemoteDataSource
+import com.af.dentalla.domain.entity.ArticleSavedEntity
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.DoctorProfileEntity
@@ -24,6 +27,7 @@ import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utils.mapResponse
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -34,7 +38,9 @@ class UserRepositoryImpl @Inject constructor(
     private val cardsEntity: ListMapper<CardsDto, CardsEntity>,
     private val doctorProfileEntity: BaseMapper<DoctorProfileDto, DoctorProfileEntity>,
     private val allPostsEntityMapper: ListMapper<PostDtoItem, PostEntity>,
-    private val profileInformationEntity: BaseMapper<UserProfileInformationDto, ProfileInformationEntity>
+    private val profileInformationEntity: BaseMapper<UserProfileInformationDto, ProfileInformationEntity>,
+    private val localDataSource: LocalDataSource,
+    private val articlesEntitySavedMapper: ArticlesEntitySavedMapper
 ) : UserRepository {
 
     override fun loginUser(loginUser: LoginUser): Flow<NetWorkResponseState<Unit>> {
@@ -121,6 +127,26 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun deleteUserInfo(): Flow<NetWorkResponseState<Unit>> {
         return remoteDataSource.deleteUserInfo()
+    }
+
+    override fun getSavedArticlesFromDataBase(): Flow<NetWorkResponseState<List<ArticleSavedEntity>>> {
+        return flow {
+            try {
+                emit(NetWorkResponseState.Success(localDataSource.getAllSavedArticles()))
+            } catch (e: Exception) {
+                emit(NetWorkResponseState.Error(exception = e))
+            }
+        }
+    }
+
+
+    override suspend fun insertArticleToDataBase(articleSavedEntity: ArticlesEntity) {
+        val articleSavedEntity = articlesEntitySavedMapper.map(articleSavedEntity)
+        localDataSource.saveArticle(articleSavedEntity)
+    }
+
+    override suspend fun deleteSavedArticle(articleSavedEntity: ArticleSavedEntity) {
+        localDataSource.deleteArticle(articleSavedEntity)
     }
 
     override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {

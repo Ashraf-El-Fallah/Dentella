@@ -10,7 +10,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.af.dentalla.R
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.utils.LocaleUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

@@ -1,6 +1,7 @@
 package com.af.dentalla.di.mapper
 
 import com.af.dentalla.data.mapper.ArticlesEntityMapper
+import com.af.dentalla.data.mapper.ArticlesEntitySavedMapper
 import com.af.dentalla.data.mapper.CardsEntityMapper
 import com.af.dentalla.data.mapper.DoctorProfileEntityMapper
 import com.af.dentalla.data.remote.dto.LoginResponse
@@ -13,6 +14,7 @@ import com.af.dentalla.data.remote.dto.CardsDto
 import com.af.dentalla.data.remote.dto.DoctorProfileDto
 import com.af.dentalla.data.remote.dto.PostDtoItem
 import com.af.dentalla.data.remote.dto.UserProfileInformationDto
+import com.af.dentalla.domain.entity.ArticleSavedEntity
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.entity.CardsEntity
 import com.af.dentalla.domain.entity.DoctorProfileEntity
@@ -48,6 +50,12 @@ abstract class MapperModule {
     abstract fun bindsAllArticles(
         allArticlesEntityMapper: ArticlesEntityMapper
     ): ListMapper<ArticleDto, ArticlesEntity>
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindsSavedArticles(
+        allArticlesEntityMapper: ArticlesEntitySavedMapper
+    ): BaseMapper<ArticlesEntity, ArticleSavedEntity>
 
     @Binds
     @ViewModelScoped

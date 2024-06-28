@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.af.dentalla.R
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSettingBinding
 import com.af.dentalla.ui.auth.AuthenticationActivity
 import com.af.dentalla.ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment

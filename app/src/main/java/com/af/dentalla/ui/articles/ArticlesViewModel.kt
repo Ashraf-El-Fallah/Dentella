@@ -9,6 +9,8 @@ import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.usecase.articles.AddArticleUseCase
 import com.af.dentalla.domain.usecase.articles.GetArticlesUseCase
+import com.af.dentalla.domain.usecase.articles.SaveArticleToDataBaseUseCase
+import com.af.dentalla.utils.Event
 import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -18,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ArticlesViewModel @Inject constructor(
     private val getArticlesUseCase: GetArticlesUseCase,
-    private val addArticleUseCase: AddArticleUseCase
+    private val addArticleUseCase: AddArticleUseCase,
+    private val saveArticleToDataBaseUseCase: SaveArticleToDataBaseUseCase
 ) : ViewModel() {
     private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
     private val _addArticleState = MutableLiveData<ScreenState<Unit>>()
@@ -26,8 +29,18 @@ class ArticlesViewModel @Inject constructor(
     val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
     val addArticleState: LiveData<ScreenState<Unit>> get() = _addArticleState
 
+    private val _saveArticleToast = MutableLiveData<Event<Unit>>()
+    val saveArticleToast: LiveData<Event<Unit>> get() = _saveArticleToast
+
     init {
         getArticles()
+    }
+
+    fun saveArticleToDataBase(articlesEntity: ArticlesEntity) {
+        viewModelScope.launch {
+            saveArticleToDataBaseUseCase(articlesEntity)
+            _saveArticleToast.postValue(Event(Unit))
+        }
     }
 
     private fun getArticles() {
@@ -62,4 +75,6 @@ class ArticlesViewModel @Inject constructor(
             }
         }
     }
+
+
 }

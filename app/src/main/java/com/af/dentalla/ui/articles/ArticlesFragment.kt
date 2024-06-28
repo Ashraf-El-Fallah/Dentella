@@ -10,10 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
-import com.af.dentalla.data.local.DataStorePreferencesService
+import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.data.remote.requests.Article
 import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utils.AccountManager
+import com.af.dentalla.utils.Event
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.visible
@@ -25,6 +26,7 @@ import javax.inject.Inject
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private val articlesViewModel: ArticlesViewModel by viewModels()
+
     @Inject
     lateinit var dataStorePreferencesService: DataStorePreferencesService
 
@@ -47,6 +49,19 @@ class ArticlesFragment : Fragment() {
         articlesObserver()
         showDialogToWriteArticle()
         addArticleObserver()
+        observeSaveArticleToast()
+    }
+
+    private fun observeSaveArticleToast() {
+        articlesViewModel.saveArticleToast.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let {
+                Toast.makeText(
+                    context,
+                    "Article saved to local database",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun showAddArticlesButtonForDoctors() {
@@ -112,11 +127,13 @@ class ArticlesFragment : Fragment() {
                     binding.progress.root.gone()
 
                     binding.rvArticles.apply {
-                        layoutManager =
-                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                        adapter = ArticlesAdapter().apply {
+                        adapter = ArticlesAdapter { articlesEntity ->
+                            articlesViewModel.saveArticleToDataBase(articlesEntity)
+                        }.apply {
                             submitList(it.uiData)
                         }
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
                 }
 
@@ -131,6 +148,4 @@ class ArticlesFragment : Fragment() {
             }
         }
     }
-
-
 }
