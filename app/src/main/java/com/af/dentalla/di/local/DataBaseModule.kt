@@ -18,7 +18,7 @@ object DataBaseModule {
             context,
             ArticleDataBase::class.java,
             "user_saved_articles",
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     @Provides

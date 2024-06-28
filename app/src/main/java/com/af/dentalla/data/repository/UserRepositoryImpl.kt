@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -143,12 +144,16 @@ class UserRepositoryImpl @Inject constructor(
 
 
     override suspend fun insertArticleToDataBase(articleSavedEntity: ArticlesEntity) {
-        val articleSavedEntity = articlesEntitySavedMapper.map(articleSavedEntity)
-        localDataSource.saveArticle(articleSavedEntity)
+        withContext(Dispatchers.IO) {
+            val savedArticle = articlesEntitySavedMapper.map(articleSavedEntity)
+            localDataSource.saveArticle(savedArticle)
+        }
     }
 
     override suspend fun deleteSavedArticle(articleSavedEntity: ArticleSavedEntity) {
-        localDataSource.deleteArticle(articleSavedEntity)
+        withContext(Dispatchers.IO) {
+            localDataSource.deleteArticle(articleSavedEntity)
+        }
     }
 
     override fun updateUserProfileInformation(userProfileInformation: UserProfileInformation): Flow<NetWorkResponseState<Unit>> {

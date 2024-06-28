@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.af.dentalla.data.NetWorkResponseState
 import com.af.dentalla.domain.entity.ArticleSavedEntity
+import com.af.dentalla.domain.entity.ArticlesEntity
 import com.af.dentalla.domain.usecase.articles.DeleteArticleFromDataBaseUseCase
 import com.af.dentalla.domain.usecase.articles.GetAllSavedArticlesUseCase
+import com.af.dentalla.domain.usecase.articles.SaveArticleToDataBaseUseCase
 import com.af.dentalla.utils.ScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,8 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SavedArticlesViewModel @Inject constructor(
     private val getAllSavedArticlesUseCase: GetAllSavedArticlesUseCase,
-    private val deleteArticleFromDataBaseUseCase: DeleteArticleFromDataBaseUseCase
-): ViewModel() {
+    private val deleteArticleFromDataBaseUseCase: DeleteArticleFromDataBaseUseCase,
+    private val saveArticleToDataBaseUseCase: SaveArticleToDataBaseUseCase
+) : ViewModel() {
 
     private val _savedArticles = MutableLiveData<ScreenState<List<ArticleSavedEntity>>>()
     val savedArticles: LiveData<ScreenState<List<ArticleSavedEntity>>> get() = _savedArticles
@@ -44,6 +47,12 @@ class SavedArticlesViewModel @Inject constructor(
                     )
                 }
             }
+        }
+    }
+
+    fun deleteSavedArticle(articleSavedEntity: ArticleSavedEntity) {
+        viewModelScope.launch {
+            deleteArticleFromDataBaseUseCase(articleSavedEntity)
         }
     }
 }

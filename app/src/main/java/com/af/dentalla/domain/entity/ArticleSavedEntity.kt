@@ -20,4 +20,6 @@ data class ArticleSavedEntity(
     val articleImage: String?,
     @ColumnInfo(name = "title")
     val title: String
+//    @ColumnInfo(name = "user_type")
+//    val userType: String
 )
