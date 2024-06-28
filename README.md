@@ -73,6 +73,18 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/41df6a92-093c-4558-87c3-ee1b1b8b0158" alt="Screenshot 3" width="200"/>
 </p>
 
+# Doctor Flow
+<p align="center">
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/777a645c-d672-4441-b40d-9a4b6c2cf6da" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/f6cc9e99-277d-4894-b7e4-e8bb442aea82" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/84265992-c53f-4dff-ba34-7db2ac30181d" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/207654b3-4d46-4bec-8ec2-c5b740f6ee61" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0dd1c231-b390-4bfa-b924-d74b3897eade" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/4d7ae7aa-9e18-44d1-aa1f-80cb25d7e3a0" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/88529056-67bd-4ce2-96f4-470db24a4f51" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/a8841561-8232-4c6b-9fdb-8540b537956f" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/02f35256-9621-46bd-8514-4084ef26ba75" alt="Screenshot 3" width="200"/>
+</p>
 # Architecture
 
 Dentella follows a clean architecture with the Model-View-ViewModel (MVVM) pattern to ensure a robust and scalable codebase.
