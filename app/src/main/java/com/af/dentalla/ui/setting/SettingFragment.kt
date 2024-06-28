@@ -82,6 +82,13 @@ class SettingFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        binding.cardSavedArticles.setOnClickListener {
+            val action =
+                SettingFragmentDirections.actionSettingFragmentToSavedArticlesFragment()
+            findNavController().navigate(action)
+        }
+
+
         binding.cardViewChangeLanguage.setOnClickListener {
             val bottomSheetFragment = ChangeLanguageBottomSheetFragment()
             bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)

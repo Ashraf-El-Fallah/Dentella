@@ -125,5 +125,4 @@
     <string name="delete_info_successfully">تم حذف بياناتك بنجاح</string>
     <string name="cannot_delete_info">ليس لديك بيانات لحذفها</string>
     <string name="save_article">تم حفظ المقال على جهازك</string>
-
 </resources>

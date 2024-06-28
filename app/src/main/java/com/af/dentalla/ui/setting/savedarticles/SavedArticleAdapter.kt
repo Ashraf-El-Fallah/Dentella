@@ -1,4 +1,4 @@
-package com.af.dentalla.ui.articles
+package com.af.dentalla.ui.setting.savedarticles
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,15 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.af.dentalla.databinding.ItemArticleBinding
-import com.af.dentalla.domain.entity.ArticlesEntity
+import com.af.dentalla.domain.entity.ArticleSavedEntity
+import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.loadImage
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class ArticlesAdapter(
-    private val onSaveClick: (ArticlesEntity) -> Unit
-) :
-    ListAdapter<ArticlesEntity, ArticlesAdapter.PatientArticlesViewHolder>(
+class SavedArticleAdapter() :
+    ListAdapter<ArticleSavedEntity, SavedArticleAdapter.PatientArticlesViewHolder>(
         ArticleDiffCallBack()
     ) {
 
@@ -22,7 +21,7 @@ class ArticlesAdapter(
         private val binding: ItemArticleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(article: ArticlesEntity) {
+        fun bind(article: ArticleSavedEntity) {
             binding.apply {
                 baseItem.apply {
                     textViewDoctorNameArticle.text = article.doctorName
@@ -31,9 +30,7 @@ class ArticlesAdapter(
                     textViewArticleContent.text = article.content
                     imageTeeth.loadImage(article.articleImage)
                     imgDoctorArticle.loadImage(article.doctorImage)
-                }
-                btnAddToFavorites.setOnClickListener {
-                    onSaveClick(article)
+                    btnAddToFavorites.gone()
                 }
             }
         }
@@ -58,12 +55,18 @@ class ArticlesAdapter(
         holder.bind(currentList[position])
     }
 
-    private class ArticleDiffCallBack : DiffUtil.ItemCallback<ArticlesEntity>() {
-        override fun areItemsTheSame(oldItem: ArticlesEntity, newItem: ArticlesEntity): Boolean {
+    private class ArticleDiffCallBack : DiffUtil.ItemCallback<ArticleSavedEntity>() {
+        override fun areItemsTheSame(
+            oldItem: ArticleSavedEntity,
+            newItem: ArticleSavedEntity
+        ): Boolean {
             return oldItem.articleId == newItem.articleId
         }
 
-        override fun areContentsTheSame(oldItem: ArticlesEntity, newItem: ArticlesEntity): Boolean {
+        override fun areContentsTheSame(
+            oldItem: ArticleSavedEntity,
+            newItem: ArticleSavedEntity
+        ): Boolean {
             return oldItem == newItem
         }
 

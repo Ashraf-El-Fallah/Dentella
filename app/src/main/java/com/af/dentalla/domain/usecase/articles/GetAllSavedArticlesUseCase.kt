@@ -6,7 +6,7 @@ import com.af.dentalla.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetAllSavedArticles @Inject constructor(
+class GetAllSavedArticlesUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
     operator fun invoke(): Flow<NetWorkResponseState<List<ArticleSavedEntity>>> =

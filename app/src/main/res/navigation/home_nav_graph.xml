@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_patientProfileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_savedArticlesFragment"
+            app:destination="@id/savedArticlesFragment" />
     </fragment>
     <fragment
         android:id="@+id/articlesFragment"
@@ -163,5 +166,14 @@
         <action
             android:id="@+id/action_addCardFragment_to_doctorHomeFragment"
             app:destination="@id/doctorHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedArticlesFragment"
+        android:name="com.af.dentalla.ui.setting.savedarticles.SavedArticlesFragment"
+        android:label="fragment_saved_articles"
+        tools:layout="@layout/fragment_saved_articles" >
+        <action
+            android:id="@+id/action_savedArticlesFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
 </navigation>

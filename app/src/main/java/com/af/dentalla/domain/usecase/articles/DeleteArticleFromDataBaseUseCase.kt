@@ -4,7 +4,7 @@ import com.af.dentalla.domain.entity.ArticleSavedEntity
 import com.af.dentalla.domain.repository.UserRepository
 import javax.inject.Inject
 
-class DeleteArticleFromDataBase @Inject constructor(
+class DeleteArticleFromDataBaseUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
     suspend operator fun invoke(

@@ -26,8 +26,10 @@ import com.af.dentalla.domain.mapper.BaseMapper
 import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.UserRepository
 import com.af.dentalla.utils.mapResponse
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -136,7 +138,7 @@ class UserRepositoryImpl @Inject constructor(
             } catch (e: Exception) {
                 emit(NetWorkResponseState.Error(exception = e))
             }
-        }
+        }.flowOn(Dispatchers.IO)
     }
 
 
