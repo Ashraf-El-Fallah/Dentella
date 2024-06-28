@@ -58,10 +58,11 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/901bb6b2-0085-4319-9d55-f02a8ae11d17" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/caee3dd0-4e41-49e0-88c9-cfcc342e1d51" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/b41f1d6e-0493-43d6-9a1d-db46da46c973" alt="Screenshot 3" width="200"/>
-  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f1c2bca-4801-49bc-a667-fbc64a063a68" alt="Screenshot 3" width="200"/>
-  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/1f6ab7b4-3624-463e-986b-b77cf7d700fc" alt="Screenshot 3" width="200"/>
-  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f81021f-b8e6-4669-8bb5-171187545a5c" alt="Screenshot 3" width="200"/>
-  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/de212e74-cb7b-4f6c-9929-6c78d25980f3" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/1f6ab7b4-3624-463e-986b-b77cf7d700fc" alt="Screenshot 3" width="200"/> -->
+
+<!--   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f1c2bca-4801-49bc-a667-fbc64a063a68" alt="Screenshot 3" width="200"/>
+<!--   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/0f81021f-b8e6-4669-8bb5-171187545a5c" alt="Screenshot 3" width="200"/>
+  <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/de212e74-cb7b-4f6c-9929-6c78d25980f3" alt="Screenshot 3" width="200"/> -->
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/7b1dc403-6489-40b6-85f9-c65962f99016" alt="Screenshot 3" width="200"/>
 </p>
 
