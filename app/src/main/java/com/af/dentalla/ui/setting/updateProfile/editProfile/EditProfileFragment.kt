@@ -114,7 +114,7 @@ class EditProfileFragment : Fragment() {
                     } else {
                         val errorMessage =
                             updateProfileState.errorMessageCode?.let { getString(it) }
-                                ?: updateProfileState.message ?: getString(R.string.network_error)
+                                ?: updateProfileState.message ?: getString(R.string.server_error)
                         Toast.makeText(
                             requireContext(),
                             errorMessage,

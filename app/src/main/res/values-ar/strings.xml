@@ -129,5 +129,6 @@
     <string name="have_no_articles">ليس لديك مقالات محفوظة</string>
     <string name="send_post_successfully">تم إرسال المنشور بنجاح</string>
     <string name="repeated_user_name">اسم المستخدم موجود بالفعل .. قم بتغيير اسم المستخدم</string>
+    <string name="server_error">خطأ في السيرفر</string>
 
 </resources>

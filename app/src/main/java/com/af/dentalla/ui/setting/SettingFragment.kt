@@ -100,7 +100,7 @@ class SettingFragment : Fragment() {
             event.getContentIfNotHandled()?.let { state ->
                 handleScreenState(
                     state = state,
-                    notFoundMessage = R.string.network_error,
+                    notFoundMessage = R.string.server_error,
                 ) {
                     val intent = Intent(
                         this@SettingFragment.requireContext(),
@@ -178,7 +178,7 @@ class SettingFragment : Fragment() {
                 val errorMessage = when (state.message) {
                     "HTTP 401 Unauthorized" -> R.string.want_to_login_again
                     "HTTP error 404" -> notFoundMessage
-                    else -> R.string.network_error
+                    else -> R.string.server_error
                 }
                 errorMessage?.let {
                     Toast.makeText(
