@@ -43,7 +43,7 @@ Dentella aims to:
 # Demo
 
 
-<img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/4dc327ec-e27e-484b-b895-90947cf3c96d" alt="Clean Architecture with MVVM" width="600">
+<img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/4dc327ec-e27e-484b-b895-90947cf3c96d" alt="Clean Architecture with MVVM" width="400">
 
 # Architecture
 
