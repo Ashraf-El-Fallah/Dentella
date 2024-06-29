@@ -41,6 +41,7 @@ Dentella aims to:
 
 2-Dentist Registration: Sign up as a dentist, create a profile, list your availability, add articles, and select the patient that best fits your criteria from the patient posts.
 
+# [Video and APK](https://drive.google.com/drive/folders/1VkaQm-xs_33THOvgzviujvK0nLdP6hRa?hl=ar)
 # Demo
 
 # Patient FLow
@@ -113,7 +114,7 @@ Dentella is built with the following technologies:
 
 3-Networking: Retrofit
 
-4-Database: Room
+4-Database: Room and Data Store
 
 5-Navigation: Navigation Component
 
