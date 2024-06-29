@@ -105,7 +105,7 @@ class EditProfileFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    if (updateProfileState.message?.contains("401") == true) {
+                    if (updateProfileState.statusCode == 401) {
                         Toast.makeText(
                             requireContext(),
                             R.string.want_to_login_again,
@@ -114,7 +114,7 @@ class EditProfileFragment : Fragment() {
                     } else {
                         val errorMessage =
                             updateProfileState.errorMessageCode?.let { getString(it) }
-                                ?: updateProfileState.message ?: getString(R.string.server_error)
+                                ?: getString(R.string.server_error)
                         Toast.makeText(
                             requireContext(),
                             errorMessage,
@@ -139,14 +139,6 @@ class EditProfileFragment : Fragment() {
             val file = uriToFile(requireContext(), uri)
             file?.let { fileToMultipartBody(it) }
         }
-//        val userName = binding.editTextName
-//        val email = binding.editTextEmail
-//        val phoneNumber =
-//            binding.editTextMobileNumber
-//        if (isUserNameValid(userName.text.toString()) && isEmailValid(
-//                email.text.toString()
-//            ) && isPhoneNumberValid(phoneNumber.text.toString())
-//        ) {
         val updatedUserProfileInformation = UserProfileInformation(
             userName = getTextOrHint(binding.editTextName),
             email = getTextOrHint(binding.editTextEmail),
@@ -157,7 +149,6 @@ class EditProfileFragment : Fragment() {
             photo = photoPart
         )
         sendUpdatedUserDataToViewModel(updatedUserProfileInformation)
-//        }
     }
 
     private fun returnUserProfileInformationObserver() {
@@ -175,7 +166,7 @@ class EditProfileFragment : Fragment() {
                         progressBar.progress.gone()
                         textViewEditOrSave.visible()
                     }
-                    if (profileInformationState.message?.contains("401") == true) {
+                    if (profileInformationState.statusCode == 401) {
                         Toast.makeText(
                             requireContext(),
                             R.string.want_to_login_again,

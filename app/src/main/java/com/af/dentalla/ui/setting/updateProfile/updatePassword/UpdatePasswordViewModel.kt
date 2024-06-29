@@ -35,8 +35,8 @@ class UpdatePasswordViewModel @Inject constructor(private val updatePasswordUseC
 
                         is NetWorkResponseState.Error -> _updateUserPasswordState.postValue(
                             ScreenState.Error(
-                                message = it.exception.message.toString(),
-                                errorMessageCode = it.errorMessageResId
+                                errorMessageCode = it.errorMessageResId,
+                                statusCode = it.statusCode
                             )
                         )
                     }

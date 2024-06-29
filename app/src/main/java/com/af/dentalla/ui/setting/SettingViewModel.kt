@@ -1,4 +1,5 @@
 package com.af.dentalla.ui.setting
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,7 +40,7 @@ class SettingViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _logoutState.postValue(
                         Event(
                             ScreenState.Error(
-                                message = logoutResponse.exception.message.toString()
+                                statusCode = logoutResponse.statusCode
                             )
                         )
                     )
@@ -64,7 +65,7 @@ class SettingViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _deleteInfoState.postValue(
                         Event(
                             ScreenState.Error(
-                                message = deleteUserInfoResponse.exception.message.toString()
+                                statusCode = deleteUserInfoResponse.statusCode
                             )
                         )
                     )

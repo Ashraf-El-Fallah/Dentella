@@ -411,3 +411,5 @@ Wapp/src/main/java/com/af/dentalla/domain/usecase/articles/GetAllSavedArticlesUs
 ]app/src/main/java/com/af/dentalla/domain/usecase/articles/DeleteArticleFromDataBaseUseCase.kt,3\7\378e13145ca18d2c65facbc5d1cb050c7ca7cff7
 Å
 Qapp/src/main/java/com/af/dentalla/ui/setting/savedarticles/SavedArticleAdapter.kt,e\f\ef13ecb175fceef1bf623b7e23499eace5e0c7a2
+m
+=app/src/main/java/com/af/dentalla/utils/MapNetworkResponse.kt,1\3\138c0f6e2ca7b5d87e53e80040210c5fb98c747c

@@ -135,7 +135,7 @@ class HomeActivity : BaseActivity() {
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
-                    if (addPostState.message?.contains("401") == true) {
+                    if (addPostState.statusCode == 401) {
                         Toast.makeText(
                             this,
                             R.string.want_to_login_again,

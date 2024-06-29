@@ -181,13 +181,15 @@ class RemoteDateSourceImpl @Inject constructor(
                         emit(NetWorkResponseState.Success(it))
                     } ?: emit(
                         NetWorkResponseState.Error(
-                            exception = Throwable("Response body is null")
+                            exception = Throwable("Response body is null"),
+                            statusCode = response.code()
                         )
                     )
                 } else {
                     emit(
                         NetWorkResponseState.Error(
-                            exception = Throwable("HTTP error ${response.code()}")
+                            exception = Throwable("HTTP error ${response.code()}"),
+                            statusCode = response.code()
                         )
                     )
                 }

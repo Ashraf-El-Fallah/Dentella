@@ -49,7 +49,6 @@ class ArticlesViewModel @Inject constructor(
                 when (it) {
                     is NetWorkResponseState.Error -> _articles.postValue(
                         ScreenState.Error(
-                            message = it.exception.message.toString()
                         )
                     )
 
@@ -71,7 +70,7 @@ class ArticlesViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _addArticleState.postValue(
                         Event(
                             ScreenState.Error(
-                                message = it.exception.message.toString()
+                                statusCode = it.statusCode
                             )
                         )
                     )

@@ -175,9 +175,9 @@ class SettingFragment : Fragment() {
 
             is ScreenState.Error -> {
                 binding.progress.progress.gone()
-                val errorMessageRes = when {
-                    state.message?.contains("401") == true -> R.string.want_to_login_again
-                    state.message?.contains("404") == true -> notFoundMessage
+                val errorMessageRes = when (state.statusCode) {
+                    401 -> R.string.want_to_login_again
+                    404 -> notFoundMessage
                     else -> R.string.server_error
                 }
                 errorMessageRes?.let {

@@ -33,7 +33,7 @@ class PatientHomeViewModel @Inject constructor(
         viewModelScope.launch {
             getAllDoctorsCardsUseCase().collectLatest {
                 when (it) {
-                    is NetWorkResponseState.Error -> _allCards.postValue(ScreenState.Error(message = it.exception.message.toString()))
+                    is NetWorkResponseState.Error -> _allCards.postValue(ScreenState.Error())
                     is NetWorkResponseState.Success -> _allCards.postValue(ScreenState.Success(it.result))
                     is NetWorkResponseState.Loading -> _allCards.postValue(ScreenState.Loading)
                 }
@@ -47,7 +47,7 @@ class PatientHomeViewModel @Inject constructor(
                 when (it) {
                     is NetWorkResponseState.Error -> _addPostState.postValue(
                         ScreenState.Error(
-                            message = it.exception.message.toString()
+                            statusCode = it.statusCode
                         )
                     )
 

@@ -24,7 +24,6 @@ class AddCardViewModel @Inject constructor(private val addCardUseCase: AddCardUs
                 when (it) {
                     is NetWorkResponseState.Error -> _addCardState.postValue(
                         ScreenState.Error(
-                            message = it.exception.message.toString(),
                             statusCode = it.statusCode
                         )
                     )

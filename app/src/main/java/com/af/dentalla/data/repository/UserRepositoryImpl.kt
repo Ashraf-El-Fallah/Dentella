@@ -25,7 +25,7 @@ import com.af.dentalla.domain.entity.ProfileInformationEntity
 import com.af.dentalla.domain.mapper.BaseMapper
 import com.af.dentalla.domain.mapper.ListMapper
 import com.af.dentalla.domain.repository.UserRepository
-import com.af.dentalla.utils.mapResponse
+import com.af.dentalla.utils.mapNetworkResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -38,7 +38,6 @@ class UserRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val cardsEntityMapper: ListMapper<CardsDto, CardsEntity>,
     private val allArticlesEntityMapper: ListMapper<ArticleDto, ArticlesEntity>,
-    private val cardsEntity: ListMapper<CardsDto, CardsEntity>,
     private val doctorProfileEntity: BaseMapper<DoctorProfileDto, DoctorProfileEntity>,
     private val allPostsEntityMapper: ListMapper<PostDtoItem, PostEntity>,
     private val profileInformationEntity: BaseMapper<UserProfileInformationDto, ProfileInformationEntity>,
@@ -55,46 +54,38 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override fun getAllDoctorsCards(): Flow<NetWorkResponseState<List<CardsEntity>>> {
-        return remoteDataSource.getAllDoctorsCards().map {
-            it.mapResponse {
-                cardsEntityMapper.map(this)
-            }
+        return remoteDataSource.getAllDoctorsCards().map { response ->
+            mapNetworkResponse(response) { cardsEntityMapper.map(it) }
         }
     }
 
     override fun getAllArticles(): Flow<NetWorkResponseState<List<ArticlesEntity>>> {
-        return remoteDataSource.getAllArticles().map {
-            it.mapResponse {
-                allArticlesEntityMapper.map(this)
-            }
+        return remoteDataSource.getAllArticles().map { response ->
+            mapNetworkResponse(response) { allArticlesEntityMapper.map(it) }
         }
     }
 
     override fun getCardsBySearchByUniversity(university: String): Flow<NetWorkResponseState<List<CardsEntity>>> {
-        return remoteDataSource.getCardsBySearchByUniversity(university).map {
-            it.mapResponse { cardsEntity.map(this) }
+        return remoteDataSource.getCardsBySearchByUniversity(university).map { response ->
+            mapNetworkResponse(response) { cardsEntityMapper.map(it) }
         }
     }
 
     override fun getDoctorProfileDetails(cardId: Int): Flow<NetWorkResponseState<DoctorProfileEntity>> {
-        return remoteDataSource.getDoctorProfileDetails(cardId).map {
-            it.mapResponse {
-                doctorProfileEntity.map(this)
-            }
+        return remoteDataSource.getDoctorProfileDetails(cardId).map { response ->
+            mapNetworkResponse(response) { doctorProfileEntity.map(it) }
         }
     }
 
     override fun getSpecialityDoctorsCards(specialityId: Int): Flow<NetWorkResponseState<List<CardsEntity>>> {
-        return remoteDataSource.getSpecialityDoctorsCards(specialityId).map {
-            it.mapResponse { cardsEntityMapper.map(this) }
+        return remoteDataSource.getSpecialityDoctorsCards(specialityId).map { response ->
+            mapNetworkResponse(response) { cardsEntityMapper.map(it) }
         }
     }
 
     override fun getAllPosts(): Flow<NetWorkResponseState<List<PostEntity>>> {
-        return remoteDataSource.getAllPosts().map {
-            it.mapResponse {
-                allPostsEntityMapper.map(this)
-            }
+        return remoteDataSource.getAllPosts().map { response ->
+            mapNetworkResponse(response) { allPostsEntityMapper.map(it) }
         }
     }
 
@@ -111,11 +102,10 @@ class UserRepositoryImpl @Inject constructor(
         return remoteDataSource.addCard(card)
     }
 
+
     override fun returnUserProfileInformation(): Flow<NetWorkResponseState<ProfileInformationEntity>> {
-        return remoteDataSource.returnUserProfileInformation().map {
-            it.mapResponse {
-                profileInformationEntity.map(this)
-            }
+        return remoteDataSource.returnUserProfileInformation().map { response ->
+            mapNetworkResponse(response) { profileInformationEntity.map(it) }
         }
     }
 

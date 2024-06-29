@@ -80,7 +80,8 @@ class PatientHomeFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), R.string.server_error, Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         }

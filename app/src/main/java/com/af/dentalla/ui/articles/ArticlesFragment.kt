@@ -101,7 +101,7 @@ class ArticlesFragment : Fragment() {
 
                     is ScreenState.Error -> {
                         binding.progress.root.gone()
-                        if (addArticleState.message?.contains("401") == true) {
+                        if (addArticleState.statusCode == 401) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.want_to_login_again,
@@ -142,7 +142,7 @@ class ArticlesFragment : Fragment() {
                     binding.progress.root.gone()
                     Toast.makeText(
                         context,
-                        it.message,
+                        R.string.server_error,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
