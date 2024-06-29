@@ -411,3 +411,11 @@ Wapp/src/main/java/com/af/dentalla/domain/usecase/articles/GetAllSavedArticlesUs
 ]app/src/main/java/com/af/dentalla/domain/usecase/articles/DeleteArticleFromDataBaseUseCase.kt,3\7\378e13145ca18d2c65facbc5d1cb050c7ca7cff7
 Å
 Qapp/src/main/java/com/af/dentalla/ui/setting/savedarticles/SavedArticleAdapter.kt,e\f\ef13ecb175fceef1bf623b7e23499eace5e0c7a2
+o
+?app/src/main/java/com/af/dentalla/utils/NetworkStateReceiver.kt,7\9\79c0739ea8945d8bb6220c962433f9a9648563a2
+d
+4app/src/main/java/com/af/dentalla/ui/BaseFragment.kt,8\3\836a8d8bbd5c93a1360db27a7827b304492fcb9b
+h
+8app/src/main/java/com/af/dentalla/ui/NetworkViewModel.kt,b\f\bfd3f79ca6006c17b72af1399adad7132596849c
+f
+6app/src/main/java/com/af/dentalla/utils/NetworkUtil.kt,4\b\4b72822b16275e75da4fc9dd7ac26c113842cdee

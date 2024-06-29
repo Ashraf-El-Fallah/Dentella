@@ -144,7 +144,7 @@ class HomeActivity : BaseActivity() {
                     } else {
                         Toast.makeText(
                             this,
-                            R.string.cannot_send_data,
+                            R.string.server_error,
                             Toast.LENGTH_LONG
                         ).show()
                     }
