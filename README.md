@@ -112,9 +112,9 @@ Dentella is built with the following technologies:
 
 2-User Interface: XML
 
-3-Networking: Retrofit and Data Store
+3-Networking: Retrofit
 
-4-Database: Room
+4-Database: Room and Data Store
 
 5-Navigation: Navigation Component
 
