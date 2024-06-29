@@ -105,7 +105,7 @@ class EditProfileFragment : Fragment() {
                 }
 
                 is ScreenState.Error -> {
-                    if (updateProfileState.message == "HTTP 401 Unauthorized") {
+                    if (updateProfileState.message?.contains("401") == true) {
                         Toast.makeText(
                             requireContext(),
                             R.string.want_to_login_again,
@@ -175,7 +175,7 @@ class EditProfileFragment : Fragment() {
                         progressBar.progress.gone()
                         textViewEditOrSave.visible()
                     }
-                    if (profileInformationState.message == "HTTP 401 Unauthorized") {
+                    if (profileInformationState.message?.contains("401") == true) {
                         Toast.makeText(
                             requireContext(),
                             R.string.want_to_login_again,

@@ -101,7 +101,7 @@ class ArticlesFragment : Fragment() {
 
                     is ScreenState.Error -> {
                         binding.progress.root.gone()
-                        if (addArticleState.message == "HTTP 401 Unauthorized") {
+                        if (addArticleState.message?.contains("401") == true) {
                             Toast.makeText(
                                 requireContext(),
                                 R.string.want_to_login_again,
