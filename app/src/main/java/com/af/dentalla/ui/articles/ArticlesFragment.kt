@@ -110,7 +110,7 @@ class ArticlesFragment : Fragment() {
                         } else {
                             Toast.makeText(
                                 requireContext(),
-                                R.string.cannot_send_data,
+                                R.string.server_error,
                                 Toast.LENGTH_SHORT
                             ).show()
                         }

@@ -123,10 +123,9 @@ class AddCardFragment : Fragment() {
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
-                        val errorMessage = addCardState.message ?: getString(R.string.server_error)
                         Toast.makeText(
                             requireContext(),
-                            errorMessage,
+                            R.string.server_error,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
