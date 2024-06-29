@@ -87,7 +87,7 @@ Dentella aims to:
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/02f35256-9621-46bd-8514-4084ef26ba75" alt="Screenshot 3" width="200"/>
 </p>
 
-# Common Screen
+# Shared Screens
 <p align="center">
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/e73a202a-8c9a-4d12-b5ff-f3ff9a2ae707" alt="Screenshot 3" width="200"/>
   <img src="https://github.com/Ashraf-El-Fallah/Dentella/assets/108183484/d3ea7356-f00e-481c-941d-905ef2027b3c" alt="Screenshot 3" width="200"/>
