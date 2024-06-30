@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +12,7 @@ import com.af.dentalla.databinding.FragmentDoctorHomeBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,7 +62,7 @@ class DoctorHomeFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.progress.gone()
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                    context?.showToastLong(it.message.toString())
                 }
             }
         }

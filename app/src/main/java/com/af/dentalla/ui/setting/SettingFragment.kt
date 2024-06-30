@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,6 +19,8 @@ import com.af.dentalla.ui.setting.changeLanguage.ChangeLanguageBottomSheetFragme
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -79,13 +80,13 @@ class SettingFragment : Fragment() {
         binding.cardViewEditProfile.setOnClickListener {
             val action =
                 SettingFragmentDirections.actionPatientProfileFragmentToEditProfileFragment()
-            findNavController().navigate(action)
+            findNavController().safeNavigate(action)
         }
 
         binding.cardSavedArticles.setOnClickListener {
             val action =
                 SettingFragmentDirections.actionSettingFragmentToSavedArticlesFragment()
-            findNavController().navigate(action)
+            findNavController().safeNavigate(action)
         }
 
 
@@ -166,10 +167,7 @@ class SettingFragment : Fragment() {
                 binding.progress.progress.gone()
                 successAction?.invoke()
                 successfulMessage?.let {
-                    Toast.makeText(
-                        requireContext(),
-                        it, Toast.LENGTH_SHORT
-                    ).show()
+                    context?.showToastLong(getString(it))
                 }
             }
 
@@ -181,11 +179,7 @@ class SettingFragment : Fragment() {
                     else -> R.string.server_error
                 }
                 errorMessageRes?.let {
-                    Toast.makeText(
-                        requireContext(),
-                        it,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    context?.showToastLong(getString(it))
                 }
             }
         }

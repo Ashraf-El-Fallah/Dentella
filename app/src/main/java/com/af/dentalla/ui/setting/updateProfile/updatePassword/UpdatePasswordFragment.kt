@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +11,9 @@ import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentUpdatePasswordBinding
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,30 +60,19 @@ class UpdatePasswordFragment : Fragment() {
                     binding.progressBar.root.gone()
 
                     if (changePasswordState.statusCode == 401) {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.want_to_login_again,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        context?.showToastLong(getString(R.string.want_to_login_again))
                     } else {
                         val errorMessage =
                             changePasswordState.errorMessageCode?.let { getString(it) }
                                 ?: getString(R.string.network_error)
-                        Toast.makeText(
-                            requireContext(),
-                            errorMessage,
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        context?.showToastLong(errorMessage)
                     }
                 }
 
                 is ScreenState.Success -> {
                     binding.progressBar.root.gone()
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.change_password_successfully,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    context?.showToastShort(getString(R.string.change_password_successfully))
+
                 }
             }
         }
@@ -91,7 +82,7 @@ class UpdatePasswordFragment : Fragment() {
         binding.back.root.setOnClickListener {
             val action =
                 UpdatePasswordFragmentDirections.actionUpdatePasswordFragmentToEditProfileFragment()
-            findNavController().navigate(action)
+            findNavController().safeNavigate(action)
         }
     }
 }

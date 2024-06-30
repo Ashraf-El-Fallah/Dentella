@@ -42,8 +42,8 @@ class SignUpViewModel @Inject constructor(
                     is NetWorkResponseState.Error -> _signUpState.postValue(
                         Event(
                             ScreenState.Error(
-                                message = it.exception.message.toString(),
-                                errorMessageCode = it.errorMessageResId
+                                errorMessageCode = it.errorMessageResId,
+                                statusCode = it.statusCode
                             )
                         )
                     )

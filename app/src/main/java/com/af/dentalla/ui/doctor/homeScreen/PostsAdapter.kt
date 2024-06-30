@@ -16,11 +16,14 @@ class PostsAdapter : ListAdapter<PostEntity, PostsAdapter.PostViewHolder>(PostDi
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: PostEntity) {
             binding.apply {
-                baseItem.textViewDoctorNameArticle.text = post.patientName
-                baseItem.imgDoctorArticle.loadImage(post.patientPhoto.toString())
+                baseItem.apply {
+                    textViewDoctorNameArticle.text = post.patientName
+                    imgDoctorArticle.loadImage(post.patientPhoto.toString())
+                    textViewTime.text = post.phoneNumber
+                }
                 baseText.textViewArticleContent.text = post.content
-                baseItem.textViewTime.text = post.phoneNumber
             }
+
         }
     }
 

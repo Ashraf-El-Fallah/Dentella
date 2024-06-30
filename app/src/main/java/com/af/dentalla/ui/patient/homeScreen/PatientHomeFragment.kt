@@ -5,32 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.af.dentalla.R
-import com.af.dentalla.databinding.BaseHomeScreenBinding
 import com.af.dentalla.databinding.FragmentPatientHomeBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PatientHomeFragment : Fragment() {
     private lateinit var binding: FragmentPatientHomeBinding
-    private lateinit var baseHomeBinding: BaseHomeScreenBinding
-
     private val patientHomeViewModel: PatientHomeViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPatientHomeBinding.inflate(inflater, container, false)
-        baseHomeBinding = BaseHomeScreenBinding.bind(binding.topBackground.root)
         return binding.root
     }
 
@@ -48,7 +44,7 @@ class PatientHomeFragment : Fragment() {
     }
 
     private fun navigateToSearchFragment() {
-        baseHomeBinding.editTextSearchHome.setOnClickListener {
+        binding.topBackground.editTextSearchHome.setOnClickListener {
             navigateToSearchScreen()
         }
     }
@@ -80,8 +76,7 @@ class PatientHomeFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    Toast.makeText(requireContext(), R.string.server_error, Toast.LENGTH_LONG)
-                        .show()
+                    context?.showToastLong(getString(R.string.server_error))
                 }
             }
         }

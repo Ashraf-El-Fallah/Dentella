@@ -48,8 +48,7 @@ class ArticlesViewModel @Inject constructor(
             getArticlesUseCase().collectLatest {
                 when (it) {
                     is NetWorkResponseState.Error -> _articles.postValue(
-                        ScreenState.Error(
-                        )
+                        ScreenState.Error()
                     )
 
                     is NetWorkResponseState.Loading -> _articles.postValue(ScreenState.Loading)

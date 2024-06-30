@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnticipateInterpolator
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -23,6 +22,8 @@ import com.af.dentalla.ui.patient.homeScreen.PatientHomeViewModel
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -129,24 +130,15 @@ class HomeActivity : BaseActivity() {
 
                 is ScreenState.Success -> {
                     binding.progress.root.gone()
-                    Toast.makeText(this, R.string.send_post_successfully, Toast.LENGTH_SHORT)
-                        .show()
+                    this.showToastShort(getString(R.string.send_post_successfully))
                 }
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
                     if (addPostState.statusCode == 401) {
-                        Toast.makeText(
-                            this,
-                            R.string.want_to_login_again,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        this.showToastLong(getString(R.string.want_to_login_again))
                     } else {
-                        Toast.makeText(
-                            this,
-                            R.string.server_error,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        this.showToastShort(getString(R.string.server_error))
                     }
                 }
             }

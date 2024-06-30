@@ -112,7 +112,7 @@
     <string name="cancel">إلغاء</string>
     <string name="unknown_specialty">تخصص غير معروف</string>
     <string name="orthodontic">تقويم الأسنان</string>
-    <string name="send_article_successfully">تم كاتبة المقال بنجاح</string>
+    <string name="send_article_successfully">تم كتابة المقال بنجاح</string>
     <string name="sign_up_successfully">تم إنشاء حسابك بنجاح</string>
     <string name="invalid_data">خطأ في البيانات المدخلة .. قم بمراجعة بياناتك وقم بإدخالها بطريقة صحيصة</string>
     <string name="network_error">يوجد مشكلة في الاتصال بالخادم.. قد تكون بياناتك غير صحيحة</string>

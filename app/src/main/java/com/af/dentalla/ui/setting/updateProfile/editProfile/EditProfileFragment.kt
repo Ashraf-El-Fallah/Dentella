@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -19,9 +18,11 @@ import com.af.dentalla.utils.FileUtils.fileToMultipartBody
 import com.af.dentalla.utils.FileUtils.uriToFile
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.loadImage
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
-import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -97,29 +98,17 @@ class EditProfileFragment : Fragment() {
                 is ScreenState.Success -> {
                     binding.progressBar.progress.gone()
                     binding.textViewEditOrSave.visible()
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.response_return_successfully,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    context?.showToastLong(getString(R.string.response_return_successfully))
                 }
 
                 is ScreenState.Error -> {
                     if (updateProfileState.statusCode == 401) {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.want_to_login_again,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        context?.showToastLong(getString(R.string.want_to_login_again))
                     } else {
                         val errorMessage =
                             updateProfileState.errorMessageCode?.let { getString(it) }
                                 ?: getString(R.string.server_error)
-                        Toast.makeText(
-                            requireContext(),
-                            errorMessage,
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        context?.showToastLong(errorMessage)
                     }
                     binding.progressBar.progress.gone()
                     binding.textViewEditOrSave.visible()
@@ -167,17 +156,9 @@ class EditProfileFragment : Fragment() {
                         textViewEditOrSave.visible()
                     }
                     if (profileInformationState.statusCode == 401) {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.want_to_login_again,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        context?.showToastLong(getString(R.string.want_to_login_again))
                     } else {
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.error_when_returning_response,
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        context?.showToastShort(getString(R.string.error_when_returning_response))
                     }
                 }
 
@@ -196,9 +177,7 @@ class EditProfileFragment : Fragment() {
                         val imgViewProfile = binding.imgViewProfile
                         val photoUrl = profileInformation.photo
                         if (!photoUrl.isNullOrEmpty()) {
-                            Glide.with(requireContext())
-                                .load(photoUrl)
-                                .into(imgViewProfile)
+                            imgViewProfile.loadImage(photoUrl)
                         } else {
                             imgViewProfile.setImageResource(R.drawable.img)
                         }
@@ -212,7 +191,7 @@ class EditProfileFragment : Fragment() {
         binding.editTextUpdatePassword.setOnClickListener {
             val action =
                 EditProfileFragmentDirections.actionEditProfileFragmentToUpdatePasswordFragment()
-            findNavController().navigate(action)
+            findNavController().safeNavigate(action)
         }
     }
 

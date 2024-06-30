@@ -18,10 +18,12 @@ class AvailableDatesAdapter(private val dates: List<String?>) :
         fun bind(date: String?) {
             val (year, month, dayInfo) = parseDate(date)
             val (dayOfMonth, dayOfWeek) = dayInfo.split(", ")
-            binding.yearNumber.text = year
-            binding.monthNumber.text = month
-            binding.dayName.text = dayOfWeek
-            binding.dayNumber.text = dayOfMonth
+            binding.apply {
+                yearNumber.text = year
+                monthNumber.text = month
+                dayName.text = dayOfWeek
+                dayNumber.text = dayOfMonth
+            }
         }
     }
 

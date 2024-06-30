@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +13,8 @@ import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -96,11 +97,7 @@ class SignUpFragment : Fragment() {
                 binding.progress.progress.gone()
                 binding.buttonSignUp.isEnabled = true
                 findNavController().safeNavigate(SignUpFragmentDirections.actionSignUpFragmentToLoginAccountFragment())
-                Toast.makeText(
-                    requireContext(),
-                    R.string.sign_up_successfully,
-                    Toast.LENGTH_SHORT
-                ).show()
+                context?.showToastShort(getString(R.string.sign_up_successfully))
             }
 
             is ScreenState.Error -> {
@@ -108,22 +105,10 @@ class SignUpFragment : Fragment() {
                 binding.buttonSignUp.isEnabled = true
 
                 val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
-                    ?: signUpState.message
-
-                if (errorMessage != null && errorMessage.contains("HTTP error 400")) {
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.repeated_user_name),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    val defaultMessage = errorMessage ?: getString(R.string.network_error)
-                    Toast.makeText(
-                        requireContext(),
-                        defaultMessage,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                    ?: if (signUpState.statusCode == 400) getString(R.string.repeated_user_name) else getString(
+                        R.string.server_error
+                    )
+                context?.showToastLong(errorMessage)
             }
         }
     }

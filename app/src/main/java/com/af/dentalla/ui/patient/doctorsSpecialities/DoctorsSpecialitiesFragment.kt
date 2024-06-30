@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -16,6 +15,7 @@ import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
+import com.af.dentalla.utils.showToastLong
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -77,7 +77,7 @@ class DoctorsSpecialitiesFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    Toast.makeText(requireContext(), screenState.message, Toast.LENGTH_LONG).show()
+                    context?.showToastLong(screenState.message.toString())
                 }
             }
         }

@@ -62,6 +62,4 @@ class PatientHomeViewModel @Inject constructor(
             }
         }
     }
-
-
 }

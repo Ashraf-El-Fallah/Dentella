@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +15,8 @@ import com.af.dentalla.databinding.FragmentArticlesBinding
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -35,7 +36,6 @@ class ArticlesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentArticlesBinding.inflate(inflater, container, false)
-//        showAddArticlesButtonForDoctors()
         return binding.root
     }
 
@@ -54,11 +54,7 @@ class ArticlesFragment : Fragment() {
     private fun observeSaveArticleToast() {
         articlesViewModel.saveArticleToast.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let {
-                Toast.makeText(
-                    context,
-                    R.string.save_article_successfully,
-                    Toast.LENGTH_SHORT
-                ).show()
+                context?.showToastShort(getString(R.string.save_article_successfully))
             }
         }
     }
@@ -92,27 +88,15 @@ class ArticlesFragment : Fragment() {
 
                     is ScreenState.Success -> {
                         binding.progress.root.gone()
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.send_article_successfully,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        context?.showToastShort(getString(R.string.send_article_successfully))
                     }
 
                     is ScreenState.Error -> {
                         binding.progress.root.gone()
                         if (addArticleState.statusCode == 401) {
-                            Toast.makeText(
-                                requireContext(),
-                                R.string.want_to_login_again,
-                                Toast.LENGTH_LONG
-                            ).show()
+                            context?.showToastLong(getString(R.string.want_to_login_again))
                         } else {
-                            Toast.makeText(
-                                requireContext(),
-                                R.string.server_error,
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            context?.showToastShort(getString(R.string.server_error))
                         }
                     }
                 }
@@ -140,11 +124,7 @@ class ArticlesFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
-                    Toast.makeText(
-                        context,
-                        R.string.server_error,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    context?.showToastShort(getString(R.string.server_error))
                 }
             }
         }

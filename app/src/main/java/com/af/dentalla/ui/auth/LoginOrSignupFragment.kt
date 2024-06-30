@@ -14,7 +14,7 @@ class LoginOrSignupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginOrSignupBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -11,6 +11,7 @@ import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSelectUserTypeScreenBinding
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.LocaleUtils
+import com.af.dentalla.utils.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -60,7 +61,7 @@ class SelectUserTypeScreenFragment : Fragment() {
     }
 
     private fun navigateToLogin() {
-        findNavController().navigate(SelectUserTypeScreenFragmentDirections.actionSplashScreenToLoginOrSignupFragment())
+        findNavController().safeNavigate(SelectUserTypeScreenFragmentDirections.actionSplashScreenToLoginOrSignupFragment())
     }
 
 

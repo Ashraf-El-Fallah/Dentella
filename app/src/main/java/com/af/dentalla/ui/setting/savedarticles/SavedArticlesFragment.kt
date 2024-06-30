@@ -1,12 +1,10 @@
 package com.af.dentalla.ui.setting.savedarticles
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +14,7 @@ import com.af.dentalla.databinding.FragmentSavedArticlesBinding
 import com.af.dentalla.domain.entity.ArticleSavedEntity
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
+import com.af.dentalla.utils.showToastLong
 import com.af.dentalla.utils.visible
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,12 +63,7 @@ class SavedArticlesFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.root.gone()
-                    Log.d("Room", "${screenState.message}")
-                    Toast.makeText(
-                        context,
-                        screenState.message ?: "Unknown error",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    context?.showToastLong(screenState.message.toString())
                 }
             }
         }

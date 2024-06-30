@@ -31,7 +31,6 @@ class DoctorHomeViewModel @Inject constructor(
                     is NetWorkResponseState.Loading -> _allPosts.postValue(ScreenState.Loading)
                     is NetWorkResponseState.Success -> _allPosts.postValue(ScreenState.Success(it.result))
                     is NetWorkResponseState.Error -> _allPosts.postValue(ScreenState.Error(message = it.exception.message.toString()))
-
                 }
             }
         }
