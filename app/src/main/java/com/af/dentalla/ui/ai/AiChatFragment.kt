@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentAiChatBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +37,7 @@ class AiChatFragment : Fragment() {
     }
 
     private fun sendToWebsiteModel() {
-        val url = "https://huggingface.co/spaces/OmarEllethy/DENTELLA"
+        val url = getString(R.string.ai_website_model_url)
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
     }

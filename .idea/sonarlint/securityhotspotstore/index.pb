@@ -413,3 +413,9 @@ Wapp/src/main/java/com/af/dentalla/domain/usecase/articles/GetAllSavedArticlesUs
 Qapp/src/main/java/com/af/dentalla/ui/setting/savedarticles/SavedArticleAdapter.kt,e\f\ef13ecb175fceef1bf623b7e23499eace5e0c7a2
 m
 =app/src/main/java/com/af/dentalla/utils/MapNetworkResponse.kt,1\3\138c0f6e2ca7b5d87e53e80040210c5fb98c747c
+v
+Fapp/src/main/java/com/af/dentalla/data/network/ConnectivityObserver.kt,b\d\bdca274cb2ebc230a4389beaaf2325649a976a89
+}
+Mapp/src/main/java/com/af/dentalla/data/network/NetworkConnectivityObserver.kt,8\a\8a38b5fe5c4c42330e67fa56e79f7c243ec234ad
+t
+Dapp/src/main/java/com/af/dentalla/di/network/HandleInternetModule.kt,a\0\a04848e7b0e0a19ff67f8d3cdfca8e8490baef90
