@@ -1,28 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Dentalla" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your light theme here. -->
         <item name="android:timePickerStyle">@style/MyTimePickerLight</item>
-
         <item name="android:statusBarColor">@color/white</item>
-        <item name="android:windowLightStatusBar">true
-        </item> <!-- For making status bar content color dark -->
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@android:color/white</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
-
     <style name="Theme.Dentalla" parent="Base.Theme.Dentalla" />
 
-    <style name="Theme.HomeActivity" parent="Base.Theme.Dentalla">
-        <item name="android:windowBackground">@drawable/launch_window_background</item>
+    <style name="Theme.HomeActivity" parent="Base.Theme.Dentalla"/>
 
-        <!-- System UI Configurations-->
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">@color/white</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+    <style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/launch_window_background</item>
     </style>
 
-    <style name="Theme.AuthenticationActivity" parent="Theme.HomeActivity" />
+    <style name="Theme.AuthenticationActivity" parent="Theme.Splash" />
 </resources>

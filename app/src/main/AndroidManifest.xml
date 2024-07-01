@@ -23,9 +23,11 @@
             android:exported="false" />
         <activity
             android:name=".ui.HomeActivity"
+            android:theme="@style/Theme.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.auth.AuthenticationActivity"
+            android:theme="@style/Theme.AuthenticationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

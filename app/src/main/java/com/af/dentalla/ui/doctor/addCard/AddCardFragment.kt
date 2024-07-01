@@ -81,6 +81,7 @@ class AddCardFragment : Fragment() {
     }
 
     private fun sendCardInformationToViewModel() {
+        //TODO
         if ((doctorAvailability == null && specialityId == -1) || (doctorAvailability == null || specialityId == -1)) {
             Snackbar.make(
                 requireView(),

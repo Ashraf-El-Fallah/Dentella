@@ -1,13 +1,7 @@
 package com.af.dentalla.ui
 
-import android.animation.ObjectAnimator
-import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.view.animation.AnticipateInterpolator
 import androidx.activity.viewModels
-import androidx.core.animation.doOnEnd
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -36,7 +30,6 @@ class HomeActivity : BaseActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        initSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -48,26 +41,6 @@ class HomeActivity : BaseActivity() {
             setupUI()
         }
 
-    }
-
-    private fun initSplashScreen() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            installSplashScreen()
-            splashScreen.setOnExitAnimationListener { splashScreenView ->
-                val slideUp = ObjectAnimator.ofFloat(
-                    splashScreenView, View.TRANSLATION_Y, 0f, -splashScreenView.height.toFloat()
-                )
-                slideUp.interpolator = AnticipateInterpolator()
-                slideUp.duration = 1000L
-
-                slideUp.doOnEnd { splashScreenView.remove() }
-
-                // Run your animation.
-                slideUp.start()
-            }
-        } else {
-            setTheme(R.style.Theme_Dentalla)
-        }
     }
 
     private fun setupUI() {

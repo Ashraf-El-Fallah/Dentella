@@ -349,8 +349,6 @@ Happ/src/main/java/com/af/dentalla/data/source/remote/RemoteDataSource.kt,a\9\a
 Lapp/src/main/java/com/af/dentalla/data/source/remote/RemoteDateSourceImpl.kt,3\3\33859fe0cd97002de4530c70ce8c02e48d4a2eb2
 u
 Eapp/src/main/java/com/af/dentalla/di/source/RemoteDateSourceModule.kt,7\c\7c6d675a8cfe9217a08e9997f70a1b6f2f66a74b
-ä
-Zapp/src/main/java/com/af/dentalla/ui/patient/doctorProfile/AvailableSpecialitiesAdapter.kt,5\5\55f2616d7439707f968a3e1d98384e4ae13abb9f
 Å
 Qapp/src/main/java/com/af/dentalla/domain/usecase/setting/UpdatePasswordUseCase.kt,2\f\2f3eef1df868deb809ebd3c3878d8a883da8362e
 Ñ

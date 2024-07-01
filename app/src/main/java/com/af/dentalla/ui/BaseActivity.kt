@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnticipateInterpolator
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -21,7 +22,7 @@ open class BaseActivity : AppCompatActivity() {
     @Inject
     lateinit var dataStorePreferencesService: DataStorePreferencesService
     override fun onCreate(savedInstanceState: Bundle?) {
-        initSplashScreen()
+        initSplashForALlVersions()
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch {
@@ -30,21 +31,26 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    private fun initSplashScreen() {
+    private fun initSplashForALlVersions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            installSplashScreen()
-            splashScreen.setOnExitAnimationListener { splashScreenView ->
-                val slideUp = ObjectAnimator.ofFloat(
-                    splashScreenView, View.TRANSLATION_Y, 0f, -splashScreenView.height.toFloat()
-                )
-                slideUp.interpolator = AnticipateInterpolator()
-                slideUp.duration = 1000L
-
-                slideUp.doOnEnd { splashScreenView.remove() }
-                slideUp.start()
-            }
+            initSplashScreen()
         } else {
             setTheme(R.style.Theme_Dentalla)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.S)
+    open fun initSplashScreen() {
+        installSplashScreen()
+        splashScreen.setOnExitAnimationListener { splashScreenView ->
+            val slideUp = ObjectAnimator.ofFloat(
+                splashScreenView, View.TRANSLATION_Y, 0f, -splashScreenView.height.toFloat()
+            )
+            slideUp.interpolator = AnticipateInterpolator()
+            slideUp.duration = 1000L
+
+            slideUp.doOnEnd { splashScreenView.remove() }
+            slideUp.start()
         }
     }
 }
