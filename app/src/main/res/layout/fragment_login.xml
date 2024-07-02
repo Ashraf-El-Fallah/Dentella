@@ -56,8 +56,8 @@
                 android:id="@+id/text_input_email"
                 style=" @style/BaseTextInputLayout"
                 android:layout_marginTop="32dp"
-                android:inputType="textEmailAddress"
                 android:visibility="gone"
+                android:textDirection="ltr"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_logo">

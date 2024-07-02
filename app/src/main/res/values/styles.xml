@@ -33,12 +33,8 @@
         <item name="android:textColorHint">@color/gray</item>
         <item name="boxBackgroundMode">none</item>
         <item name="hintEnabled">false</item>
-    </style>
-
-    <style name="BasePasswordInputLayout" parent="BaseTextInputLayout">
-        <item name="counterEnabled">true</item>
-        <item name="passwordToggleEnabled">true</item>
-        <item name="counterMaxLength">15</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layoutDirection">locale</item>
     </style>
 
     <style name="BaseTextInputEditText">
@@ -47,13 +43,19 @@
         <item name="android:background">@drawable/edit_text_auth2_style</item>
         <item name="android:padding">1dp</item>
         <item name="android:maxLines">1</item>
-        <item name="android:textDirection">locale</item>
-        <item name="android:layoutDirection">locale</item>
+    </style>
+
+
+    <style name="BasePasswordInputLayout" parent="BaseTextInputLayout">
+        <item name="counterEnabled">true</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="counterMaxLength">15</item>
     </style>
 
     <style name="BasePasswordInputEditText" parent="BaseTextInputEditText">
         <item name="android:inputType">textPassword</item>
     </style>
+
 
     <style name="SearchEditTextStyle">
         <item name="android:layout_marginEnd">10dp</item>

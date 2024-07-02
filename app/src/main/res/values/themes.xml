@@ -10,11 +10,9 @@
 
     <style name="Theme.Dentalla" parent="Base.Theme.Dentalla" />
 
-    <style name="Theme.HomeActivity" parent="Base.Theme.Dentalla"/>
+    <style name="Theme.HomeActivity" parent="Base.Theme.Dentalla" />
 
-    <style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.AuthenticationActivity" parent="Base.Theme.Dentalla">
         <item name="android:windowBackground">@drawable/launch_window_background</item>
     </style>
-
-    <style name="Theme.AuthenticationActivity" parent="Theme.Splash" />
 </resources>

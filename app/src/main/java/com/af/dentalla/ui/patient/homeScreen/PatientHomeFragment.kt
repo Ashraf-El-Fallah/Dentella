@@ -14,7 +14,7 @@ import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
-import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -76,7 +76,7 @@ class PatientHomeFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    context?.showToastLong(getString(R.string.server_error))
+                    context?.showToastShort(getString(R.string.server_error))
                 }
             }
         }

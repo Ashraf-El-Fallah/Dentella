@@ -93,7 +93,6 @@
                 style="@style/TextViewDoctorCardStyle"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="4dp"
-                android:text="24151515163"
                 app:layout_constraintStart_toEndOf="@id/phone_img"
                 app:layout_constraintTop_toBottomOf="@id/text_view_doctor_speciality" />
 
@@ -178,8 +177,6 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="Dr . omar ahmed is a fifth-year student at the Faculty of Medicine and Dentistry specializing in cleaning,
-            Dentures and all aspects related to the mouth."
                 android:textColor="@color/gray"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"

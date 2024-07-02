@@ -9,13 +9,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorsSpecialityBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
-import com.af.dentalla.utils.showToastLong
+import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -77,7 +78,7 @@ class DoctorsSpecialitiesFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    context?.showToastLong(screenState.message.toString())
+                    context?.showToastShort(getString(R.string.server_error))
                 }
             }
         }
