@@ -10,9 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.af.dentalla.R
 import com.af.dentalla.data.remote.requests.Post
 import com.af.dentalla.databinding.ActivityHomeBinding
-import com.af.dentalla.ui.patient.homeScreen.AddPostDialog
-import com.af.dentalla.ui.patient.homeScreen.AddPostDialogListener
-import com.af.dentalla.ui.patient.homeScreen.PatientHomeViewModel
+import com.af.dentalla.ui.patient.homescreen.AddPostDialog
+import com.af.dentalla.ui.patient.homescreen.AddPostDialogListener
+import com.af.dentalla.ui.patient.homescreen.PatientHomeViewModel
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone

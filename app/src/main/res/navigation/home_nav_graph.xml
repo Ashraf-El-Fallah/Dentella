@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/patientHomeFragment"
-        android:name="com.af.dentalla.ui.patient.homeScreen.PatientHomeFragment"
+        android:name="com.af.dentalla.ui.patient.homescreen.PatientHomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_patient_home">
         <action
@@ -68,7 +68,7 @@
 
     <fragment
         android:id="@+id/doctorProfileFragment"
-        android:name="com.af.dentalla.ui.patient.doctorProfile.DoctorProfileFragment"
+        android:name="com.af.dentalla.ui.patient.doctorprofile.DoctorProfileFragment"
         android:label="fragment_doctor_profile"
         tools:layout="@layout/fragment_doctor_profile">
 
@@ -107,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/doctorsSpecialitiesFragment"
-        android:name="com.af.dentalla.ui.patient.doctorsSpecialities.DoctorsSpecialitiesFragment"
+        android:name="com.af.dentalla.ui.patient.doctorspecialities.DoctorsSpecialitiesFragment"
         android:label="fragment_doctors_procedure"
         tools:layout="@layout/fragment_doctors_speciality">
         <argument
@@ -124,7 +124,7 @@
 
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.af.dentalla.ui.setting.updateProfile.editProfile.EditProfileFragment"
+        android:name="com.af.dentalla.ui.setting.updateprofile.editprofile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
         <action
@@ -139,7 +139,7 @@
     </fragment>
     <fragment
         android:id="@+id/updatePasswordFragment"
-        android:name="com.af.dentalla.ui.setting.updateProfile.updatePassword.UpdatePasswordFragment"
+        android:name="com.af.dentalla.ui.setting.updateprofile.updatepassword.UpdatePasswordFragment"
         android:label="fragment_update_password"
         tools:layout="@layout/fragment_update_password">
         <action
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/doctorHomeFragment"
-        android:name="com.af.dentalla.ui.doctor.homeScreen.DoctorHomeFragment"
+        android:name="com.af.dentalla.ui.doctor.homescreen.DoctorHomeFragment"
         android:label="fragment_doctor_home"
         tools:layout="@layout/fragment_doctor_home">
         <action
@@ -160,7 +160,7 @@
     </fragment>
     <fragment
         android:id="@+id/addCardFragment"
-        android:name="com.af.dentalla.ui.doctor.addCard.AddCardFragment"
+        android:name="com.af.dentalla.ui.doctor.addcard.AddCardFragment"
         android:label="fragment_add_card"
         tools:layout="@layout/fragment_add_card">
         <action

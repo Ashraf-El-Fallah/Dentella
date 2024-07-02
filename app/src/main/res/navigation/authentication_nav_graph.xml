@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.af.dentalla.ui.selectUserType.SelectUserTypeScreenFragment"
+        android:name="com.af.dentalla.ui.selectusertype.SelectUserTypeScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_select_user_type_screen">
         <action

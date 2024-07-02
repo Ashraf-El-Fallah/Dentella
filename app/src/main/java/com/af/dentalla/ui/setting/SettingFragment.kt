@@ -15,7 +15,7 @@ import com.af.dentalla.R
 import com.af.dentalla.data.local.datastore.DataStorePreferencesService
 import com.af.dentalla.databinding.FragmentSettingBinding
 import com.af.dentalla.ui.auth.AuthenticationActivity
-import com.af.dentalla.ui.setting.changeLanguage.ChangeLanguageBottomSheetFragment
+import com.af.dentalla.ui.setting.changelanguage.ChangeLanguageBottomSheetFragment
 import com.af.dentalla.utils.AccountManager
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.gone
