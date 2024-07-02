@@ -113,7 +113,7 @@
                 style="@style/EditTextUpdateProfile"
                 android:layout_marginTop="18dp"
                 android:clickable="true"
-                android:drawableEnd="@drawable/arrow_to_update_password"
+                android:drawableEnd="@drawable/arrow_to_password"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:hint="@string/password"
