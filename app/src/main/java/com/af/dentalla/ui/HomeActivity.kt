@@ -111,7 +111,7 @@ class HomeActivity : BaseActivity() {
                     if (addPostState.statusCode == 401) {
                         this.showToastLong(getString(R.string.want_to_login_again))
                     } else {
-                        this.showToastShort(getString(R.string.server_error))
+                        this.showToastShort(getString(R.string.network_error))
                     }
                 }
             }

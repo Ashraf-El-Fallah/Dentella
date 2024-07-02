@@ -52,7 +52,7 @@ class DoctorProfileFragment : Fragment() {
                 is ScreenState.Loading -> binding.progress.progress.visible()
                 is ScreenState.Error -> {
                     binding.progress.progress.gone()
-                    context?.showToastShort(getString(R.string.server_error))
+                    context?.showToastShort(getString(R.string.network_error))
                 }
 
 

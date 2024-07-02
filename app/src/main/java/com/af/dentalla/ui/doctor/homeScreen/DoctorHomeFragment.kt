@@ -63,7 +63,7 @@ class DoctorHomeFragment : Fragment() {
 
                 is ScreenState.Error -> {
                     binding.progressBar.progress.gone()
-                    context?.showToastShort(getString(R.string.server_error))
+                    context?.showToastShort(getString(R.string.network_error))
                 }
             }
         }

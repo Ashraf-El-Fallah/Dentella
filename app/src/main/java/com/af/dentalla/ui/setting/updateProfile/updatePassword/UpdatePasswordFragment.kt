@@ -64,7 +64,7 @@ class UpdatePasswordFragment : Fragment() {
                     } else {
                         val errorMessage =
                             changePasswordState.errorMessageCode?.let { getString(it) }
-                                ?: getString(R.string.network_error)
+                                ?: getString(R.string.server_error)
                         context?.showToastLong(errorMessage)
                     }
                 }

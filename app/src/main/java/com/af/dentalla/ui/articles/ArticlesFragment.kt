@@ -96,7 +96,7 @@ class ArticlesFragment : Fragment() {
                         if (addArticleState.statusCode == 401) {
                             context?.showToastLong(getString(R.string.want_to_login_again))
                         } else {
-                            context?.showToastShort(getString(R.string.server_error))
+                            context?.showToastShort(getString(R.string.network_error))
                         }
                     }
                 }
@@ -105,26 +105,32 @@ class ArticlesFragment : Fragment() {
     }
 
     private fun articlesObserver() {
-        articlesViewModel.articles.observe(viewLifecycleOwner) {
-            when (it) {
-                is ScreenState.Loading -> binding.progress.progress.visible()
-                is ScreenState.Success -> {
-                    binding.progress.root.gone()
+        articlesViewModel.articles.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { articlesState ->
+                when (articlesState) {
+                    is ScreenState.Loading -> binding.progress.progress.visible()
+                    is ScreenState.Success -> {
+                        binding.progress.root.gone()
 
-                    binding.rvArticles.apply {
-                        adapter = ArticlesAdapter { articlesEntity ->
-                            articlesViewModel.saveArticleToDataBase(articlesEntity)
-                        }.apply {
-                            submitList(it.uiData)
+                        binding.rvArticles.apply {
+                            adapter = ArticlesAdapter { articlesEntity ->
+                                articlesViewModel.saveArticleToDataBase(articlesEntity)
+                            }.apply {
+                                submitList(articlesState.uiData)
+                            }
+                            layoutManager =
+                                LinearLayoutManager(
+                                    activity,
+                                    LinearLayoutManager.VERTICAL,
+                                    false
+                                )
                         }
-                        layoutManager =
-                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     }
-                }
 
-                is ScreenState.Error -> {
-                    binding.progress.root.gone()
-                    context?.showToastShort(getString(R.string.server_error))
+                    is ScreenState.Error -> {
+                        binding.progress.root.gone()
+                        context?.showToastShort(getString(R.string.network_error))
+                    }
                 }
             }
         }

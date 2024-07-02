@@ -107,7 +107,7 @@ class EditProfileFragment : Fragment() {
                     } else {
                         val errorMessage =
                             updateProfileState.errorMessageCode?.let { getString(it) }
-                                ?: getString(R.string.server_error)
+                                ?: getString(R.string.network_error)
                         context?.showToastLong(errorMessage)
                     }
                     binding.progressBar.progress.gone()

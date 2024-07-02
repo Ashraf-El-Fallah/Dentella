@@ -23,10 +23,10 @@ class ArticlesViewModel @Inject constructor(
     private val addArticleUseCase: AddArticleUseCase,
     private val saveArticleToDataBaseUseCase: SaveArticleToDataBaseUseCase
 ) : ViewModel() {
-    private val _articles = MutableLiveData<ScreenState<List<ArticlesEntity>>>()
+    private val _articles = MutableLiveData<Event<ScreenState<List<ArticlesEntity>>>>()
     private val _addArticleState = MutableLiveData<Event<ScreenState<Unit>>>()
 
-    val articles: LiveData<ScreenState<List<ArticlesEntity>>> get() = _articles
+    val articles: LiveData<Event<ScreenState<List<ArticlesEntity>>>> get() = _articles
     val addArticleState: LiveData<Event<ScreenState<Unit>>> get() = _addArticleState
 
     private val _saveArticleToast = MutableLiveData<Event<Unit>>()
@@ -48,13 +48,17 @@ class ArticlesViewModel @Inject constructor(
             getArticlesUseCase().collectLatest {
                 when (it) {
                     is NetWorkResponseState.Error -> _articles.postValue(
-                        ScreenState.Error()
+                        Event(
+                            ScreenState.Error()
+                        )
                     )
 
-                    is NetWorkResponseState.Loading -> _articles.postValue(ScreenState.Loading)
+                    is NetWorkResponseState.Loading -> _articles.postValue(Event(ScreenState.Loading))
                     is NetWorkResponseState.Success -> _articles.postValue(
-                        ScreenState.Success(
-                            it.result
+                        Event(
+                            ScreenState.Success(
+                                it.result
+                            )
                         )
                     )
                 }

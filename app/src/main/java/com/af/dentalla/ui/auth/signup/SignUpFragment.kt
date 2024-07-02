@@ -106,7 +106,7 @@ class SignUpFragment : Fragment() {
 
                 val errorMessage = signUpState.errorMessageCode?.let { getString(it) }
                     ?: if (signUpState.statusCode == 400) getString(R.string.repeated_user_name) else getString(
-                        R.string.server_error
+                        R.string.network_error
                     )
                 context?.showToastLong(errorMessage)
             }

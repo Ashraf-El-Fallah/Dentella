@@ -92,7 +92,7 @@ class LoginFragment : Fragment() {
                     binding.progressBar.progress.gone()
                     binding.buttonSignIn.isEnabled = true
                     val errorMessage = loginState.errorMessageCode?.let { getString(it) }
-                        ?: getString(R.string.network_error)
+                        ?: getString(R.string.server_error)
                     context?.showToastShort(errorMessage)
                 }
             }

@@ -9,14 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.af.dentalla.R
 import com.af.dentalla.databinding.FragmentDoctorsSpecialityBinding
 import com.af.dentalla.ui.patient.DoctorsCardsAdapter
 import com.af.dentalla.utils.ScreenState
 import com.af.dentalla.utils.getSpecialtyName
 import com.af.dentalla.utils.gone
 import com.af.dentalla.utils.safeNavigate
-import com.af.dentalla.utils.showToastShort
 import com.af.dentalla.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,38 +45,39 @@ class DoctorsSpecialitiesFragment : Fragment() {
     }
 
     private fun specialityCardsObserver() {
-        doctorsSpecialityViewModel.specialityCards.observe(viewLifecycleOwner) { screenState ->
-            when (screenState) {
-                ScreenState.Loading -> {
-                    binding.progress.progress.visible()
-                }
-
-                is ScreenState.Success -> {
-                    binding.progress.progress.gone()
-                    binding.speciality.text =
-                        screenState.uiData.firstOrNull()?.speciality?.let {
-                            getSpecialtyName(
-                                requireContext(),
-                                it
-                            )
-                        }
-                    binding.rvDoctorsSpecialities.apply {
-                        adapter = DoctorsCardsAdapter(
-                            onItemClick = { doctorCardId ->
-                                navigateToDoctorProfile(doctorCardId)
-                            },
-                            onInfoClick = { doctorCardId ->
-                                navigateToDoctorProfile(doctorCardId)
-                            }
-                        ).apply { submitList(screenState.uiData) }
-                        layoutManager =
-                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        doctorsSpecialityViewModel.specialityCards.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { specialityCardsState ->
+                when (specialityCardsState) {
+                    ScreenState.Loading -> {
+                        binding.progress.progress.visible()
                     }
-                }
 
-                is ScreenState.Error -> {
-                    binding.progress.progress.gone()
-                    context?.showToastShort(getString(R.string.server_error))
+                    is ScreenState.Success -> {
+                        binding.progress.progress.gone()
+                        binding.speciality.text =
+                            specialityCardsState.uiData.firstOrNull()?.speciality?.let {
+                                getSpecialtyName(
+                                    requireContext(),
+                                    it
+                                )
+                            }
+                        binding.rvDoctorsSpecialities.apply {
+                            adapter = DoctorsCardsAdapter(
+                                onItemClick = { doctorCardId ->
+                                    navigateToDoctorProfile(doctorCardId)
+                                },
+                                onInfoClick = { doctorCardId ->
+                                    navigateToDoctorProfile(doctorCardId)
+                                }
+                            ).apply { submitList(specialityCardsState.uiData) }
+                            layoutManager =
+                                LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                        }
+                    }
+
+                    is ScreenState.Error -> {
+                        binding.progress.progress.gone()
+                    }
                 }
             }
         }

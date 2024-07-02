@@ -101,7 +101,7 @@ class SettingFragment : Fragment() {
             event.getContentIfNotHandled()?.let { state ->
                 handleScreenState(
                     state = state,
-                    notFoundMessage = R.string.server_error
+                    notFoundMessage = R.string.network_error
                 ) {
                     val intent = Intent(
                         this@SettingFragment.requireContext(),
@@ -176,7 +176,7 @@ class SettingFragment : Fragment() {
                 val errorMessageRes = when (state.statusCode) {
                     401 -> R.string.want_to_login_again
                     404 -> notFoundMessage
-                    else -> R.string.server_error
+                    else -> R.string.network_error
                 }
                 errorMessageRes?.let {
                     context?.showToastLong(getString(it))

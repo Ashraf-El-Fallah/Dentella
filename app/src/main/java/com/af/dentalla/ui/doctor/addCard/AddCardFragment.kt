@@ -81,8 +81,7 @@ class AddCardFragment : Fragment() {
     }
 
     private fun sendCardInformationToViewModel() {
-        //TODO
-        if ((doctorAvailability == null && specialityId == -1) || (doctorAvailability == null || specialityId == -1)) {
+        if (doctorAvailability == null || specialityId == -1) {
             Snackbar.make(
                 requireView(),
                 R.string.choose_free_time_and_speciality,
@@ -121,7 +120,7 @@ class AddCardFragment : Fragment() {
                     if (addCardState.statusCode == 401) {
                         context?.showToastLong(getString(R.string.want_to_login_again))
                     } else {
-                        context?.showToastShort(getString(R.string.server_error))
+                        context?.showToastShort(getString(R.string.network_error))
                     }
                 }
 
