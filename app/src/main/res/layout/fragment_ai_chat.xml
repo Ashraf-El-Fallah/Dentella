@@ -51,19 +51,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card1" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/text_view_send_to_website"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="20dp"-->
-    <!--        android:text="@string/go_to_model"-->
-    <!--        android:textColor="@color/black"-->
-    <!--        android:textSize="20sp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/send_btn"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/send_btn"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/send_btn" />-->
-
     <EditText
         android:id="@+id/ai_search"
         android:layout_width="0dp"

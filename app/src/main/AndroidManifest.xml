@@ -24,11 +24,15 @@
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.HomeActivity" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.HomeActivity"
+            tools:ignore="DiscouragedApi" />
         <activity
             android:name=".ui.auth.AuthenticationActivity"
             android:exported="true"
-            android:theme="@style/Theme.AuthenticationActivity">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AuthenticationActivity"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
